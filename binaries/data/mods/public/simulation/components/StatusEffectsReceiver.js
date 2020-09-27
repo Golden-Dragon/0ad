@@ -30,7 +30,7 @@ StatusEffectsReceiver.prototype.GetActiveStatuses = function()
  *
  * @return {Object} - The names of the status effects which were processed.
  */
-StatusEffectsReceiver.prototype.ApplyStatus = function(effectData, attacker, attackerOwner, bonusMultiplier)
+StatusEffectsReceiver.prototype.ApplyStatus = function(effectData, attacker, attackerOwner)
 {
 	let attackerData = { "entity": attacker, "owner": attackerOwner };
 	for (let effect in effectData)
@@ -45,8 +45,8 @@ StatusEffectsReceiver.prototype.ApplyStatus = function(effectData, attacker, att
  * Adds a status effect to the entity.
  *
  * @param {string} statusName - The name of the status effect.
- * @param {object} data - The various effects and timings.
- * @param {object} attackerData - The attacker and attackerOwner.
+ * @param {Object} data - The various effects and timings.
+ * @param {Object} attackerData - The attacker and attackerOwner.
  */
 StatusEffectsReceiver.prototype.AddStatus = function(statusName, data, attackerData)
 {
@@ -142,7 +142,7 @@ StatusEffectsReceiver.prototype.ExecuteEffect = function(statusName, lateness)
 		return;
 
 	if (status.Damage || status.Capture)
-		Attacking.HandleAttackEffects(statusName, status, this.entity, status.source.entity, status.source.owner);
+		Attacking.HandleAttackEffects(this.entity, statusName, status, status.source.entity, status.source.owner);
 
 	if (!status.Duration)
 		return;

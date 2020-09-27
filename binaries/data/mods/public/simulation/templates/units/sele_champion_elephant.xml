@@ -5,6 +5,7 @@
     <Lang>greek</Lang>
     <GenericName>Armored War Elephant</GenericName>
     <SpecificName>Thorakisménos Eléphantos</SpecificName>
+    <Classes datatype="tokens">IndianElephant</Classes>
     <Icon>units/sele_champion_elephant.png</Icon>
   </Identity>
   <VisualActor>

@@ -5,6 +5,7 @@
     <Lang>persian</Lang>
     <GenericName>Indian War Elephant</GenericName>
     <SpecificName>Pila Hinduya</SpecificName>
+    <Classes datatype="tokens">IndianElephant</Classes>
     <Icon>units/pers_champion_elephant.png</Icon>
   </Identity>
   <VisualActor>

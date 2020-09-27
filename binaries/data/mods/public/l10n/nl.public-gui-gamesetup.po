@@ -8,7 +8,7 @@
 # annihilator solar <incoming@upcmail.nl>, 2019
 # Bart <b.anthonisse@gmail.com>, 2020
 # Bart Groeneveld, 2016
-# bb <b.jansen5@students.uu.nl>, 2019
+# bb <b.jansen5@students.uu.nl>, 2019-2020
 # bb <b.jansen5@students.uu.nl>, 2018
 # BladeFalconheart, 2014
 # BoucheDag <bouche4dag@gmail.com>, 2014
@@ -44,9 +44,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-06-01 07:09+0000\n"
-"PO-Revision-Date: 2020-06-01 12:15+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"POT-Creation-Date: 2020-07-24 07:08+0000\n"
+"PO-Revision-Date: 2020-09-12 21:19+0000\n"
+"Last-Translator: Bart <b.anthonisse@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/wildfire-games/0ad/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -153,7 +153,7 @@ msgctxt "Match settings tab name"
 msgid "Player"
 msgstr "Speler"
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/GameSettingsLayout.js:36
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/GameSettingsLayout.js:38
 msgctxt "Match settings tab name"
 msgid "Game Type"
 msgstr "Speltype"
@@ -299,6 +299,16 @@ msgstr "Schatten Uitschakelen"
 msgid "Do not add treasures to the map."
 msgstr "Voeg geen schatten toe aan de kaart."
 
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/WorldPopulation.js:46
+msgid "World population"
+msgstr "Wereldbevolking"
+
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/WorldPopulation.js:49
+msgid ""
+"When checked the Population Cap will be evenly distributed over all living "
+"players."
+msgstr "Aanvinken om het maximale aantal inwoners gelijk te verdelen over alle levende spelers."
+
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Biome.js:135
 msgid "Biome"
 msgstr "Biome"
@@ -429,20 +439,20 @@ msgstr "Aantal Spelers"
 msgid "Select number of players."
 msgstr "Selecteer het aantal spelers"
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:82
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:91
 msgid "Population Cap"
 msgstr "Maximum aantal inwoners"
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:85
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:94
 msgid "Select population limit."
 msgstr "Selecteer een maximum aantal inwoners."
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:88
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:97
 msgctxt "population limit"
 msgid "Per Player"
 msgstr "Per speler"
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:91
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:100
 #, javascript-format
 msgid ""
 "Warning: There might be performance issues if all %(players)s players reach "
@@ -530,6 +540,21 @@ msgstr "Moeilijkheidsgraad"
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TriggerDifficulty.js:84
 msgid "Select the difficulty of this scenario."
 msgstr "Selecteer de moeilijkheidsgraad van dit scenario."
+
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/WorldPopulationCap.js:76
+msgid "World Population Cap"
+msgstr "Maximale wereldbevolking"
+
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/WorldPopulationCap.js:79
+msgid "Select world population limit."
+msgstr "Selecteer een maximum voor de wereldbevolking."
+
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/WorldPopulationCap.js:82
+#, javascript-format
+msgid ""
+"Warning: There might be performance issues if %(popCap)s population is "
+"reached."
+msgstr "Waarschuwing: de werking van het spel kan minder worden wanneer %(popCap)s inwoners zijn."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/Ceasefire.js:61
 msgid "Ceasefire"
@@ -625,20 +650,20 @@ msgstr "Valsspelen toegelaten."
 msgid "Rated game."
 msgstr "Competitiespel"
 
-#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:76
+#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:77
 #, javascript-format
 msgid "Click to toggle the %(name)s settings tab."
-msgstr ""
+msgstr "Klik om het %(name)s instellingstabblad aan- en uit te zetten."
 
-#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:79
+#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:80
 #, javascript-format
 msgid "Press %(hotkey)s to move to the next settings tab."
-msgstr ""
+msgstr "Gebruik %(hotkey)s om naar het volgende instellingstabblad te gaan."
 
-#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:82
+#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:83
 #, javascript-format
 msgid "Press %(hotkey)s to move to the previous settings tab."
-msgstr ""
+msgstr "Gebruik %(hotkey)s om naar het vorige instellingstabblad te gaan."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/CancelButton.js:36
 msgid "Back"
@@ -963,35 +988,35 @@ msgid ""
 "“Zeus \\[…] established his law: wisdom comes through suffering. \\[…] So "
 "men against their will learn to practice moderation. \\[…] Such grace is "
 "harsh and violent.” \\n— Aeschylus (“Agamemnon”, 176–183)"
-msgstr ""
+msgstr "“Zeus \\[…] legde zijn wet neer: wijsheid ontspruit door lijden. \\[…] Zodat de mens, tegen zijn natuur, matigheid leert aanwenden. \\[…] Zulke genade is bruut en gewelddadig.” \\n— Aeschylus (“Agamemnon”, 176 – 183)"
 
 #: gui/text/quotes.txt:2
 msgid ""
 "“She \\[Helen] brought to Ilium her dowry, destruction.” \\n— Aeschylus "
 "(“Agamemnon”, 406)"
-msgstr ""
+msgstr "“Zij \\[Helena] bracht Ilium haar bruidsschat, verwoesting.” \\n— Aeschylus, (“Agamemnon”, 406)"
 
 #: gui/text/quotes.txt:3
 msgid ""
 "“In every tyrant's heart there springs in the end this poison, that he "
 "cannot trust a friend.” \\n— Aeschylus (“Prometheus Bound”, 224–225)"
-msgstr ""
+msgstr "“In de diepte van ieder tirannenhart welt de gedachte dat hij zijn vriend niet vertrouwen kan.” \\n— Aeschylus (“Prometheus geketend”, 224 – 225)"
 
 #: gui/text/quotes.txt:4
 msgid ""
 "“Time in the long run teaches all things.” \\n— Aeschylus (“Prometheus "
 "Bound”, 981)"
-msgstr ""
+msgstr "“Uiteindelijk leert de tijd ons alles.” \\n— Aeschylus (“Prometheus geketend”, 981)"
 
 #: gui/text/quotes.txt:5
 msgid ""
 "“His resolve is not to seem, but to be, the best.” \\n— Aeschylus (“Seven "
 "Against Thebes”, 592)"
-msgstr ""
+msgstr "“Hij is vastberaden niet de beste te lijken, maar te zijn.” \\n— Aeschylus (“Zeven tegen Thebe”, 592)"
 
 #: gui/text/quotes.txt:6
 msgid "“A prosperous fool is a grievous burden.” \\n— Aeschylus (fragment 383)"
-msgstr ""
+msgstr "“Een fortuinlijke dwaas is een zware last.” \\n— Aeschylus (fragment 383)"
 
 #: gui/text/quotes.txt:7
 msgid ""
@@ -1053,26 +1078,26 @@ msgid ""
 "“If I have done anything noble, that is a sufficient memorial; if I have "
 "not, all the statues in the world will not preserve my memory.” \\n— "
 "Agesilaus II of Sparta (Plutarch, “Moralia”, “Sayings of Spartans”, 215a)"
-msgstr ""
+msgstr "“Wanneer ik één nobele daad verricht heb, is dat voldoende om mij te gedenken; als ik dat niet heb zullen alle standbeelden van de wereld mijn gedachtenis niet bewaren.” \\n— Agesilaus II van Sparta (Plutarchus, “Moralia”, “Gezegden van Spartanen”, 215a)"
 
 #: gui/text/quotes.txt:18
 msgid ""
 "“Spartans do not ask how many, only where the enemy are.” \\n— Agis II of "
 "Sparta (Plutarch, “Moralia”, “Sayings of Spartans”, 215d)"
-msgstr ""
+msgstr "“Spartanen vragen niet met hoeveel, maar waar de vijand is.” \\n— Agis II van Sparta (Plutarchus, “Moralia”, XVI. “Gezegden van Spartanen”, 215d)"
 
 #: gui/text/quotes.txt:19
 msgid ""
 "“Weep not for me, as I suffer unjustly, I am in a happier situation than my "
 "murderers.” \\n— Agis IV of Sparta upon seeing one of his executioners cry "
 "(Plutarch, “Parallel Lives”, “Agis”, sec. 20)"
-msgstr ""
+msgstr "“Laat geen traan om mij, ook al lijd ik ten onterechte, mijn situatie is gelukkiger dan die van mijn moordenaars.” \\n— Agis IV van Sparta toen hij een van zijn beulen zag huilen. (Plutarchus, “Parallelle levens”, “Agis”, sec. 20)"
 
 #: gui/text/quotes.txt:20
 msgid ""
 "“Sex and sleep alone make me conscious that I am mortal.” \\n— Alexander the"
 " Great (Plutarch, “Parallel Lives”, “Alexander”, sec. 22)"
-msgstr ""
+msgstr "“Alleen sex en slaap maken me bewust van mijn sterfelijkheid.” \\n— Alexander de Grote (Plutarchus, “Parallelle levens”, “Alexander”, sec. 22)"
 
 #: gui/text/quotes.txt:21
 msgid ""
@@ -1080,7 +1105,7 @@ msgid ""
 "you know that the end and object of conquest is to avoid the vices and "
 "infirmities of the subdued?” \\n— Alexander the Great (Plutarch, “Parallel "
 "Lives”, “Alexander”, sec. 40)"
-msgstr ""
+msgstr "\"Het is heel slaafs om in luxe te leven, maar koninklijk om te zwoegen. \\[…]Weet je niet dat het doel en oogmerk van verovering is om de gebreken en zwakheden van de onderworpenen te vermijden?\" \\n— Alexander de Grote (Plutarchus, “Parallelle levens”, “Alexander”, sec. 40)"
 
 #: gui/text/quotes.txt:22
 msgid ""
@@ -1088,7 +1113,7 @@ msgid ""
 "danger; and it is delightful to live a life of valor and to die leaving "
 "behind immortal glory.” \\n— Alexander the Great, addressing his troops "
 "(Arrian, “The Anabasis of Alexander”, 5.26)"
-msgstr ""
+msgstr "“Roemrijk zijn de daden van hen die ontberingen doormaken en gevaar lopen; en het is verrukkelijk om een heldhaftig leven te leiden en na je dood onsterfelijke roem na te laten.” \\n— Alexander de Grote bij het toespreken van zijn troepen. (Arrianos, “De veldtochten van Alexander”, 5.26)"
 
 #: gui/text/quotes.txt:23
 msgid ""
@@ -1096,33 +1121,33 @@ msgid ""
 "labors themselves, provided they lead to glorious achievements.” \\n— "
 "Alexander the Great, addressing his troops (Arrian, “The Anabasis of "
 "Alexander”, 5.26)"
-msgstr ""
+msgstr "“Zelf denk ik dat voor een dapper man ontberingen geen doel hebben behalve de ontberingen zelf, mits zij leiden tot roemrijke prestaties.” \\n— Alexander de Grote bij het toespreken van zijn troepen. (Arrianos, “De veldtochten van Alexander”, 5.26)"
 
 #: gui/text/quotes.txt:24
 msgid ""
 "“If I were not Alexander, I should wish to be Diogenes \\[of Sinope].” \\n— "
 "Alexander the Great, impressed by the simplicity of the philosopher he had "
 "met (Plutarch, “Moralia”, “On the Fortunes of Alexander the Great”, 332a–b)"
-msgstr ""
+msgstr "\"Als ik niet Alexander was, zou ik wensen Diogenes \\[van Sinope] te zijn.\" \\n— Alexander de Grote, onder de indruk van de eenvoud van de filosoof die hij zojuist ontmoet had. (Plutarchus, “Moralia”, “Over de lotgevallen van Alexander de Grote”, 332a–b)"
 
 #: gui/text/quotes.txt:25
 msgid ""
 "“To the strongest!” \\n— Alexander the Great, on his death bed, when asked "
 "who should succeed him as king (Arrian, “The Anabasis of Alexander”, 7.26)"
-msgstr ""
+msgstr "“De sterkste!” \\n— Alexander de Grote op zijn sterfbed, op de vraag wie hem op moest volgen als koning. (Arrianos, “De veldtochten van Alexander”, 7.26)"
 
 #: gui/text/quotes.txt:26
 msgid ""
 "“I do not steal victory.” \\n— Alexander the Great, when suggested to raid "
 "the Persians at night (Plutarch, “Parallel Lives”, “Alexander”, sec. 31)"
-msgstr ""
+msgstr "\"Een overwinning steel ik niet.\" \\n— Alexander de Grote, op het voorstel om de Perzen 's nachts te overvallen. (Plutarchus, “Parallelle levens”, “Alexander”, sec. 31)"
 
 #: gui/text/quotes.txt:27
 msgid ""
 "“Written laws are like spiders' webs; they will catch, it is true, the weak "
 "and poor, but will be torn in pieces by the rich and powerful.” \\n— "
 "Anacharsis (Plutarch, “Parallel Lives”, “Solon”, sec. 5)"
-msgstr ""
+msgstr "\"Geschreven wetten zijn als spinnenwebben; ze zullen - dat is waar - de armen en de zwakken vangen, maar worden door de rijken en machtigen in stukken gescheurd.\" \\n— Anacharsis (Plutarchus, “Parallelle levens”, “Solon”, sec. 5)"
 
 #: gui/text/quotes.txt:28
 msgid ""
@@ -1137,7 +1162,7 @@ msgid ""
 "“It was not by taking care of the fields, but of ourselves, that we acquired"
 " those fields.” \\n— Anaxandridas II of Sparta (Plutarch, “Moralia”, "
 "“Sayings of Spartans”, 217a)"
-msgstr ""
+msgstr "\"Het was niet door de velden te verzorgen, maar onszelf, dat we die velden verkregen.\" \\n— Anaxandridas II van Sparta (Plutarchus, “Moralia”, “Gezegden van Spartanen”, 217a)"
 
 #: gui/text/quotes.txt:30
 msgid ""
@@ -1150,14 +1175,14 @@ msgstr ""
 msgid ""
 "“The fox knows many tricks; the hedgehog one good one.” \\n— Archilochus "
 "(fragment 201)"
-msgstr ""
+msgstr "“De vos kent vele streken; de egel kent één goede.” \\n— Archilochus (fragment 201)"
 
 #: gui/text/quotes.txt:32
 msgid ""
 "“Give me a place to stand, and I shall move the world.” \\n— Archimedes, on "
 "his usage of the lever (Diodorus Siculus, “The Library of History”, "
 "fragments of book XXVI, sec. 18)"
-msgstr ""
+msgstr "“Geef mij een plaats om te staan en ik beweeg de aarde.” \\n— Archimedes over de toepassing van zijn hefboom. (Diodorus Siculus, “De bibliotheek van de geschiedenis”, fragmenten van boek XXVI, sec. 18)"
 
 #: gui/text/quotes.txt:33
 msgid ""
@@ -1182,7 +1207,7 @@ msgstr ""
 msgid ""
 "“Man is by nature a political animal.” \\n— Aristotle (“Politics”, I. "
 "1253a.2)"
-msgstr ""
+msgstr "“De mens is van nature een politiek dier.” \\n— Aristoteles (“Politiek”, I. 1253a.2)"
 
 #: gui/text/quotes.txt:37
 msgid ""
@@ -1213,7 +1238,7 @@ msgid ""
 "immediately poured it upon the ground in the sight of all.” \\n— Arrian "
 "about Alexander's march through the Gedrosian desert (“The Anabasis of "
 "Alexander”, 6.26)"
-msgstr ""
+msgstr "“Alexander, geplaagd door dorst, en met veel pijn en moeilijkheden, leidde zijn leger desondanks persoonlijk te voet \\[…]. Op dat moment vonden een paar licht bewapende soldaten wat water \\[…], goten het in een helm en brachten het naar hem. Hij nam het aan, en terwijl hij de mannen prees die het hem gebracht hadden, goot hij het in het zicht van allen op de grond.” \\n— Arrianos over de mars van Alexander door de woestijn van Gedrosië (“De veldtochten van Alexander”, 6.26)"
 
 #: gui/text/quotes.txt:41
 msgid ""
@@ -1224,7 +1249,7 @@ msgid ""
 "had already raised his sword against Alexander from behind when Clitus \\[…]"
 " cut his arm off.” \\n— Arrian about the Battle of the Granicus (“The "
 "Anabasis of Alexander”, 1.15)"
-msgstr ""
+msgstr "“Door zijn speer in Mithridates' gezicht te stoten, slingerde hij \\[Alexander} hem tegen de grond. Toen sloeg Rhoesaces \\[een Pers] \\[…] hem met zijn zwaard op het hoofd. \\[…] Alexander werkte hem ook tegen de grond, en stak hem met zijn lans door zijn borstplaat en in zijn borst. Sphithridates \\[een Pers] had achter Alexander zijn zwaard al geheven toen Clitus  \\[…] zijn arm afhakte.” \\n— Arrianos over de Slag aan de Granicus (“De veldtochten van Alexander”, 1.15)"
 
 #: gui/text/quotes.txt:42
 msgid ""
@@ -1305,26 +1330,26 @@ msgstr ""
 msgid ""
 "“All mankind rules its women, and we rule all mankind, but our women rule "
 "us.” \\n— Cato the Elder (Plutarch, “Moralia”, “Sayings of Romans”, 198e)"
-msgstr ""
+msgstr "\"De hele mensheid heerst over z'n vrouwen en wij heersen over de hele mensheid, maar onze vrouwen heersen over ons.\" \\n— Cato de Oude (Plutarchus, “Moralia”, “Gezegden van Romeinen”, 198e)"
 
 #: gui/text/quotes.txt:53
 msgid ""
 "“The worst ruler is one who cannot rule himself.” \\n— Cato the Elder "
 "(Plutarch, “Moralia”, “Sayings of Romans”, 198f)"
-msgstr ""
+msgstr "\"De slechtste heerser is hij die zichzelf niet kan beheersen.\" \\n— Cato de Oude (Plutarchus, “Moralia”, “Gezegden van Romeinen”, 198f)"
 
 #: gui/text/quotes.txt:54
 msgid ""
 "“Wise men learn more from fools than fools from the wise.” \\n— Cato the "
 "Elder (Plutarch, “Parallel Lives”, “Cato the Elder”, sec. 9)"
-msgstr ""
+msgstr "\"Wijzen leren meer van dwazen, dan dwazen leren van wijzen.\" \\n— Cato de Oude (Plutarchus, “Parallelle levens”, “Cato de Oude”, sec.9)"
 
 #: gui/text/quotes.txt:55
 msgid ""
 "“Moreover, I consider that Carthage should be destroyed.” \\n— Cato the "
 "Elder, who ended all speeches in his later life with this statement "
 "(Plutarch, “Parallel Lives”, “Cato the Elder”, sec. 27)"
-msgstr ""
+msgstr "\"En overigens ben ik van mening dat Carthago verwoest moet worden.\" \\n— Cato de Oude, die op latere leeftijd al zijn toespraken met deze woorden beëindigde. (Plutarchus, “Parallelle levens”, “Cato de Oude”, sec. 27)"
 
 #: gui/text/quotes.txt:56
 msgid ""
@@ -1345,7 +1370,7 @@ msgid ""
 "“We did not flinch but gave our lives to save Greece when her fate hung on a"
 " razor's edge.” \\n— Corinthian epitaph to their fallen of the Persian Wars "
 "(Plutarch, “Moralia”, “On the Malice of Herodotus”, 870e)"
-msgstr ""
+msgstr "\"Wij deinsden niet terug maar gaven ons leven om Griekenland te redden toen haar lot aan een zijden draad hing.\" \\n— Korinthisch grafschrift voor de gesneuvelden in de Perzische oorlogen. (Plutarchus, “Moralia”, “Over de slechtheid van Herodotus”, 870e)"
 
 #: gui/text/quotes.txt:59
 msgid ""
@@ -1361,7 +1386,7 @@ msgid ""
 "“I am Cyrus, who won for the Persians their empire. Therefore do not "
 "begrudge me this bit of earth that covers my bones.” \\n— Cyrus the Great's "
 "epitaph (Plutarch, “Parallel Lives”, “Alexander”, sec. 69)"
-msgstr ""
+msgstr "\"Ik ben Cyrus, die de Perzen hun koninkrijk won. Misgun me daarom niet het stukje aarde dat mijn botten bedekt.\" \\n— Het grafschrift van Cyrus de Grote (Plutarchus, “Parallelle levens”, “Alexander”, sec. 69)"
 
 #: gui/text/quotes.txt:61
 msgid ""
@@ -1456,7 +1481,7 @@ msgid ""
 "“Yes, stand a little out of my sunshine.” \\n— Diogenes of Sinope to "
 "Alexander the Great, who asked if he could help in in any way (Plutarch, "
 "“Parallel Lives”, “Alexander”, sec. 14)"
-msgstr ""
+msgstr "\"Ja, ga eens uit mijn zonlicht.\" \\n— Diogenes van Sinope tegen Alexander de Grote toen die hem vroeg of hij hem kon helpen. (Plutarchus, “Parallelle levens”, “Alexander”, sec. 14)"
 
 #: gui/text/quotes.txt:74
 msgid ""
@@ -1500,13 +1525,13 @@ msgid ""
 "“Return with your shield, or on it.” \\n— Farewell of Spartan women to their"
 " warriors, implying that cowards would throw away their shield in battle to "
 "flee (Plutarch, “Moralia”, “Sayings of Spartan Women”, 241f)"
-msgstr ""
+msgstr "\"Kom terug met je schild, op er op.\" \\n— Afscheidsgroet van Spartaanse vrouwen aan hun strijders, daarmee bedoelend dat lafaards hun schild in de strijd weggooien om te vluchten.  (Plutarchus, “Moralia”, “Gezegden van Spartaanse vrouwen”, 241f)"
 
 #: gui/text/quotes.txt:81
 msgid ""
 "“I came, I saw, I conquered.” \\n— Caesar, after routing Pharnaces II of "
 "Pontus in the first assault (Plutarch, “Parallel Lives”, “Caesar”, sec. 50)"
-msgstr ""
+msgstr "\"Ik kwam, ik zag, ik overwon.\" \\n— Caesar, nadat hij Pharnaces II van Pontus bij de eerste aanval verpletterend verslagen had.  (Plutarchus, “Parallelle levens”, “Caesar”, sec. 50)"
 
 #: gui/text/quotes.txt:82
 msgid ""
@@ -1518,7 +1543,7 @@ msgstr ""
 msgid ""
 "“It is not the well-fed long-haired man I fear, but the pale and the hungry "
 "looking.” \\n— Caesar (Plutarch, “Parallel Lives”, “Antony”, sec. 11)"
-msgstr ""
+msgstr "\"Het is niet de goed doorvoede, langharige man die ik vrees, maar de bleke met een hongerige blik in de ogen.\" \\n— Caesar (Plutarchus, “Parallelle levens”, “Marcus Antonius”, sec.11)"
 
 #: gui/text/quotes.txt:84
 msgid ""
@@ -1561,13 +1586,13 @@ msgid ""
 "“I'd rather be the first man here than the second man in Rome.” \\n— Caesar,"
 " when passing through a barbarian village in the Alps (Plutarch, “Parallel "
 "Lives”, “Caesar”, sec. 11)"
-msgstr ""
+msgstr "\"Ik ben liever hier de eerste man dan nummer twee in Rome.\" \\n— Caesar, toen hij door een barbaars dorpje in de Alpen trok. (Plutarchus, “Parallelle levens”, “Caesar”, sec. 11)"
 
 #: gui/text/quotes.txt:89
 msgid ""
 "“Stop quoting laws, we carry weapons!” \\n— Pompey (Plutarch, “Parallel "
 "Lives”, “Pompey”, sec. 10)"
-msgstr ""
+msgstr "\"Hou op met wetten citeren, wij zijn gewapend!\" \\n— Pompeius (Plutarchus, “Parallelle levens”, “Pompeius”, sec. 10)"
 
 #: gui/text/quotes.txt:90
 msgid ""
@@ -1723,14 +1748,14 @@ msgid ""
 "“Marry a good man, and bear good children.” \\n— Leonidas, to his wife who "
 "asked what to do if he died, before he left for Thermopylae (Plutarch, "
 "“Moralia”, “Sayings of Spartans”, 225a)"
-msgstr ""
+msgstr "\"Trouw een goede man en krijg goede kinderen.\" \\n— Leonidas tegen zijn vrouw die hem vroeg wat ze moest doen als hij stierf, voordat hij naar Thermopylae trok. (Plutarchus, “Moralia”, “Gezegden van Spartanen”, 225a)"
 
 #: gui/text/quotes.txt:113
 msgid ""
 "“Come and get them!” \\n— Leonidas, to the Persian messenger who demanded "
 "that he and his men lay down their arms (Plutarch, “Moralia”, “Sayings of "
 "Spartans”, 225c)"
-msgstr ""
+msgstr "\"Kom ze maar halen!\" \\n— Leonidas tegen de Perzische boodschapper die eiste dat hij en zijn mannen hun wapens neerlegden. (Plutarchus, “Moralia”, “Gezegden van Spartanen”, 225c)"
 
 #: gui/text/quotes.txt:114
 msgid ""
@@ -1756,14 +1781,14 @@ msgstr ""
 msgid ""
 "“A city is well-fortified which has a wall of men instead of brick.” \\n— "
 "Lycurgus of Sparta (Plutarch, “Parallel Lives”, “Lycurgus”, sec. 19)"
-msgstr ""
+msgstr "\"Een stad is goed versterkt wanneer deze een muur van mannen heeft in plaats van stenen.\" \\n— Lycurgus van Sparta (Plutarchus, “Parallelle levens”, “Lycurgus”, sec.19)"
 
 #: gui/text/quotes.txt:117
 msgid ""
 "“Escape, yes, but this time with my hands, not my feet.” \\n— Brutus, before"
 " committing suicide after losing a battle against Caesar's avengers "
 "(Plutarch, “Parallel Lives”, “Brutus”, sec. 52)"
-msgstr ""
+msgstr "\"Ja, een ontsnapping, maar deze keer met mijn handen, niet met mijn voeten.' \\n— Brutus, voordat hij zelfmoord pleegde nadat hij een slag tegen de wrekers van Caesar verloren had. (Plutarchus, “Parallelle levens”, “Brutus”, sec. 52)"
 
 #: gui/text/quotes.txt:118
 msgid "“O, the times, O, the customs!” \\n— Cicero (“Against Catiline”, I.)"
@@ -1903,19 +1928,11 @@ msgstr ""
 
 #: gui/text/quotes.txt:138
 msgid ""
-"“The greatest glory for women is to be least talked about by men, whether "
-"for good or ill.” \\n— Pericles in his Funeral Oration for Athenians that "
-"died in the first year of the war (Thucydides, “History of the Peloponnesian"
-" War”, II. 45.2)"
-msgstr ""
-
-#: gui/text/quotes.txt:139
-msgid ""
 "“Wait for the wisest of all counsellors, time.” \\n— Pericles, a cautious "
 "politician who avoided war (Plutarch, “Parallel Lives”, “Pericles”, sec. 18)"
-msgstr ""
+msgstr "\"Wacht op de meest wijze van alle raadgevers, tijd.\" \\n— Pericles, een voorzichtige politicus die oorlog vermeed. (Plutarchus, “Parallelle levens”, “Pericles”, sec. 18)"
 
-#: gui/text/quotes.txt:140
+#: gui/text/quotes.txt:139
 msgid ""
 "“Your empire is now like a tyranny: it may have been wrong to take it; it is"
 " certainly dangerous to let it go.” \\n— Pericles, addressing the Athenian "
@@ -1923,40 +1940,40 @@ msgid ""
 "Peloponnesian War”, II. 63.3)"
 msgstr ""
 
-#: gui/text/quotes.txt:141
+#: gui/text/quotes.txt:140
 msgid ""
 "“War is sweet to those who have no experience of it, but the experienced man"
 " fears its approach in his heart.” \\n— Pindar (fragment 110)"
 msgstr ""
 
-#: gui/text/quotes.txt:142
+#: gui/text/quotes.txt:141
 msgid ""
 "“Themistocles robbed his fellow citizens of spear and shield, and degraded "
 "the people of Athens to the rowing-pad and the oar.” \\n— Plato, no friend "
 "of the Athenian navy (Plutarch, “Parallel Lives”, “Themistocles”, sec. 3)"
-msgstr ""
+msgstr "\"Themistocles beroofde zijn medeburgers van speer en schild, en verlaagde de mensen van Athene tot de peddel en de riem.\" \\n— Plato, geen vriend van de Atheense marine. (Plutarchus, “Parallelle levens”, “Themistocles”, sec. 3)"
 
-#: gui/text/quotes.txt:143
+#: gui/text/quotes.txt:142
 msgid ""
 "“No guest is so welcome in a friend's house that he will not become a "
 "nuisance after three days.” \\n— Plautus (“The Swaggering Soldier”, Act III,"
 " scene 1, 146)"
 msgstr ""
 
-#: gui/text/quotes.txt:144
+#: gui/text/quotes.txt:143
 msgid ""
 "“You cannot eat your cake and have it too, unless you think your money is "
 "immortal.” \\n— Plautus (“Trinummus”, Act II, scene 4, 12)"
 msgstr ""
 
-#: gui/text/quotes.txt:145
+#: gui/text/quotes.txt:144
 msgid ""
 "“He \\[Alexander] thought nothing invincible for the courageous, and nothing"
 " secure for the cowardly.” \\n— Plutarch (“Parallel Lives”, “Alexander”, "
 "sec. 58)"
-msgstr ""
+msgstr "\"Hij \\[Alexander] geloofde dat niets onoverwinnelijk was voor de moedigen, en dat niets veilig was voor de lafhartigen.\" \\n— Plutarchus (“Parallelle levens”, “Alexander”, sec. 58)"
 
-#: gui/text/quotes.txt:146
+#: gui/text/quotes.txt:145
 msgid ""
 "“One \\[…] shot an arrow at him with such accuracy and force that it pierced"
 " his breastplate and got stuck in his ribs. \\[…] Alexander recoiled and "
@@ -1964,18 +1981,18 @@ msgid ""
 "received many wounds, at last was struck on the neck with a mace, and leaned"
 " against the city wall, his eyes still fixed upon his foes.” \\n— Plutarch "
 "about the Mallian Campaign (“Parallel Lives”, “Alexander”, sec. 63)"
-msgstr ""
+msgstr "\"Eentje \\[…] schoot een pijl op hem af met zo'n kracht en precisie dat deze zijn borstplaat doorboorde en in zijn ribben stak. \\[…] Alexander sprong naar achteren en zonk op zijn knieën. \\[…] Eindelijk doodde Alexander de barbaar. Maar hij had veel wonden, kreeg nog een klap in zijn nek met een knuppel, en leunde tegen de stadsmuur met zijn ogen steeds gericht op zijn vijanden.\" \\n— Plutarchus over de oorlog tegen de Malliërs. (Plutarchus, “Parallelle levens”, “Alexander”, sec. 63)"
 
-#: gui/text/quotes.txt:147
+#: gui/text/quotes.txt:146
 msgid ""
 "“When the pirates demanded a ransom of twenty talents for him, Caesar burst "
 "out laughing. They did not know, he said, who it was that they had captured,"
 " and he volunteered to pay fifty.” \\n— Plutarch, who mentions later that "
 "Caesar got his money back and had his captors crucified (“Parallel Lives”, "
 "“Caesar”, sec. 2)"
-msgstr ""
+msgstr "\"Toen de piraten een losgeld van twintig talenten voor hem eisten, barstte Caesar in lachen uit. Ze wisten niet, zei hij, wie ze gevangen hadden genomen, en hij bood aan er vijftig te betalen.\" \\n— Plutarchus, die later vermeldt dat Caesar zijn geld terugkreeg en de daders liet kruisigen. (“Parallelle levens”, “Caesar”, sec. 2)"
 
-#: gui/text/quotes.txt:148
+#: gui/text/quotes.txt:147
 msgid ""
 "“They \\[the Romans] want the centurions not so much to be adventurous and "
 "daredevils, as to be natural leaders, of a steady and reliable spirit. They "
@@ -1984,7 +2001,7 @@ msgid ""
 "ready to die at their posts.” \\n— Polybius (“Histories”, VI. 24)"
 msgstr ""
 
-#: gui/text/quotes.txt:149
+#: gui/text/quotes.txt:148
 msgid ""
 "“The Roman battle line is hard to break, since it allows every man to fight "
 "both individually and collectively; so that a formation can fight in any "
@@ -1992,7 +2009,7 @@ msgid ""
 "to face it.” \\n— Polybius (“Histories”, XV. 15)"
 msgstr ""
 
-#: gui/text/quotes.txt:150
+#: gui/text/quotes.txt:149
 msgid ""
 "“The Athenian people are always in the position of a ship without a "
 "commander. Fear of the enemy or a storm make the crew be of one mind and "
@@ -2003,7 +2020,7 @@ msgid ""
 "Athenian constitution (“Histories”, VI. 44)"
 msgstr ""
 
-#: gui/text/quotes.txt:151
+#: gui/text/quotes.txt:150
 msgid ""
 "“Most of the Romans were trampled to death by the enormous weight of the "
 "elephants; the rest were shot down in their ranks by the numerous cavalry: "
@@ -2012,7 +2029,7 @@ msgid ""
 "during the First Punic War (“Histories”, I. 34)"
 msgstr ""
 
-#: gui/text/quotes.txt:152
+#: gui/text/quotes.txt:151
 msgid ""
 "“Hannibal gave the signal for attack; and at the same time sent orders to "
 "the troops lying in ambush on the hills to do the same, and thus delivered "
@@ -2020,7 +2037,7 @@ msgid ""
 "beginning of a Roman disaster at the Trasymene Lake (“Histories”, III. 84)"
 msgstr ""
 
-#: gui/text/quotes.txt:153
+#: gui/text/quotes.txt:152
 msgid ""
 "“In the phalanx, the men cannot turn around singly and defend themselves: "
 "this tribune, therefore, charged them \\[from behind] and killed all he "
@@ -2029,7 +2046,7 @@ msgid ""
 "Macedon by Flaminius in the Battle of Cynoscephalae (“Histories”, XVIII. 26)"
 msgstr ""
 
-#: gui/text/quotes.txt:154
+#: gui/text/quotes.txt:153
 msgid ""
 "“The Roman order on the other hand is flexible: for every Roman, once armed "
 "and on the field, is equally well equipped for every place, time, or "
@@ -2040,7 +2057,7 @@ msgid ""
 "XVIII. 32)"
 msgstr ""
 
-#: gui/text/quotes.txt:155
+#: gui/text/quotes.txt:154
 msgid ""
 "“Scipio \\[Aemilianus], when he looked upon the city \\[Carthage] as it was "
 "utterly perishing and in the last throes of its complete destruction, is "
@@ -2050,39 +2067,39 @@ msgid ""
 "22)"
 msgstr ""
 
-#: gui/text/quotes.txt:156
+#: gui/text/quotes.txt:155
 msgid ""
 "“One more such victory and the cause is lost!” \\n— Pyrrhus of Epirus after "
 "the Battle of Asculum, in which the Romans lost twice as many men but he "
 "lost a greater share of his armed forces (Plutarch, “Parallel Lives”, "
 "“Pyrrhus”, sec. 21)"
-msgstr ""
+msgstr "\"Nog één zo'n overwinning en we hebben verloren!\" \\n— Pyrrhus van Epirus na de Slag van Asculum, waarin de Romeinen twee keer zoveel manschappen verloren maar hij een groter deel van zijn leger verloor. (Plutarchus, “Parallelle levens”, “Pyrrhus”, sec. 21)"
 
-#: gui/text/quotes.txt:157
+#: gui/text/quotes.txt:156
 msgid ""
 "“None can be free who is a slave to, and ruled by, his passions.” \\n— "
 "Pythagoras (Stobaeus, “Florilegium”, 18)"
 msgstr ""
 
-#: gui/text/quotes.txt:158
+#: gui/text/quotes.txt:157
 msgid ""
 "“Do not say few things in many words, but many things in few words.” \\n— "
 "Pythagoras (Stobaeus, “Florilegium”, 24)"
 msgstr ""
 
-#: gui/text/quotes.txt:159
+#: gui/text/quotes.txt:158
 msgid ""
 "“Let your speech be better than silence, or be silent.” \\n— Pythagoras "
 "(Stobaeus, “Florilegium”, 24)"
 msgstr ""
 
-#: gui/text/quotes.txt:160
+#: gui/text/quotes.txt:159
 msgid ""
 "“Unity strengthens even small states, while discord undermines the mightiest"
 " empires.” \\n— Sallust (“The Jugurthine War”, 10.6)"
 msgstr ""
 
-#: gui/text/quotes.txt:161
+#: gui/text/quotes.txt:160
 msgid ""
 "“Ungrateful fatherland, you will not even have my bones!” \\n— Scipio "
 "Africanus in his epitaph, after he who defeated Hannibal was repeatedly "
@@ -2090,14 +2107,14 @@ msgid ""
 "memorable deeds and sayings”, 5.3.2)"
 msgstr ""
 
-#: gui/text/quotes.txt:162
+#: gui/text/quotes.txt:161
 msgid ""
 "“Prepare for war, since you have been unable to endure a peace.” \\n— Scipio"
 " Africanus, replying to Hannibal's offer of peace terms before the Battle of"
 " Zama (Livy, “History of Rome”, XXX. 31)"
 msgstr ""
 
-#: gui/text/quotes.txt:163
+#: gui/text/quotes.txt:162
 msgid ""
 "“But tactical science is only one part of generalship. A general must be "
 "capable of equipping his forces and providing for his men. He must also be "
@@ -2106,7 +2123,7 @@ msgid ""
 "“Memorabilia”, 3.1.6)"
 msgstr ""
 
-#: gui/text/quotes.txt:164
+#: gui/text/quotes.txt:163
 msgid ""
 "“It is necessary to know the strength of the city and of the enemy, so that,"
 " if the city is stronger, one may recommend her to go to war, but if weaker "
@@ -2114,14 +2131,14 @@ msgid ""
 "“Memorabilia”, 3.6.9)"
 msgstr ""
 
-#: gui/text/quotes.txt:165
+#: gui/text/quotes.txt:164
 msgid ""
 "“The unexamined life is not worth living.” Socrates, in his defense when "
 "trialled for corrupting the youth and not worshipping the proper gods (he "
 "later drank hemlock after the death sentence) \\n— Plato (“Apology”, 38a)"
 msgstr ""
 
-#: gui/text/quotes.txt:166
+#: gui/text/quotes.txt:165
 msgid ""
 "“The hour of departure has arrived, and we go our ways – I to die, and you "
 "to live. Which is better God only knows.” Socrates, in his defense when "
@@ -2129,13 +2146,13 @@ msgid ""
 "later drank hemlock after the death sentence) \\n— Plato (“Apology”, 42a)"
 msgstr ""
 
-#: gui/text/quotes.txt:167
+#: gui/text/quotes.txt:166
 msgid ""
 "“Walls and ships are nothing without men living together inside them.” \\n— "
 "Sophocles (“Oedipus Rex”)"
 msgstr ""
 
-#: gui/text/quotes.txt:168
+#: gui/text/quotes.txt:167
 msgid ""
 "“We accepted an empire that was offered to us and refused to give it up "
 "under the pressure of three of the strongest motives: fear, honor and "
@@ -2144,75 +2161,75 @@ msgid ""
 "embassy in Sparta (Thucydides, “History of the Peloponnesian War”, I. 76.2)"
 msgstr ""
 
-#: gui/text/quotes.txt:169
+#: gui/text/quotes.txt:168
 msgid ""
 "“He could boast that he found a city of brick and left it a city of marble.”"
 " \\n— Suetonius, commenting on the many building projects of Augustus in "
 "Rome (“Divus Augustus”, sec 38)"
 msgstr ""
 
-#: gui/text/quotes.txt:170
+#: gui/text/quotes.txt:169
 msgid "“Moderation in all things.” \\n— Terence (“The Girl from Andros”, 61)"
 msgstr ""
 
-#: gui/text/quotes.txt:171
+#: gui/text/quotes.txt:170
 msgid ""
 "“Fortune favors the bold.” \\n— Terence in a play about a great Athenian "
 "admiral (“Phormio”, 203)"
 msgstr ""
 
-#: gui/text/quotes.txt:172
+#: gui/text/quotes.txt:171
 msgid ""
 "“I do not know how to tune the lyre or play the harp, but I do know how to "
 "raise a city that was small and unimportant to glory and greatness.” \\n— "
 "Themistocles, defending his lack of cultural sophistication (Plutarch, "
 "“Parallel Lives”, “Themistocles”, sec. 2)"
-msgstr ""
+msgstr "\"Ik weet niet hoe je een lier moet stemmen of de harp bespelen, maar ik weet wel hoe je een stad die klein en onbelangrijk was moet verheffen tot glorie en grootheid.\" \\n— Themistocles, ter verdediging van zijn gebrek aan culturele ontwikkeling. (Plutarchus, “Parallelle levens”, “Themistocles”, sec. 2)"
 
-#: gui/text/quotes.txt:173
+#: gui/text/quotes.txt:172
 msgid ""
 "“Strike, if you will, but listen.” \\n— Themistocles, in a heated discussion"
 " with the Spartan fleet commander who threatened to beat him with his staff,"
 " before the Battle of Salamis (Plutarch, “Parallel Lives”, “Themistocles”, "
 "sec. 11)"
-msgstr ""
+msgstr "\"Sla me als het moet, maar luister eerst.\" \\n— Themistocles, in een verhitte discussie met de aanvoerder van de Spartaanse vloot die dreigde hem met zijn staf te slaan, vlak voor de Slag bij Salamis. (Plutarchus, “Parallelle levens”, “Themistocles”, sec. 11)"
 
-#: gui/text/quotes.txt:174
+#: gui/text/quotes.txt:173
 msgid ""
 "“The Athenians command the rest of Greece, I command the Athenians; your "
 "mother commands me, and you command your mother.” \\n— Themistocles, "
 "jokingly to his infant son (Plutarch, “Parallel Lives”, “Themistocles”, sec."
 " 18)"
-msgstr ""
+msgstr "\"De Atheners zijn de baas van Griekenland, Ik ben de baas van de Atheners; jouw moeder is de baas over mij, en jij bent de baas over je moeder.\" \\n— Themistocles, grappend tegen zijn kleine zoon. (Plutarchus, “Parallelle levens”, “Themistocles”, sec. 18)"
 
-#: gui/text/quotes.txt:175
+#: gui/text/quotes.txt:174
 msgid ""
 "“So little pains does the mob take in finding out the truth, accepting "
 "readily the first story at hand.” \\n— Thucydides (“History of the "
 "Peloponnesian War”, I. 21.3)"
 msgstr ""
 
-#: gui/text/quotes.txt:176
+#: gui/text/quotes.txt:175
 msgid ""
 "“The growth of the power of Athens, and the alarm which this caused in "
 "Sparta, made war inevitable.” \\n— Thucydides (“History of the Peloponnesian"
 " War”, I. 23.6)"
 msgstr ""
 
-#: gui/text/quotes.txt:177
+#: gui/text/quotes.txt:176
 msgid ""
 "“War is a matter not so much of arms as of money.” \\n— Thucydides (“History"
 " of the Peloponnesian War”, I. 83.2)"
 msgstr ""
 
-#: gui/text/quotes.txt:178
+#: gui/text/quotes.txt:177
 msgid ""
 "“It is a general rule of human nature that people despise those who treat "
 "them well, and look up to those who make no concessions.” \\n— Thucydides "
 "(“History of the Peloponnesian War”, III. 39.5)"
 msgstr ""
 
-#: gui/text/quotes.txt:179
+#: gui/text/quotes.txt:178
 msgid ""
 "“This was the greatest action that happened in all this war, and all others "
 "that we have heard of amongst the Greeks, being to the victors most glorious"
@@ -2223,7 +2240,7 @@ msgid ""
 "Peloponnesian War”, VII. 87.6–7)"
 msgstr ""
 
-#: gui/text/quotes.txt:180
+#: gui/text/quotes.txt:179
 msgid ""
 "“As the world goes, justice is only a matter between equals, while the "
 "strong do what they can and the weak suffer what they must.” \\n— "
@@ -2231,7 +2248,7 @@ msgid ""
 "unwilling to surrender (“History of the Peloponnesian War”, V. 89.1)"
 msgstr ""
 
-#: gui/text/quotes.txt:181
+#: gui/text/quotes.txt:180
 msgid ""
 "“When the Lacedaemonians were no longer able to run after them, the "
 "skirmishers \\[…] all charged them at once, casting stones, arrows, and "
@@ -2240,7 +2257,7 @@ msgid ""
 "IV. 34.2)"
 msgstr ""
 
-#: gui/text/quotes.txt:182
+#: gui/text/quotes.txt:181
 msgid ""
 "“The soldiers fight and die to support others in wealth and luxury and they "
 "are called masters of the world without owning a single piece of farmland of"
@@ -2248,9 +2265,9 @@ msgid ""
 "benefit of homeless and unemployed veterans whose lands had often been "
 "bought up why they were on campaign (Plutarch, “Parallel Lives”, “Tiberius "
 "Gracchus”, sec. 9)"
-msgstr ""
+msgstr "\"De soldaten vechten en sterven om de rijkdom en het luxe leven van anderen mogelijk te maken, ze worden heersers van de wereld genoemd zonder zelf een stukje boerenland te bezitten.\" \\n— Tiberius Gracchus, pleitend voor landhervormingen ten bate van dak- en werkloze veteranen wiens land vaak werd opgekocht wanneer ze op veldtocht waren. (Plutarchus, “Parallelle levens”, “Tiberius Gracchus”, sec. 9)"
 
-#: gui/text/quotes.txt:183
+#: gui/text/quotes.txt:182
 msgid ""
 "“The wild beasts of Italy have their caves to retire to, but the brave "
 "veterans who spilled their blood in her cause have nothing left but air and "
@@ -2258,26 +2275,26 @@ msgid ""
 "Tiberius Gracchus, advocating for land reform to the benefit of homeless and"
 " unemployed veterans whose lands had often been bought up why they were on "
 "campaign (Plutarch, “Parallel Lives”, “Tiberius Gracchus”, sec. 9)"
-msgstr ""
+msgstr "\"De wilde dieren van Italië kunnen zich terugtrekken in hun grotten, maar de dappere veteranen die hun bloed vergoten hebben voor haar zaak hebben niets behalve lucht en licht. Ze zwerven dakloos rond met hun vrouw en kinderen.\" \\n— Tiberius Gracchus, pleitend voor landhervormingen ten bate van dak- en werkloze veteranen wiens land vaak werd opgekocht wanneer ze op veldtocht waren. (Plutarchus, “Parallelle levens”, “Tiberius Gracchus”, sec. 9)"
 
-#: gui/text/quotes.txt:184
+#: gui/text/quotes.txt:183
 msgid ""
 "“Do not trust the horse, Trojans! I fear the Greeks even when they bring "
 "gifts.” \\n— Virgil (“Aeneid”, II. 48–49)"
 msgstr ""
 
-#: gui/text/quotes.txt:185
+#: gui/text/quotes.txt:184
 msgid "“Prepared for either alternative.” \\n— Virgil (“Aeneid”, II. 61)"
 msgstr ""
 
-#: gui/text/quotes.txt:186
+#: gui/text/quotes.txt:185
 msgid ""
 "“Homer and Hesiod ascribed to their Gods all things that are a disgrace "
 "among mortals: stealing, adultery, deceiving one another.” \\n— Xenophanes "
 "(fragment 11)"
 msgstr ""
 
-#: gui/text/quotes.txt:187
+#: gui/text/quotes.txt:186
 msgid ""
 "“If oxen and horses and lions had hands, and could paint, and produce works "
 "of art as men do, horses would paint the forms of the gods like horses, and "
@@ -2285,13 +2302,13 @@ msgid ""
 "Xenophanes (fragment 15)"
 msgstr ""
 
-#: gui/text/quotes.txt:188
+#: gui/text/quotes.txt:187
 msgid ""
 "“The Ethiopians make their gods black and snub-nosed, the Thracians say "
 "theirs have blue eyes and red hair.” \\n— Xenophanes (fragment 16)"
 msgstr ""
 
-#: gui/text/quotes.txt:189
+#: gui/text/quotes.txt:188
 msgid ""
 "“These are the right questions to ask, in winter around the fire \\[…]: Who "
 "are you, friend? What is your land? And how old were you when the Medes "
@@ -2299,21 +2316,21 @@ msgid ""
 "expedition against Greek cities in Ionia (fragment 17)"
 msgstr ""
 
-#: gui/text/quotes.txt:190
+#: gui/text/quotes.txt:189
 msgid ""
 "“A prudent commander will never take risks unnecessarily, except when it is "
 "clear beforehand that he will have the advantage.” \\n— Xenophon (“The "
 "Cavalry General”, 4.13)"
 msgstr ""
 
-#: gui/text/quotes.txt:191
+#: gui/text/quotes.txt:190
 msgid ""
 "“Attack the enemy where he is weakest, even if that is a long way off, since"
 " hard work is less dangerous than a struggle against superior forces.” \\n— "
 "Xenophon (“The Cavalry General”, sec. 4.14)"
 msgstr ""
 
-#: gui/text/quotes.txt:192
+#: gui/text/quotes.txt:191
 msgid ""
 "“He should be inventive, ready to exploit all circumstances, to make a small"
 " force appear large and a large one small, to appear absent when close at "
@@ -2321,14 +2338,14 @@ msgid ""
 " Cavalry General”, sec. 5)"
 msgstr ""
 
-#: gui/text/quotes.txt:193
+#: gui/text/quotes.txt:192
 msgid ""
 "“People are glad to obey the man whom they believe to be wiser than "
 "themselves in pursuing their interests.” \\n— Xenophon (“The Education of "
 "Cyrus”, 1.6.22)"
 msgstr ""
 
-#: gui/text/quotes.txt:194
+#: gui/text/quotes.txt:193
 msgid ""
 "“In his campaigns during summer the general must show that he can endure the"
 " sun better than the soldiers, in winter he must show he can endure cold "
@@ -2337,13 +2354,13 @@ msgid ""
 " of Cyrus”, 1.6.25)"
 msgstr ""
 
-#: gui/text/quotes.txt:195
+#: gui/text/quotes.txt:194
 msgid ""
 "“Battles are decided more by the morale of men than their physical "
 "strength.” \\n— Xenophon (“The Education of Cyrus”, 3.3.20)"
 msgstr ""
 
-#: gui/text/quotes.txt:196
+#: gui/text/quotes.txt:195
 msgid ""
 "“Let's not give them enough time to arrange a defense, or to even recognize "
 "that we are human beings! We've got to appear to them like an uncontrollable"
@@ -2351,7 +2368,7 @@ msgid ""
 "Education of Cyrus”, 4.2.22)"
 msgstr ""
 
-#: gui/text/quotes.txt:197
+#: gui/text/quotes.txt:196
 msgid ""
 "“I suppose you understand, men, that pursuing, dealing blows and death, "
 "plunder, fame, freedom, power – all these are prizes for the winners; the "
@@ -2359,7 +2376,7 @@ msgid ""
 "Cyrus”, 7.1.13)"
 msgstr ""
 
-#: gui/text/quotes.txt:198
+#: gui/text/quotes.txt:197
 msgid ""
 "“The man who wants that must be scheming and cunning, wily and deceitful, a "
 "thief and a robber, overreaching the enemy at every point.” \\n— Xenophon on"
@@ -2367,7 +2384,7 @@ msgid ""
 "1.6.26)"
 msgstr ""
 
-#: gui/text/quotes.txt:199
+#: gui/text/quotes.txt:198
 msgid ""
 "“My men have turned into women, and my women into men!” \\n— Xerxes, "
 "watching Artemisia ram a ship while most of his fleet suffered the reverse, "
@@ -2375,7 +2392,7 @@ msgid ""
 "VIII. 88)"
 msgstr ""
 
-#: gui/text/quotes.txt:200
+#: gui/text/quotes.txt:199
 msgid ""
 "“For a thinking man is where Wisdom is at home.” \\n— Zoroaster, founder of "
 "the Zoroastrian religion (“Ahunuvaiti Gatha”, yasna 30.9)"

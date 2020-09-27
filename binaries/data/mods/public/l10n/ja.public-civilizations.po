@@ -19,9 +19,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-01-17 08:08+0000\n"
-"PO-Revision-Date: 2020-02-25 13:54+0000\n"
-"Last-Translator: 矢吹 幸治 <yabuki.yukiharu@gmail.com>\n"
+"POT-Creation-Date: 2020-08-28 07:09+0000\n"
+"PO-Revision-Date: 2020-08-28 11:42+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Japanese (http://www.transifex.com/wildfire-games/0ad/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,40 +35,36 @@ msgid "Athenians"
 msgstr "アテナイ"
 
 #: simulation/data/civs/athen.jsonCivBonuses[0].Description
+#: simulation/data/civs/mace.jsonCivBonuses[0].Description
+#: simulation/data/civs/spart.jsonCivBonuses[0].Description
+msgid "Structures +10% health and +10% capture points."
+msgstr ""
+
+#: simulation/data/civs/athen.jsonCivBonuses[0].Name
+#: simulation/data/civs/mace.jsonCivBonuses[0].Name
+#: simulation/data/civs/spart.jsonCivBonuses[0].Name
+msgid "Hellenic Architecture"
+msgstr "ギリシア建築"
+
+#: simulation/data/civs/athen.jsonCivBonuses[0].History
+#: simulation/data/civs/mace.jsonCivBonuses[0].History
+#: simulation/data/civs/spart.jsonCivBonuses[0].History
+msgid "The Greeks used stone construction from early Mycenaean times."
+msgstr "ギリシアはミケーネ文明初期から石造建設を用いました。"
+
+#: simulation/data/civs/athen.jsonCivBonuses[1].Description
 msgid "Metal mining gathering rates increased by +10% for each passing age."
 msgstr "金属採掘速度が時代経過毎に10%増加します。"
 
-#: simulation/data/civs/athen.jsonCivBonuses[0].Name
+#: simulation/data/civs/athen.jsonCivBonuses[1].Name
 msgid "Silver Owls"
 msgstr "フクロウ銀貨"
 
-#: simulation/data/civs/athen.jsonCivBonuses[0].History
+#: simulation/data/civs/athen.jsonCivBonuses[1].History
 msgid ""
 "The mines at Laureion in Attica provided Athens with a wealth of silver from"
 " which to mint her famous and highly prized coin, The Athenian Owl."
 msgstr "アッティカ地方のラウリオン鉱山から産する銀はアテナイに富をもたらしました。この銀から鋳造された有名で貴重なコインが、アテナイのフクロウ銀貨です。"
-
-#: simulation/data/civs/athen.jsonCivBonuses[1].Description
-#: simulation/data/civs/mace.jsonCivBonuses[2].Description
-#: simulation/data/civs/spart.jsonCivBonuses[2].Description
-msgid ""
-"Constructing a Theatron increases the territory expanse of all buildings by "
-"+20%."
-msgstr "テアトロンを建設すると、すべての建物の領地半径が20%拡大します。"
-
-#: simulation/data/civs/athen.jsonCivBonuses[1].Name
-#: simulation/data/civs/mace.jsonCivBonuses[2].Name
-#: simulation/data/civs/spart.jsonCivBonuses[2].Name
-msgid "Hellenization"
-msgstr "ギリシア化"
-
-#: simulation/data/civs/athen.jsonCivBonuses[1].History
-#: simulation/data/civs/spart.jsonCivBonuses[2].History
-msgid ""
-"The Greeks were highly successful in Hellenising various foreigners. During "
-"the Hellenistic Age, Greek was the lingua franca of the Ancient World, "
-"spoken widely from Spain to India."
-msgstr "ギリシアは様々な異民族をギリシア化させることに大成功を収めました。ヘレニズム時代には、ギリシア語は古代世界の共通語として、スペインからインドにかけて広く使われました。"
 
 #: simulation/data/civs/athen.jsonTeamBonuses[0].Description
 msgid "Allied Warships −25% construction time."
@@ -182,7 +178,6 @@ msgid ""
 msgstr "プレイヤーは槍で武装した部隊にファランクス陣形を命令できるようになり、攻撃力と防御力の増加をもたらします。"
 
 #: simulation/data/civs/athen.jsonFactions[0].Technologies[2].Name
-#: simulation/data/civs/spart.jsonCivBonuses[0].Name
 msgid "Othismos"
 msgstr "密集陣形戦術"
 
@@ -208,19 +203,6 @@ msgstr "アテナイの人々を説得し、銀鉱の収入で三段櫂船200隻
 #: simulation/data/civs/athen.jsonFactions[0].Heroes[1].History
 msgid "Pericles was the foremost Athenian politician of the 5th Century B.C."
 msgstr "ペリクレスはアテナイ屈指の政治家として、紀元前5世紀に活躍しました。"
-
-#: simulation/data/civs/athen.jsonFactions[0].Heroes[2].History
-#: simulation/data/civs/maur.jsonFactions[0].Technologies[0].History
-#: simulation/data/civs/maur.jsonStructures[0].History
-#: simulation/data/civs/maur.jsonStructures[1].History
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[2].History
-#: simulation/data/civs/ptol.jsonFactions[0].Heroes[0].History
-#: simulation/data/civs/ptol.jsonFactions[0].Heroes[1].History
-#: simulation/data/civs/ptol.jsonFactions[0].Heroes[2].History
-#: simulation/data/civs/sele.jsonCivBonuses[0].History
-#: simulation/data/civs/sele.jsonStructures[1].History
-msgid "."
-msgstr "。"
 
 #: simulation/data/civs/athen.jsonFactions[0].Description
 msgid "A Hellenic people of the Ionian tribe."
@@ -290,36 +272,6 @@ msgstr "西洋文明のゆりかごであり、民主主義発祥の地として
 msgid "Britons"
 msgstr "ブリトン"
 
-#: simulation/data/civs/brit.jsonCivBonuses[0].Description
-#: simulation/data/civs/gaul.jsonCivBonuses[0].Description
-msgid "Enhanced food gained from ranching and farming. "
-msgstr "家畜や畑から得る食料が増加します。"
-
-#: simulation/data/civs/brit.jsonCivBonuses[0].Name
-#: simulation/data/civs/gaul.jsonCivBonuses[0].Name
-msgid "Ardiosmanae"
-msgstr "Ardiosmanae"
-
-#: simulation/data/civs/brit.jsonCivBonuses[0].History
-#: simulation/data/civs/gaul.jsonCivBonuses[0].History
-msgid "Represents Celtic farming methods. "
-msgstr "ケルトの農法を表します。"
-
-#: simulation/data/civs/brit.jsonCivBonuses[1].Description
-#: simulation/data/civs/gaul.jsonCivBonuses[1].Description
-msgid "Druids increase attack rates of soldiers near them slightly."
-msgstr "ドルイドは近辺の兵士の攻撃力を少し強化します。"
-
-#: simulation/data/civs/brit.jsonCivBonuses[1].Name
-#: simulation/data/civs/gaul.jsonCivBonuses[1].Name
-msgid "Deas Celtica"
-msgstr "ケルトの女神"
-
-#: simulation/data/civs/brit.jsonCivBonuses[1].History
-#: simulation/data/civs/gaul.jsonCivBonuses[1].History
-msgid "Celtic religion and druidry inspired their warlike mindset. "
-msgstr "ケルトの宗教とドルイド教は彼らの好戦的思想を鼓舞しました。"
-
 #: simulation/data/civs/brit.jsonTeamBonuses[0].Description
 msgid "Allied Healers −20% resource costs."
 msgstr "同盟国の治療者の育成するコストを20%下げます"
@@ -380,36 +332,6 @@ msgstr "ドゥブノヴェラウヌス"
 #: simulation/data/civs/brit.jsonAINames[10]
 msgid "Vosenius"
 msgstr "ボセ二ウス"
-
-#: simulation/data/civs/brit.jsonFactions[0].Technologies[0].Description
-msgid "Increased attack and movement rate for melee soldiers."
-msgstr "近接攻撃兵の攻撃速度と移動速度が向上します。"
-
-#: simulation/data/civs/brit.jsonFactions[0].Technologies[0].Name
-msgid "Sevili Dusios"
-msgstr "セヴィリ・デュシオス"
-
-#: simulation/data/civs/brit.jsonFactions[0].Technologies[0].History
-msgid ""
-"The Britons took up the practice of either making permanent marks on their "
-"body in the form of tattoos or temporarily painted their bodies with woad "
-"paint. The effect was very frightening."
-msgstr "ブリトンは身体に入れ墨で永久に印をつけたり、大青染料で一時的に模様を描く習慣を始めました。威嚇するのに非常に効果的でした。"
-
-#: simulation/data/civs/brit.jsonFactions[0].Technologies[1].Description
-msgid "Increases the height bonus of units garrisoned in a tower."
-msgstr "塔に駐屯するユニットの高さボーナスが増加します。"
-
-#: simulation/data/civs/brit.jsonFactions[0].Technologies[1].Name
-msgid "Turos Maros"
-msgstr "テュロス・マロス"
-
-#: simulation/data/civs/brit.jsonFactions[0].Technologies[1].History
-msgid ""
-"'Great Tower'; Celtic legends abound with stories of massive tall towers "
-"built by the most powerful kings, and the remains of some very large towers "
-"have been found."
-msgstr "「巨塔」；ケルトの伝説には最強の王の建てた堅固な高塔の話が数多くあります。そして、いくつかの巨塔の遺跡が発見されています。"
 
 #: simulation/data/civs/brit.jsonFactions[0].Heroes[0].History
 msgid ""
@@ -512,14 +434,6 @@ msgstr "アンミアヌス・マルケリヌスは、異国人の一団にとっ
 msgid "The Celts of the British Isles."
 msgstr "ブリテン諸島に住むケルト人の一派です。"
 
-#: simulation/data/civs/brit.jsonStructures[0].Name
-msgid "Kennel"
-msgstr "犬舎"
-
-#: simulation/data/civs/brit.jsonStructures[0].History
-msgid "The Britons were known for breeding war dogs."
-msgstr "ブリトンは軍犬の飼育で知られました。"
-
 #: simulation/data/civs/brit.jsonHistory
 msgid ""
 "The Britons were the Celtic tribes of the British Isles. Using chariots, "
@@ -533,10 +447,8 @@ msgid "Carthaginians"
 msgstr "カルタゴ"
 
 #: simulation/data/civs/cart.jsonCivBonuses[0].Description
-msgid ""
-"Carthaginian walls, gates, and towers have 3x health of a standard wall, but"
-" also 2x build time."
-msgstr "カルタゴの壁、門、塔は通常の3倍の耐久力を持ちますが、2倍の建設時間がかかります。"
+msgid "Walls +100% build time, +100% stone cost, and +200% health."
+msgstr ""
 
 #: simulation/data/civs/cart.jsonCivBonuses[0].Name
 msgid "Triple Walls"
@@ -546,28 +458,9 @@ msgstr "三重壁"
 msgid "Carthaginians built triple city walls."
 msgstr "カルタゴは三重の城壁を建設しました。"
 
-#: simulation/data/civs/cart.jsonCivBonuses[1].Description
-msgid ""
-"The resource cost of training elephant-mounted (war elephant) or horse-"
-"mounted units (cavalry) is reduced by 5% per animal corralled (as "
-"appropriate)."
-msgstr "騎象（戦象）または騎馬（騎兵）ユニットの養成コストが、同種の動物捕獲毎に5%減少します。"
-
-#: simulation/data/civs/cart.jsonCivBonuses[1].Name
-#: simulation/data/civs/ptol.jsonCivBonuses[2].Name
-msgid "Roundup"
-msgstr "駆り集め"
-
-#: simulation/data/civs/cart.jsonCivBonuses[1].History
-msgid ""
-"Not unlike the Iberian Peninsula, North Africa was known as horse country, "
-"capable of producing up to 100,000 new mounts each year. It was also the "
-"home of the North African Forest Elephant."
-msgstr "イベリア半島と同様に、北アフリカは馬の国として知られ、毎年10万頭の生産が可能でした。北アフリカはマルミミゾウの産地でもありました。"
-
 #: simulation/data/civs/cart.jsonTeamBonuses[0].Description
-msgid "Allied Markets +10% international trade bonus."
-msgstr "同盟国の市場に10%の国家間貿易ボーナスを加える。"
+msgid "Allies +10% international trade bonus."
+msgstr ""
 
 #: simulation/data/civs/cart.jsonTeamBonuses[0].Name
 msgid "Trademasters"
@@ -722,40 +615,40 @@ msgid "Celtic Embassy"
 msgstr "ケルト大使館"
 
 #: simulation/data/civs/cart.jsonStructures[1].Special
-msgid "Hire Celtic mercenaries."
-msgstr "ケルト傭兵を雇います。"
+msgid "Train Celtic Mercenaries."
+msgstr ""
 
 #: simulation/data/civs/cart.jsonStructures[1].History
 msgid "The Celts supplied fierce warrior mercenaries for Carthaginian armies."
 msgstr "ケルトは勇猛な戦士を、カルタゴ軍の傭兵として輩出しました。"
 
 #: simulation/data/civs/cart.jsonStructures[2].Name
-msgid "Italiote Embassy"
-msgstr "イタリオテス大使館"
-
-#: simulation/data/civs/cart.jsonStructures[2].Special
-msgid "Hire Italian mercenaries."
-msgstr "イタリオテ傭兵を雇います。"
-
-#: simulation/data/civs/cart.jsonStructures[2].History
-msgid ""
-"When Hannibal invaded Italy and defeated the Romans in a series of battles, "
-"many of the Italian peoples subject to Rome, including the Italian Greeks "
-"and powerful Samnites, revolted and joined the Carthaginian cause."
-msgstr "ハンニバルがイタリアを侵略して連戦の末にローマ人を倒したとき、ローマに従属していた多くのイタリアの人々、イタリア在住ギリシア人や強力なサムニウム人などが、反乱してカルタゴ側に加わりました。"
-
-#: simulation/data/civs/cart.jsonStructures[3].Name
 msgid "Iberian Embassy"
 msgstr "イベリア大使館"
 
-#: simulation/data/civs/cart.jsonStructures[3].Special
-msgid "Hire Iberian mercenaries."
-msgstr "イベリア傭兵を雇います。"
+#: simulation/data/civs/cart.jsonStructures[2].Special
+msgid "Train Iberian Mercenaries."
+msgstr ""
 
-#: simulation/data/civs/cart.jsonStructures[3].History
+#: simulation/data/civs/cart.jsonStructures[2].History
 msgid ""
 "The Iberians were known as fierce mercenaries, loyal to their paymasters."
 msgstr "イベリア人は勇猛な傭兵として名高く、雇い主に忠誠を尽くしました。"
+
+#: simulation/data/civs/cart.jsonStructures[3].Name
+msgid "Italic Embassy"
+msgstr ""
+
+#: simulation/data/civs/cart.jsonStructures[3].Special
+msgid "Train Italic Mercenaries."
+msgstr ""
+
+#: simulation/data/civs/cart.jsonStructures[3].History
+msgid ""
+"When Hannibal invaded Italy and defeated the Romans in a series of battles, "
+"many of the peoples subject to Rome, including the Greeks and Samnites, "
+"revolted and joined the Carthaginian cause."
+msgstr ""
 
 #: simulation/data/civs/cart.jsonHistory
 msgid ""
@@ -772,19 +665,43 @@ msgstr "カルタゴは、現代のチュニジアにあった都市国家で、
 msgid "Gauls"
 msgstr "ガリア"
 
+#: simulation/data/civs/gaul.jsonCivBonuses[0].Description
+msgid "Enhanced food gained from ranching and farming. "
+msgstr "家畜や畑から得る食料が増加します。"
+
+#: simulation/data/civs/gaul.jsonCivBonuses[0].Name
+msgid "Ardiosmanae"
+msgstr "Ardiosmanae"
+
+#: simulation/data/civs/gaul.jsonCivBonuses[0].History
+msgid "Represents Celtic farming methods. "
+msgstr "ケルトの農法を表します。"
+
+#: simulation/data/civs/gaul.jsonCivBonuses[1].Description
+msgid "Druids increase attack rates of soldiers near them slightly."
+msgstr "ドルイドは近辺の兵士の攻撃力を少し強化します。"
+
+#: simulation/data/civs/gaul.jsonCivBonuses[1].Name
+msgid "Deas Celtica"
+msgstr "ケルトの女神"
+
+#: simulation/data/civs/gaul.jsonCivBonuses[1].History
+msgid "Celtic religion and druidry inspired their warlike mindset. "
+msgstr "ケルトの宗教とドルイド教は彼らの好戦的思想を鼓舞しました。"
+
 #: simulation/data/civs/gaul.jsonTeamBonuses[0].Description
-msgid "Allied Structures −20% technology research time."
-msgstr "同盟している建造物のテクノロジー研究時間を20%減少します。"
+msgid "Forges −15% technology resource costs and research time."
+msgstr ""
 
 #: simulation/data/civs/gaul.jsonTeamBonuses[0].Name
-msgid "Druidic Wisdom"
-msgstr "ドルイド教の知恵"
+msgid "Products from Gaul"
+msgstr ""
 
 #: simulation/data/civs/gaul.jsonTeamBonuses[0].History
 msgid ""
-"The Druids of the Gauls maintained an organized religion that advanced the "
-"technology of their people even during wartime."
-msgstr "ガリアのドルイドは組織的な宗教を維持して、戦時においてもテクノロジーを発展させました。"
+"The Gauls produced and exported swords and scabbards, woolen and leather "
+"products, and other arms."
+msgstr ""
 
 #: simulation/data/civs/gaul.jsonAINames[0]
 #: simulation/data/civs/gaul.jsonFactions[0].Heroes[0].Name
@@ -830,15 +747,29 @@ msgid "Viridovix"
 msgstr "ウィリドウィクス"
 
 #: simulation/data/civs/gaul.jsonFactions[0].Technologies[0].Description
+msgid "Workers +15% grain gather rate."
+msgstr ""
+
+#: simulation/data/civs/gaul.jsonFactions[0].Technologies[0].Name
+msgid "Harvesting Machine"
+msgstr ""
+
+#: simulation/data/civs/gaul.jsonFactions[0].Technologies[0].History
+msgid ""
+"The Gauls invented an harvesting machine, making it much easier to harvest "
+"grain."
+msgstr ""
+
+#: simulation/data/civs/gaul.jsonFactions[0].Technologies[1].Description
 msgid ""
 "A set amount of metal and food from every structure destroyed or captured."
 msgstr "建物を破壊または占領するたびに一定量の金属と食料を得ます。"
 
-#: simulation/data/civs/gaul.jsonFactions[0].Technologies[0].Name
+#: simulation/data/civs/gaul.jsonFactions[0].Technologies[1].Name
 msgid "Vae Victis"
 msgstr "打ち負かされた者たちに災いあれ"
 
-#: simulation/data/civs/gaul.jsonFactions[0].Technologies[0].History
+#: simulation/data/civs/gaul.jsonFactions[0].Technologies[1].History
 msgid ""
 "Woe to the Defeated! The Gallic chieftain Brennus seized Rome (with the "
 "exception of a garrison on Capitoline Hill). When Camillus besieged him with"
@@ -847,15 +778,15 @@ msgid ""
 "complained that he used false weights he uttered those famous words."
 msgstr "征服された者に災いあれ!  ガリア人の族長ブレンヌスはローマを占領しました（カンピドリア守備隊は免れた）。カミルスはウェイイから救援隊と共に駆けつけ停戦交渉を行い、停戦と引き換えに金1000ポンドを支払うことで合意しましたた。その金を量る重りが通常と異なることにローマ人が抗議したとき、ブレンヌスは自身の剣を重りに載せ、かの有名な言葉が発せられました。"
 
-#: simulation/data/civs/gaul.jsonFactions[0].Technologies[1].Description
+#: simulation/data/civs/gaul.jsonFactions[0].Technologies[2].Description
 msgid "Gallic druids gain a small melee attack."
 msgstr "ガリアのドルイドが若干の近接攻撃力を得ます。"
 
-#: simulation/data/civs/gaul.jsonFactions[0].Technologies[1].Name
+#: simulation/data/civs/gaul.jsonFactions[0].Technologies[2].Name
 msgid "Carnutes"
 msgstr "カルヌテス"
 
-#: simulation/data/civs/gaul.jsonFactions[0].Technologies[1].History
+#: simulation/data/civs/gaul.jsonFactions[0].Technologies[2].History
 msgid ""
 "The Carnutes were druids from Aulercia. They fought when needed, and were "
 "largely responsible for turning back the Belgae incursions into Armorica and"
@@ -920,14 +851,6 @@ msgstr "ウェルキンゲトリクス（ガリア語：Ver-Rix Cingetos）は�
 msgid "The Celts of mainland Europe."
 msgstr "ヨーロッパ大陸に住むケルト人の一派です。"
 
-#: simulation/data/civs/gaul.jsonStructures[0].Name
-msgid "Melonas"
-msgstr "Melonas"
-
-#: simulation/data/civs/gaul.jsonStructures[0].History
-msgid "The Celts developed the first rotary flour mill."
-msgstr "ケルトは初めて回転式製粉機を作りました。"
-
 #: simulation/data/civs/gaul.jsonHistory
 msgid ""
 "The Gauls were the Celtic tribes of continental Europe. Dominated by a "
@@ -956,25 +879,9 @@ msgid ""
 "all types."
 msgstr "沖積平野や河谷を除き、イベリア半島では石材が豊富にあり、あらゆる種類の建築に用いられました。"
 
-#: simulation/data/civs/iber.jsonCivBonuses[1].Description
-msgid ""
-"The resource cost of training horse-mounted units (cavalry) is reduced by 5%"
-" per animal corralled."
-msgstr "騎馬ユニット (騎兵) 養成の資源コストが、捕獲された動物毎に5%減少します。"
-
-#: simulation/data/civs/iber.jsonCivBonuses[1].Name
-msgid "Zaldi Saldoa"
-msgstr "サルディ・シャルドア"
-
-#: simulation/data/civs/iber.jsonCivBonuses[1].History
-msgid ""
-"Not unlike Numidia in North Africa, the Iberian Peninsula was known as "
-"'horse country', capable of producing up to 100,000 new mounts each year."
-msgstr "北アフリカのヌミディアと同様に、イベリア半島は「馬の国」として知られ、毎年10万頭もの生産が可能でした。"
-
 #: simulation/data/civs/iber.jsonTeamBonuses[0].Description
-msgid "Allied Citizen Javelinists −10% resource costs."
-msgstr "同盟している投槍兵は、-10%の資源コストが下がります。"
+msgid "Allied Citizen Javelineers −10% resource costs."
+msgstr ""
 
 #: simulation/data/civs/iber.jsonTeamBonuses[0].Name
 msgid "Saripeko"
@@ -1136,37 +1043,6 @@ msgstr "イベリア人の起源と言語は謎に包まれています。彼ら
 msgid "Kushites"
 msgstr "クシュ"
 
-#: simulation/data/civs/kush.jsonCivBonuses[0].Name
-msgid "The Pyramids of Meroe"
-msgstr "メロエのピラミッド"
-
-#: simulation/data/civs/kush.jsonCivBonuses[0].Description
-msgid ""
-"Building a Kushite pyramid increases Civic Center territory influence by "
-"+10% for each one built."
-msgstr ""
-
-#: simulation/data/civs/kush.jsonCivBonuses[1].Name
-msgid "Mineral Deposits"
-msgstr ""
-
-#: simulation/data/civs/kush.jsonCivBonuses[1].Description
-msgid ""
-"Kushite players receive a free extra Metal Mine somewhere in their home "
-"territory."
-msgstr ""
-
-#: simulation/data/civs/kush.jsonCivBonuses[2].Name
-#: simulation/data/civs/maur.jsonFactions[0].Technologies[0].Name
-msgid "Elephant Roundup"
-msgstr "象の駆り集め"
-
-#: simulation/data/civs/kush.jsonCivBonuses[2].Description
-msgid ""
-"Can capture Gaia elephants and garrison them into a corral to reduce "
-"training costs for War Elephants."
-msgstr ""
-
 #: simulation/data/civs/kush.jsonTeamBonuses[0].Name
 msgid "Elephant Suppliers"
 msgstr "象供給者"
@@ -1231,25 +1107,43 @@ msgstr ""
 msgid "Amanishakheto"
 msgstr ""
 
-#: simulation/data/civs/kush.jsonFactions[0].Technologies[0].Name
-msgid "Monumental Architecture"
-msgstr ""
-
 #: simulation/data/civs/kush.jsonFactions[0].Technologies[0].Description
+#: simulation/data/civs/maur.jsonFactions[0].Technologies[0].Description
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[0].Description
 msgid ""
-"+50% HP and -50% build time for Civic Centers, Temples, Pyramids and "
-"Wonders."
+"Archers −10% training time, +8 attack range, and −10% ranged attack spread."
 msgstr ""
 
-#: simulation/data/civs/kush.jsonFactions[0].Technologies[1].Description
-msgid "Allow to train elite rank healers"
+#: simulation/data/civs/kush.jsonFactions[0].Technologies[0].Name
+#: simulation/data/civs/maur.jsonFactions[0].Technologies[0].Name
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[0].Name
+msgid "Archery Tradition"
+msgstr "弓術の伝統"
+
+#: simulation/data/civs/kush.jsonFactions[0].Technologies[0].History
+msgid ""
+"The Kushites had a tradition of fine archery and a penchant for using massed"
+" archers in battle."
 msgstr ""
 
 #: simulation/data/civs/kush.jsonFactions[0].Technologies[1].Name
+msgid "Monumental Architecture"
+msgstr ""
+
+#: simulation/data/civs/kush.jsonFactions[0].Technologies[1].Description
+msgid ""
+"Civic Structures +20% build time, +20% health, and +20% capture points."
+msgstr ""
+
+#: simulation/data/civs/kush.jsonFactions[0].Technologies[2].Description
+msgid "Train elite rank healers."
+msgstr "精鋭ランクの治療者を訓練します。"
+
+#: simulation/data/civs/kush.jsonFactions[0].Technologies[2].Name
 msgid "High Priest of Amun"
 msgstr ""
 
-#: simulation/data/civs/kush.jsonFactions[0].Technologies[1].History
+#: simulation/data/civs/kush.jsonFactions[0].Technologies[2].History
 msgid ""
 "Have your priests instructed by the High Priest himself - may Amun bless "
 "him."
@@ -1285,11 +1179,6 @@ msgstr ""
 msgid ""
 "The Kushites can upgrade individual Temples to Temples of Amun, which can "
 "train Napatan Temple Guard champions and heal units faster."
-msgstr ""
-
-#: simulation/data/civs/kush.jsonStructures[0].History
-#: simulation/data/civs/kush.jsonStructures[1].History
-msgid "History."
 msgstr ""
 
 #: simulation/data/civs/kush.jsonStructures[1].Name
@@ -1339,47 +1228,6 @@ msgstr ""
 #: simulation/data/civs/mace.jsonFactions[0].Name
 msgid "Macedonians"
 msgstr "マケドニア"
-
-#: simulation/data/civs/mace.jsonCivBonuses[0].Description
-msgid ""
-"Macedonian units have +10% attack bonus vs. Persian and Hellenic factions, "
-"but -5% attack debonus vs. Romans."
-msgstr "マケドニアのユニットはペルシアとギリシア諸勢力に対して攻撃力+10%のボーナスを得ますが、ローマに対しては攻撃力-5%のペナルティがかかります。"
-
-#: simulation/data/civs/mace.jsonCivBonuses[0].Name
-msgid "Hellenic League"
-msgstr "ヘラス同盟"
-
-#: simulation/data/civs/mace.jsonCivBonuses[0].History
-msgid ""
-"After the unification of Greece, Philip II gathered all the city-states "
-"together to form the Hellenic League, with Macedon as the its leader. With "
-"this Pan-Hellenic federation he planned to launch an expedition to punish "
-"Persia for past wrongs. Although assassinated before he could carry out the "
-"invasion, his son Alexander the Great took up the mantle and completed his "
-"fathers plans."
-msgstr "ギリシア統一後、ピリッポス2世はすべての都市国家を結集して、マケドニア王国を盟主とするヘラス同盟を結成しました。この全ギリシア同盟と共に、彼はペルシアの過去の不正に制裁を科す遠征を企てました。侵略が実現可能になる前に彼は暗殺されましたが、息子のアレクサンドロス大王が遺志を継ぎ、父親の計画を完遂しました。"
-
-#: simulation/data/civs/mace.jsonCivBonuses[1].Description
-msgid "Infantry pike units can use the slow and powerful Syntagma formation."
-msgstr "長槍歩兵ユニットが低速で強力なシンタグマ陣形を利用できます。"
-
-#: simulation/data/civs/mace.jsonCivBonuses[1].Name
-msgid "Syntagma"
-msgstr "シンタグマ"
-
-#: simulation/data/civs/mace.jsonCivBonuses[1].History
-msgid ""
-"Based upon the Theban Oblique Order phalanx, the Syntagma was the formation "
-"that proved invincible against the armies of Hellas and the East."
-msgstr "テーバイの斜線陣を基にしたシンタグマ陣形は古代ギリシアおよび東洋の軍団に対して無敵を誇りました。"
-
-#: simulation/data/civs/mace.jsonCivBonuses[2].History
-msgid ""
-"The Greeks were highly successful in Hellenizing various foreigners. During "
-"the Hellenistic Age, Greek was the lingua franca of the Ancient World, "
-"spoken widely from Spain to India."
-msgstr "ギリシア人は様々な異民族をギリシア化することに大きな成功を収めました。ヘレニズム時代においては、ギリシア語は古代世界の共通語として、広くスペインからインドまで通用しました。"
 
 #: simulation/data/civs/mace.jsonTeamBonuses[0].Description
 msgid "Allies +20% barter sell prices."
@@ -1452,56 +1300,18 @@ msgid "Meleager"
 msgstr "メレアグロス"
 
 #: simulation/data/civs/mace.jsonFactions[0].Technologies[0].Description
-msgid ""
-"Each subsequent Barracks constructed comes with 5 free (random) Macedonian "
-"military units. This also applies to the Barracks of allied players (they "
-"receive 5 free units of their own culture for each new Barracks "
-"constructed)."
-msgstr "以後兵営を建設するたびに、無償で5人の（ランダムの）マケドニアの軍事ユニットがついてきます。これは同盟するプレイヤーの兵営にも適用されます（彼らも自文明の5人の無償ユニットを新しい兵営の建設のたびに受け取ります）。"
-
-#: simulation/data/civs/mace.jsonFactions[0].Technologies[0].Name
-#: simulation/data/civs/sele.jsonCivBonuses[1].Name
-msgid "Military Reforms"
-msgstr "軍制改革"
-
-#: simulation/data/civs/mace.jsonFactions[0].Technologies[0].History
-msgid ""
-"When Philip II came to the Macedonian throne he began a total reorganization"
-" of the Macedonian army. His reforms created a powerful cavalry arm to his "
-"army that would prove useful to both himself and his son Alexander's "
-"conquests."
-msgstr "ピリッポス二世がマケドニア王に即位すると、マケドニア軍の全面再編成を始めました。改革によって軍に創設された強力な騎兵隊は、やがて彼と息子のアレクサンドロス双方の遠征で有用さが実証されました。"
-
-#: simulation/data/civs/mace.jsonFactions[0].Technologies[1].Description
-msgid ""
-"Upgrade Hypaspist Champion Infantry to Silver Shields, with greater attack "
-"and armor, but also greater cost."
-msgstr "ヒュパスピスタイチャンピオン歩兵を銀盾隊に昇進させると、攻撃力と防御力がアップしますが、費用も多くかかります。"
-
-#: simulation/data/civs/mace.jsonFactions[0].Technologies[1].Name
-msgid "Royal Gift"
-msgstr "恩賜"
-
-#: simulation/data/civs/mace.jsonFactions[0].Technologies[1].History
-msgid ""
-"In India near the end of his long anabasis, Alexander gifted to the Royal "
-"Hypaspist corps shields of silver for their long and valiant service in his "
-"army."
-msgstr "インドで、彼の大遠征も終わりに近づき、アレクサンドロスは近衛ヒュパスピスタイ部隊へ銀の盾を贈り、長期にわたる勇敢な軍務をねぎらいました。"
-
-#: simulation/data/civs/mace.jsonFactions[0].Technologies[2].Description
 #: simulation/data/civs/ptol.jsonFactions[0].Technologies[0].Description
 #: simulation/data/civs/sele.jsonFactions[0].Technologies[0].Description
-msgid "Civic Centers have double Health and double default arrows."
-msgstr "町の中心の耐久力と無人時の矢の量が2倍になります。"
+msgid "Civic Centers +100% health and capture points, double default arrows."
+msgstr ""
 
-#: simulation/data/civs/mace.jsonFactions[0].Technologies[2].Name
+#: simulation/data/civs/mace.jsonFactions[0].Technologies[0].Name
 #: simulation/data/civs/ptol.jsonFactions[0].Technologies[0].Name
 #: simulation/data/civs/sele.jsonFactions[0].Technologies[0].Name
-msgid "Hellenistic Metropolises"
-msgstr "ヘレニズム中核都市"
+msgid "Hellenistic Metropolis"
+msgstr "ギリシア中核都市"
 
-#: simulation/data/civs/mace.jsonFactions[0].Technologies[2].History
+#: simulation/data/civs/mace.jsonFactions[0].Technologies[0].History
 #: simulation/data/civs/ptol.jsonFactions[0].Technologies[0].History
 #: simulation/data/civs/sele.jsonFactions[0].Technologies[0].History
 msgid ""
@@ -1509,6 +1319,23 @@ msgid ""
 "throughout their empires, where Greek culture and art blended with local "
 "customs to create the motley Hellenistic civilization."
 msgstr "アレクサンドロスに始まるギリシアの君主は多くの都市を帝国全土に建設し、そこではギリシア文化と芸術が土地の習慣と融合して、混成のヘレニズム文明を作り上げました。"
+
+#: simulation/data/civs/mace.jsonFactions[0].Technologies[1].Description
+msgid ""
+"Upgrade Shield Bearer Champion Infantry to Silver Shields, with more health "
+"and attack damage."
+msgstr ""
+
+#: simulation/data/civs/mace.jsonFactions[0].Technologies[1].Name
+msgid "Silver Shields"
+msgstr "銀の盾"
+
+#: simulation/data/civs/mace.jsonFactions[0].Technologies[1].History
+msgid ""
+"In India near the end of his long anabasis, Alexander gifted to the Royal "
+"Hypaspist corps shields of silver for their long and valiant service in his "
+"army."
+msgstr "インドで、彼の大遠征も終わりに近づき、アレクサンドロスは近衛ヒュパスピスタイ部隊へ銀の盾を贈り、長期にわたる勇敢な軍務をねぎらいました。"
 
 #: simulation/data/civs/mace.jsonFactions[0].Heroes[0].History
 msgid ""
@@ -1615,20 +1442,20 @@ msgid ""
 msgstr ""
 
 #: simulation/data/civs/maur.jsonCivBonuses[1].Description
-msgid "The Mauryas enjoy access to 4 champions."
+msgid "Elephants −30% training time."
 msgstr ""
 
 #: simulation/data/civs/maur.jsonCivBonuses[1].Name
-msgid "Kṣhatriya Warrior Caste."
-msgstr "クシャトリヤ戦士カースト。"
+msgid "Elephant Tradition"
+msgstr ""
 
 #: simulation/data/civs/maur.jsonCivBonuses[1].History
 msgid ""
-"Kshatriya or Kashtriya, meaning warrior, is one of the four varnas (social "
-"orders) in Hinduism. Traditionally Kshatriya constitute the military and "
-"ruling elite of the Vedic-Hindu social system outlined by the Vedas and the "
-"Laws of Manu."
-msgstr "クシャトリヤまたはカシュトリヤとは、戦士を意味し、ヒンドゥー教の4つのヴァルナ（社会階層）の中の1つです。伝統的にクシャトリヤは軍人や支配エリート層として、ヴェーダとマヌ法典に基づいたヴェーダ・ヒンドゥー教の社会システムを構成してきました。"
+"India is the land of the elephants. Elephant warfare originated in India and"
+" continued for millennia. It was also the source of elephants for the "
+"eastern Mediterranean. Indian kings were able to field large numbers of war "
+"elephants."
+msgstr ""
 
 #: simulation/data/civs/maur.jsonTeamBonuses[0].Description
 msgid ""
@@ -1683,25 +1510,11 @@ msgstr ""
 msgid "Brihadratha Maurya"
 msgstr "ブリハドラタ・マウリヤ"
 
-#: simulation/data/civs/maur.jsonFactions[0].Technologies[0].Description
+#: simulation/data/civs/maur.jsonFactions[0].Technologies[0].History
 msgid ""
-"Capture up to 5 Gaia elephants and garrison them in the Elephant Stables to "
-"gain up to a 25% bonus in cost and train time of elephant units."
-msgstr "野生の象を最大5頭まで捕えて象舎に入れておくと、最大25%のボーナスが象ユニットのコストと養成時間につきます。"
-
-#: simulation/data/civs/maur.jsonFactions[0].Technologies[1].Description
-msgid "Greater range and faster train time for Mauryan infantry archers."
-msgstr "マウリヤ朝の弓兵の射程がより長く、養成時間がより速くなります。"
-
-#: simulation/data/civs/maur.jsonFactions[0].Technologies[1].Name
-msgid "Archery Tradition"
-msgstr "弓術の伝統"
-
-#: simulation/data/civs/maur.jsonFactions[0].Technologies[1].History
-msgid ""
-"India was a land of archery. The bulk of any Indian army was made up of "
-"highly skilled archers, armed with bamboo longbows."
-msgstr "インドは弓術が盛んでした。インド軍の大半は高い技能を持つ弓兵で構成され、竹の長弓を装備していました。"
+"The Indian peoples had a tradition of fine archery and a penchant for using "
+"massed archers in battle."
+msgstr ""
 
 #: simulation/data/civs/maur.jsonFactions[0].Heroes[0].History
 msgid "Founder of the Mauryan Empire."
@@ -1724,14 +1537,12 @@ msgid "Mauryan Indians"
 msgstr "マウリヤ朝インド"
 
 #: simulation/data/civs/maur.jsonStructures[0].Name
-msgid "Elephant Stables"
-msgstr "象舎"
+msgid "Elephant Stable"
+msgstr ""
 
 #: simulation/data/civs/maur.jsonStructures[0].Special
-msgid ""
-"Trains Elephant Archer and Worker Elephant at Town Phase, then adds the "
-"champion War Elephant at the City phase."
-msgstr " 町の段階において騎象弓兵と労働象を養成し、都市の段階でチャンピオン戦象を加えます。"
+msgid "Train Elephants and research Elephant technologies."
+msgstr ""
 
 #: simulation/data/civs/maur.jsonStructures[1].Name
 msgid "Edict Pillar of Ashoka"
@@ -1762,33 +1573,15 @@ msgstr "ペルシア"
 
 #: simulation/data/civs/pers.jsonCivBonuses[0].Description
 msgid ""
-"The resource cost of training camel-mounted (trader) or horse-mounted units "
-"(cavalry) is reduced by 5% per animal (as appropriate) corralled."
-msgstr "ラクダ騎乗（商人）ユニットや騎乗（騎兵）ユニット養成の資源コストが同種の動物捕獲毎に5%減少します。"
-
-#: simulation/data/civs/pers.jsonCivBonuses[0].Name
-msgid "Corral Camels and Horses"
-msgstr "ラクダや馬の捕獲"
-
-#: simulation/data/civs/pers.jsonCivBonuses[0].History
-msgid ""
-"While the Persians employed camelry only in a few cases, its use was always "
-"accompanied by great success (most notably during the battle of Sardis in "
-"546 B.C.) The satrapy of Bactria was a rich source of 'two-hump' camels, "
-"while Northern Arabia supplied 'one-hump' camels."
-msgstr "ペルシアがラクダ騎乗を採用したのはごくわずかな機会に過ぎませんが、その際にはいつも大成功を収めました（最も顕著なものは紀元前546年のサルディスの戦い）。バクトリアの地方総督領は「フタコブ」ラクダが名産だったのに対し、北アラビアの名産は「ヒトコブ」ラクダでした。"
-
-#: simulation/data/civs/pers.jsonCivBonuses[1].Description
-msgid ""
 "Persians have a +10% population cap bonus (e.g. 330 pop cap instead of the "
 "usual 300)."
 msgstr "ペルシアは最大人口+10%ボーナスを有します（通常が300人であれば330人になる）。"
 
-#: simulation/data/civs/pers.jsonCivBonuses[1].Name
+#: simulation/data/civs/pers.jsonCivBonuses[0].Name
 msgid "Great King's Levy"
 msgstr "大王の召集令"
 
-#: simulation/data/civs/pers.jsonCivBonuses[1].History
+#: simulation/data/civs/pers.jsonCivBonuses[0].History
 msgid ""
 "The Persians could and did levy a large number of infantry during wartime "
 "due to the sheer size of the Achaemenid Empire and the way in which it was "
@@ -1864,15 +1657,21 @@ msgstr "ハカーマニシュ"
 msgid "Xsayarsa II"
 msgstr "ハシャヤーラシャー2世"
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[0].Description
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[0].History
+msgid ""
+"The Iranian peoples had a tradition of fine archery and a penchant for using"
+" massed archers in battle."
+msgstr ""
+
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[1].Description
 msgid "Phoenician triremes gain the unique ability to train cavalry."
 msgstr ""
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[0].Name
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[1].Name
 msgid "Naval Craftsmanship"
 msgstr "造船職人"
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[0].History
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[1].History
 msgid ""
 "Early Achaemenid rulers acted towards making Persia the first great Asian "
 "empire to rule the seas. The Great King behaved favourably towards the "
@@ -1883,17 +1682,17 @@ msgid ""
 "were retrofitted to carry horses and their riders."
 msgstr "初期のアケメネス朝の支配者はペルシアを最初の大アジア帝国にして海を制するするために行動しました。大王は様々な海の民に好意的にふるまい彼らの協力を確保すると同時に、様々な海洋構想を実現しました。ダレイオス大王の治世のとき、例えば、エジプトに運河が開削され、ペルシア海軍がインダス川に探検に派遣されました。ヘロドトスによると、ペルシア海軍の約300隻が改装され、馬と騎手を運びました。"
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[1].Description
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[2].Description
 msgid ""
 "Increases hitpoints of all structures, but build time increased "
 "appropriately."
 msgstr "すべての建物の耐久力が増加しますが、建設時間もそれに応じて長くなります。"
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[1].Name
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[2].Name
 msgid "Persian Architecture"
 msgstr "ペルシア建築"
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[1].History
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[2].History
 msgid ""
 "The Persians built the wonderful 2700 kilometer-long Royal Highway from "
 "Sardis to Susa; Darius the Great and Xerxes also built the magnificent "
@@ -1901,25 +1700,31 @@ msgid ""
 "'rebuilt' the old Elamite capital of Susa."
 msgstr "ペルシャはサルディスからスーサまでの 2700kmにも及ぶ驚くべき王の道を建設しました。また、ダレイオス大王とクセルクセスは壮麗なペルセポリスも建設しました。キュロス大王はエクバタナを大きく改良し、エラム人の古都スーサを事実上再建しました。 "
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[2].Description
-msgid "Reduces train time for Anusiya champion infantry by half."
-msgstr "アヌシヤ・チャンピオン歩兵の養成時間を半分に減らします。"
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[3].Description
+msgid "Anušiya Champion Infantry -50% train time, but also -10% health."
+msgstr ""
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[2].Name
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[3].Name
 msgid "Immortals"
 msgstr "不死隊"
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[3].Description
-#: simulation/data/civs/sele.jsonFactions[0].Technologies[3].Description
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[3].History
+msgid ""
+"The Achaemenids maintained a 10,000-strong elite corps, referred to as "
+"Athanatoi (“Immortals”) by Greek authors."
+msgstr ""
+
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[4].Description
+#: simulation/data/civs/sele.jsonFactions[0].Technologies[1].Description
 msgid "+25% health for cavalry, but +10% train time."
 msgstr "騎兵の耐久力が25%増加しますが、養成時間が10%長くなります。"
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[3].Name
-#: simulation/data/civs/sele.jsonFactions[0].Technologies[3].Name
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[4].Name
+#: simulation/data/civs/sele.jsonFactions[0].Technologies[1].Name
 msgid "Nisean War Horses"
 msgstr "ニサイアの戦馬"
 
-#: simulation/data/civs/pers.jsonFactions[0].Technologies[3].History
+#: simulation/data/civs/pers.jsonFactions[0].Technologies[4].History
 msgid ""
 "The beautiful and powerful breed of Nisean horses increases health for "
 "Persian cavalry."
@@ -1957,13 +1762,12 @@ msgid ""
 msgstr "クセルクセス（古代ペルシア語：ハシャヤーラシャー、在位紀元前485-465）はダレイオス大王とキュロス大王の娘アトッサの息子として生まれました。クセルクセスは有能な統治者で、彼も帝国の支配をホラズムまでひろげました。ギリシア遠征の失敗とは別に、彼は、特にペルセポリスにおける、大規模な建設計画で有名でした。"
 
 #: simulation/data/civs/pers.jsonStructures[0].Name
-#: simulation/data/civs/sele.jsonStructures[1].Name
-msgid "Cavalry Stables"
-msgstr "厩舎"
+msgid "Stable"
+msgstr ""
 
 #: simulation/data/civs/pers.jsonStructures[0].Special
-msgid "Train Cavalry citizen-soldiers."
-msgstr "市民騎兵ユニットを養成します。"
+msgid "Train Cavalry and research Cavalry technologies."
+msgstr ""
 
 #: simulation/data/civs/pers.jsonStructures[0].History
 msgid "The Persian Empire's best soldiers were Eastern horsemen."
@@ -2002,47 +1806,6 @@ msgstr "ペルシア帝国は、アケネメス朝の時、古代最大の帝国
 #: simulation/data/civs/ptol.jsonName
 msgid "Ptolemies"
 msgstr "プトレマイオス朝"
-
-#: simulation/data/civs/ptol.jsonCivBonuses[0].Description
-msgid ""
-"The Ptolemies receive the Mercenary Camp, a Barracks that is constructed in "
-"neutral territory and trains mercenaries."
-msgstr ""
-
-#: simulation/data/civs/ptol.jsonCivBonuses[0].Name
-msgid "Mercenary Army"
-msgstr "雇兵部隊"
-
-#: simulation/data/civs/ptol.jsonCivBonuses[0].History
-#: simulation/data/civs/ptol.jsonStructures[1].History
-msgid ""
-"The Greco-Macedonian Ptolemy Dynasty relied on large numbers of Greek and "
-"foreign mercenaries for the bulk of its military force, mainly because the "
-"loyalty of native Egyptian units was often suspect. Indeed, during one "
-"native uprising, Upper Egypt was lost to the Ptolemies for decades. "
-"Mercenaries were often battle-hardened and their loyalty could be bought, "
-"sometimes cheaply, sometimes not cheaply. This was of no matter, since Egypt"
-" under the Ptolemies was so prosperous as to be the richest of Alexander's "
-"successor states."
-msgstr "ギリシア・マケドニア系のプトレマイオス王朝は大勢のギリシア人および外国人の傭兵に軍の兵力を依存していました。これはおもに国内のエジプト人部隊の忠誠が疑われていたためでした。実際に、ある国内の反乱の間、上エジプトは数十年にわたってプトレマイオス朝の手を離れました。傭兵は多くの場合戦場慣れしていて、忠誠を、あるときは安い金で、またあるときは安からぬ金で買えました。このことは問題とはなりませんでした。エジプトはプトレマイオス朝の下でたいそう繁栄し、アレクサンドロスの後継の中で最富裕国だったからです。"
-
-#: simulation/data/civs/ptol.jsonCivBonuses[1].Description
-msgid "The Ptolemaic Egyptians receive 3 additional farming technologies."
-msgstr "プトレマイオス朝エジプトは3つの追加農業テクノロジーを享受します。"
-
-#: simulation/data/civs/ptol.jsonCivBonuses[1].Name
-#: simulation/data/civs/ptol.jsonFactions[0].Technologies[2].Name
-msgid "Nile Delta"
-msgstr "ナイル・デルタ"
-
-#: simulation/data/civs/ptol.jsonCivBonuses[1].History
-#: simulation/data/civs/ptol.jsonCivBonuses[2].History
-msgid "Unknown."
-msgstr "未定。"
-
-#: simulation/data/civs/ptol.jsonCivBonuses[2].Description
-msgid "Can capture gaia elephants and camels to reduce their training cost."
-msgstr "野生の象とラクダを捕えて養成コストを低減することができます。"
 
 #: simulation/data/civs/ptol.jsonTeamBonuses[0].Description
 msgid "Allies +1.0 food trickle rate."
@@ -2135,34 +1898,6 @@ msgstr "アルシノエ4世"
 msgid "Arsinoe II"
 msgstr "アルシノエ2世"
 
-#: simulation/data/civs/ptol.jsonFactions[0].Technologies[1].Description
-msgid "Hero aura range boosted by 50%."
-msgstr "英雄オーラの半径が50%増加します。"
-
-#: simulation/data/civs/ptol.jsonFactions[0].Technologies[1].Name
-msgid "Pharaonic Cult."
-msgstr "ファラオの祭儀"
-
-#: simulation/data/civs/ptol.jsonFactions[0].Technologies[1].History
-msgid ""
-"The Macedonian-Greek rulers of the Ptolemaic dynasty observed many ancient "
-"Egyptian traditions in order to satiate the local populace and ingratiate "
-"themselves to the powerful priestly class in the country."
-msgstr "マケドニア・ギリシア人であるプトレマイオス朝の支配者は、多くの古代エジプトの慣習を尊重して、現地住民を満足させ国内の強力な神官階級に取り入ろうとしました。"
-
-#: simulation/data/civs/ptol.jsonFactions[0].Technologies[2].Description
-msgid ""
-"The Ptolemaic Egyptians receive 3 additional farming technologies above and "
-"beyond the maximum number of farming technologies usually available to a "
-"faction."
-msgstr "プトレマイオス朝エジプトは上記の3つの追加農業テクノロジーを享受し、一つの勢力での通常の農業テクノロジーの上限数を超えて利用可能です。"
-
-#: simulation/data/civs/ptol.jsonFactions[0].Technologies[2].History
-msgid ""
-"The Nile Delta had rich soil for farming, due to centuries of seasonal "
-"floods from the Nile depositing rich silt across the landscape."
-msgstr "ナイル三角州の肥沃な土壌は、何世紀も繰り返されたナイル川の季節的氾濫で肥沃な泥が一面に堆積するためでした。"
-
 #: simulation/data/civs/ptol.jsonFactions[0].Heroes[0].Name
 msgid "Ptolemaios A' Soter"
 msgstr "Ptolemaios A' Soter"
@@ -2200,6 +1935,18 @@ msgid ""
 "Must be constructed in neutral territory. Has no territory radius effect. "
 "Trains mercenaries."
 msgstr ""
+
+#: simulation/data/civs/ptol.jsonStructures[1].History
+msgid ""
+"The Greco-Macedonian Ptolemy Dynasty relied on large numbers of Greek and "
+"foreign mercenaries for the bulk of its military force, mainly because the "
+"loyalty of native Egyptian units was often suspect. Indeed, during one "
+"native uprising, Upper Egypt was lost to the Ptolemies for decades. "
+"Mercenaries were often battle-hardened and their loyalty could be bought, "
+"sometimes cheaply, sometimes not cheaply. This was of no matter, since Egypt"
+" under the Ptolemies was so prosperous as to be the richest of Alexander's "
+"successor states."
+msgstr "ギリシア・マケドニア系のプトレマイオス王朝は大勢のギリシア人および外国人の傭兵に軍の兵力を依存していました。これはおもに国内のエジプト人部隊の忠誠が疑われていたためでした。実際に、ある国内の反乱の間、上エジプトは数十年にわたってプトレマイオス朝の手を離れました。傭兵は多くの場合戦場慣れしていて、忠誠を、あるときは安い金で、またあるときは安からぬ金で買えました。このことは問題とはなりませんでした。エジプトはプトレマイオス朝の下でたいそう繁栄し、アレクサンドロスの後継の中で最富裕国だったからです。"
 
 #: simulation/data/civs/ptol.jsonStructures[2].Name
 msgid "Lighthouse"
@@ -2446,35 +2193,6 @@ msgstr "ローマは古代世界で最大級の帝国を支配し、最盛期に
 msgid "Seleucids"
 msgstr "セレウコス朝"
 
-#: simulation/data/civs/sele.jsonCivBonuses[0].Description
-msgid ""
-"This unlocks the Seleucid expansion building, the Klēroukhia or Military "
-"Colony, similar to Civic Centers for other factions. It is weaker and "
-"carries a smaller territory influence, but is cheaper and built faster."
-msgstr "セレウコス朝の領地拡張拠点Klēroukhiaすなわち軍事植民地を解禁します。これは他の勢力の町の中心と似たものです。より脆弱で小さな領地拡張しかもたらしませんが、安価かつ短時間で建設できます。"
-
-#: simulation/data/civs/sele.jsonCivBonuses[0].Name
-msgid "Cleruchy"
-msgstr "クレルキア"
-
-#: simulation/data/civs/sele.jsonCivBonuses[1].Description
-msgid ""
-"Choose between Traditional Army and Reform Army technologies that unlock "
-"different Champions."
-msgstr "従来軍か軍制改革のいずれを選ぶかによって、異なるチャンピオンが解禁になります。"
-
-#: simulation/data/civs/sele.jsonCivBonuses[1].History
-#: simulation/data/civs/sele.jsonFactions[0].Technologies[1].History
-msgid ""
-"Seleucid and indeed Successor warfare evolved over the course of the 3rd and"
-" 2nd centuries. Contact with Eastern upstarts such as the Parthians and "
-"constant revolts of peripheral satrapies such as Bactria caused the "
-"Seleucids to reform their military and change their tactics, specifically in"
-" the cavalry arm. War with the Romans from the West and invasions from the "
-"Galatians also forced the Seleucids to reform their infantry regiments to be"
-" more flexible."
-msgstr "セレウコス朝と後継者たちの紛争は、紀元前3から2世紀にかけて勃発しました。パルティアなど東部の成り上がりとの接触とバクトリアなど辺境州の頻発する反乱の結果、セレウコス朝に軍の再編成と戦術、特に騎兵の装備に関して変更がもたらされました。西からのローマとの戦争とガラティア人の侵入もまた、セレウコス朝に歩兵連隊をより柔軟に再編成することを強いました。"
-
 #: simulation/data/civs/sele.jsonTeamBonuses[0].Description
 msgid "Allied Civil Centers −20% resource costs."
 msgstr ""
@@ -2606,42 +2324,31 @@ msgstr "アンティオコス13世アシアティコス"
 msgid "Philip II Philoromaeus"
 msgstr "ピリッポス2世親羅王"
 
-#: simulation/data/civs/sele.jsonFactions[0].Technologies[1].Description
-msgid ""
-"Traditional Army unlocks Silver Shields and Scythed Chariots, Reform Army "
-"unlocks Romanized Heavy Swordsmen and Cataphracts."
-msgstr "従来軍は銀盾隊と大鎌戦車を解禁し、軍制改革はローマ式重装剣士と重装騎兵を解禁します。"
-
-#: simulation/data/civs/sele.jsonFactions[0].Technologies[1].Name
-msgid "Traditional Army vs. Reform Army"
-msgstr "従来軍 対 軍制改革"
-
-#: simulation/data/civs/sele.jsonFactions[0].Technologies[2].Description
-msgid ""
-"A one-time purchase of 20 Indian War Elephants from the Mauryan Empire."
-msgstr "マウリヤ帝国からのインド戦象20頭の一回限りの購入です。"
-
-#: simulation/data/civs/sele.jsonFactions[0].Technologies[2].Name
-msgid "Marriage Alliance"
-msgstr "婚姻同盟"
-
-#: simulation/data/civs/sele.jsonFactions[0].Technologies[2].History
-msgid ""
-"Seleucus I Nicator invaded the Punjab region of India in 305 BC, confronting"
-" Chandragupta Maurya (Sandrokottos), founder of the Mauryan empire. It is "
-"said that Chandragupta fielded an army of 600,000 men and 9,000 war "
-"elephants (Pliny, Natural History VI, 22.4). Seleucus met with no success "
-"and to establish peace between the two great powers and to formalize their "
-"alliance, he married his daughter to Chandragupta. In return, Chandragupta "
-"gifted Seleucus a corps of 500 war elephants, which would prove a decisive "
-"military asset for Seleucus as he fought the rest of Alexander's successors."
-msgstr "セレウコス1世勝利王は、インドのパンジャーブ地方に紀元前305年に侵攻し、マウリヤ朝創始者のチャンドラグプタ・マウリヤ（サンドロコットス）と対峙しました。チャンドラグプタは60万の兵と9千の戦象を出したといわれています（プリニウス、博物誌6巻、22.4）。セレウコスの侵攻は不成功に終わり、二大勢力が和平を結び、同盟を形あるものにするため、娘をチャンドラグプタに嫁がせました。返礼にチャンドラグプタはセレウコスに500の戦象部隊を贈り、やがて、セレウコスの軍事的な切り札として、アレクサンドロスの後継者の残党と戦う際に真価を発揮しました。"
-
-#: simulation/data/civs/sele.jsonFactions[0].Technologies[3].History
+#: simulation/data/civs/sele.jsonFactions[0].Technologies[1].History
 msgid ""
 "The beautiful and powerful breed of Nisean horses increases health for "
 "Seleucid cavalry."
 msgstr "美しく力強い血統のニサイアの馬はセレウコス朝騎兵の耐久力を高めます。"
+
+#: simulation/data/civs/sele.jsonFactions[0].Technologies[2].Description
+msgid ""
+"Unlock either Champion Infantry Pikemen or Champion Infantry Swordsmen."
+msgstr ""
+
+#: simulation/data/civs/sele.jsonFactions[0].Technologies[2].Name
+msgid "Traditional Army vs Reform Army"
+msgstr ""
+
+#: simulation/data/civs/sele.jsonFactions[0].Technologies[2].History
+msgid ""
+"Seleucid and indeed Successor warfare evolved over the course of the 3rd and"
+" 2nd centuries. Contact with Eastern upstarts such as the Parthians and "
+"constant revolts of peripheral satrapies such as Bactria caused the "
+"Seleucids to reform their military and change their tactics, specifically in"
+" the cavalry arm. War with the Romans from the West and invasions from the "
+"Galatians also forced the Seleucids to reform their infantry regiments to be"
+" more flexible."
+msgstr "セレウコス朝と後継者たちの紛争は、紀元前3から2世紀にかけて勃発しました。パルティアなど東部の成り上がりとの接触とバクトリアなど辺境州の頻発する反乱の結果、セレウコス朝に軍の再編成と戦術、特に騎兵の装備に関して変更がもたらされました。西からのローマとの戦争とガラティア人の侵入もまた、セレウコス朝に歩兵連隊をより柔軟に再編成することを強いました。"
 
 #: simulation/data/civs/sele.jsonFactions[0].Heroes[0].History
 msgid ""
@@ -2697,22 +2404,18 @@ msgid ""
 "former empire."
 msgstr "マケドニア・ギリシア人の王朝で、アレクサンドロスの帝国の遺領の東部を支配しました。"
 
-#: simulation/data/civs/sele.jsonStructures[1].Special
-msgid "Trains all cavalry except citizen-soldier cavalry."
-msgstr ""
-
-#: simulation/data/civs/sele.jsonStructures[2].Name
+#: simulation/data/civs/sele.jsonStructures[1].Name
 msgid "Military Colony"
 msgstr "軍事コロニー"
 
-#: simulation/data/civs/sele.jsonStructures[2].Special
+#: simulation/data/civs/sele.jsonStructures[1].Special
 msgid ""
 "This is the Seleucid expansion building, similar to Civic Centers for other "
 "factions. It is weaker and carries a smaller territory influence, but is "
 "cheaper and built faster."
 msgstr "この建物はセレウコス朝の領地拡張拠点で、他の勢力の町の中心と似たものです。より脆弱で小さな領地拡張しかもたらしませんが、安価かつ短時間で建設できます。"
 
-#: simulation/data/civs/sele.jsonStructures[2].History
+#: simulation/data/civs/sele.jsonStructures[1].History
 msgid ""
 "The Seleucid kings invited Greeks, Macedonians, Galatians (Gauls), Cretans, "
 "and Thracians alike to settle in within the vast territories of the empire. "
@@ -2735,35 +2438,6 @@ msgstr "マケドニア・ギリシア人の王朝で、アレクサンドロス
 #: simulation/data/civs/spart.jsonFactions[0].Name
 msgid "Spartans"
 msgstr "スパルタ"
-
-#: simulation/data/civs/spart.jsonCivBonuses[0].Description
-msgid "Spartans can use the powerful Phalanx formation."
-msgstr "スパルタは強力なファランクス陣形を利用できます。"
-
-#: simulation/data/civs/spart.jsonCivBonuses[0].History
-msgid ""
-"The Spartans were undisputed masters of phalanx warfare. The Spartans were "
-"so feared for their discipline that the enemy army would sometimes break up "
-"and run away before a single shield clashed. 'Othismos' refers to the point "
-"in a phalanx battle where both sides try to shove each other out of "
-"formation, attempting to breaking up the enemy lines and routing them."
-msgstr "スパルタ人は疑うことなく密集陣形による戦闘の達人でした。スパルタ人はその思想からとても恐れられており、敵軍は時に、盾と盾がぶつかる前から逃げ出すこともありました。「オチスモス」というのは、密集陣形の戦いにおいて両軍が押し合って隊列を崩し合おうとする時点のことで、その目的は敵の戦線を打ち破って道を開くことです。"
-
-#: simulation/data/civs/spart.jsonCivBonuses[1].Description
-msgid ""
-"The Spartan rank upgrades at the Barracks cost no resources, except time."
-msgstr "兵営でのスパルタのランク昇進には資源は不要です。ただし時間はかかります。"
-
-#: simulation/data/civs/spart.jsonCivBonuses[1].Name
-msgid "Laws of Lycurgus"
-msgstr "リュクルゴスの制"
-
-#: simulation/data/civs/spart.jsonCivBonuses[1].History
-msgid ""
-"Under the Constitution written by the mythical law-giver Lycurgus, the "
-"institution of The Agoge was established, where Spartans were trained from "
-"the age of 6 to be superior warriors in defense of the Spartan state."
-msgstr "伝説的立法者のリュクルゴスが定めた国制のもと、スパルタ教育の制度が確立されました。スパルタ人はスパルタ防衛の優れた戦士となるため、6歳から訓練を受けました。"
 
 #: simulation/data/civs/spart.jsonTeamBonuses[0].Description
 msgid "Allied Citizen Infantry Spearmen +10% health."
@@ -2829,9 +2503,8 @@ msgstr "アゲシポリス"
 #: simulation/data/civs/spart.jsonFactions[0].Technologies[0].Description
 msgid ""
 "Spartan female citizens cannot be captured and will doggedly fight back "
-"against any attackers. They are also capable of constructing defense towers "
-"and palisades."
-msgstr "スパルタの女性市民は捕らえることができず、どんな攻撃者に対しても頑なに抵抗します。彼女らはまた防御塔と柵の建設にも力を発揮します。"
+"against any attackers."
+msgstr ""
 
 #: simulation/data/civs/spart.jsonFactions[0].Technologies[0].Name
 msgid "Feminine Mystique"
@@ -2864,8 +2537,8 @@ msgid ""
 msgstr "パエアンとは、重装歩兵が敵線とぶつかる際に歌った軍歌のことです。知られている最古のパエアンの一つはテュルタイオスによって作曲されたもので、彼はスパルタの詩人兵士でした。作られた時期は、第一次メッセニア戦争の最中です。"
 
 #: simulation/data/civs/spart.jsonFactions[0].Technologies[2].Description
-msgid "+25% health for spear infantry, but also +10% train time."
-msgstr "槍兵の耐久力が25%増加しますが、養成時間が10%長くなります。"
+msgid "Champion Infantry Spearmen +25% health, but +5% training time."
+msgstr ""
 
 #: simulation/data/civs/spart.jsonFactions[0].Technologies[2].Name
 msgid "The Agoge"

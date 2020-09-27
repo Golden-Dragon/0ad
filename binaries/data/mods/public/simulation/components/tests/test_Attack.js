@@ -1,8 +1,6 @@
-Engine.LoadHelperScript("DamageBonus.js");
 Engine.LoadHelperScript("Attacking.js");
 Engine.LoadHelperScript("Player.js");
 Engine.LoadHelperScript("ValueModification.js");
-Engine.LoadComponentScript("interfaces/Attack.js");
 Engine.LoadComponentScript("interfaces/Auras.js");
 Engine.LoadComponentScript("interfaces/Capturable.js");
 Engine.LoadComponentScript("interfaces/ModifiersManager.js");
@@ -139,7 +137,8 @@ function attackComponentTest(defenderClass, isEnemy, test_function)
 
 	AddMock(defender, IID_Identity, {
 		"GetClassesList": () => [defenderClass],
-		"HasClass": className => className == defenderClass
+		"HasClass": className => className == defenderClass,
+		"GetCiv": () => "civ"
 	});
 
 	AddMock(defender, IID_Ownership, {
@@ -265,7 +264,7 @@ for (let className of ["Infantry", "Cavalry"])
 
 		TS_ASSERT_EQUALS(cmpAttack.GetAttackEffectsData("Capture").Bonuses || null, null);
 
-		let getAttackBonus = (s, t, e, splash) => GetAttackBonus(s, e, t, cmpAttack.GetAttackEffectsData(t, splash).Bonuses || null);
+		let getAttackBonus = (s, t, e, splash) => Attacking.GetAttackBonus(s, e, t, cmpAttack.GetAttackEffectsData(t, splash).Bonuses || null);
 		TS_ASSERT_UNEVAL_EQUALS(getAttackBonus(attacker, "Melee", defender), className == "Cavalry" ? 2 : 1);
 		TS_ASSERT_UNEVAL_EQUALS(getAttackBonus(attacker, "Ranged", defender), 1);
 		TS_ASSERT_UNEVAL_EQUALS(getAttackBonus(attacker, "Ranged", defender, true), className == "Cavalry" ? 3 : 1);

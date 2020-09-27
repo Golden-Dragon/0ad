@@ -22,26 +22,26 @@ const tGrassTransition2 = "steppe_grass_dirt_66";
 const tPath = "road2";
 const tPathWild = "road_med";
 
-const oAcacia = "gaia/flora_tree_acacia";
-const oPalmPath = "gaia/flora_tree_cretan_date_palm_tall";
+const oAcacia = "gaia/tree/acacia";
+const oPalmPath = "gaia/tree/cretan_date_palm_tall";
 const oPalms = [
-	"gaia/flora_tree_cretan_date_palm_tall",
-	"gaia/flora_tree_cretan_date_palm_short",
-	"gaia/flora_tree_palm_tropic",
-	"gaia/flora_tree_date_palm",
-	"gaia/flora_tree_senegal_date_palm",
-	"gaia/flora_tree_medit_fan_palm"
+	"gaia/tree/cretan_date_palm_tall",
+	"gaia/tree/cretan_date_palm_short",
+	"gaia/tree/palm_tropic",
+	"gaia/tree/date_palm",
+	"gaia/tree/senegal_date_palm",
+	"gaia/tree/medit_fan_palm"
 ];
-const oBerryBushGrapes = "gaia/flora_bush_grapes";
-const oBerryBushDesert = "gaia/flora_bush_berry_desert";
-const oStoneLargeDesert = "gaia/geology_stonemine_desert_quarry";
-const oStoneSmallDesert = "gaia/geology_stone_desert_small";
-const oMetalLargeDesert = "gaia/geology_metal_desert_slabs";
-const oMetalSmallDesert = "gaia/geology_metal_desert_small";
-const oStoneLargeFertileLand = "gaia/geology_stonemine_desert_quarry";
-const oStoneSmallFertileLand = "gaia/geology_stone_greek";
-const oMetalLargeFertileLand = "gaia/geology_metal_desert_slabs";
-const oMetalSmallFertileLand = "gaia/geology_metal_temperate";
+const oBerryBushGrapes = "gaia/fruit/grapes";
+const oBerryBushDesert = "gaia/fruit/berry_05";
+const oStoneLargeDesert = "gaia/rock/desert_large";
+const oStoneSmallDesert = "gaia/rock/desert_small";
+const oMetalLargeDesert = "gaia/ore/desert_large";
+const oMetalSmallDesert = "gaia/ore/desert_small";
+const oStoneLargeFertileLand = "gaia/rock/desert_large";
+const oStoneSmallFertileLand = "gaia/rock/greece_small";
+const oMetalLargeFertileLand = "gaia/ore/desert_large";
+const oMetalSmallFertileLand = "gaia/ore/temperate_small";
 const oFoodTreasureBin = "gaia/treasure/food_bin";
 const oFoodTreasureCrate = "gaia/treasure/food_crate";
 const oFoodTreasureJars = "gaia/treasure/food_jars";
@@ -53,15 +53,15 @@ const oTreasuresCity = [oFoodTreasureBin, oFoodTreasureCrate, oFoodTreasureJars]
 const oGiraffe = "gaia/fauna_giraffe";
 const oGiraffeInfant = "gaia/fauna_giraffe_infant";
 const oGazelle = "gaia/fauna_gazelle";
-const oRhino = "gaia/fauna_rhino";
+const oRhino = "gaia/fauna_rhinoceros_white";
 const oWarthog = "gaia/fauna_boar";
 const oElephant = "gaia/fauna_elephant_african_bush";
 const oElephantInfant = "gaia/fauna_elephant_african_infant";
 const oLion = "gaia/fauna_lion";
 const oLioness = "gaia/fauna_lioness";
-const oCrocodile = "gaia/fauna_crocodile";
-const oFish = "gaia/fauna_fish_tilapia";
-const oHawk = "gaia/fauna_hawk";
+const oCrocodile = "gaia/fauna_crocodile_nile";
+const oFish = "gaia/fish/tilapia";
+const oHawk = "birds/buzzard";
 const oTempleApedemak = "structures/kush_temple";
 const oTempleAmun = "structures/kush_temple_amun";
 const oPyramidLarge = "structures/kush_pyramid_large";
@@ -71,7 +71,7 @@ const oFortress = "structures/kush_fortress";
 const oTower = g_MapSettings.Size >= 256 && getDifficulty() >= 3 ? "structures/kush_defense_tower" : "structures/kush_sentry_tower";
 const oHouse = "structures/kush_house";
 const oMarket = "structures/kush_market";
-const oBlacksmith = "structures/kush_blacksmith";
+const oForge = "structures/kush_forge";
 const oBlemmyeCamp = "structures/kush_blemmye_camp";
 const oNubaVillage = "structures/kush_nuba_village";
 const oCivicCenter = "structures/kush_civil_centre";
@@ -181,7 +181,7 @@ const clTemple = g_Map.createTileClass();
 const clRitualPlace = g_Map.createTileClass();
 const clPyramid = g_Map.createTileClass();
 const clHouse = g_Map.createTileClass();
-const clBlacksmith = g_Map.createTileClass();
+const clForge = g_Map.createTileClass();
 const clStable = g_Map.createTileClass();
 const clElephantStables = g_Map.createTileClass();
 const clCivicCenter = g_Map.createTileClass();
@@ -300,10 +300,10 @@ const layoutKushCity = [
 		"painters": new TileClassPainter(clMarket)
 	},
 	{
-		"templateName": "uncapturable|" + oBlacksmith,
+		"templateName": "uncapturable|" + oForge,
 		"difficulty": "Very Easy",
-		"constraints": avoidClasses(clBlacksmith, 30),
-		"painters": new TileClassPainter(clBlacksmith)
+		"constraints": avoidClasses(clForge, 30),
+		"painters": new TileClassPainter(clForge)
 	},
 	{
 		"templateName": oNubaVillage,
@@ -1061,7 +1061,7 @@ var areaCityBushes =
 				clTower, 1,
 				clFortress, 1,
 				clHouse, 1,
-				clBlacksmith, 1,
+				clForge, 1,
 				clElephantStables, 1,
 				clStable, 1,
 				clCivicCenter, 1,

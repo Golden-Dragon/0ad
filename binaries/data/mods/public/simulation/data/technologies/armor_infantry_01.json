@@ -19,10 +19,10 @@
 	"requirementsTooltip": "Unlocked in Town Phase.",
 	"icon": "armor_leather.png",
 	"researchTime": 40,
-	"tooltip": "All Infantry +1 Hack and Pierce Armor Level.",
+	"tooltip": "Infantry +1 hack and pierce armor.",
 	"modifications": [
-		{ "value": "Armour/Hack", "add": 1 },
-		{ "value": "Armour/Pierce", "add": 1 }
+		{ "value": "Resistance/Entity/Damage/Hack", "add": 1 },
+		{ "value": "Resistance/Entity/Damage/Pierce", "add": 1 }
 	],
 	"affects": ["Infantry"],
 	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"

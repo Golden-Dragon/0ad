@@ -7,10 +7,7 @@ const DirectEffectsSchema =
 	"<element name='Damage'>" +
 		"<oneOrMore>" +
 			"<element a:help='One or more elements describing damage types'>" +
-				"<anyName>" +
-					// Armour requires Foundation to not be a damage type.
-					"<except><name>Foundation</name></except>" +
-				"</anyName>" +
+				"<anyName/>" +
 				"<ref name='nonNegativeDecimal' />" +
 			"</element>" +
 		"</oneOrMore>" +
@@ -168,15 +165,41 @@ Attacking.prototype.GetStatusEffectsModifications = function(valueModifRoot, tem
 	return modifiers;
 };
 
-Attacking.prototype.GetTotalAttackEffects = function(effectData, effectType, cmpResistance)
+/**
+ * Calculate the total effect taking bonus and resistance into account.
+ *
+ * @param {number} target - The target of the attack.
+ * @param {Object} effectData - The effects calculate the effect for.
+ * @param {string} effectType - The type of effect to apply (e.g. Damage, Capture or ApplyStatus).
+ * @param {number} bonusMultiplier - The factor to multiply the total effect with.
+ * @param {Object} cmpResistance - Optionally the resistance component of the target.
+ *
+ * @return {number} - The total value of the effect.
+ */
+Attacking.prototype.GetTotalAttackEffects = function(target, effectData, effectType, bonusMultiplier, cmpResistance)
 {
 	let total = 0;
-	let armourStrengths = cmpResistance ? cmpResistance.GetArmourStrengths(effectType) : {};
+	if (!cmpResistance)
+		cmpResistance = Engine.QueryInterface(target, IID_Resistance);
 
-	for (let type in effectData)
-		total += effectData[type] * Math.pow(0.9, armourStrengths[type] || 0);
+	let resistanceStrengths = cmpResistance ? cmpResistance.GetEffectiveResistanceAgainst(effectType) : {};
 
-	return total;
+	if (effectType == "Damage")
+		for (let type in effectData.Damage)
+			total += effectData.Damage[type] * Math.pow(0.9, resistanceStrengths.Damage ? resistanceStrengths.Damage[type] || 0 : 0);
+	else if (effectType == "Capture")
+	{
+		total = effectData.Capture * Math.pow(0.9, resistanceStrengths.Capture || 0);
+
+		// If Health is lower we are more susceptible to capture attacks.
+		let cmpHealth = Engine.QueryInterface(target, IID_Health);
+		if (cmpHealth)
+			total /= 0.1 + 0.9 * cmpHealth.GetHitpoints() / cmpHealth.GetMaxHitpoints();
+	}
+	else if (effectType == "ApplyStatus")
+		return effectData[effectType];
+
+	return total * bonusMultiplier;
 };
 
 /**
@@ -270,16 +293,22 @@ Attacking.prototype.CauseDamageOverArea = function(data)
 		this.GetPlayersToDamage(data.attackerOwner, data.friendlyFire));
 	let damageMultiplier = 1;
 
+	let cmpObstructionManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_ObstructionManager);
+
 	// Cycle through all the nearby entities and damage it appropriately based on its distance from the origin.
 	for (let ent of nearEnts)
 	{
-		let entityPosition = Engine.QueryInterface(ent, IID_Position).GetPosition2D();
+		// Correct somewhat for the entity's obstruction radius.
+		// TODO: linear falloff should arguably use something cleverer.
+		let distance = cmpObstructionManager.DistanceToPoint(ent, data.origin.x, data.origin.y);
+
 		if (data.shape == 'Circular') // circular effect with quadratic falloff in every direction
-			damageMultiplier = 1 - data.origin.distanceToSquared(entityPosition) / (data.radius * data.radius);
+			damageMultiplier = 1 - distance * distance / (data.radius * data.radius);
 		else if (data.shape == 'Linear') // linear effect with quadratic falloff in two directions (only used for certain missiles)
 		{
-			// Get position of entity relative to splash origin.
-			let relativePos = entityPosition.sub(data.origin);
+			// The entity has a position here since it was returned by the range manager.
+			let entityPosition = Engine.QueryInterface(ent, IID_Position).GetPosition2D();
+			let relativePos = entityPosition.sub(data.origin).normalize().mult(distance);
 
 			// Get the position relative to the missile direction.
 			let direction = Vector2D.from3D(data.direction);
@@ -301,14 +330,32 @@ Attacking.prototype.CauseDamageOverArea = function(data)
 		{
 			warn("The " + data.shape + " splash damage shape is not implemented!");
 		}
+		// The RangeManager can return units that are too far away (due to approximations there)
+		// so the multiplier can end up below 0.
+		damageMultiplier = Math.max(0, damageMultiplier);
 
-		this.HandleAttackEffects(data.type + ".Splash", data.attackData, ent, data.attacker, data.attackerOwner, damageMultiplier);
+		this.HandleAttackEffects(ent, data.type + ".Splash", data.attackData, data.attacker, data.attackerOwner, damageMultiplier);
 	}
 };
-
-Attacking.prototype.HandleAttackEffects = function(attackType, attackData, target, attacker, attackerOwner, bonusMultiplier = 1)
+/**
+ * Handle an attack peformed on an entity.
+ *
+ * @param {number} target - The targetted entityID.
+ * @param {string} attackType - The type of attack that was performed (e.g. "Melee" or "Capture").
+ * @param {Object} effectData - The effects use.
+ * @param {number} attacker - The entityID that attacked us.
+ * @param {number} attackerOwner - The playerID that owned the attacker when the attack was performed.
+ * @param {number} bonusMultiplier - The factor to multiply the total effect with, defaults to 1.
+ *
+ * @return {boolean} - Whether we handled the attack.
+ */
+Attacking.prototype.HandleAttackEffects = function(target, attackType, attackData, attacker, attackerOwner, bonusMultiplier = 1)
 {
-	bonusMultiplier *= !attackData.Bonuses ? 1 : GetAttackBonus(attacker, target, attackType, attackData.Bonuses);
+	let cmpResistance = Engine.QueryInterface(target, IID_Resistance);
+	if (cmpResistance && cmpResistance.IsInvulnerable())
+		return false;
+
+	bonusMultiplier *= !attackData.Bonuses ? 1 : this.GetAttackBonus(attacker, target, attackType, attackData.Bonuses);
 
 	let targetState = {};
 	for (let effectType of g_EffectTypes)
@@ -321,20 +368,18 @@ Attacking.prototype.HandleAttackEffects = function(attackType, attackData, targe
 		if (!cmpReceiver)
 			continue;
 
-		Object.assign(targetState, cmpReceiver[receiver.method](attackData[effectType], attacker, attackerOwner, bonusMultiplier));
+		Object.assign(targetState, cmpReceiver[receiver.method](this.GetTotalAttackEffects(target, attackData, effectType, bonusMultiplier, cmpResistance), attacker, attackerOwner));
 	}
-	if (!Object.keys(targetState).length)
-		return;
 
-	if (targetState.killed)
-		this.TargetKilled(attacker, target, attackerOwner);
+	if (!Object.keys(targetState).length)
+		return false;
 
 	Engine.PostMessage(target, MT_Attacked, {
 		"type": attackType,
 		"target": target,
 		"attacker": attacker,
 		"attackerOwner": attackerOwner,
-		"damage": -(targetState.HPchange || 0),
+		"damage": -(targetState.healthChange || 0),
 		"capture": targetState.captureChange || 0,
 		"statusEffects": targetState.inflictedStatuses || [],
 		"fromStatusEffect": !!attackData.StatusEffect,
@@ -342,11 +387,13 @@ Attacking.prototype.HandleAttackEffects = function(attackType, attackData, targe
 
 	// We do not want an entity to get XP from active Status Effects.
 	if (!!attackData.StatusEffect)
-		return;
+		return true;
 
 	let cmpPromotion = Engine.QueryInterface(attacker, IID_Promotion);
 	if (cmpPromotion && targetState.xp)
 		cmpPromotion.IncreaseXp(targetState.xp);
+
+	return true;
 };
 
 /**
@@ -368,29 +415,34 @@ Attacking.prototype.EntitiesNearPoint = function(origin, radius, players, itf = 
 };
 
 /**
- * Called when a unit kills something (another unit, building, animal etc).
- * @param {number} attacker - The entity id of the killer.
- * @param {number} target - The entity id of the target.
- * @param {number} attackerOwner - The player id of the attacker.
+ * Calculates the attack damage multiplier against a target.
+ * @param {number} source - The source entity's id.
+ * @param {number} target - The target entity's id.
+ * @param {string} type - The type of attack.
+ * @param {Object} template - The bonus' template.
+ * @return {number} - The source entity's attack bonus against the specified target.
  */
-Attacking.prototype.TargetKilled = function(attacker, target, attackerOwner)
+Attacking.prototype.GetAttackBonus = function(source, target, type, template)
 {
-	let cmpAttackerOwnership = Engine.QueryInterface(attacker, IID_Ownership);
-	let atkOwner = cmpAttackerOwnership && cmpAttackerOwnership.GetOwner() != INVALID_PLAYER ? cmpAttackerOwnership.GetOwner() : attackerOwner;
+	let cmpIdentity = Engine.QueryInterface(target, IID_Identity);
+	if (!cmpIdentity)
+		return 1;
 
-	// Add to killer statistics.
-	let cmpKillerPlayerStatisticsTracker = QueryPlayerIDInterface(atkOwner, IID_StatisticsTracker);
-	if (cmpKillerPlayerStatisticsTracker)
-		cmpKillerPlayerStatisticsTracker.KilledEntity(target);
-	// Add to loser statistics.
-	let cmpTargetPlayerStatisticsTracker = QueryOwnerInterface(target, IID_StatisticsTracker);
-	if (cmpTargetPlayerStatisticsTracker)
-		cmpTargetPlayerStatisticsTracker.LostEntity(target);
+	let attackBonus = 1;
+	let targetClasses = cmpIdentity.GetClassesList();
+	let targetCiv = cmpIdentity.GetCiv();
 
-	// If killer can collect loot, let's try to collect it.
-	let cmpLooter = Engine.QueryInterface(attacker, IID_Looter);
-	if (cmpLooter)
-		cmpLooter.Collect(target);
+	// Multiply the bonuses for all matching classes.
+	for (let key in template)
+	{
+		let bonus = template[key];
+		if (bonus.Civ && bonus.Civ !== targetCiv)
+			continue;
+		if (!bonus.Classes || MatchesClassList(targetClasses, bonus.Classes))
+			attackBonus *= ApplyValueModificationsToEntity("Attack/" + type + "/Bonuses/" + key + "/Multiplier", +bonus.Multiplier, source);
+	}
+
+	return attackBonus;
 };
 
 var AttackingInstance = new Attacking();

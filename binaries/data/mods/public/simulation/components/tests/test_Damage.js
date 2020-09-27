@@ -1,18 +1,12 @@
-Engine.LoadHelperScript("DamageBonus.js");
 Engine.LoadHelperScript("Attacking.js");
 Engine.LoadHelperScript("Player.js");
-Engine.LoadHelperScript("Sound.js");
 Engine.LoadHelperScript("ValueModification.js");
-Engine.LoadComponentScript("interfaces/Attack.js");
-Engine.LoadComponentScript("interfaces/AttackDetection.js");
 Engine.LoadComponentScript("interfaces/DelayedDamage.js");
-Engine.LoadComponentScript("interfaces/Resistance.js");
 Engine.LoadComponentScript("interfaces/Health.js");
 Engine.LoadComponentScript("interfaces/Loot.js");
-Engine.LoadComponentScript("interfaces/Player.js");
 Engine.LoadComponentScript("interfaces/Promotion.js");
-Engine.LoadComponentScript("interfaces/StatusEffectsReceiver.js");
 Engine.LoadComponentScript("interfaces/ModifiersManager.js");
+Engine.LoadComponentScript("interfaces/Resistance.js");
 Engine.LoadComponentScript("interfaces/Timer.js");
 Engine.LoadComponentScript("Attack.js");
 Engine.LoadComponentScript("DelayedDamage.js");
@@ -90,9 +84,9 @@ function Test_Generic()
 	});
 
 	AddMock(target, IID_Health, {
-		"TakeDamage": (effectData, __, ___, bonusMultiplier) => {
+		"TakeDamage": (amount, __, ___) => {
 			damageTaken = true;
-			return { "killed": false, "HPchange": -bonusMultiplier * effectData.Crush };
+			return { "healthChange": -amount };
 		},
 	});
 
@@ -137,12 +131,12 @@ function Test_Generic()
 		damageTaken = false;
 	}
 
-	Attacking.HandleAttackEffects(data.type, data.attackData, data.target, data.attacker, data.attackerOwner);
+	Attacking.HandleAttackEffects(target, data.type, data.attackData, data.attacker, data.attackerOwner);
 	TestDamage();
 
 	data.type = "Ranged";
 	type = data.type;
-	Attacking.HandleAttackEffects(data.type, data.attackData, data.target, data.attacker, data.attackerOwner);
+	Attacking.HandleAttackEffects(target, data.type, data.attackData, data.attacker, data.attackerOwner);
 	TestDamage();
 
 	// Check for damage still being dealt if the attacker dies
@@ -202,8 +196,16 @@ function TestLinearSplashDamage()
 		"ExecuteQueryAroundPos": () => [60, 61, 62],
 	});
 
+	AddMock(SYSTEM_ENTITY, IID_ObstructionManager, {
+		"DistanceToPoint": (ent) => ({
+			"60": Math.sqrt(9.25),
+			"61": 0,
+			"62": Math.sqrt(29)
+		}[ent])
+	});
+
 	AddMock(60, IID_Position, {
-		"GetPosition2D": () => new Vector2D(2.2, -0.4),
+		"GetPosition2D": () => new Vector2D(3, -0.5),
 	});
 
 	AddMock(61, IID_Position, {
@@ -215,26 +217,27 @@ function TestLinearSplashDamage()
 	});
 
 	AddMock(60, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(60);
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 100 * fallOff(2.2, -0.4));
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+			TS_ASSERT_EQUALS(amount, 100 * fallOff(3, -0.5));
+			return { "healthChange": -amount };
 		}
 	});
 
 	AddMock(61, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(61);
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 100 * fallOff(0, 0));
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+			TS_ASSERT_EQUALS(amount, 100 * fallOff(0, 0));
+			return { "healthChange": -amount };
 		}
 	});
 
 	AddMock(62, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(62);
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 0);
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+			// Minor numerical precision issues make this necessary
+			TS_ASSERT(amount < 0.00001);
+			return { "healthChange": -amount };
 		}
 	});
 
@@ -247,10 +250,10 @@ function TestLinearSplashDamage()
 	data.direction = new Vector3D(0.6, 747, 0.8);
 
 	AddMock(60, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(60);
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 100 * fallOff(1, 2));
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+			TS_ASSERT_EQUALS(amount, 100 * fallOff(1, 2));
+			return { "healthChange": -amount };
 		}
 	});
 
@@ -286,7 +289,18 @@ function TestCircularSplashDamage()
 	});
 
 	AddMock(SYSTEM_ENTITY, IID_RangeManager, {
-		"ExecuteQueryAroundPos": () => [60, 61, 62, 64],
+		"ExecuteQueryAroundPos": () => [60, 61, 62, 64, 65],
+	});
+
+	AddMock(SYSTEM_ENTITY, IID_ObstructionManager, {
+		"DistanceToPoint": (ent, x, z) => ({
+			"60": 0,
+			"61": 5,
+			"62": 1,
+			"63": Math.sqrt(85),
+			"64": 10,
+			"65": 2
+		}[ent])
 	});
 
 	AddMock(60, IID_Position, {
@@ -305,45 +319,58 @@ function TestCircularSplashDamage()
 		"GetPosition2D": () => new Vector2D(10, -10),
 	});
 
-	// Target on the frontier of the shape
+	// Target on the frontier of the shape (see distance above).
 	AddMock(64, IID_Position, {
 		"GetPosition2D": () => new Vector2D(9, -4),
 	});
 
+	// Big target far away (see distance above).
+	AddMock(65, IID_Position, {
+		"GetPosition2D": () => new Vector2D(23, 4),
+	});
+
 	AddMock(60, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 100 * fallOff(0));
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+		"TakeDamage": (amount, __, ___) => {
+			TS_ASSERT_EQUALS(amount, 100 * fallOff(0));
+			return { "healthChange": -amount };
 		}
 	});
 
 	AddMock(61, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 100 * fallOff(5));
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+		"TakeDamage": (amount, __, ___) => {
+			TS_ASSERT_EQUALS(amount, 100 * fallOff(5));
+			return { "healthChange": -amount };
 		}
 	});
 
 	AddMock(62, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 100 * fallOff(1));
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+		"TakeDamage": (amount, __, ___) => {
+			TS_ASSERT_EQUALS(amount, 100 * fallOff(1));
+			return { "healthChange": -amount };
 		}
 	});
 
 	AddMock(63, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			TS_ASSERT(false);
 		}
 	});
 
-	let cmphealth = AddMock(64, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 0);
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+	let cmphealth64 = AddMock(64, IID_Health, {
+		"TakeDamage": (amount, __, ___) => {
+			TS_ASSERT_EQUALS(amount, 0);
+			return { "healthChange": -amount };
 		}
 	});
-	let spy = new Spy(cmphealth, "TakeDamage");
+	let spy64 = new Spy(cmphealth64, "TakeDamage");
+
+	let cmpHealth65 = AddMock(65, IID_Health, {
+		"TakeDamage": (amount, __, ___) => {
+			TS_ASSERT_EQUALS(amount, 100 * fallOff(2));
+			return { "healthChange": -amount };
+		}
+	});
+	let spy65 = new Spy(cmpHealth65, "TakeDamage");
 
 	Attacking.CauseDamageOverArea({
 		"type": "Ranged",
@@ -356,7 +383,8 @@ function TestCircularSplashDamage()
 		"friendlyFire": false,
 	});
 
-	TS_ASSERT_EQUALS(spy._called, 1);
+	TS_ASSERT_EQUALS(spy64._called, 1);
+	TS_ASSERT_EQUALS(spy65._called, 1);
 }
 
 TestCircularSplashDamage();
@@ -409,10 +437,10 @@ function Test_MissileHit()
 	});
 
 	AddMock(60, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(60);
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 100);
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+			TS_ASSERT_EQUALS(amount, 100);
+			return { "healthChange": -amount };
 		}
 	});
 
@@ -438,43 +466,61 @@ function Test_MissileHit()
 	TS_ASSERT(hitEnts.has(60));
 	hitEnts.clear();
 
-	// The main target is not hit but another one is hit.
-
-	AddMock(60, IID_Position, {
-		"GetPosition": () => new Vector3D(900, 10, 0),
-		"GetPreviousPosition": () => new Vector3D(900, 10, 0),
-		"GetPosition2D": () => new Vector2D(900, 0),
-		"IsInWorld": () => true,
+	// Target is a mirage: hit the parent.
+	AddMock(60, IID_Mirage, {
+		"GetParent": () => 61
 	});
 
-	AddMock(60, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
-			TS_ASSERT_EQUALS(false);
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
-		}
-	});
-
-	AddMock(SYSTEM_ENTITY, IID_RangeManager, {
-		"ExecuteQueryAroundPos": () => [61]
+	AddMock(SYSTEM_ENTITY, IID_ObstructionManager, {
+		"DistanceToPoint": (ent) => 0
 	});
 
 	AddMock(61, IID_Position, {
 		"GetPosition": () => targetPos,
 		"GetPreviousPosition": () => targetPos,
 		"GetPosition2D": () => Vector2D.from3D(targetPos),
-		"IsInWorld": () => true,
+		"IsInWorld": () => true
 	});
 
 	AddMock(61, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(61);
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 100);
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+			TS_ASSERT_EQUALS(amount, 100);
+			return { "healthChange": -amount };
 		}
 	});
 
 	AddMock(61, IID_Footprint, {
-		"GetShape": () => ({ "type": "circle", "radius": 20 }),
+		"GetShape": () => ({ "type": "circle", "radius": 20 })
+	});
+
+	cmpDelayedDamage.MissileHit(data, 0);
+	TS_ASSERT(hitEnts.has(61));
+	hitEnts.clear();
+
+	// Make sure we don't corrupt other tests.
+	DeleteMock(60, IID_Mirage);
+	cmpDelayedDamage.MissileHit(data, 0);
+	TS_ASSERT(hitEnts.has(60));
+	hitEnts.clear();
+
+	// The main target is not hit but another one is hit.
+	AddMock(60, IID_Position, {
+		"GetPosition": () => new Vector3D(900, 10, 0),
+		"GetPreviousPosition": () => new Vector3D(900, 10, 0),
+		"GetPosition2D": () => new Vector2D(900, 0),
+		"IsInWorld": () => true
+	});
+
+	AddMock(60, IID_Health, {
+		"TakeDamage": (amount, __, ___) => {
+			TS_ASSERT_EQUALS(false);
+			return { "healthChange": -amount };
+		}
+	});
+
+	AddMock(SYSTEM_ENTITY, IID_RangeManager, {
+		"ExecuteQueryAroundPos": () => [61]
 	});
 
 	cmpDelayedDamage.MissileHit(data, 0);
@@ -492,12 +538,19 @@ function Test_MissileHit()
 		"ExecuteQueryAroundPos": () => [61, 62]
 	});
 
+	AddMock(SYSTEM_ENTITY, IID_ObstructionManager, {
+		"DistanceToPoint": (ent) => ({
+			"61": 0,
+			"62": 5
+		}[ent])
+	});
+
 	let dealtDamage = 0;
 	AddMock(61, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(61);
-			dealtDamage += mult * (effectData.Hack + effectData.Pierce + effectData.Crush);
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+			dealtDamage += amount;
+			return { "healthChange": -amount };
 		}
 	});
 
@@ -509,10 +562,10 @@ function Test_MissileHit()
 	});
 
 	AddMock(62, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(62);
-			TS_ASSERT_EQUALS(mult * (effectData.Hack + effectData.Pierce + effectData.Crush), 200 * 0.75);
-			return { "killed": false, "change": -mult * (effectData.Hack + effectData.Pierce + effectData.Crush) };
+			TS_ASSERT_EQUALS(amount, 200 * 0.75);
+			return { "healthChange": -amount };
 		}
 	});
 
@@ -534,11 +587,16 @@ function Test_MissileHit()
 		"ExecuteQueryAroundPos": () => [61]
 	});
 
+	AddMock(SYSTEM_ENTITY, IID_ObstructionManager, {
+		"DistanceToPoint": (ent) => 0
+	});
+
 	let bonus= { "BonusCav": { "Classes": "Cavalry", "Multiplier": 400 } };
 	let splashBonus = { "BonusCav": { "Classes": "Cavalry", "Multiplier": 10000 } };
 
 	AddMock(61, IID_Identity, {
-		"GetClassesList": () => ["Cavalry"]
+		"GetClassesList": () => ["Cavalry"],
+		"GetCiv": () => "civ"
 	});
 
 	data.attackData.Bonuses = bonus;
@@ -587,12 +645,19 @@ function Test_MissileHit()
 		"ExecuteQueryAroundPos": () => [61, 62]
 	});
 
+	AddMock(SYSTEM_ENTITY, IID_ObstructionManager, {
+		"DistanceToPoint": (ent) => ({
+			"61": 0,
+			"62": 5
+		}[ent])
+	});
+
 	dealtDamage = 0;
 	AddMock(61, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(61);
-			dealtDamage += mult * (effectData.Pierce + effectData.Crush);
-			return { "killed": false, "change": -mult * (effectData.Pierce + effectData.Crush) };
+			dealtDamage += amount;
+			return { "healthChange": -amount };
 		}
 	});
 
@@ -604,10 +669,10 @@ function Test_MissileHit()
 	});
 
 	AddMock(62, IID_Health, {
-		"TakeDamage": (effectData, __, ___, mult) => {
+		"TakeDamage": (amount, __, ___) => {
 			hitEnts.add(62);
-			TS_ASSERT_EQUALS(mult * (effectData.Pierce + effectData.Crush), 200 * 0.75);
-			return { "killed": false, "change": -mult * (effectData.Pierce + effectData.Crush) };
+			TS_ASSERT_EQUALS(amount, 200 * 0.75);
+			return { "healtChange": -amount };
 		}
 	});
 

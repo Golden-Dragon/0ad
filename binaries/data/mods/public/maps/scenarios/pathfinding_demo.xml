@@ -396,13 +396,13 @@
 			<Orientation y="17.3516"/>
 		</Entity>
 		<Entity uid="70">
-			<Template>units/brit_infantry_javelinist_e</Template>
+			<Template>units/brit_infantry_javelineer_e</Template>
 			<Player>2</Player>
 			<Position x="356.75" z="215.902"/>
 			<Orientation y="3.73827"/>
 		</Entity>
 		<Entity uid="71">
-			<Template>units/brit_infantry_javelinist_e</Template>
+			<Template>units/brit_infantry_javelineer_e</Template>
 			<Player>1</Player>
 			<Position x="323.984" z="232.781"/>
 			<Orientation y="2.23438"/>
@@ -420,7 +420,7 @@
 			<Orientation y="3.16405"/>
 		</Entity>
 		<Entity uid="82">
-			<Template>structures/brit_kennel</Template>
+			<Template>other/celt_longhouse</Template>
 			<Player>2</Player>
 			<Position x="402.766" z="251.594"/>
 			<Orientation y="2.67188"/>
@@ -522,7 +522,7 @@
 			<Orientation y="2.67188"/>
 		</Entity>
 		<Entity uid="100">
-			<Template>structures/brit_kennel</Template>
+			<Template>other/celt_longhouse</Template>
 			<Player>2</Player>
 			<Position x="463.375" z="256.234"/>
 			<Orientation y="2.67188"/>
@@ -624,25 +624,25 @@
 			<Orientation y="2.35547"/>
 		</Entity>
 		<Entity uid="125">
-			<Template>gaia/geology_metal_mediterranean</Template>
+			<Template>gaia/ore/mediterranean_small</Template>
 			<Player>1</Player>
 			<Position x="427.352" z="301.84"/>
 			<Orientation y="2.35547"/>
 		</Entity>
 		<Entity uid="126">
-			<Template>gaia/geology_stone_mediterranean</Template>
+			<Template>gaia/rock/mediterranean_small</Template>
 			<Player>1</Player>
 			<Position x="450.855" z="303.613"/>
 			<Orientation y="2.35547"/>
 		</Entity>
 		<Entity uid="127">
-			<Template>gaia/flora_tree_oak_large</Template>
+			<Template>gaia/tree/oak_large</Template>
 			<Player>1</Player>
 			<Position x="404.113" z="300.098"/>
 			<Orientation y="2.35547"/>
 		</Entity>
 		<Entity uid="129">
-			<Template>gaia/flora_bush_berry</Template>
+			<Template>gaia/fruit/berry_01</Template>
 			<Player>1</Player>
 			<Position x="471.12751" z="300.61597"/>
 			<Orientation y="2.35621"/>

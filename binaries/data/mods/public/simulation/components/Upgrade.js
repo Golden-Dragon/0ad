@@ -115,7 +115,8 @@ Upgrade.prototype.ChangeUpgradedEntityCount = function(amount)
 		return;
 
 	let cmpEntityLimits = QueryPlayerIDInterface(this.owner, IID_EntityLimits);
-	cmpEntityLimits.ChangeCount(categoryTo, amount);
+	if (cmpEntityLimits)
+		cmpEntityLimits.ChangeCount(categoryTo, amount);
 };
 
 Upgrade.prototype.CanUpgradeTo = function(template)
@@ -230,7 +231,7 @@ Upgrade.prototype.Upgrade = function(template)
 	let cmpPlayer = QueryOwnerInterface(this.entity, IID_Player);
 
 	this.expendedResources = this.GetResourceCosts(template);
-	if (!cmpPlayer.TrySubtractResources(this.expendedResources))
+	if (!cmpPlayer || !cmpPlayer.TrySubtractResources(this.expendedResources))
 	{
 		this.expendedResources = {};
 		return false;

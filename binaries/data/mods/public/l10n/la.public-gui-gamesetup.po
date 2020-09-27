@@ -5,13 +5,15 @@
 # Translators:
 # Ankomias, 2014
 # chaoky <charleszhang99@yahoo.com>, 2014
+# Ernestus Severus, 2020
+# Nescio, 2020
 # Nescio, 2020
 # nylki, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-06-01 07:09+0000\n"
-"PO-Revision-Date: 2020-06-11 00:33+0000\n"
+"POT-Creation-Date: 2020-07-24 07:08+0000\n"
+"PO-Revision-Date: 2020-09-07 08:47+0000\n"
 "Last-Translator: Ernestus Severus\n"
 "Language-Team: Latin (http://www.transifex.com/wildfire-games/0ad/language/la/)\n"
 "MIME-Version: 1.0\n"
@@ -26,47 +28,47 @@ msgstr "Pristinus"
 
 #: gui/gamesetup/Controls/MapFilters.js:86
 msgid "All maps except naval and demo maps."
-msgstr ""
+msgstr "Omnes tabulae praeter tabulas navales et demonstrationes."
 
 #: gui/gamesetup/Controls/MapFilters.js:91
 msgid "Naval Maps"
-msgstr ""
+msgstr "Tabulae Navales"
 
 #: gui/gamesetup/Controls/MapFilters.js:92
 msgid "Maps where ships are needed to reach the enemy."
-msgstr ""
+msgstr "Tabulae in qua necesse est naves construere ut hostes oppugnes."
 
 #: gui/gamesetup/Controls/MapFilters.js:97
 msgid "Demo Maps"
-msgstr ""
+msgstr "Tabulae Demonstrationes"
 
 #: gui/gamesetup/Controls/MapFilters.js:98
 msgid "These maps are not playable but for demonstration purposes only."
-msgstr ""
+msgstr "In his tabulis ludere non potes, quae demontrationis causa creatae sunt."
 
 #: gui/gamesetup/Controls/MapFilters.js:103
 msgid "New Maps"
-msgstr ""
+msgstr "Tabulae Novae"
 
 #: gui/gamesetup/Controls/MapFilters.js:104
 msgid "Maps that are brand new in this release of the game."
-msgstr ""
+msgstr "Tabulae novae in hac ludi editione."
 
 #: gui/gamesetup/Controls/MapFilters.js:109
 msgid "Trigger Maps"
-msgstr ""
+msgstr "Tabulae Praefinitae"
 
 #: gui/gamesetup/Controls/MapFilters.js:110
 msgid "Maps that come with scripted events and potentially spawn enemy units."
-msgstr ""
+msgstr "Tabulae cum eventis praefinitis, et forte hostibus impositis."
 
 #: gui/gamesetup/Controls/MapFilters.js:115
 msgid "All Maps"
-msgstr ""
+msgstr "Omnes Tabulae"
 
 #: gui/gamesetup/Controls/MapFilters.js:116
 msgid "Every map of the chosen maptype."
-msgstr ""
+msgstr "Omnes tabulae cuiusdam generis."
 
 #: gui/gamesetup/Pages/AIConfigPage/AIDescription.js:37
 msgid "AI will be disabled for this player."
@@ -112,17 +114,17 @@ msgstr "Ignotum"
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/GameSettingsLayout.js:7
 msgctxt "Match settings tab name"
 msgid "Map"
-msgstr ""
+msgstr "Tabula"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/GameSettingsLayout.js:26
 msgctxt "Match settings tab name"
 msgid "Player"
 msgstr "Lusor"
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/GameSettingsLayout.js:36
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/GameSettingsLayout.js:38
 msgctxt "Match settings tab name"
 msgid "Game Type"
-msgstr ""
+msgstr "Genus Ludi"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/AIConfigButton.js:32
 #, javascript-format
@@ -136,7 +138,7 @@ msgstr "%(playerName)s %(romanNumber)s"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/Dropdowns/PlayerAssignment.js:153
 msgid "Select player."
-msgstr "Lusorem selige."
+msgstr "Lusorem seligere."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/Dropdowns/PlayerAssignment.js:230
 #, javascript-format
@@ -145,11 +147,11 @@ msgstr "AI: %(ai)s"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/Dropdowns/PlayerAssignment.js:265
 msgid "Unassigned"
-msgstr ""
+msgstr "Vacuus"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/Dropdowns/PlayerCiv.js:131
 msgid "Choose the civilization for this player."
-msgstr ""
+msgstr "Civitatem huic lusori eligere."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/Dropdowns/PlayerCiv.js:134
 msgctxt "civilization"
@@ -158,15 +160,15 @@ msgstr "Fortuitus"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/Dropdowns/PlayerCiv.js:140
 msgid "Picks one civilization at random when the game starts."
-msgstr ""
+msgstr "Coepto ludo eligetur aliqua civitas fortuita."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/Dropdowns/PlayerColor.js:172
 msgid "Pick a color."
-msgstr ""
+msgstr "Colorem eligere."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/Dropdowns/PlayerTeam.js:73
 msgid "Select player's team."
-msgstr "Lusoris manum selige."
+msgstr "Lusoris manum eligere."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/Dropdowns/PlayerTeam.js:76
 msgctxt "team"
@@ -179,7 +181,7 @@ msgstr "Fraudes"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/Cheats.js:43
 msgid "Toggle the usability of cheats."
-msgstr ""
+msgstr "Fraudes permittere."
 
 #. Translation: Make sure to differentiate between the revealed map and
 #. explored map settings!
@@ -191,51 +193,51 @@ msgstr "Tabula Explorata"
 #. explored map settings!
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/ExploredMap.js:58
 msgid "Toggle explored map (see initial map)."
-msgstr ""
+msgstr "Tabulam exploratam instituere (lusores tabulam pristinam videre possunt)."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/LastManStanding.js:58
 msgid "Last Man Standing"
-msgstr ""
+msgstr "Ad Virum Ultimum"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/LastManStanding.js:61
 msgid ""
 "Toggle whether the last remaining player or the last remaining set of allies"
 " wins."
-msgstr ""
+msgstr "Ultimus lusor aut ultima manus sociorum vincunt."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/LockedTeams.js:52
 msgid "Teams Locked"
-msgstr ""
+msgstr "Manus Fixae"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/LockedTeams.js:55
 msgid "Toggle locked teams."
-msgstr ""
+msgstr "Manus fixas instituere."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/Nomad.js:60
 msgid "Nomad"
-msgstr ""
+msgstr "Nomas"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/Nomad.js:63
 msgid ""
 "In Nomad mode, players start with only few units and have to find a suitable"
 " place to build their city. Ceasefire is recommended."
-msgstr ""
+msgstr "In modo Nomade, incipiunt lusores modo cum paucis civibus et necesse est locum idoneum petere ut urbem condant. Indutiae commendatae sunt."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/Rating.js:51
 msgid "Rated Game"
-msgstr ""
+msgstr "Ludum Notatum"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/Rating.js:54
 msgid "Toggle if this game will be rated for the leaderboard."
-msgstr ""
+msgstr "Ludus notabitur qui puncta lusorum afficiat."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/RegicideGarrison.js:61
 msgid "Hero Garrison"
-msgstr ""
+msgstr "Praesidium Herois"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/RegicideGarrison.js:64
 msgid "Toggle whether heroes can be garrisoned."
-msgstr ""
+msgstr "Heroes in praesidium collocari possunt."
 
 #. Translation: Make sure to differentiate between the revealed map and
 #. explored map settings!
@@ -247,31 +249,41 @@ msgstr "Tabula Aperta"
 #. explored map settings!
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/RevealedMap.js:53
 msgid "Toggle revealed map (see everything)."
-msgstr ""
+msgstr "Tabulam apertam instituere (lusores omnes in hac tabula ad tempus videre possunt)."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/Spies.js:42
 msgid "Disable Spies"
-msgstr ""
+msgstr "Inquisitionem Vetare"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/Spies.js:45
 msgid "Disable spies during the game."
-msgstr ""
+msgstr "Inquisitionem in hoc ludo vetare."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/Treasures.js:42
 msgid "Disable Treasures"
-msgstr ""
+msgstr "Thesauros Vetare"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/Treasures.js:45
 msgid "Do not add treasures to the map."
-msgstr ""
+msgstr "Thesauri in hanc tabulam non addentur."
+
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/WorldPopulation.js:46
+msgid "World population"
+msgstr "Numerus populi universus"
+
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Checkboxes/WorldPopulation.js:49
+msgid ""
+"When checked the Population Cap will be evenly distributed over all living "
+"players."
+msgstr "Terminus Numeri Civium omnibus vivis lusoribus aequaliter dividetur."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Biome.js:135
 msgid "Biome"
-msgstr ""
+msgstr "Bioma"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Biome.js:141
 msgid "Select the flora and fauna."
-msgstr ""
+msgstr "Herbas et Animalia elige."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Biome.js:144
 msgctxt "biome"
@@ -280,15 +292,15 @@ msgstr "Fortuitus"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Biome.js:147
 msgid "Pick a biome at random."
-msgstr ""
+msgstr "Bioma fortuite eligetur."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Daytime.js:101
 msgid "Daytime"
-msgstr ""
+msgstr "Tempus Diurnum"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Daytime.js:104
 msgid "Select whether the match takes place at daylight or night."
-msgstr ""
+msgstr "Elige utrum ludus interdiu an noctu fiat."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Daytime.js:107
 msgctxt "daytime selection"
@@ -298,7 +310,7 @@ msgstr "Fortuitus"
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Daytime.js:110
 msgctxt "daytime selection"
 msgid "Randomly pick a time of the day."
-msgstr ""
+msgstr "Tempus Diurnum fortuite eligetur."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/GameSpeed.js:73
 msgid "Game Speed"
@@ -310,57 +322,57 @@ msgstr "Ludi Celeritatem selige."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Landscape.js:142
 msgid "Landscape"
-msgstr ""
+msgstr "Regionis Situs"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Landscape.js:145
 msgid "Select one of the landscapes of this map."
-msgstr ""
+msgstr "Elige unum regionis situum huius tabulae."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Landscape.js:151
 msgctxt "landscape selection"
 msgid "Random Land or Naval"
-msgstr ""
+msgstr "Terra Fortuita aut Navalis"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Landscape.js:152
 msgctxt "landscape selection"
 msgid "Select a random land or naval map generation."
-msgstr ""
+msgstr "Elige terram fortuitam aut navalem."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Landscape.js:156
 msgctxt "landscape selection"
 msgid "Random Land"
-msgstr ""
+msgstr "Terra Fortuita"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Landscape.js:157
 msgctxt "landscape selection"
 msgid "Select a random land map generation."
-msgstr ""
+msgstr "Elige terram fortuitam."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Landscape.js:161
 msgctxt "landscape selection"
 msgid "Random Naval"
-msgstr ""
+msgstr "Tabula Fortuita Navalis"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/Landscape.js:162
 msgctxt "landscape selection"
 msgid "Select a random naval map generation."
-msgstr ""
+msgstr "Elige tabulam fortuitam navalem."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapFilter.js:89
 msgid "Map Filter"
-msgstr ""
+msgstr "Colum Tabularum"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapFilter.js:92
 msgid "Select a map filter."
-msgstr "Mappae filtrum selige."
+msgstr "Elige colum tabularum."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapSelection.js:143
 msgid "Select Map"
-msgstr ""
+msgstr "Elige tabulam"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapSelection.js:146
 msgid "Select a map to play on."
-msgstr "Mappam ludere selige. "
+msgstr "Elige tabulam in qua ludas."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapSelection.js:152
 msgctxt "map selection"
@@ -369,46 +381,46 @@ msgstr "Fortuitus"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapSelection.js:155
 msgid "Pick any of the given maps at random."
-msgstr ""
+msgstr "Elige quamlibet fortuitam datarum tabularum."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapSize.js:74
 msgid "Map Size"
-msgstr ""
+msgstr "Magnitudo Tabulae"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapSize.js:77
 msgid "Select map size. (Larger sizes may reduce performance.)"
-msgstr "Mappae magnitudo selige. (Maiores magnitudines celeritatem deducat.)"
+msgstr "Elige magnitudinem tabulae. (Maiores magnitudines celeritatem deducat.)"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapType.js:61
 msgid "Map Type"
-msgstr ""
+msgstr "Genus Tabulae"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/MapType.js:64
 msgid "Select a map type."
-msgstr "Mappae typum selige."
+msgstr "Elige genus tabulae."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PlayerCount.js:49
 msgid "Number of Players"
-msgstr ""
+msgstr "Numerus Lusorum"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PlayerCount.js:52
 msgid "Select number of players."
 msgstr "Lusorum numerum selige."
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:82
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:91
 msgid "Population Cap"
-msgstr ""
+msgstr "Terminus Numeri Populi"
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:85
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:94
 msgid "Select population limit."
-msgstr ""
+msgstr "Elige terminum numeri populi."
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:88
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:97
 msgctxt "population limit"
 msgid "Per Player"
 msgstr "Pro Lusore"
 
-#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:91
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/PopulationCap.js:100
 #, javascript-format
 msgid ""
 "Warning: There might be performance issues if all %(players)s players reach "
@@ -417,16 +429,16 @@ msgstr ""
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/StartingResources.js:81
 msgid "Starting Resources"
-msgstr ""
+msgstr "Opes Pristinae"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/StartingResources.js:84
 msgid "Select the game's starting resources."
-msgstr ""
+msgstr "Elige opes pristinas huius ludi."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/StartingResources.js:87
 #, javascript-format
 msgid "Initial amount of each resource: %(resources)s."
-msgstr ""
+msgstr "Copia pristina quarumque opum: %(resources)s."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/StartingResources.js:90
 msgctxt "starting resources"
@@ -435,11 +447,11 @@ msgstr "Pro Lusore"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:91
 msgid "Team Placement"
-msgstr ""
+msgstr "Situs Manus"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:94
 msgid "Select one of the starting position patterns of this map."
-msgstr ""
+msgstr "Elige unum situm pristinum huius tabulae."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:98
 msgctxt "team placement"
@@ -449,100 +461,115 @@ msgstr "Fortuitus"
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:99
 msgctxt "team placement"
 msgid "Select a random team placement pattern when starting the game."
-msgstr ""
+msgstr "Elige situm manus pristinum fortuitum huius tabulae."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:105
 msgctxt "team placement"
 msgid "Circle"
-msgstr ""
+msgstr "Circulus"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:106
 msgid ""
 "Allied players are grouped and placed with opposing players on one circle "
 "spanning the map."
-msgstr ""
+msgstr "Lusores sociati collecti sunt et in uno circulo contra hostes positi."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:110
 msgctxt "team placement"
 msgid "Line"
-msgstr ""
+msgstr "Linea"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:111
 msgid "Allied players are placed in a linear pattern."
-msgstr ""
+msgstr "Lusores sociati in linea positi sunt."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:115
 msgctxt "team placement"
 msgid "Random Group"
-msgstr ""
+msgstr "Grex Fortuitus"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:116
 msgid "Allied players are grouped, but otherwise placed randomly on the map."
-msgstr ""
+msgstr "Lusores sociati collecti sunt, et fortuite in tabula positi."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:120
 msgctxt "team placement"
 msgid "Stronghold"
-msgstr ""
+msgstr "Arx"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TeamPlacement.js:121
 msgid "Allied players are grouped in one random place of the map."
-msgstr ""
+msgstr "Lusores sociati in uno loco collecti sunt."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TriggerDifficulty.js:81
 msgid "Difficulty"
-msgstr ""
+msgstr "Difficultas"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/TriggerDifficulty.js:84
 msgid "Select the difficulty of this scenario."
+msgstr "Eligere difficultatem huius scaenae."
+
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/WorldPopulationCap.js:76
+msgid "World Population Cap"
+msgstr "Terminus Numeri Populi Universi"
+
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/WorldPopulationCap.js:79
+msgid "Select world population limit."
+msgstr "Elige terminum numeri populi universi."
+
+#: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Dropdowns/WorldPopulationCap.js:82
+#, javascript-format
+msgid ""
+"Warning: There might be performance issues if %(popCap)s population is "
+"reached."
 msgstr ""
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/Ceasefire.js:61
 msgid "Ceasefire"
-msgstr ""
+msgstr "Indutiae"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/Ceasefire.js:64
 msgid "Set time where no attacks are possible."
-msgstr ""
+msgstr "Elige intervallum temporis quo aggredi non possunt."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/Ceasefire.js:67
 msgctxt "ceasefire"
 msgid "No ceasefire"
-msgstr ""
+msgstr "Sine indutiis"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/Ceasefire.js:70
 #, javascript-format
 msgctxt "ceasefire"
 msgid "%(minutes)s minute"
 msgid_plural "%(minutes)s minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(minutes)s minuta"
+msgstr[1] "%(minutes)s minutae"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/RelicCount.js:86
 msgid "Relic Count"
-msgstr ""
+msgstr "Numerus Reliquiarum"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/RelicCount.js:89
 #, javascript-format
 msgid "%(number)s relic"
 msgid_plural "%(number)s relics"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(number)s reliquiae"
+msgstr[1] "%(number)s reliquiae"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/RelicCount.js:92
 msgid ""
 "Total number of relics spawned on the map. Relic victory is most realistic "
 "with only one or two relics. With greater numbers, the relics are important "
 "to capture to receive aura bonuses."
-msgstr ""
+msgstr "Numerus reliquiarum huius tabulae. Victoria autem reliquiarum tractabile est cum modo una vel duae reliquiarum praesint. Maiore numero reliquiarum opus est eas capere ut bona aurae accipias."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/RelicDuration.js:86
 msgid "Relic Duration"
-msgstr ""
+msgstr "Diuturnitas Reliquiarum"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/RelicDuration.js:89
 msgid "Minutes until the player has achieved Relic Victory."
-msgstr ""
+msgstr "Minutas donec lusor Victoriam Reliquiarum adipiscetur."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/RelicDuration.js:95
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/WonderDuration.js:96
@@ -550,121 +577,121 @@ msgstr ""
 msgctxt "victory duration"
 msgid "%(min)s minute"
 msgid_plural "%(min)s minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(min)s minuta"
+msgstr[1] "%(min)s minutae"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/RelicDuration.js:98
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/WonderDuration.js:99
 msgctxt "victory duration"
 msgid "Immediate Victory."
-msgstr ""
+msgstr "Victoria Instans."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/SeaLevelRiseTime.js:73
 msgid "Sea Level Rise Time"
-msgstr ""
+msgstr "Tempus Maris Ortus"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/SeaLevelRiseTime.js:76
 msgid "Set the time when the water will start to rise."
-msgstr ""
+msgstr "Constitue tempus ubi aqua oriri incipiet."
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/SeaLevelRiseTime.js:79
 #, javascript-format
 msgctxt "sea level rise time"
 msgid "%(minutes)s minute"
 msgid_plural "%(minutes)s minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(minutes)s minuta"
+msgstr[1] "%(minutes)s minutae"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/WonderDuration.js:87
 msgid "Wonder Duration"
-msgstr ""
+msgstr "Diuturnitas Miraculi"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/Single/Sliders/WonderDuration.js:90
 msgid "Minutes until the player has achieved Wonder Victory"
-msgstr ""
+msgstr "Minutas donec lusor Victoriam Miraculi adipiscetur."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingWarning.js:38
 msgid "Cheats enabled."
-msgstr ""
+msgstr "Fraudes permissae."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingWarning.js:41
 msgid "Rated game."
-msgstr ""
+msgstr "Ludus Notatus."
 
-#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:76
+#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:77
 #, javascript-format
 msgid "Click to toggle the %(name)s settings tab."
 msgstr ""
 
-#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:79
+#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:80
 #, javascript-format
 msgid "Press %(hotkey)s to move to the next settings tab."
 msgstr ""
 
-#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:82
+#: gui/gamesetup/Pages/GameSetupPage/Panels/GameSettingsTabs.js:83
 #, javascript-format
 msgid "Press %(hotkey)s to move to the previous settings tab."
 msgstr ""
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/CancelButton.js:36
 msgid "Back"
-msgstr ""
+msgstr "Retro"
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/CancelButton.js:39
 msgid "Return to the lobby."
-msgstr ""
+msgstr "Ad vestibulum redire."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/CancelButton.js:42
 msgid "Return to the main menu."
-msgstr ""
+msgstr "Ad paginam primam redire."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/CivInfoButton.js:48
 #, javascript-format
 msgid ""
 "%(hotkey_civinfo)s / %(hotkey_structree)s: View Civilization Overview / Structure Tree\n"
 "Last opened will be reopened on click."
-msgstr ""
+msgstr "%(hotkey_civinfo)s / %(hotkey_structree)s: Prospectum / Arborem Aedificiorum Civitatis videre\nSi premetur, aperetur id quod antea apertum est."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/LobbyButton.js:19
 msgid "Show the multiplayer lobby in a dialog window."
-msgstr ""
+msgstr "Vestibulum plurium lusorum in fenestra aperire."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/ReadyButton.js:79
 msgid "I'm ready"
-msgstr ""
+msgstr "Paratus Sum"
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/ReadyButton.js:80
 msgid "Stay ready"
-msgstr ""
+msgstr "Paratus Manere"
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/ReadyButton.js:81
 msgid "I'm not ready!"
-msgstr ""
+msgstr "Paratus non sum!"
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/ReadyButton.js:85
 msgid "State that you are ready to play."
-msgstr ""
+msgstr "Te ad ludum paratum esse dicere."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/ReadyButton.js:86
 msgid "Stay ready even when the game settings change."
-msgstr ""
+msgstr "Paratus manere etsi optiones ludi mutantur."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/ReadyButton.js:87
 msgid "State that you are not ready to play."
-msgstr ""
+msgstr "Te ad ludum paratum esse negare."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/ResetCivsButton.js:33
 msgid ""
 "Reset any civilizations that have been selected to the default (random)."
-msgstr ""
+msgstr "Illae civitates quae electae erant in modos pristinos (fortuitus)  restituere."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/ResetTeamsButton.js:35
 msgid "Reset all teams to the default."
-msgstr ""
+msgstr "Omnes manus in modos pristinos restituere."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/StartGameButton.js:65
 msgid "Start Game!"
-msgstr ""
+msgstr "Ludum Incipere!"
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Buttons/StartGameButton.js:68
 msgid "Start a new game with the current settings."
@@ -674,7 +701,7 @@ msgstr "Incipere novum ludum cum condicionibus praesentibus."
 msgid ""
 "Start a new game with the current settings (disabled until all players are "
 "ready)."
-msgstr ""
+msgstr "Incipere novum ludum cum condicionibus praesentibus (non licet nisi omnes lusores parati sunt)."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Chat/ChatInputPanel.js:55
 #, javascript-format
@@ -717,7 +744,7 @@ msgstr "%(username)s %(message)s"
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Chat/ChatMessages/ClientConnection.js:27
 #, javascript-format
 msgid "%(username)s has joined"
-msgstr ""
+msgstr "%(username)s intravit"
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Chat/ChatMessages/ClientConnection.js:30
 #, javascript-format
@@ -737,21 +764,21 @@ msgstr "%(username)s exclusus est"
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Chat/ChatMessages/ClientReady.js:28
 #, javascript-format
 msgid "* %(username)s is not ready."
-msgstr ""
+msgstr "* %(username)s paratus non est."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Chat/ChatMessages/ClientReady.js:29
 #, javascript-format
 msgid "* %(username)s is ready!"
-msgstr ""
+msgstr "* %(username)s paratus est!"
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Chat/ChatMessages/GameSettingsChanged.js:22
 msgid "Game settings have been changed"
-msgstr ""
+msgstr "Condiciones ludi mutatae sunt"
 
 #: gui/gamesetup_mp/gamesetup_mp.js:55
 #, javascript-format
 msgid "%(name)s's game"
-msgstr ""
+msgstr "Ludus %(name)s"
 
 #: gui/gamesetup_mp/gamesetup_mp.js:114
 msgid "Please enter a valid server name."
@@ -790,7 +817,7 @@ msgstr ""
 #: gui/gamesetup_mp/gamesetup_mp.js:324
 #, javascript-format
 msgid "Cannot host game: %(message)s."
-msgstr ""
+msgstr "Ludum creare non potes: %(message)s."
 
 #: gui/gamesetup_mp/gamesetup_mp.js:325 gui/gamesetup_mp/gamesetup_mp.js:354
 msgid "Error"
@@ -799,12 +826,12 @@ msgstr "Error"
 #: gui/gamesetup_mp/gamesetup_mp.js:353
 #, javascript-format
 msgid "Cannot join game: %(message)s."
-msgstr ""
+msgstr "Ludum intrare non potes: %(message)s."
 
 #: gui/gamesetup_mp/gamesetup_mp.js:375
 #, javascript-format
 msgid "%(playername)s's game"
-msgstr ""
+msgstr "Ludus %(playername)s"
 
 #: gui/loading/ProgressBar.js:48
 #, javascript-format
@@ -822,12 +849,12 @@ msgstr "• %(tiptext)s"
 #: gui/loading/TitleDisplay.js:15
 #, javascript-format
 msgid "Generating “%(map)s”"
-msgstr ""
+msgstr "Creans “%(map)s”"
 
 #: gui/loading/TitleDisplay.js:17
 #, javascript-format
 msgid "Loading “%(map)s”"
-msgstr ""
+msgstr "Legens “%(map)s”"
 
 #: gui/gamesetup/gamesetup.xml:(caption):12
 msgid "Match Setup"
@@ -839,7 +866,7 @@ msgstr ""
 
 #: gui/gamesetup/Pages/AIConfigPage/AIConfigPage.xml:(caption):29
 msgid "OK"
-msgstr "OK"
+msgstr "Accepto"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/PlayersPanel.xml:(caption):6
 msgid "Player Name"
@@ -847,7 +874,7 @@ msgstr "Lusoris Nomen:"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/PlayersPanel.xml:(caption):10
 msgid "Color"
-msgstr ""
+msgstr "Color"
 
 #: gui/gamesetup/Pages/GameSetupPage/GameSettings/PerPlayer/PlayersPanel.xml:(caption):14
 msgid "Player Placement"
@@ -863,32 +890,32 @@ msgstr "Manus"
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/TipsPanel.xml:(caption):9
 msgid "Show this message in the future."
-msgstr ""
+msgstr "Hanc nuntium in posterum ostendere."
 
 #: gui/gamesetup/Pages/GameSetupPage/Panels/Chat/ChatPanel.xml:(caption):9
 msgid "Send"
-msgstr "mitte"
+msgstr "Mittere"
 
 #: gui/gamesetup/Pages/LoadingPage/LoadingPage.xml:(caption):7
 msgid "Loading"
-msgstr "Carricans"
+msgstr "Legens"
 
 #: gui/gamesetup/Pages/LoadingPage/LoadingPage.xml:(caption):11
 msgid "Loading map data. Please wait…"
-msgstr ""
+msgstr "Legens scriptum tabulae. Mane..."
 
 #: gui/gamesetup_mp/gamesetup_mp.xml:(caption):18
 msgid "Multiplayer"
-msgstr "Multilusor"
+msgstr "Lusores plures"
 
 #: gui/gamesetup_mp/gamesetup_mp.xml:(caption):24
 msgid "Joining an existing game."
-msgstr ""
+msgstr "Ludum intrans."
 
 #: gui/gamesetup_mp/gamesetup_mp.xml:(caption):28
 #: gui/gamesetup_mp/gamesetup_mp.xml:(caption):70
 msgid "Player Name:"
-msgstr ""
+msgstr "Nomen Lusoris:"
 
 #: gui/gamesetup_mp/gamesetup_mp.xml:(caption):38
 msgid "Server Hostname or IP:"
@@ -917,7 +944,7 @@ msgstr "Pergere"
 
 #: gui/gamesetup_mp/gamesetup_mp.xml:(caption):127
 msgid "Cancel"
-msgstr "Retrorsum"
+msgstr "Abrogare"
 
 #: gui/gamesetup_mp/gamesetup_mp.xml:(tooltip):52
 #: gui/gamesetup_mp/gamesetup_mp.xml:(tooltip):99
@@ -1204,7 +1231,7 @@ msgid ""
 "“Quintilius Varus, give me back my legions!” \\n— Augustus, after three "
 "legions were annihilated in the Battle of the Teutoburg Forest (Suetonius, "
 "“Divus Augustus”, sec. 23)"
-msgstr ""
+msgstr "“Quintili Vare, legiones redde!” \\n— Augustus, Clade Variana tribus legionibus perditis (Suetonius, “Divus Augustus”, sec. 23)"
 
 #: gui/text/quotes.txt:44
 msgid ""
@@ -1212,7 +1239,7 @@ msgid ""
 " an army with which I liberated the state, which was oppressed by the "
 "tyranny of a faction.” \\n— Augustus, in his autobiography (“Res Gestae Divi"
 " Augusti”, sec. 1)"
-msgstr ""
+msgstr "“Annos undeviginti natus exercitum privato consilio et privata impensa comparavi, per quem rem publicam a dominatione factionis oppressam in libertatem vindicavi.” \\n— Augustus, de vita sua scripsit (“Res Gestae Divi Augusti”, sec. 1)"
 
 #: gui/text/quotes.txt:45
 msgid ""
@@ -1221,7 +1248,7 @@ msgid ""
 "foreign nations which could with safety be pardoned I preferred to save "
 "rather than to destroy.” \\n— Augustus, in his autobiography (“Res Gestae "
 "Divi Augusti”, sec. 3)"
-msgstr ""
+msgstr "“Bella terra et mari civilia externaque toto in orbe terrarum saepe gessi, victorque omnibus veniam petentibus civibus peperci. Externas gentes, quibus tuto ignosci potuit, conservare quam excidere malui.” \\n— Augustus, de vita sua scripsit (“Res Gestae Divi Augusti”, sec. 3)"
 
 #: gui/text/quotes.txt:46
 msgid ""
@@ -1236,7 +1263,7 @@ msgid ""
 "“How stupid it was for the king to tear out his hair in grief, as if "
 "baldness were a cure for sorrow.” \\n— Bion of Borysthenes (Cicero, "
 "“Tusculan Disputations”, III. 26)"
-msgstr ""
+msgstr "“In quo facetum illud Bionis, perinde stultissimum regem in luctu capillum sibi evellere quasi calvitio maeror levaretur.” \\n— Bion Borysthenites (Cicero, “Tusculanae Disputationes”, III. 26)"
 
 #: gui/text/quotes.txt:48
 msgid ""
@@ -1261,7 +1288,7 @@ msgid ""
 "they make a wasteland and call it peace.” \\n— Calgacus, Caledonian "
 "chieftain in a speech before the Battle of Mons Graupius (Tacitus, "
 "“Agricola”, 30)"
-msgstr ""
+msgstr "“\\[Romani] Auferre trucidare rapere falsis nominibus imperium, atque ubi solitudinem faciunt, pacem appellant.” \\n— Calgacus, dux Caledonum, ante Proelium Montis Graupii (Tacitus, “Agricola”, 30)"
 
 #: gui/text/quotes.txt:51
 msgid "“Set a thief to catch a thief.” \\n— Callimachus (“Epigrams”, 44)"
@@ -1320,7 +1347,7 @@ msgid ""
 "It was impossible for the weak or cowardly to retreat; man to man they "
 "fought like in single combat.” \\n— Curtius Rufus about the Battle of Issus "
 "(“Histories of Alexander the Great”, III. 11.5)"
-msgstr ""
+msgstr "“Tum vero multum sanguinis fusum est: duae quippe acies ita cohaerebant, ut armis arma pulsarent, mucrones in ora dirigerent. Non timido, non ignavo cessare tum licuit; collato pede, quasi singuli inter se dimicarent, in eodem vestigio stabant, donec vincendo locum sibi facerent.” \\n— Curtius Rufus, de Bello Issico  (“Historiae Alexandri Magni”, III. 11.5)"
 
 #: gui/text/quotes.txt:60
 msgid ""
@@ -1428,7 +1455,7 @@ msgstr ""
 msgid ""
 "“The victor is not victorious if the vanquished does not consider himself "
 "so.” \\n— Ennius (“Annales”, fragment 31.493)"
-msgstr ""
+msgstr "“Qui vincit non est victor nisi victus fatetur.” \\n— Ennius (“Annales”, fragmentum 31.493)"
 
 #: gui/text/quotes.txt:75
 msgid ""
@@ -1478,7 +1505,7 @@ msgstr ""
 msgid ""
 "“Men willingly believe what they wish.” \\n— Caesar (“De Bello Gallico”, "
 "III. 18)"
-msgstr ""
+msgstr "“... et quod fere libenter homines id quod volunt credunt.” \\n— Caesar (“De Bello Gallico”, III. 18)"
 
 #: gui/text/quotes.txt:83
 msgid ""
@@ -1493,7 +1520,7 @@ msgid ""
 "back; and, when they were put to flight, the archers were surrounded and cut"
 " to pieces.” \\n— Caesar about the Battle of Alesia (“De Bello Gallico”, "
 "VII. 80)"
-msgstr ""
+msgstr "“Cum a meridie prope ad solis occasum dubia victoria pugnaretur, Germani una in parte confertis turmis in hostes impetum fecerunt eosque propulerunt; quibus in fugam coniectis sagittarii circumventi interfectique sunt.” \\n— Caesar, de Proelio ad Alesiam (“De Bello Gallico”, VII. 80)"
 
 #: gui/text/quotes.txt:85
 msgid ""
@@ -1503,7 +1530,7 @@ msgid ""
 "legion, Publius Sextius Baculus, a very valiant man, who was so exhausted by"
 " many and severe wounds, that he was already unable to support himself.” "
 "\\n— Caesar about the Battle of the Sabis (“De Bello Gallico”, II. 25)"
-msgstr ""
+msgstr "“... quartae cohortis omnibus centurionibus occisis signiferoque interfecto, signo amisso, reliquarum cohortium omnibus fere centurionibus aut vulneratis aut occisis, in his primipilo P. Sextio Baculo, fortissimo viro, multis gravibusque vulneribus confecto, ut iam se sustinere non posset...” \\n— Caesar, de Proelio ad Flumen Sabim (“De Bello Gallico”, II. 25)"
 
 #: gui/text/quotes.txt:86
 msgid ""
@@ -1513,7 +1540,7 @@ msgid ""
 "while the survivors used the heap as a vantage point for throwing missiles "
 "at our men, or catching our spears and throwing them back.” \\n— Caesar "
 "about the Battle of the Sabis (“De Bello Gallico”, II. 27)"
-msgstr ""
+msgstr "“At hostes \\[…] tantam virtutem praestiterunt ut, cum primi eorum cecidissent, proximi iacentibus insisterent atque ex eorum corporibus pugnarent, 4 his deiectis et coacervatis cadaveribus qui superessent ut ex tumulo tela in nostros conicerent et pila intercepta remitterent.” \\n— Caesar, de Proelio ad Flumen Sabim (“De Bello Gallico”, II. 27)"
 
 #: gui/text/quotes.txt:87
 msgid ""
@@ -1553,7 +1580,7 @@ msgid ""
 "an old man.” \\n— Hannibal's last words before his suicide, in exile with "
 "Flaminius pressuring the local ruler to hand him over (Livy, “History of "
 "Rome”, XXXIX. 51)"
-msgstr ""
+msgstr "“Liberemus diuturna cura populum Romanum, quando mortem senis exspectare longum censent.” \\n— Inquit prius Hannibal quam se ipsum interfecit in exilio, impellente Flaminio ad tradendum eius (Livius, “Ab Urbe Condita”, XXXIX. 51)"
 
 #: gui/text/quotes.txt:93
 msgid ""
@@ -1561,13 +1588,13 @@ msgid ""
 "world as theirs and subject to their pleasure. With whom we are to be at "
 "war, with whom at peace, they think it right that they should determine.” "
 "\\n— Hannibal, addressing his troops (Livy, “History of Rome”, XXI. 44)"
-msgstr ""
+msgstr "“Crudelissima ac superbissima gens \\[Romana] sua omnia suique arbitrii facit; cum quibus bellum, cum quibus pacem habeamus, se modum imponere aequum censet.” \\n— Hannibal, ad exercitum suum (Livius, “Ab Urbe Condita”, XXI. 44)"
 
 #: gui/text/quotes.txt:94
 msgid ""
 "“You must be brave and discard all hopes of anything but victory or death.” "
 "\\n— Hannibal, addressing his troops (Livy, “History of Rome”, XXI. 44)"
-msgstr ""
+msgstr "“Vobis necesse est fortibus viris esse et, omnibus inter victoriam mortemue certa desperatione abruptis” \\n— Hannibal, ad exercitum suum (Livius, “Ab Urbe Condita”, XXI. 44)"
 
 #: gui/text/quotes.txt:95
 msgid ""
@@ -1654,25 +1681,25 @@ msgstr ""
 msgid ""
 "“Conquered Greece took captive her savage conqueror and brought her arts "
 "into rustic Latium.” \\n— Horace (“Epistles”, epistle I., 156–157)"
-msgstr ""
+msgstr "“Graecia capta ferum uictorem cepit et artes intulit agresti Latio.” \\n— Horatius (“Epistlulae”, epistula I., 156–157)"
 
 #: gui/text/quotes.txt:107
 msgid ""
 "“Anger is a momentary madness, so control your passion or it will control "
 "you.” \\n— Horace (“Epistles”, epistle II., 62)"
-msgstr ""
+msgstr "“Ira furor brevis est; animum rege, qui nisi paret, imperat, hunc frenis, hunc tu compesce catena..” \\n— Horatius (“Epistlulae”, epistula II., 62)"
 
 #: gui/text/quotes.txt:108
 msgid ""
 "“It is your concern when your neighbor's wall is on fire.” \\n— Horace "
 "(“Epistles”, epistle XVIII., 84)"
-msgstr ""
+msgstr "“Nam tua res agitur, paries cum proximus ardet.” \\n— Horatius (“Epistlulae”, epistula XVIII., 84)"
 
 #: gui/text/quotes.txt:109
 msgid ""
 "“It is sweet and honorable to die for one's country.” \\n— Horace (“Odes”, "
 "III., ode II., 13)"
-msgstr ""
+msgstr "“Dulce et decorum est pro patria mori.” \\n— Horatius (“Carmina”, III., carmen II., 13)"
 
 #: gui/text/quotes.txt:110
 msgid "“I am Cyrus, king of the world…” \\n— Inscription (Cyrus Cylinder)"
@@ -1707,7 +1734,7 @@ msgid ""
 " Livy, describing the aftermath of the Battle of Cannae, where Hannibal "
 "inflicted the greatest defeat on the Romans in all their history (“History "
 "of Rome”, XXII. 51)"
-msgstr ""
+msgstr "“... quosdam et iacentes vivos succisis feminibus poplitibusque invenerunt nudantes cervicem iugulumque et reliquum sanguinem iubentes haurire; inventi quidam sunt mersis in effossam terram capitibus quos sibi ipsos fecisse foveas obruentesque ora superiecta humo interclusisse spiritum apparebat.” \\n— Livius, de eventu Pugnae Canensis, in qua Hannibal Romanis cladem acerrimam intulit (“Ab Urbe Condita”, XXII. 51)"
 
 #: gui/text/quotes.txt:115
 msgid ""
@@ -1716,7 +1743,7 @@ msgid ""
 "of dawn, and was cut down by his enemies.” \\n— Livy, describing the "
 "aftermath of the Battle of Cannae, where Hannibal inflicted the greatest "
 "defeat on the Romans in all their history (“History of Rome”, XXII. 51)"
-msgstr ""
+msgstr "“Iacebant tot Romanorum milia  \\[…] adsurgentes quidam ex strage media cruenti, quos stricta matutino frigore excitaverant volnera, ab hoste oppressi sunt.” \\n— Livius, de eventu Pugnae Canensis, in qua Hannibal Romanis cladem acerrimam intulit (“Ab Urbe Condita”, XXII. 51)"
 
 #: gui/text/quotes.txt:116
 msgid ""
@@ -1733,42 +1760,42 @@ msgstr ""
 
 #: gui/text/quotes.txt:118
 msgid "“O, the times, O, the customs!” \\n— Cicero (“Against Catiline”, I.)"
-msgstr ""
+msgstr "“O tempora, O mores!” \\n— Cicero (“In Catilinam”, I.)"
 
 #: gui/text/quotes.txt:119
 msgid ""
 "“A war is never undertaken by the ideal State, except in defense of its "
 "honor or its safety.” \\n— Cicero (“De Re Publica”, III., 23)"
-msgstr ""
+msgstr "“Illa iniusta bella sunt, quae sunt sine causa suscepta. Nam extra ulciscendi aut propulsandorum hostium causam bellum geri iustum nullum potest.” \\n— Cicero (“De Re Publica”, III., 23)"
 
 #: gui/text/quotes.txt:120
 msgid ""
 "“The first duty of a man is the seeking after and the investigation of "
 "truth.” \\n— Cicero (“On Duties”, I., 13)"
-msgstr ""
+msgstr "“Inprimisque hominis est propria veri inquisitio atque investigatio.” \\n— Cicero (“De Officiis”, I., 13)"
 
 #: gui/text/quotes.txt:121
 msgid ""
 "“No one is so old as to think that he cannot live one more year.” \\n— "
 "Cicero (“On Old Age”, sec. 24)"
-msgstr ""
+msgstr "“Nemo enim est tam senex qui se annum non putet posse vivere” \\n— Cicero (“De Senectute”, sec. 24)"
 
 #: gui/text/quotes.txt:122
 msgid ""
 "“Let the welfare of the people be the ultimate law.” \\n— Cicero (“On the "
 "Laws”, III., sec. 3)"
-msgstr ""
+msgstr "“... et hominum vita iussis supremae legis obtemperat” \\n— Cicero (“De Legibus”, III., sec. 3)"
 
 #: gui/text/quotes.txt:123
 msgid ""
 "“Endless money forms the sinews of war.” \\n— Cicero (“Philippics”, V., sec."
 " 5)"
-msgstr ""
+msgstr "“... primum nervos belli, pecuniam infinitam...” \\n— Cicero (“Philippicae”, V., sec. 5)"
 
 #: gui/text/quotes.txt:124
 msgid ""
 "“Laws are silent in time of war.” \\n— Cicero (“Pro Milone”, IV., sec. 11)"
-msgstr ""
+msgstr "“Silent enim leges inter arma.” \\n— Cicero (“Pro Milone”, IV., sec. 11)"
 
 #: gui/text/quotes.txt:125
 msgid ""
@@ -1776,7 +1803,7 @@ msgid ""
 "murdering someone; then they boast that they have spared him!” \\n— Cicero, "
 "condemning Mark Anthony who had not killed him (yet) (“Philippics”, II., "
 "sec. 5)"
-msgstr ""
+msgstr "“Quod est aliud, patres conscripti, beneficium latronum, nisi ut commemorare possint iis se dedisse vitam, quibus non ademerint?” \\n— Cicero, Marcum Antonium condemnavit, qui eum nondum (illo tempore) occidit (“Philippicae”, II., sec. 5)"
 
 #: gui/text/quotes.txt:126
 msgid ""
@@ -1785,7 +1812,7 @@ msgid ""
 " rising to show that he was alive until Marcus Agrippa had routed the "
 "enemy.” \\n— Mark Antony, taunting Augustus who delegated his duties as "
 "naval commander (Suetonius, “Divus Augustus”, sec. 16)"
-msgstr ""
+msgstr "“Unde praebitam Antonio materiam putem exprobrandi, ne rectis quidem oculis eum aspicere potuisse instructam aciem, verum supinum, caelum intuentem, stupidum cubuisse, nec prius surrexisse ac militibus in conspectum venisse quam a M. Agrippa fugatae sint hostium naves.” \\n— Marcus Antonius, Augustum increpavit qui classibus navium praefectus est (Suetonius, “Divus Augustus”, sec. 16)"
 
 #: gui/text/quotes.txt:127
 msgid ""
@@ -1869,19 +1896,11 @@ msgstr ""
 
 #: gui/text/quotes.txt:138
 msgid ""
-"“The greatest glory for women is to be least talked about by men, whether "
-"for good or ill.” \\n— Pericles in his Funeral Oration for Athenians that "
-"died in the first year of the war (Thucydides, “History of the Peloponnesian"
-" War”, II. 45.2)"
-msgstr ""
-
-#: gui/text/quotes.txt:139
-msgid ""
 "“Wait for the wisest of all counsellors, time.” \\n— Pericles, a cautious "
 "politician who avoided war (Plutarch, “Parallel Lives”, “Pericles”, sec. 18)"
 msgstr ""
 
-#: gui/text/quotes.txt:140
+#: gui/text/quotes.txt:139
 msgid ""
 "“Your empire is now like a tyranny: it may have been wrong to take it; it is"
 " certainly dangerous to let it go.” \\n— Pericles, addressing the Athenian "
@@ -1889,40 +1908,40 @@ msgid ""
 "Peloponnesian War”, II. 63.3)"
 msgstr ""
 
-#: gui/text/quotes.txt:141
+#: gui/text/quotes.txt:140
 msgid ""
 "“War is sweet to those who have no experience of it, but the experienced man"
 " fears its approach in his heart.” \\n— Pindar (fragment 110)"
 msgstr ""
 
-#: gui/text/quotes.txt:142
+#: gui/text/quotes.txt:141
 msgid ""
 "“Themistocles robbed his fellow citizens of spear and shield, and degraded "
 "the people of Athens to the rowing-pad and the oar.” \\n— Plato, no friend "
 "of the Athenian navy (Plutarch, “Parallel Lives”, “Themistocles”, sec. 3)"
 msgstr ""
 
-#: gui/text/quotes.txt:143
+#: gui/text/quotes.txt:142
 msgid ""
 "“No guest is so welcome in a friend's house that he will not become a "
 "nuisance after three days.” \\n— Plautus (“The Swaggering Soldier”, Act III,"
 " scene 1, 146)"
-msgstr ""
+msgstr "“Nam hospes nullus tam in amici hospitium devorti potest, quin, ubi triduom continuom fuerit, iam odiosus siet.” \\n— Plautus (“Miles Gloriosus”, Act III, scena 1, 146)"
 
-#: gui/text/quotes.txt:144
+#: gui/text/quotes.txt:143
 msgid ""
 "“You cannot eat your cake and have it too, unless you think your money is "
 "immortal.” \\n— Plautus (“Trinummus”, Act II, scene 4, 12)"
 msgstr ""
 
-#: gui/text/quotes.txt:145
+#: gui/text/quotes.txt:144
 msgid ""
 "“He \\[Alexander] thought nothing invincible for the courageous, and nothing"
 " secure for the cowardly.” \\n— Plutarch (“Parallel Lives”, “Alexander”, "
 "sec. 58)"
 msgstr ""
 
-#: gui/text/quotes.txt:146
+#: gui/text/quotes.txt:145
 msgid ""
 "“One \\[…] shot an arrow at him with such accuracy and force that it pierced"
 " his breastplate and got stuck in his ribs. \\[…] Alexander recoiled and "
@@ -1932,7 +1951,7 @@ msgid ""
 "about the Mallian Campaign (“Parallel Lives”, “Alexander”, sec. 63)"
 msgstr ""
 
-#: gui/text/quotes.txt:147
+#: gui/text/quotes.txt:146
 msgid ""
 "“When the pirates demanded a ransom of twenty talents for him, Caesar burst "
 "out laughing. They did not know, he said, who it was that they had captured,"
@@ -1941,7 +1960,7 @@ msgid ""
 "“Caesar”, sec. 2)"
 msgstr ""
 
-#: gui/text/quotes.txt:148
+#: gui/text/quotes.txt:147
 msgid ""
 "“They \\[the Romans] want the centurions not so much to be adventurous and "
 "daredevils, as to be natural leaders, of a steady and reliable spirit. They "
@@ -1950,7 +1969,7 @@ msgid ""
 "ready to die at their posts.” \\n— Polybius (“Histories”, VI. 24)"
 msgstr ""
 
-#: gui/text/quotes.txt:149
+#: gui/text/quotes.txt:148
 msgid ""
 "“The Roman battle line is hard to break, since it allows every man to fight "
 "both individually and collectively; so that a formation can fight in any "
@@ -1958,7 +1977,7 @@ msgid ""
 "to face it.” \\n— Polybius (“Histories”, XV. 15)"
 msgstr ""
 
-#: gui/text/quotes.txt:150
+#: gui/text/quotes.txt:149
 msgid ""
 "“The Athenian people are always in the position of a ship without a "
 "commander. Fear of the enemy or a storm make the crew be of one mind and "
@@ -1969,7 +1988,7 @@ msgid ""
 "Athenian constitution (“Histories”, VI. 44)"
 msgstr ""
 
-#: gui/text/quotes.txt:151
+#: gui/text/quotes.txt:150
 msgid ""
 "“Most of the Romans were trampled to death by the enormous weight of the "
 "elephants; the rest were shot down in their ranks by the numerous cavalry: "
@@ -1978,7 +1997,7 @@ msgid ""
 "during the First Punic War (“Histories”, I. 34)"
 msgstr ""
 
-#: gui/text/quotes.txt:152
+#: gui/text/quotes.txt:151
 msgid ""
 "“Hannibal gave the signal for attack; and at the same time sent orders to "
 "the troops lying in ambush on the hills to do the same, and thus delivered "
@@ -1986,7 +2005,7 @@ msgid ""
 "beginning of a Roman disaster at the Trasymene Lake (“Histories”, III. 84)"
 msgstr ""
 
-#: gui/text/quotes.txt:153
+#: gui/text/quotes.txt:152
 msgid ""
 "“In the phalanx, the men cannot turn around singly and defend themselves: "
 "this tribune, therefore, charged them \\[from behind] and killed all he "
@@ -1995,7 +2014,7 @@ msgid ""
 "Macedon by Flaminius in the Battle of Cynoscephalae (“Histories”, XVIII. 26)"
 msgstr ""
 
-#: gui/text/quotes.txt:154
+#: gui/text/quotes.txt:153
 msgid ""
 "“The Roman order on the other hand is flexible: for every Roman, once armed "
 "and on the field, is equally well equipped for every place, time, or "
@@ -2006,7 +2025,7 @@ msgid ""
 "XVIII. 32)"
 msgstr ""
 
-#: gui/text/quotes.txt:155
+#: gui/text/quotes.txt:154
 msgid ""
 "“Scipio \\[Aemilianus], when he looked upon the city \\[Carthage] as it was "
 "utterly perishing and in the last throes of its complete destruction, is "
@@ -2016,7 +2035,7 @@ msgid ""
 "22)"
 msgstr ""
 
-#: gui/text/quotes.txt:156
+#: gui/text/quotes.txt:155
 msgid ""
 "“One more such victory and the cause is lost!” \\n— Pyrrhus of Epirus after "
 "the Battle of Asculum, in which the Romans lost twice as many men but he "
@@ -2024,46 +2043,46 @@ msgid ""
 "“Pyrrhus”, sec. 21)"
 msgstr ""
 
-#: gui/text/quotes.txt:157
+#: gui/text/quotes.txt:156
 msgid ""
 "“None can be free who is a slave to, and ruled by, his passions.” \\n— "
 "Pythagoras (Stobaeus, “Florilegium”, 18)"
 msgstr ""
 
-#: gui/text/quotes.txt:158
+#: gui/text/quotes.txt:157
 msgid ""
 "“Do not say few things in many words, but many things in few words.” \\n— "
 "Pythagoras (Stobaeus, “Florilegium”, 24)"
 msgstr ""
 
-#: gui/text/quotes.txt:159
+#: gui/text/quotes.txt:158
 msgid ""
 "“Let your speech be better than silence, or be silent.” \\n— Pythagoras "
 "(Stobaeus, “Florilegium”, 24)"
 msgstr ""
 
-#: gui/text/quotes.txt:160
+#: gui/text/quotes.txt:159
 msgid ""
 "“Unity strengthens even small states, while discord undermines the mightiest"
 " empires.” \\n— Sallust (“The Jugurthine War”, 10.6)"
-msgstr ""
+msgstr "“Concordia parvae res crescunt, discordia maximae dilabuntur.” \\n— Sallustius (“Bellum Iugurthinum”, 10.6)"
 
-#: gui/text/quotes.txt:161
+#: gui/text/quotes.txt:160
 msgid ""
 "“Ungrateful fatherland, you will not even have my bones!” \\n— Scipio "
 "Africanus in his epitaph, after he who defeated Hannibal was repeatedly "
 "accused of crimes by the Roman Senate (Valerius Maximus, “Nine books on "
 "memorable deeds and sayings”, 5.3.2)"
-msgstr ""
+msgstr "“Ingrata patria, ne ossa quidem mea habes!” \\n— Scipio Africanus sepulchro suo inscribi iussit, qui cum Hannibalem devicerat a Senatu identidem criminibus accusatus est (Valerius Maximus, “Factorum et dictorum memorabilium libri novem”, 5.3.2)"
 
-#: gui/text/quotes.txt:162
+#: gui/text/quotes.txt:161
 msgid ""
 "“Prepare for war, since you have been unable to endure a peace.” \\n— Scipio"
 " Africanus, replying to Hannibal's offer of peace terms before the Battle of"
 " Zama (Livy, “History of Rome”, XXX. 31)"
-msgstr ""
+msgstr "“Bellum parate quoniam pacem pati non potuistis.” \\n— Scipio Africanus, ad legatum Hannibalis qui pacem petivit ante Pugnam Zamensem (Livius, “Ab Urbe Condita”, XXX. 31)"
 
-#: gui/text/quotes.txt:163
+#: gui/text/quotes.txt:162
 msgid ""
 "“But tactical science is only one part of generalship. A general must be "
 "capable of equipping his forces and providing for his men. He must also be "
@@ -2072,7 +2091,7 @@ msgid ""
 "“Memorabilia”, 3.1.6)"
 msgstr ""
 
-#: gui/text/quotes.txt:164
+#: gui/text/quotes.txt:163
 msgid ""
 "“It is necessary to know the strength of the city and of the enemy, so that,"
 " if the city is stronger, one may recommend her to go to war, but if weaker "
@@ -2080,14 +2099,14 @@ msgid ""
 "“Memorabilia”, 3.6.9)"
 msgstr ""
 
-#: gui/text/quotes.txt:165
+#: gui/text/quotes.txt:164
 msgid ""
 "“The unexamined life is not worth living.” Socrates, in his defense when "
 "trialled for corrupting the youth and not worshipping the proper gods (he "
 "later drank hemlock after the death sentence) \\n— Plato (“Apology”, 38a)"
 msgstr ""
 
-#: gui/text/quotes.txt:166
+#: gui/text/quotes.txt:165
 msgid ""
 "“The hour of departure has arrived, and we go our ways – I to die, and you "
 "to live. Which is better God only knows.” Socrates, in his defense when "
@@ -2095,13 +2114,13 @@ msgid ""
 "later drank hemlock after the death sentence) \\n— Plato (“Apology”, 42a)"
 msgstr ""
 
-#: gui/text/quotes.txt:167
+#: gui/text/quotes.txt:166
 msgid ""
 "“Walls and ships are nothing without men living together inside them.” \\n— "
 "Sophocles (“Oedipus Rex”)"
 msgstr ""
 
-#: gui/text/quotes.txt:168
+#: gui/text/quotes.txt:167
 msgid ""
 "“We accepted an empire that was offered to us and refused to give it up "
 "under the pressure of three of the strongest motives: fear, honor and "
@@ -2110,24 +2129,24 @@ msgid ""
 "embassy in Sparta (Thucydides, “History of the Peloponnesian War”, I. 76.2)"
 msgstr ""
 
-#: gui/text/quotes.txt:169
+#: gui/text/quotes.txt:168
 msgid ""
 "“He could boast that he found a city of brick and left it a city of marble.”"
 " \\n— Suetonius, commenting on the many building projects of Augustus in "
 "Rome (“Divus Augustus”, sec 38)"
-msgstr ""
+msgstr "“... ut iure sit gloriatus marmoream se relinquere, quam latericiam accepisset.” \\n— Suetonius, de Romae aedificiis condendis Augusti (“Divus Augustus”, sec 38)"
+
+#: gui/text/quotes.txt:169
+msgid "“Moderation in all things.” \\n— Terence (“The Girl from Andros”, 61)"
+msgstr "“Id arbitror adprime in vita esse utile, ut nequid nimis.” \\n— Terentus (“Andria”, 61)"
 
 #: gui/text/quotes.txt:170
-msgid "“Moderation in all things.” \\n— Terence (“The Girl from Andros”, 61)"
-msgstr ""
-
-#: gui/text/quotes.txt:171
 msgid ""
 "“Fortune favors the bold.” \\n— Terence in a play about a great Athenian "
 "admiral (“Phormio”, 203)"
 msgstr ""
 
-#: gui/text/quotes.txt:172
+#: gui/text/quotes.txt:171
 msgid ""
 "“I do not know how to tune the lyre or play the harp, but I do know how to "
 "raise a city that was small and unimportant to glory and greatness.” \\n— "
@@ -2135,7 +2154,7 @@ msgid ""
 "“Parallel Lives”, “Themistocles”, sec. 2)"
 msgstr ""
 
-#: gui/text/quotes.txt:173
+#: gui/text/quotes.txt:172
 msgid ""
 "“Strike, if you will, but listen.” \\n— Themistocles, in a heated discussion"
 " with the Spartan fleet commander who threatened to beat him with his staff,"
@@ -2143,7 +2162,7 @@ msgid ""
 "sec. 11)"
 msgstr ""
 
-#: gui/text/quotes.txt:174
+#: gui/text/quotes.txt:173
 msgid ""
 "“The Athenians command the rest of Greece, I command the Athenians; your "
 "mother commands me, and you command your mother.” \\n— Themistocles, "
@@ -2151,34 +2170,34 @@ msgid ""
 " 18)"
 msgstr ""
 
-#: gui/text/quotes.txt:175
+#: gui/text/quotes.txt:174
 msgid ""
 "“So little pains does the mob take in finding out the truth, accepting "
 "readily the first story at hand.” \\n— Thucydides (“History of the "
 "Peloponnesian War”, I. 21.3)"
 msgstr ""
 
-#: gui/text/quotes.txt:176
+#: gui/text/quotes.txt:175
 msgid ""
 "“The growth of the power of Athens, and the alarm which this caused in "
 "Sparta, made war inevitable.” \\n— Thucydides (“History of the Peloponnesian"
 " War”, I. 23.6)"
 msgstr ""
 
-#: gui/text/quotes.txt:177
+#: gui/text/quotes.txt:176
 msgid ""
 "“War is a matter not so much of arms as of money.” \\n— Thucydides (“History"
 " of the Peloponnesian War”, I. 83.2)"
 msgstr ""
 
-#: gui/text/quotes.txt:178
+#: gui/text/quotes.txt:177
 msgid ""
 "“It is a general rule of human nature that people despise those who treat "
 "them well, and look up to those who make no concessions.” \\n— Thucydides "
 "(“History of the Peloponnesian War”, III. 39.5)"
 msgstr ""
 
-#: gui/text/quotes.txt:179
+#: gui/text/quotes.txt:178
 msgid ""
 "“This was the greatest action that happened in all this war, and all others "
 "that we have heard of amongst the Greeks, being to the victors most glorious"
@@ -2189,7 +2208,7 @@ msgid ""
 "Peloponnesian War”, VII. 87.6–7)"
 msgstr ""
 
-#: gui/text/quotes.txt:180
+#: gui/text/quotes.txt:179
 msgid ""
 "“As the world goes, justice is only a matter between equals, while the "
 "strong do what they can and the weak suffer what they must.” \\n— "
@@ -2197,7 +2216,7 @@ msgid ""
 "unwilling to surrender (“History of the Peloponnesian War”, V. 89.1)"
 msgstr ""
 
-#: gui/text/quotes.txt:181
+#: gui/text/quotes.txt:180
 msgid ""
 "“When the Lacedaemonians were no longer able to run after them, the "
 "skirmishers \\[…] all charged them at once, casting stones, arrows, and "
@@ -2206,7 +2225,7 @@ msgid ""
 "IV. 34.2)"
 msgstr ""
 
-#: gui/text/quotes.txt:182
+#: gui/text/quotes.txt:181
 msgid ""
 "“The soldiers fight and die to support others in wealth and luxury and they "
 "are called masters of the world without owning a single piece of farmland of"
@@ -2216,7 +2235,7 @@ msgid ""
 "Gracchus”, sec. 9)"
 msgstr ""
 
-#: gui/text/quotes.txt:183
+#: gui/text/quotes.txt:182
 msgid ""
 "“The wild beasts of Italy have their caves to retire to, but the brave "
 "veterans who spilled their blood in her cause have nothing left but air and "
@@ -2226,24 +2245,24 @@ msgid ""
 "campaign (Plutarch, “Parallel Lives”, “Tiberius Gracchus”, sec. 9)"
 msgstr ""
 
-#: gui/text/quotes.txt:184
+#: gui/text/quotes.txt:183
 msgid ""
 "“Do not trust the horse, Trojans! I fear the Greeks even when they bring "
 "gifts.” \\n— Virgil (“Aeneid”, II. 48–49)"
-msgstr ""
+msgstr "“Timeo Danaos et dona ferentis.” \\n— Vergilius (“Aeneis”, II. 48–49)"
+
+#: gui/text/quotes.txt:184
+msgid "“Prepared for either alternative.” \\n— Virgil (“Aeneid”, II. 61)"
+msgstr "“In utrumque paratus.” \\n— Vergilius (“Aeneis”, II. 61)"
 
 #: gui/text/quotes.txt:185
-msgid "“Prepared for either alternative.” \\n— Virgil (“Aeneid”, II. 61)"
-msgstr ""
-
-#: gui/text/quotes.txt:186
 msgid ""
 "“Homer and Hesiod ascribed to their Gods all things that are a disgrace "
 "among mortals: stealing, adultery, deceiving one another.” \\n— Xenophanes "
 "(fragment 11)"
 msgstr ""
 
-#: gui/text/quotes.txt:187
+#: gui/text/quotes.txt:186
 msgid ""
 "“If oxen and horses and lions had hands, and could paint, and produce works "
 "of art as men do, horses would paint the forms of the gods like horses, and "
@@ -2251,13 +2270,13 @@ msgid ""
 "Xenophanes (fragment 15)"
 msgstr ""
 
-#: gui/text/quotes.txt:188
+#: gui/text/quotes.txt:187
 msgid ""
 "“The Ethiopians make their gods black and snub-nosed, the Thracians say "
 "theirs have blue eyes and red hair.” \\n— Xenophanes (fragment 16)"
 msgstr ""
 
-#: gui/text/quotes.txt:189
+#: gui/text/quotes.txt:188
 msgid ""
 "“These are the right questions to ask, in winter around the fire \\[…]: Who "
 "are you, friend? What is your land? And how old were you when the Medes "
@@ -2265,21 +2284,21 @@ msgid ""
 "expedition against Greek cities in Ionia (fragment 17)"
 msgstr ""
 
-#: gui/text/quotes.txt:190
+#: gui/text/quotes.txt:189
 msgid ""
 "“A prudent commander will never take risks unnecessarily, except when it is "
 "clear beforehand that he will have the advantage.” \\n— Xenophon (“The "
 "Cavalry General”, 4.13)"
 msgstr ""
 
-#: gui/text/quotes.txt:191
+#: gui/text/quotes.txt:190
 msgid ""
 "“Attack the enemy where he is weakest, even if that is a long way off, since"
 " hard work is less dangerous than a struggle against superior forces.” \\n— "
 "Xenophon (“The Cavalry General”, sec. 4.14)"
 msgstr ""
 
-#: gui/text/quotes.txt:192
+#: gui/text/quotes.txt:191
 msgid ""
 "“He should be inventive, ready to exploit all circumstances, to make a small"
 " force appear large and a large one small, to appear absent when close at "
@@ -2287,14 +2306,14 @@ msgid ""
 " Cavalry General”, sec. 5)"
 msgstr ""
 
-#: gui/text/quotes.txt:193
+#: gui/text/quotes.txt:192
 msgid ""
 "“People are glad to obey the man whom they believe to be wiser than "
 "themselves in pursuing their interests.” \\n— Xenophon (“The Education of "
 "Cyrus”, 1.6.22)"
 msgstr ""
 
-#: gui/text/quotes.txt:194
+#: gui/text/quotes.txt:193
 msgid ""
 "“In his campaigns during summer the general must show that he can endure the"
 " sun better than the soldiers, in winter he must show he can endure cold "
@@ -2303,13 +2322,13 @@ msgid ""
 " of Cyrus”, 1.6.25)"
 msgstr ""
 
-#: gui/text/quotes.txt:195
+#: gui/text/quotes.txt:194
 msgid ""
 "“Battles are decided more by the morale of men than their physical "
 "strength.” \\n— Xenophon (“The Education of Cyrus”, 3.3.20)"
 msgstr ""
 
-#: gui/text/quotes.txt:196
+#: gui/text/quotes.txt:195
 msgid ""
 "“Let's not give them enough time to arrange a defense, or to even recognize "
 "that we are human beings! We've got to appear to them like an uncontrollable"
@@ -2317,7 +2336,7 @@ msgid ""
 "Education of Cyrus”, 4.2.22)"
 msgstr ""
 
-#: gui/text/quotes.txt:197
+#: gui/text/quotes.txt:196
 msgid ""
 "“I suppose you understand, men, that pursuing, dealing blows and death, "
 "plunder, fame, freedom, power – all these are prizes for the winners; the "
@@ -2325,7 +2344,7 @@ msgid ""
 "Cyrus”, 7.1.13)"
 msgstr ""
 
-#: gui/text/quotes.txt:198
+#: gui/text/quotes.txt:197
 msgid ""
 "“The man who wants that must be scheming and cunning, wily and deceitful, a "
 "thief and a robber, overreaching the enemy at every point.” \\n— Xenophon on"
@@ -2333,7 +2352,7 @@ msgid ""
 "1.6.26)"
 msgstr ""
 
-#: gui/text/quotes.txt:199
+#: gui/text/quotes.txt:198
 msgid ""
 "“My men have turned into women, and my women into men!” \\n— Xerxes, "
 "watching Artemisia ram a ship while most of his fleet suffered the reverse, "
@@ -2341,7 +2360,7 @@ msgid ""
 "VIII. 88)"
 msgstr ""
 
-#: gui/text/quotes.txt:200
+#: gui/text/quotes.txt:199
 msgid ""
 "“For a thinking man is where Wisdom is at home.” \\n— Zoroaster, founder of "
 "the Zoroastrian religion (“Ahunuvaiti Gatha”, yasna 30.9)"

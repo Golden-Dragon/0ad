@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-04-13 07:18+0000\n"
-"PO-Revision-Date: 2020-04-13 11:31+0000\n"
+"POT-Creation-Date: 2020-08-28 07:10+0000\n"
+"PO-Revision-Date: 2020-08-28 11:23+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Hebrew (http://www.transifex.com/wildfire-games/0ad/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraName
+msgid "Arsenal Repairs"
+msgstr ""
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraDescription
+msgid "Garrisoned Siege Engines +3 health regeneration rate."
+msgstr ""
 
 #: simulation/data/auras/structures/barracks_xp_trickle.jsonauraName
 msgid "Rigorous Training"
@@ -33,14 +41,6 @@ msgstr "תיקונים בספינה"
 
 #: simulation/data/auras/structures/cart_super_dock_repair.jsonauraDescription
 msgid "Garrisoned Ships +10 health regeneration rate."
-msgstr ""
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraName
-msgid "Blessing of the Gods"
-msgstr "ברכת האלים"
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraDescription
-msgid "Humans +3 health regeneration rate."
 msgstr ""
 
 #: simulation/data/auras/structures/iber_monument.jsonauraName
@@ -65,15 +65,7 @@ msgid "Exhortative Presence"
 msgstr "נוכחות מופנית"
 
 #: simulation/data/auras/structures/kush_pyramids_military.jsonauraDescription
-msgid "Soldiers +10% melee and ranged attack damage."
-msgstr ""
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraName
-msgid "Meroitic Pyramids"
-msgstr "פירמידות מרואיות"
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraDescription
-msgid "Civic Centers +10% territory influence radius."
+msgid "Soldiers +1 armor level and +10% melee and ranged attack damage."
 msgstr ""
 
 #: simulation/data/auras/structures/kush_temple_amun.jsonauraName
@@ -157,14 +149,6 @@ msgid ""
 "+40 maximum population limit (requires the “Glorious Expansion” technology)."
 msgstr ""
 
-#: simulation/data/auras/structures/workshop_repair.jsonauraName
-msgid "Workshop Repairs"
-msgstr "סדנאות תיקונים"
-
-#: simulation/data/auras/structures/workshop_repair.jsonauraDescription
-msgid "Garrisoned Siege Engines +3 health regeneration rate."
-msgstr ""
-
 #: simulation/data/auras/teambonuses/athen_player_teambonus.jsonauraName
 msgid "Delian League"
 msgstr "הליגה האטית-דלית\n "
@@ -186,15 +170,15 @@ msgid "Trademasters"
 msgstr "Trademasters"
 
 #: simulation/data/auras/teambonuses/cart_player_teambonus.jsonauraDescription
-msgid "Allied Markets +10% international trade bonus."
+msgid "Allies +10% international trade bonus."
 msgstr ""
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraName
-msgid "Druidic Wisdom"
-msgstr "חוכמה דרוידית"
+msgid "Products from Gaul"
+msgstr ""
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraDescription
-msgid "Allied Structures −20% technology research time."
+msgid "Forges −15% technology resource costs and research time."
 msgstr ""
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraName
@@ -202,7 +186,7 @@ msgid "Saripeko"
 msgstr "סרפיקו "
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraDescription
-msgid "Allied Citizen Javelinists −10% resource costs."
+msgid "Allied Citizen Javelineers −10% resource costs."
 msgstr ""
 
 #: simulation/data/auras/teambonuses/kush_player_teambonus.jsonauraName
@@ -325,7 +309,7 @@ msgstr "התנצלות"
 #: simulation/data/auras/units/catafalques/brit_catafalque_2.jsonauraDescription
 msgid ""
 "Cassivellaunus deployed fast-moving skirmishers to harass Roman troops and foragers.\n"
-"Javelinists +20% attack range."
+"Javelineers +20% attack range."
 msgstr ""
 
 #: simulation/data/auras/units/catafalques/cart_catafalque.jsonauraName
@@ -536,7 +520,7 @@ msgid "Peltast Reforms"
 msgstr "רפורמות פלטסט"
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_2.jsonauraDescription
-msgid "Infantry Javelinists +15% movement speed."
+msgid "Infantry Javelineers +15% movement speed."
 msgstr ""
 
 #: simulation/data/auras/units/heroes/athen_hero_pericles_1.jsonauraName
@@ -959,7 +943,7 @@ msgstr "הרפורמות"
 
 #: simulation/data/auras/units/heroes/spart_hero_brasidas.jsonauraDescription
 msgid ""
-"Citizen Infantry Javelinists +1 armor, +25% ranged attack pierce damage."
+"Citizen Infantry Javelineers +1 armor, +25% ranged attack pierce damage."
 msgstr ""
 
 #: simulation/data/auras/units/heroes/spart_hero_leonidas.jsonauraName

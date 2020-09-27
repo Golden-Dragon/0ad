@@ -10,7 +10,7 @@
 # Kostas Kolivas <kwstaskolivas@gmail.com>, 2020
 # Lampros Lampreas <marbiourd@hotmail.com>, 2016
 # LOUKAS SKOUROLIAKOS, 2019
-# Natalia V <inactive+irida@transifex.com>, 2016
+# c28898edaeb1dbe1cfa07607b5ff55ed_3357a88 <52a60029b916ee18b3ab827835d415ca_491145>, 2016
 # Nicko Karamanos <nickogr92@gmail.com>, 2019
 # Steven Gikas <stevengk123@gmail.com>, 2016-2018
 # Vasilis Drosos <basilisd@gmail.com>, 2016-2020
@@ -19,15 +19,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-04-13 07:18+0000\n"
-"PO-Revision-Date: 2020-05-04 01:41+0000\n"
-"Last-Translator: Evripidis Papaevripidis <panaevri@gmail.com>\n"
+"POT-Creation-Date: 2020-08-28 07:10+0000\n"
+"PO-Revision-Date: 2020-08-28 11:23+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Greek (http://www.transifex.com/wildfire-games/0ad/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraName
+msgid "Arsenal Repairs"
+msgstr ""
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraDescription
+msgid "Garrisoned Siege Engines +3 health regeneration rate."
+msgstr "Φρουρούμενες Πολιορκητικές Μηχανές: +3 στον ρυθμό ανάρρωσης."
 
 #: simulation/data/auras/structures/barracks_xp_trickle.jsonauraName
 msgid "Rigorous Training"
@@ -44,14 +52,6 @@ msgstr "Επισκευές Ναυπηγείου"
 #: simulation/data/auras/structures/cart_super_dock_repair.jsonauraDescription
 msgid "Garrisoned Ships +10 health regeneration rate."
 msgstr "Φρουρούμενα πλοία: +10 στον ρυθμό ανάρρωσης."
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraName
-msgid "Blessing of the Gods"
-msgstr "Ευλογία των Θεών"
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraDescription
-msgid "Humans +3 health regeneration rate."
-msgstr "Άνθρωποι: +3 στον ρυθμό ανάρρωσης."
 
 #: simulation/data/auras/structures/iber_monument.jsonauraName
 msgid "Religious Fervor"
@@ -75,16 +75,8 @@ msgid "Exhortative Presence"
 msgstr "Προτρεπτική Παρουσία"
 
 #: simulation/data/auras/structures/kush_pyramids_military.jsonauraDescription
-msgid "Soldiers +10% melee and ranged attack damage."
-msgstr "Στρατιώτες: +10% στην αγχέμαχη και εκήβολη ζημιά επίθεσης"
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraName
-msgid "Meroitic Pyramids"
-msgstr "Μεροϊτικές Πυραμίδες"
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraDescription
-msgid "Civic Centers +10% territory influence radius."
-msgstr "Αστικά Κέντρα: +10% στην ακτίνα εδαφικής επιρροής."
+msgid "Soldiers +1 armor level and +10% melee and ranged attack damage."
+msgstr ""
 
 #: simulation/data/auras/structures/kush_temple_amun.jsonauraName
 msgid "Powerful Priesthood"
@@ -167,14 +159,6 @@ msgid ""
 "+40 maximum population limit (requires the “Glorious Expansion” technology)."
 msgstr " +40 στο μέγιστο όριο πληθυσμού (απαιτείται η τεχνολογία «Ένδοξη Επέκταση»)."
 
-#: simulation/data/auras/structures/workshop_repair.jsonauraName
-msgid "Workshop Repairs"
-msgstr "Επισκευές Εργαστηρίου"
-
-#: simulation/data/auras/structures/workshop_repair.jsonauraDescription
-msgid "Garrisoned Siege Engines +3 health regeneration rate."
-msgstr "Φρουρούμενες Πολιορκητικές Μηχανές: +3 στον ρυθμό ανάρρωσης."
-
 #: simulation/data/auras/teambonuses/athen_player_teambonus.jsonauraName
 msgid "Delian League"
 msgstr "Δηλιακή Συμμαχία"
@@ -196,24 +180,24 @@ msgid "Trademasters"
 msgstr "Μεγαλέμποροι"
 
 #: simulation/data/auras/teambonuses/cart_player_teambonus.jsonauraDescription
-msgid "Allied Markets +10% international trade bonus."
-msgstr "Συμμαχικές Αγορές: +10% στο διεθνές μπόνους εμπορίου."
+msgid "Allies +10% international trade bonus."
+msgstr ""
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraName
-msgid "Druidic Wisdom"
-msgstr "Δρυιδική Σοφία"
+msgid "Products from Gaul"
+msgstr ""
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraDescription
-msgid "Allied Structures −20% technology research time."
-msgstr "Συμμαχικά Κτήρια: -20% στον χρόνο έρευνας τεχνολογιών."
+msgid "Forges −15% technology resource costs and research time."
+msgstr ""
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraName
 msgid "Saripeko"
 msgstr "Σαριπέκο"
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraDescription
-msgid "Allied Citizen Javelinists −10% resource costs."
-msgstr "Σύμμαχοι Πολίτες Ακοντιστές: -10% στο κόστος πόρων."
+msgid "Allied Citizen Javelineers −10% resource costs."
+msgstr ""
 
 #: simulation/data/auras/teambonuses/kush_player_teambonus.jsonauraName
 msgid "Elephant Suppliers"
@@ -335,8 +319,8 @@ msgstr "Παρενοχλούντες Ακροβολιστές"
 #: simulation/data/auras/units/catafalques/brit_catafalque_2.jsonauraDescription
 msgid ""
 "Cassivellaunus deployed fast-moving skirmishers to harass Roman troops and foragers.\n"
-"Javelinists +20% attack range."
-msgstr "Ο Κασσιβελλαύνος ανέπτυξε ταχέως κινούμενους ακροβολιστές για να παρενοχλούν τα ρωμαϊκά στρατεύματα και τους τροφοσυλλέκτες τους.\nΑκοντιστές: +20% στο βεληνεκές επίθεσης."
+"Javelineers +20% attack range."
+msgstr ""
 
 #: simulation/data/auras/units/catafalques/cart_catafalque.jsonauraName
 msgid "Commander of Heavy Cavalry"
@@ -546,8 +530,8 @@ msgid "Peltast Reforms"
 msgstr "Μεταρρυθμίσεις πελταστών  "
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_2.jsonauraDescription
-msgid "Infantry Javelinists +15% movement speed."
-msgstr "Ακροβολιστές πεζικού +15% ταχύτητα"
+msgid "Infantry Javelineers +15% movement speed."
+msgstr ""
 
 #: simulation/data/auras/units/heroes/athen_hero_pericles_1.jsonauraName
 msgid "Periclean Building Program"
@@ -969,8 +953,8 @@ msgstr "Mεταρρυθμίσεις Ειλωτών"
 
 #: simulation/data/auras/units/heroes/spart_hero_brasidas.jsonauraDescription
 msgid ""
-"Citizen Infantry Javelinists +1 armor, +25% ranged attack pierce damage."
-msgstr "Πολίτες Ακροβολιστές Πεζικού +1 πανοπλία, +25% στη ζημιά διάτρησης της εκήβολης επίθεσης."
+"Citizen Infantry Javelineers +1 armor, +25% ranged attack pierce damage."
+msgstr ""
 
 #: simulation/data/auras/units/heroes/spart_hero_leonidas.jsonauraName
 msgid "Last Stand"

@@ -35,6 +35,7 @@ GuiInterface.prototype.Init = function()
 	this.entsWithAuraAndStatusBars = new Set();
 	this.enabledVisualRangeOverlayTypes = {};
 	this.templateModified = {};
+	this.selectionDirty = {};
 	this.obstructionSnap = new ObstructionSnap();
 };
 
@@ -57,7 +58,8 @@ GuiInterface.prototype.GetSimulationState = function()
 		"players": []
 	};
 
-	let numPlayers = Engine.QueryInterface(SYSTEM_ENTITY, IID_PlayerManager).GetNumPlayers();
+	let cmpPlayerManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_PlayerManager);
+	let numPlayers = cmpPlayerManager.GetNumPlayers();
 	for (let i = 0; i < numPlayers; ++i)
 	{
 		let cmpPlayer = QueryPlayerIDInterface(i);
@@ -123,7 +125,7 @@ GuiInterface.prototype.GetSimulationState = function()
 			"classCounts": cmpTechnologyManager ? cmpTechnologyManager.GetClassCounts() : null,
 			"typeCountsByClass": cmpTechnologyManager ? cmpTechnologyManager.GetTypeCountsByClass() : null,
 			"canBarter": Engine.QueryInterface(SYSTEM_ENTITY, IID_Barter).PlayerHasMarket(i),
-			"barterPrices": Engine.QueryInterface(SYSTEM_ENTITY, IID_Barter).GetPrices(i)
+			"barterPrices": Engine.QueryInterface(SYSTEM_ENTITY, IID_Barter).GetPrices(cmpPlayer)
 		});
 	}
 
@@ -152,6 +154,8 @@ GuiInterface.prototype.GetSimulationState = function()
 	let cmpEndGameManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_EndGameManager);
 	ret.victoryConditions = cmpEndGameManager.GetVictoryConditions();
 	ret.alliedVictory = cmpEndGameManager.GetAlliedVictory();
+
+	ret.maxWorldPopulation = cmpPlayerManager.GetMaxWorldPopulation();
 
 	for (let i = 0; i < numPlayers; ++i)
 	{
@@ -254,7 +258,6 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 		ret.identity = {
 			"rank": cmpIdentity.GetRank(),
 			"classes": cmpIdentity.GetClassesList(),
-			"visibleClasses": cmpIdentity.GetVisibleClassesList(),
 			"selectionGroupName": cmpIdentity.GetSelectionGroupName(),
 			"canDelete": !cmpIdentity.IsUndeletable(),
 			"hasSomeFormation": cmpIdentity.HasSomeFormation(),
@@ -358,6 +361,12 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 			"garrisonedEntitiesCount": cmpGarrisonHolder.GetGarrisonedEntitiesCount()
 		};
 
+	let cmpTurretHolder = Engine.QueryInterface(ent, IID_TurretHolder);
+	if (cmpTurretHolder)
+		ret.turretHolder = {
+			"turretPoints": cmpTurretHolder.GetTurretPoints()
+		};
+
 	ret.canGarrison = !!Engine.QueryInterface(ent, IID_Garrisonable);
 
 	let cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
@@ -444,9 +453,9 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 		}
 	}
 
-	let cmpArmour = Engine.QueryInterface(ent, IID_Resistance);
-	if (cmpArmour)
-		ret.armour = cmpArmour.GetArmourStrengths("Damage");
+	let cmpResistance = Engine.QueryInterface(ent, IID_Resistance);
+	if (cmpResistance)
+		ret.resistance = cmpResistance.GetResistanceOfForm(cmpFoundation ? "Foundation" : "Entity");
 
 	let cmpBuildingAI = Engine.QueryInterface(ent, IID_BuildingAI);
 	if (cmpBuildingAI)
@@ -488,15 +497,15 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 			"req": cmpPromotion.GetRequiredXp()
 		};
 
-	if (!cmpFoundation && cmpIdentity && cmpIdentity.HasClass("BarterMarket"))
+	if (!cmpFoundation && cmpIdentity && cmpIdentity.HasClass("Barter"))
 		ret.isBarterMarket = true;
 
 	let cmpHeal = Engine.QueryInterface(ent, IID_Heal);
 	if (cmpHeal)
 		ret.heal = {
-			"hp": cmpHeal.GetHP(),
+			"health": cmpHeal.GetHealth(),
 			"range": cmpHeal.GetRange().max,
-			"rate": cmpHeal.GetRate(),
+			"interval": cmpHeal.GetInterval(),
 			"unhealableClasses": cmpHeal.GetUnhealableClasses(),
 			"healableClasses": cmpHeal.GetHealableClasses()
 		};
@@ -511,7 +520,7 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 	let cmpResourceTrickle = Engine.QueryInterface(ent, IID_ResourceTrickle);
 	if (cmpResourceTrickle)
 		ret.resourceTrickle = {
-			"interval": cmpResourceTrickle.GetTimer(),
+			"interval": cmpResourceTrickle.GetInterval(),
 			"rates": cmpResourceTrickle.GetRates()
 		};
 
@@ -641,7 +650,11 @@ GuiInterface.prototype.GetBattleState = function(player)
  */
 GuiInterface.prototype.GetIncomingAttacks = function(player)
 {
-	return QueryPlayerIDInterface(player, IID_AttackDetection).GetIncomingAttacks();
+	let cmpAttackDetection = QueryPlayerIDInterface(player, IID_AttackDetection);
+	if (!cmpAttackDetection)
+		return [];
+
+	return cmpAttackDetection.GetIncomingAttacks();
 };
 
 /**
@@ -649,7 +662,8 @@ GuiInterface.prototype.GetIncomingAttacks = function(player)
  */
 GuiInterface.prototype.GetNeededResources = function(player, data)
 {
-	return QueryPlayerIDInterface(data.player !== undefined ? data.player : player).GetNeededResources(data.cost);
+	let cmpPlayer = QueryPlayerIDInterface(data.player !== undefined ? data.player : player);
+	return cmpPlayer ? cmpPlayer.GetNeededResources(data.cost) : {};
 };
 
 /**
@@ -659,6 +673,7 @@ GuiInterface.prototype.GetNeededResources = function(player, data)
 GuiInterface.prototype.OnTemplateModification = function(msg)
 {
 	this.templateModified[msg.player] = true;
+	this.selectionDirty[msg.player] = true;
 };
 
 GuiInterface.prototype.IsTemplateModified = function(player)
@@ -669,6 +684,35 @@ GuiInterface.prototype.IsTemplateModified = function(player)
 GuiInterface.prototype.ResetTemplateModified = function()
 {
 	this.templateModified = {};
+};
+
+/**
+ * Some changes may require an update to the selection panel,
+ * which is cached for efficiency. Inform the GUI it needs reloading.
+ */
+GuiInterface.prototype.OnDisabledTemplatesChanged = function(msg)
+{
+	this.selectionDirty[msg.player] = true;
+};
+
+GuiInterface.prototype.OnDisabledTechnologiesChanged = function(msg)
+{
+	this.selectionDirty[msg.player] = true;
+};
+
+GuiInterface.prototype.SetSelectionDirty = function(player)
+{
+	this.selectionDirty[player] = true;
+};
+
+GuiInterface.prototype.IsSelectionDirty = function(player)
+{
+	return this.selectionDirty[player] || false;
+};
+
+GuiInterface.prototype.ResetSelectionDirty = function()
+{
+	this.selectionDirty = {};
 };
 
 /**
@@ -727,7 +771,11 @@ GuiInterface.prototype.GetNotifications = function()
 
 GuiInterface.prototype.GetAvailableFormations = function(player, wantedPlayer)
 {
-	return QueryPlayerIDInterface(wantedPlayer).GetFormations();
+	let cmpPlayer = QueryPlayerIDInterface(wantedPlayer);
+	if (!cmpPlayer)
+		return [];
+
+	return cmpPlayer.GetFormations();
 };
 
 GuiInterface.prototype.GetFormationRequirements = function(player, data)
@@ -1917,7 +1965,11 @@ GuiInterface.prototype.GetTraderNumber = function(player)
 
 GuiInterface.prototype.GetTradingGoods = function(player)
 {
-	return QueryPlayerIDInterface(player).GetTradingGoods();
+	let cmpPlayer = QueryPlayerIDInterface(player);
+	if (!cmpPlayer)
+		return [];
+
+	return cmpPlayer.GetTradingGoods();
 };
 
 GuiInterface.prototype.OnGlobalEntityRenamed = function(msg)
@@ -1991,7 +2043,9 @@ let exposedFunctions = {
 	"GetTraderNumber": 1,
 	"GetTradingGoods": 1,
 	"IsTemplateModified": 1,
-	"ResetTemplateModified": 1
+	"ResetTemplateModified": 1,
+	"IsSelectionDirty": 1,
+	"ResetSelectionDirty": 1
 };
 
 GuiInterface.prototype.ScriptCall = function(player, name, args)

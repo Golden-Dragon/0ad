@@ -5,6 +5,8 @@ var g_OrderTabNames = [
 	"special",
 	"programming",
 	"art",
+	"audio",
+	"maps",
 	"history",
 	"balancing",
 	"community",
@@ -47,6 +49,7 @@ function init()
 
 	placeTabButtons(
 		g_PanelData,
+		false,
 		g_TabButtonHeight,
 		g_TabButtonDist,
 		selectPanel,
@@ -77,7 +80,7 @@ function parseHelper(list)
 			{
 				let credit;
 				if (element.nick && element.name)
-					credit = sprintf(translate("%(nick)s - %(name)s"), { "nick": element.nick, "name": element.name });
+					credit = sprintf(translate("%(nick)s — %(name)s"), { "nick": element.nick, "name": element.name });
 				else if (element.nick)
 					credit = element.nick;
 				else if (element.name)

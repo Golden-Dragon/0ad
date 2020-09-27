@@ -77,6 +77,16 @@ static const entity_pos_t DIRECT_PATH_RANGE = entity_pos_t::FromInt(TERRAIN_TILE
 static const entity_pos_t TARGET_UNCERTAINTY_MULTIPLIER = entity_pos_t::FromInt(TERRAIN_TILE_SIZE*2);
 
 /**
+ * When following a known imperfect path (i.e. a path that won't take us in range of our goal
+ * we still recompute a new path every N turn to adapt to moving targets (for example, ships that must pickup
+ * units may easily end up in this state, they still need to adjust to moving units).
+ * This is rather arbitrary and mostly for simplicity & optimisation (a better recomputing algorithm
+ * would not need this).
+ * Keep in mind that MP turns are currently 500ms.
+ */
+static const u8 KNOWN_IMPERFECT_PATH_RESET_COUNTDOWN = 12;
+
+/**
  * When we fail more than this many path computations in a row, inform other components that the move will fail.
  * Experimentally, this number needs to be somewhat high or moving groups of units will lead to stuck units.
  * However, too high means units will look idle for a long time when they are failing to move.
@@ -136,12 +146,14 @@ public:
 	// that the move will likely fail.
 	u8 m_FailedPathComputations = 0;
 
-	// If true, PathingUpdateNeeded returns false always.
+	// If > 0, PathingUpdateNeeded returns false always.
 	// This exists because the goal may be unreachable to the short/long pathfinder.
-	// In such cases, we would compute inacceptable paths and PathingUpdateNeeded would trigger every turn.
-	// To avoid that, when we know the new path is imperfect, treat it as OK and follow it until the end.
-	// When reaching the end, we'll run through HandleObstructedMove and this will be reset.
-	bool m_FollowKnownImperfectPath = false;
+	// In such cases, we would compute inacceptable paths and PathingUpdateNeeded would trigger every turn,
+	// which would be quite bad for performance.
+	// To avoid that, when we know the new path is imperfect, treat it as OK and follow it anyways.
+	// When reaching the end, we'll go through HandleObstructedMove and reset regardless.
+	// To still recompute now and then (the target may be moving), this is a countdown decremented on each frame.
+	u8 m_FollowKnownImperfectPathCountdown = 0;
 
 	struct Ticket {
 		u32 m_Ticket = 0; // asynchronous request ID we're waiting for, or 0 if none
@@ -251,8 +263,8 @@ public:
 		serialize.NumberU32_Unbounded("ticket", m_ExpectedPathTicket.m_Ticket);
 		SerializeU8_Enum<Ticket::Type, Ticket::Type::LONG_PATH>()(serialize, "ticket type", m_ExpectedPathTicket.m_Type);
 
-		serialize.NumberU8("failed path computations", m_FailedPathComputations, 0, 255);
-		serialize.Bool("followknownimperfectpath", m_FollowKnownImperfectPath);
+		serialize.NumberU8_Unbounded("failed path computations", m_FailedPathComputations);
+		serialize.NumberU8_Unbounded("followknownimperfectpath", m_FollowKnownImperfectPathCountdown);
 
 		SerializeU8_Enum<MoveRequest::Type, MoveRequest::Type::OFFSET>()(serialize, "target type", m_MoveRequest.m_Type);
 		serialize.NumberU32_Unbounded("target entity", m_MoveRequest.m_Entity);
@@ -414,6 +426,11 @@ public:
 		m_FacePointAfterMove = facePointAfterMove;
 	}
 
+	virtual bool GetFacePointAfterMove() const
+	{
+		return m_FacePointAfterMove;
+	}
+
 	virtual void SetDebugOverlay(bool enabled)
 	{
 		m_DebugOverlayEnabled = enabled;
@@ -434,6 +451,8 @@ public:
 	{
 		MoveTo(MoveRequest(target, CFixedVector2D(x, z)));
 	}
+
+	virtual bool IsTargetRangeReachable(entity_id_t target, entity_pos_t minRange, entity_pos_t maxRange);
 
 	virtual void FaceTowardsPoint(entity_pos_t x, entity_pos_t z);
 
@@ -478,10 +497,10 @@ private:
 		return m_MoveRequest.m_Type == MoveRequest::OFFSET;
 	}
 
-	bool IsFormationControllerNotMoving() const
+	bool IsFormationControllerMoving() const
 	{
 		CmpPtr<ICmpUnitMotion> cmpControllerMotion(GetSimContext(), m_MoveRequest.m_Entity);
-		return cmpControllerMotion && !cmpControllerMotion->IsMoveRequested();
+		return cmpControllerMotion && cmpControllerMotion->IsMoveRequested();
 	}
 
 	entity_id_t GetGroup() const
@@ -496,6 +515,12 @@ private:
 	 */
 	void MoveFailed()
 	{
+		// Don't notify if we are a formation member in a moving formation - we can occasionally be stuck for a long time
+		// if our current offset is unreachable, but we don't want to end up stuck.
+		// (If the formation controller has stopped moving however, we can safely message).
+		if (IsFormationMember() && IsFormationControllerMoving())
+			return;
+
 		CMessageMotionUpdate msg(CMessageMotionUpdate::LIKELY_FAILURE);
 		GetSimContext().GetComponentManager().PostMessage(GetEntityId(), msg);
 	}
@@ -507,21 +532,47 @@ private:
 	 */
 	void MoveSucceeded()
 	{
+		// Don't notify if we are a formation member in a moving formation - we can occasionally be stuck for a long time
+		// if our current offset is unreachable, but we don't want to end up stuck.
+		// (If the formation controller has stopped moving however, we can safely message).
+		if (IsFormationMember() && IsFormationControllerMoving())
+			return;
+
 		CMessageMotionUpdate msg(CMessageMotionUpdate::LIKELY_SUCCESS);
 		GetSimContext().GetComponentManager().PostMessage(GetEntityId(), msg);
 	}
 
 	/**
-	 * Increment the number of failed path computations and notify other components if required.
+	 * Warns other components that our current movement was obstructed (i.e. we failed to move this turn).
+	 * This should only be called before the actual movement in a given turn, or units might both move and try to do things
+	 * on the same turn, leading to gliding units.
 	 */
-	void IncrementFailedPathComputationAndMaybeNotify()
+	void MoveObstructed()
+	{
+		// Don't notify if we are a formation member in a moving formation - we can occasionally be stuck for a long time
+		// if our current offset is unreachable, but we don't want to end up stuck.
+		// (If the formation controller has stopped moving however, we can safely message).
+		if (IsFormationMember() && IsFormationControllerMoving())
+			return;
+
+		CMessageMotionUpdate msg(CMessageMotionUpdate::OBSTRUCTED);
+		GetSimContext().GetComponentManager().PostMessage(GetEntityId(), msg);
+	}
+
+	/**
+	 * Increment the number of failed path computations and notify other components if required.
+	 * @returns true if the failure was notified, false otherwise.
+	 */
+	bool IncrementFailedPathComputationAndMaybeNotify()
 	{
 		m_FailedPathComputations++;
 		if (m_FailedPathComputations >= MAX_FAILED_PATH_COMPUTATIONS)
 		{
 			MoveFailed();
 			m_FailedPathComputations = 0;
+			return true;
 		}
+		return false;
 	}
 
 	/**
@@ -711,7 +762,7 @@ void CCmpUnitMotion::PathResult(u32 ticket, const WaypointPath& path)
 
 		m_LongPath = path;
 
-		m_FollowKnownImperfectPath = false;
+		m_FollowKnownImperfectPathCountdown = 0;
 
 		// If there's no waypoints then we couldn't get near the target.
 		// Sort of hack: Just try going directly to the goal point instead
@@ -731,10 +782,15 @@ void CCmpUnitMotion::PathResult(u32 ticket, const WaypointPath& path)
 		// (we will still fail the move when we arrive to the best possible position, and if we were blocked by
 		// an obstruction and it goes away we will notice when getting there as having no waypoint goes through
 		// HandleObstructedMove, so this is safe).
-		// TODO: For now, we won't warn components straight away as that could lead to units idling earlier than expected,
-		// but it should be done someday when the message can differentiate between different failure causes.
 		else if (PathingUpdateNeeded(pos))
-			m_FollowKnownImperfectPath = true;
+		{
+			// Inform other components early, as they might have better behaviour than waiting for the path to carry out.
+			// Send OBSTRUCTED at first - moveFailed is likely to trigger path recomputation and we might end up
+			// recomputing too often for nothing.
+			if (!IncrementFailedPathComputationAndMaybeNotify())
+				MoveObstructed();
+			m_FollowKnownImperfectPathCountdown = KNOWN_IMPERFECT_PATH_RESET_COUNTDOWN;
+		}
 		return;
 	}
 
@@ -747,26 +803,26 @@ void CCmpUnitMotion::PathResult(u32 ticket, const WaypointPath& path)
 
 	m_ShortPath = path;
 
-	m_FollowKnownImperfectPath = false;
+	m_FollowKnownImperfectPathCountdown = 0;
 	if (!m_ShortPath.m_Waypoints.empty())
 	{
 		if (PathingUpdateNeeded(pos))
-			m_FollowKnownImperfectPath = true;
+		{
+			// Inform other components early, as they might have better behaviour than waiting for the path to carry out.
+			// Send OBSTRUCTED at first - moveFailed is likely to trigger path recomputation and we might end up
+			// recomputing too often for nothing.
+			if (!IncrementFailedPathComputationAndMaybeNotify())
+				MoveObstructed();
+			m_FollowKnownImperfectPathCountdown = KNOWN_IMPERFECT_PATH_RESET_COUNTDOWN;
+		}
 		return;
 	}
 
 	if (m_FailedPathComputations >= 1)
-	{
 		// Inform other components - we might be ordered to stop, and computeGoal will then fail and return early.
-		CMessageMotionUpdate msg(CMessageMotionUpdate::OBSTRUCTED);
-		GetSimContext().GetComponentManager().PostMessage(GetEntityId(), msg);
-	}
+		MoveObstructed();
 
-	// Don't notify if we are a formation member - we can occasionally be stuck for a long time
-	// if our current offset is unreachable.
-	// Unless the formationcontroller has reached final destination and we are stuck
-	if (!IsFormationMember() || IsFormationControllerNotMoving())
-		IncrementFailedPathComputationAndMaybeNotify();
+	IncrementFailedPathComputationAndMaybeNotify();
 
 	// If there's no waypoints then we couldn't get near the target
 	// If we're globally following a long path, try to remove the next waypoint,
@@ -856,6 +912,8 @@ void CCmpUnitMotion::Move(fixed dt)
 		if (ComputeGoal(goal, m_MoveRequest))
 			ComputePathToGoal(pos, goal);
 	}
+	else if (m_FollowKnownImperfectPathCountdown > 0)
+		--m_FollowKnownImperfectPathCountdown;
 }
 
 bool CCmpUnitMotion::PossiblyAtDestination() const
@@ -1008,19 +1066,15 @@ bool CCmpUnitMotion::HandleObstructedMove()
 		return false;
 
 	if (m_FailedPathComputations >= 1)
-	{
 		// Inform other components - we might be ordered to stop, and computeGoal will then fail and return early.
-		CMessageMotionUpdate msg(CMessageMotionUpdate::OBSTRUCTED);
-		GetSimContext().GetComponentManager().PostMessage(GetEntityId(), msg);
-	}
-
-	CFixedVector2D pos = cmpPosition->GetPosition2D();
-
-	// Oops, we hit something (very likely another unit).
+		MoveObstructed();
 
 	PathGoal goal;
 	if (!ComputeGoal(goal, m_MoveRequest))
 		return false;
+
+	// At this point we have a position in the world since ComputeGoal checked for that.
+	CFixedVector2D pos = cmpPosition->GetPosition2D();
 
 	if (!InShortPathRange(goal, pos))
 	{
@@ -1163,7 +1217,7 @@ bool CCmpUnitMotion::PathingUpdateNeeded(const CFixedVector2D& from) const
 	if (!ComputeTargetPosition(targetPos))
 		return false;
 
-	if (m_FollowKnownImperfectPath)
+	if (m_FollowKnownImperfectPathCountdown > 0)
 		return false;
 
 	if (PossiblyAtDestination())
@@ -1456,11 +1510,28 @@ bool CCmpUnitMotion::MoveTo(MoveRequest request)
 
 	m_MoveRequest = request;
 	m_FailedPathComputations = 0;
-	m_FollowKnownImperfectPath = false;
+	m_FollowKnownImperfectPathCountdown = 0;
 
 	ComputePathToGoal(cmpPosition->GetPosition2D(), goal);
 	return true;
 }
+
+bool CCmpUnitMotion::IsTargetRangeReachable(entity_id_t target, entity_pos_t minRange, entity_pos_t maxRange)
+{
+	CmpPtr<ICmpPosition> cmpPosition(GetEntityHandle());
+	if (!cmpPosition || !cmpPosition->IsInWorld())
+		return false;
+
+	MoveRequest request(target, minRange, maxRange);
+	PathGoal goal;
+	if (!ComputeGoal(goal, request))
+		return false;
+
+	CmpPtr<ICmpPathfinder> cmpPathfinder(GetSimContext(), SYSTEM_ENTITY);
+	CFixedVector2D pos = cmpPosition->GetPosition2D();
+	return cmpPathfinder->IsGoalReachable(pos.X, pos.Y, goal, m_PassClass);
+}
+
 
 void CCmpUnitMotion::RenderPath(const WaypointPath& path, std::vector<SOverlayLine>& lines, CColor color)
 {

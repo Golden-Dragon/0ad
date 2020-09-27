@@ -32,7 +32,7 @@ BuildRestrictions.prototype.Schema =
 			"</oneOrMore>" +
 		"</list>" +
 	"</element>" +
-	"<element name='Category' a:help='Specifies the category of this building, for satisfying special constraints. Choices include: Apadana, ArmyCamp, Barracks, CivilCentre, Colony, Council, DefenseTower, Dock, Embassy, Farmstead, Fence, Field, Fortress, Hall, House, Kennel, Library, Market, Monument, Outpost, Pillar, Resource, Special, Stoa, Storehouse, Temple, Theater, UniqueBuilding, Wall, Wonder'>" +
+	"<element name='Category' a:help='Specifies the category of this building, for satisfying special constraints. Choices include: Apadana, CivilCentre, Council, Embassy, Fortress, Gladiator, Hall, Hero, Juggernaut, Library, Lighthouse, Monument, Pillar, PyramidLarge, PyramidSmall, Stoa, TempleOfAmun, Theater, Tower, UniqueBuilding, WarDog, Wonder'>" +
 		"<text/>" +
 	"</element>" +
 	"<optional>" +
@@ -92,8 +92,11 @@ BuildRestrictions.prototype.CheckPlacement = function()
 		"translateParameters": ["name"],
 	};
 
-	// TODO: AI has no visibility info
 	var cmpPlayer = QueryOwnerInterface(this.entity, IID_Player);
+	if (!cmpPlayer)
+		return result; // Fail
+
+	// TODO: AI has no visibility info
 	if (!cmpPlayer.IsAI())
 	{
 		// Check whether it's in a visible or fogged region
@@ -164,9 +167,8 @@ BuildRestrictions.prototype.CheckPlacement = function()
 
 	// Check territory restrictions
 	var cmpTerritoryManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_TerritoryManager);
-	var cmpPlayer = QueryOwnerInterface(this.entity, IID_Player);
 	var cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
-	if (!(cmpTerritoryManager && cmpPlayer && cmpPosition && cmpPosition.IsInWorld()))
+	if (!cmpTerritoryManager || !cmpPosition || !cmpPosition.IsInWorld())
 		return result;	// Fail
 
 	var pos = cmpPosition.GetPosition2D();
@@ -239,7 +241,6 @@ BuildRestrictions.prototype.CheckPlacement = function()
 	if (this.template.Distance)
 	{
 		var cmpRangeManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_RangeManager);
-		var cmpPlayer = QueryOwnerInterface(this.entity, IID_Player);
 		var cat = this.template.Distance.FromClass;
 
 		var filter = function(id)

@@ -6,12 +6,13 @@
 # Inaxio Lopes <inaxio.lopes@gmail.com>, 2019
 # Mielanjel Iraeta <pospolos@gmail.com>, 2017-2020
 # Osoitz <oelkoro@gmail.com>, 2017,2019-2020
-# Gontzal Manuel Pujana Onaindia <juchuf@gmail.com>, 2016-2017
+# Mielanjel Iraeta <pospolos@gmail.com>, 2020
+# Thadah D. Denyse <juchuf@gmail.com>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-04-13 07:18+0000\n"
-"PO-Revision-Date: 2020-04-18 07:50+0000\n"
+"POT-Creation-Date: 2020-08-28 07:10+0000\n"
+"PO-Revision-Date: 2020-09-06 09:20+0000\n"
 "Last-Translator: Mielanjel Iraeta <pospolos@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/wildfire-games/0ad/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +20,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraName
+msgid "Arsenal Repairs"
+msgstr "Konponketak armategian"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraDescription
+msgid "Garrisoned Siege Engines +3 health regeneration rate."
+msgstr "Guardan sartutako dauden setio makinak +3 berrosatze tasa."
 
 #: simulation/data/auras/structures/barracks_xp_trickle.jsonauraName
 msgid "Rigorous Training"
@@ -35,14 +44,6 @@ msgstr "Konponketak Ontzioletan"
 #: simulation/data/auras/structures/cart_super_dock_repair.jsonauraDescription
 msgid "Garrisoned Ships +10 health regeneration rate."
 msgstr "Guardan sartutako ontziak +10 berrosatze tasa."
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraName
-msgid "Blessing of the Gods"
-msgstr "Babes Jainkotiarra"
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraDescription
-msgid "Humans +3 health regeneration rate."
-msgstr "Gizakiek +3 osasun berrosatze tasa."
 
 #: simulation/data/auras/structures/iber_monument.jsonauraName
 msgid "Religious Fervor"
@@ -66,16 +67,8 @@ msgid "Exhortative Presence"
 msgstr "Akuilari Presentzia "
 
 #: simulation/data/auras/structures/kush_pyramids_military.jsonauraDescription
-msgid "Soldiers +10% melee and ranged attack damage."
-msgstr "Soldaduek %10+ kalte buruz-buruko eta urrutiko erasoetan."
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraName
-msgid "Meroitic Pyramids"
-msgstr "Meroitidar Piramideak"
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraDescription
-msgid "Civic Centers +10% territory influence radius."
-msgstr "Zentro zibikoek %10 gehiagoko lurraldetasun eragina ematen dute"
+msgid "Soldiers +1 armor level and +10% melee and ranged attack damage."
+msgstr "Soldaduek: armadura +1, %10+ kalte buruz-buruko eta urrutiko erasoetan."
 
 #: simulation/data/auras/structures/kush_temple_amun.jsonauraName
 msgid "Powerful Priesthood"
@@ -158,14 +151,6 @@ msgid ""
 "+40 maximum population limit (requires the “Glorious Expansion” technology)."
 msgstr "Gehieneko biztanleria muga +40 handitzen du. (\"Zabalketa Loriatsua\" teknologia behar du)."
 
-#: simulation/data/auras/structures/workshop_repair.jsonauraName
-msgid "Workshop Repairs"
-msgstr "Konponketak Tailerrean"
-
-#: simulation/data/auras/structures/workshop_repair.jsonauraDescription
-msgid "Garrisoned Siege Engines +3 health regeneration rate."
-msgstr "Guardan sartutako dauden setio makinak +3 berrosatze tasa."
-
 #: simulation/data/auras/teambonuses/athen_player_teambonus.jsonauraName
 msgid "Delian League"
 msgstr "Delosko Liga"
@@ -187,24 +172,24 @@ msgid "Trademasters"
 msgstr "Merkataritza maisuak"
 
 #: simulation/data/auras/teambonuses/cart_player_teambonus.jsonauraDescription
-msgid "Allied Markets +10% international trade bonus."
-msgstr "Aliatuen merkataritza %10 gehiago nazioarteko merkataritzan."
+msgid "Allies +10% international trade bonus."
+msgstr "Aliatuak +%10 gehiago nazioarteko merkataritzan."
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraName
-msgid "Druidic Wisdom"
-msgstr "Druiden jakinduria"
+msgid "Products from Gaul"
+msgstr "Galiako produktuak"
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraDescription
-msgid "Allied Structures −20% technology research time."
-msgstr "Aliatuen egiturak -%20 gutxiago teknologiak ikertzen."
+msgid "Forges −15% technology resource costs and research time."
+msgstr "Burdinolak %15- merkeagoak eta teknologietan denbora gutxiago"
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraName
 msgid "Saripeko"
 msgstr "Saripeko"
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraDescription
-msgid "Allied Citizen Javelinists −10% resource costs."
-msgstr "Aliatuen hiritar xabalinariak %10- baliabide kostuan."
+msgid "Allied Citizen Javelineers −10% resource costs."
+msgstr "Aliatuen hiritar lantzariak %10- baliabide kostuan."
 
 #: simulation/data/auras/teambonuses/kush_player_teambonus.jsonauraName
 msgid "Elephant Suppliers"
@@ -326,8 +311,8 @@ msgstr "Xaxatzailearen jazarpena"
 #: simulation/data/auras/units/catafalques/brit_catafalque_2.jsonauraDescription
 msgid ""
 "Cassivellaunus deployed fast-moving skirmishers to harass Roman troops and foragers.\n"
-"Javelinists +20% attack range."
-msgstr "Cassivellaunusek xaxatzaile arinak zabaldu zituen Erromatar soldadu eta nekazariak jazartzeko.\nXabalinariak %20+ eraso-irismenean."
+"Javelineers +20% attack range."
+msgstr "Cassivellaunusek xaxatzaile arinak zabaldu zituen Erromatar soldadu eta nekazariak jazartzeko.\nLantzariak %20+ eraso-irismenean."
 
 #: simulation/data/auras/units/catafalques/cart_catafalque.jsonauraName
 msgid "Commander of Heavy Cavalry"
@@ -537,8 +522,8 @@ msgid "Peltast Reforms"
 msgstr "Peltasta berrikuntzak"
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_2.jsonauraDescription
-msgid "Infantry Javelinists +15% movement speed."
-msgstr "Infanteria xabalinariak %15+ mugimendu abiaduran."
+msgid "Infantry Javelineers +15% movement speed."
+msgstr "Infanteria lantzariak %15+ mugimendu abiaduran."
 
 #: simulation/data/auras/units/heroes/athen_hero_pericles_1.jsonauraName
 msgid "Periclean Building Program"
@@ -960,8 +945,8 @@ msgstr "Morroi Aldaketak"
 
 #: simulation/data/auras/units/heroes/spart_hero_brasidas.jsonauraDescription
 msgid ""
-"Citizen Infantry Javelinists +1 armor, +25% ranged attack pierce damage."
-msgstr "Hiritar infanteria xabalinariak +1 armadura, %25+ urrutirako erasoen zulatze kaltean."
+"Citizen Infantry Javelineers +1 armor, +25% ranged attack pierce damage."
+msgstr "Hiritar infanteria lantzariak +1 armadura, %25+ urrutirako erasoen zulatze kaltean."
 
 #: simulation/data/auras/units/heroes/spart_hero_leonidas.jsonauraName
 msgid "Last Stand"

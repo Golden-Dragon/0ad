@@ -26,28 +26,28 @@ const tShore = "temp_dirt_gravel_b";
 const tWater = "steppe_river_rocks_wet";
 const tSeaDepths = "medit_sea_depths";
 
-const oBerryBush = "gaia/flora_bush_berry";
+const oBerryBush = "gaia/fruit/berry_01";
 const oDeer = "gaia/fauna_deer";
-const oFish = "gaia/fauna_fish";
+const oFish = "gaia/fish/generic";
 const oSheep = "gaia/fauna_sheep";
 const oGoat = "gaia/fauna_goat";
 const oWolf = "gaia/fauna_wolf";
-const oHawk = "gaia/fauna_hawk";
+const oHawk = "birds/buzzard";
 const oRabbit = "gaia/fauna_rabbit";
 const oBoar = "gaia/fauna_boar";
 const oBear = "gaia/fauna_bear_brown";
-const oStoneLarge = "gaia/geology_stonemine_temperate_quarry";
+const oStoneLarge = "gaia/rock/temperate_large";
 const oStoneRuins = "gaia/ruins/standing_stone";
-const oMetalLarge = "gaia/geology_metal_mediterranean_slabs";
-const oApple = "gaia/flora_tree_apple";
-const oAcacia = "gaia/flora_tree_acacia";
-const oOak = "gaia/flora_tree_oak_aut";
-const oOak2 = "gaia/flora_tree_oak_aut_new";
-const oOak3 = "gaia/flora_tree_oak_dead";
-const oOak4 = "gaia/flora_tree_oak";
-const oPopolar = "gaia/flora_tree_poplar_lombardy";
-const oBeech = "gaia/flora_tree_euro_beech_aut";
-const oBeech2 = "gaia/flora_tree_euro_beech";
+const oMetalLarge = "gaia/ore/mediterranean_large";
+const oApple = "gaia/fruit/apple";
+const oAcacia = "gaia/tree/acacia";
+const oOak = "gaia/tree/oak_aut";
+const oOak2 = "gaia/tree/oak_aut_new";
+const oOak3 = "gaia/tree/oak_dead";
+const oOak4 = "gaia/tree/oak";
+const oPopolar = "gaia/tree/poplar_lombardy";
+const oBeech = "gaia/tree/euro_beech_aut";
+const oBeech2 = "gaia/tree/euro_beech";
 const oTreasures = [
 	"gaia/treasure/food_barrel",
 	"gaia/treasure/food_bin",
@@ -81,7 +81,7 @@ const oPalisadePillar = "uncapturable|structures/palisades_tower";
 
 const oFemale = "units/gaul_support_female_citizen";
 const oHealer = "units/gaul_support_healer_b";
-const oSkirmisher = "units/gaul_infantry_javelinist_b";
+const oSkirmisher = "units/gaul_infantry_javelineer_b";
 const oNakedFanatic = "units/gaul_champion_fanatic";
 
 const aBush1 = "actor|props/flora/bush_tempe_sm.xml";

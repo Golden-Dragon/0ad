@@ -1,4 +1,4 @@
-/* Copyright (C) 2019 Wildfire Games.
+/* Copyright (C) 2020 Wildfire Games.
  * This file is part of 0 A.D.
  *
  * 0 A.D. is free software: you can redistribute it and/or modify
@@ -704,6 +704,25 @@ bool HierarchicalPathfinder::MakeGoalReachable(u16 i0, u16 j0, PathGoal& goal, p
 	return false;
 }
 
+
+bool HierarchicalPathfinder::IsGoalReachable(u16 i0, u16 j0, const PathGoal& goal, pass_class_t passClass) const
+{
+	PROFILE2("IsGoalReachable");
+
+	u16 iGoal, jGoal;
+	Pathfinding::NearestNavcell(goal.x, goal.z, iGoal, jGoal, m_W, m_H);
+
+	std::set<InterestingRegion, SortByBestToPoint> goalRegions(SortByBestToPoint(i0, j0));
+	// This returns goal regions ordered by distance from the best navcell in each region.
+	FindGoalRegionsAndBestNavcells(i0, j0, iGoal, jGoal, goal, goalRegions, passClass);
+
+	// Because of the sorting above, we can stop as soon as the first reachable goal region is found.
+	for (const InterestingRegion& region : goalRegions)
+		if (GetGlobalRegion(region.region, passClass) == GetGlobalRegion(i0, j0, passClass))
+			return true;
+	return false;
+}
+
 void HierarchicalPathfinder::FindNearestPassableNavcell(u16& i, u16& j, pass_class_t passClass) const
 {
 	std::set<RegionID, SortByCenterToPoint> regions(SortByCenterToPoint(i, j));
@@ -749,34 +768,6 @@ void HierarchicalPathfinder::FindNearestNavcellInRegions(const std::set<RegionID
 	}
 	iGoal = bestI;
 	jGoal = bestJ;
-}
-
-template<typename Ordering>
-void HierarchicalPathfinder::FindReachableRegions(RegionID from, std::set<RegionID, Ordering>& reachable, pass_class_t passClass) const
-{
-	// Flood-fill the region graph, starting at 'from',
-	// collecting all the regions that are reachable via edges
-	reachable.insert(from);
-
-	const EdgesMap& edgeMap = m_Edges.at(passClass);
-	if (edgeMap.find(from) == edgeMap.end())
-		return;
-
-	std::vector<RegionID> open;
-	open.reserve(64);
-	open.push_back(from);
-
-	while (!open.empty())
-	{
-		RegionID curr = open.back();
-		open.pop_back();
-
-		for (const RegionID& region : edgeMap.at(curr))
-			// Add to the reachable set; if this is the first time we added
-			// it then also add it to the open list
-			if (reachable.insert(region).second)
-				open.push_back(region);
-	}
 }
 
 void HierarchicalPathfinder::FindGoalRegionsAndBestNavcells(u16 i0, u16 j0, u16 gi, u16 gj, const PathGoal& goal, std::set<InterestingRegion, SortByBestToPoint>& regions, pass_class_t passClass) const

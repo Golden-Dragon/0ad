@@ -5,6 +5,7 @@ const g_CivData = loadCivData(false, true);
 const g_MapSizes = prepareForDropdown(g_Settings && g_Settings.MapSizes);
 const g_MapTypes = prepareForDropdown(g_Settings && g_Settings.MapTypes);
 const g_PopulationCapacities = prepareForDropdown(g_Settings && g_Settings.PopulationCapacities);
+const g_WorldPopulationCapacities = prepareForDropdown(g_Settings && g_Settings.WorldPopulationCapacities);
 const g_StartingResources = prepareForDropdown(g_Settings && g_Settings.StartingResources);
 const g_VictoryConditions = g_Settings && g_Settings.VictoryConditions;
 
@@ -463,7 +464,7 @@ function controlsPlayer(playerID)
  * Called when one or more players have won or were defeated.
  *
  * @param {array} - IDs of the players who have won or were defeated.
- * @param {object} - a plural string stating the victory reason.
+ * @param {Object} - a plural string stating the victory reason.
  * @param {boolean} - whether these players have won or lost.
  */
 function playersFinished(players, victoryString, won)
@@ -620,6 +621,13 @@ function onSimulationUpdate()
 	}
 	g_SimState = undefined;
 
+	// Some changes may require re-rendering the selection.
+	if (Engine.GuiInterfaceCall("IsSelectionDirty"))
+	{
+		g_Selection.onChange();
+		Engine.GuiInterfaceCall("ResetSelectionDirty");
+	}
+
 	if (!GetSimState())
 		return;
 
@@ -712,7 +720,7 @@ function updateGroups()
 /**
  * Toggles the display of status bars for all of the player's entities.
  *
- * @param {Boolean} remove - Whether to hide all previously shown status bars.
+ * @param {boolean} remove - Whether to hide all previously shown status bars.
  */
 function recalculateStatusBarDisplay(remove = false)
 {

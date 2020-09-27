@@ -46,12 +46,6 @@ Promotion.prototype.Promote = function(promotedTemplateName)
 
 	// Save the entity id.
 	this.promotedUnitEntity = ChangeEntityTemplate(this.entity, promotedTemplateName);
-
-	let cmpPosition = Engine.QueryInterface(this.promotedUnitEntity, IID_Position);
-	let cmpUnitAI = Engine.QueryInterface(this.promotedUnitEntity, IID_UnitAI);
-
-	if (cmpPosition && cmpPosition.IsInWorld() && cmpUnitAI)
-		cmpUnitAI.Cheer();
 };
 
 Promotion.prototype.IncreaseXp = function(amount)
@@ -66,19 +60,23 @@ Promotion.prototype.IncreaseXp = function(amount)
 		return;
 	}
 
-	this.currentXp += +(amount);
-	var requiredXp = this.GetRequiredXp();
+	this.currentXp += +amount;
+	let requiredXp = this.GetRequiredXp();
 
 	if (this.currentXp >= requiredXp)
 	{
-		var cmpTemplateManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_TemplateManager);
-		var playerID = QueryOwnerInterface(this.entity, IID_Player).GetPlayerID();
+		let cmpTemplateManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_TemplateManager);
+		let cmpPlayer = QueryOwnerInterface(this.entity, IID_Player);
+		if (!cmpPlayer)
+			return;
+
+		let playerID = cmpPlayer.GetPlayerID();
 		this.currentXp -= requiredXp;
-		var promotedTemplateName = this.GetPromotedTemplateName();
+		let promotedTemplateName = this.GetPromotedTemplateName();
 		// check if we can upgrade a second time (or even more)
 		while (true)
 		{
-			var template = cmpTemplateManager.GetTemplate(promotedTemplateName);
+			let template = cmpTemplateManager.GetTemplate(promotedTemplateName);
 			if (!template.Promotion)
 				break;
 			requiredXp = ApplyValueModificationsToTemplate("Promotion/RequiredXp", +template.Promotion.RequiredXp, playerID, template);

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_infantry_melee">
-  <Armour>
-    <Hack>10</Hack>
-    <Pierce>10</Pierce>
-  </Armour>
   <Attack>
     <Melee>
       <Damage>
@@ -18,6 +14,7 @@
             <Multiplier>3.0</Multiplier>
           </BonusCavMelee>
       </Bonuses>
+      <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Melee>
   </Attack>
   <Cost>
@@ -26,9 +23,9 @@
     </Resources>
   </Cost>
   <Identity>
-    <VisibleClasses datatype="tokens">Pikeman</VisibleClasses>
     <GenericName>Pikeman</GenericName>
-    <Tooltip>Counters: 3x vs. Cavalry.</Tooltip>
+    <Tooltip>Counters: 3× vs Cavalry.</Tooltip>
+    <VisibleClasses datatype="tokens">Pikeman</VisibleClasses>
     <Formations datatype="tokens">
       special/formations/syntagma
     </Formations>
@@ -36,12 +33,20 @@
   <Loot>
     <wood>5</wood>
   </Loot>
-  <UnitMotion>
-    <WalkSpeed op="mul">0.8</WalkSpeed>
-  </UnitMotion>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack>10</Hack>
+        <Pierce>10</Pierce>
+      </Damage>
+    </Entity>
+  </Resistance>
   <Sound>
     <SoundGroups>
       <attack_melee>attack/weapon/pike_attack.xml</attack_melee>
     </SoundGroups>
   </Sound>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+  </UnitMotion>
 </Entity>

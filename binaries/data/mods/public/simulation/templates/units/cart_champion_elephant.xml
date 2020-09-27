@@ -4,6 +4,7 @@
     <Civ>cart</Civ>
     <GenericName>North African War Elephant</GenericName>
     <SpecificName>Pil Malḥamit</SpecificName>
+    <Classes datatype="tokens">AfricanElephant</Classes>
     <Icon>units/cart_champion_elephant.png</Icon>
   </Identity>
   <VisualActor>

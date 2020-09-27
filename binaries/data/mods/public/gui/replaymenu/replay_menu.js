@@ -51,7 +51,7 @@ var g_ReplaysLoaded = false;
 /**
  * Remember last viewed summary panel and charts.
  */
-var g_SummarySelectedData;
+var g_SummarySelection;
 
 var g_MapCache = new MapCache();
 
@@ -66,6 +66,8 @@ function init(data)
 		return;
 	}
 
+	g_SummarySelection = data && data.summarySelection;
+
 	loadReplays(data && data.replaySelectionData, false);
 
 	if (!g_Replays)
@@ -76,9 +78,6 @@ function init(data)
 
 	initHotkeyTooltips();
 	displayReplayList();
-
-	if (data && data.summarySelectedData)
-		g_SummarySelectedData = data.summarySelectedData;
 }
 
 /**
@@ -227,7 +226,7 @@ function displayReplayList()
 		return {
 			"directories": replay.directory,
 			"months": compatibilityColor(getReplayDateTime(replay), works),
-			"popCaps": compatibilityColor(translatePopulationCapacity(replay.attribs.settings.PopulationCap), works),
+			"popCaps": compatibilityColor(translatePopulationCapacity(replay.attribs.settings.PopulationCap, !!replay.attribs.settings.WorldPopulation), works),
 			"mapNames": compatibilityColor(getReplayMapName(replay), works),
 			"mapSizes": compatibilityColor(translateMapSize(replay.attribs.settings.Size), works),
 			"durations": compatibilityColor(getReplayDuration(replay), works),

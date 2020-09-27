@@ -10,19 +10,20 @@
 # Laurene Albrand, 2015
 # Laurene Albrand, 2015
 # leper <leper@wildfiregames.com>, 2014-2016
-# pilino1234 <pilino1234@zoho.eu>, 2016
-# pilino1234 <pilino1234@zoho.eu>, 2015-2016
-# pilino1234 <pilino1234@zoho.eu>, 2016-2017
+# Martin H <pilino1234@zoho.eu>, 2020
+# Martin H <pilino1234@zoho.eu>, 2016
+# Martin H <pilino1234@zoho.eu>, 2015-2016
+# Martin H <pilino1234@zoho.eu>, 2016-2017
 # Nescio, 2020
 # Nescio, 2020
-# pilino1234 <pilino1234@zoho.eu>, 2017
+# Martin H <pilino1234@zoho.eu>, 2017
 # s0600204, 2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-06-01 07:10+0000\n"
-"PO-Revision-Date: 2020-06-01 16:35+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"POT-Creation-Date: 2020-08-07 07:10+0000\n"
+"PO-Revision-Date: 2020-09-03 20:59+0000\n"
+"Last-Translator: Nescio\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/wildfire-games/0ad/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,7 +124,7 @@ msgstr "Ardennes Forest"
 msgid ""
 "A rugged land with small room for buildings with scarce wood. Represents the"
 " mountain range in the Northwest Africa."
-msgstr "A rugged land with small room for buildings with scarce wood. Represents the mountain range in the Northwest Africa."
+msgstr "A rugged land with small room for buildings with scarce wood. Represents the mountain range in North Africa."
 
 #: maps/random/atlas_mountains.jsonsettings.Name
 msgid "Atlas Mountains"
@@ -299,7 +300,7 @@ msgid ""
 "became an important way-station for the trade in ivory and other goods. It "
 "was considered to be the home of the god Khnum, guardian of the source of "
 "the Nile, and boasted an impressive temple complex."
-msgstr "Forming the traditional frontier between ancient Kush and Egypt, the fortified Island of Elephantine was situated on the Nile River at the First Cataract. As the border between Upper Egypt and Lower Nubia, Elephantine became an important way-station for the trade in ivory and other goods. It was considered to be the home of the god Khnum, guardian of the source of the Nile, and boasted an impressive temple complex."
+msgstr "Forming the traditional frontier between ancient Kush and Egypt, the fortified Island of Elephantine was situated on the Nile River at the First Cataract. As the border between Upper Egypt and Lower Nubia, Elephantine became an important stopping point for the trade in ivory and other goods. It was considered to be the home of the god Khnum, guardian of the source of the Nile, and boasted an impressive temple complex."
 
 #: maps/random/elephantine.jsonsettings.Name
 msgid "Elephantine"
@@ -492,7 +493,7 @@ msgid ""
 "This is where Kings were made... and unmade! Abutting a rich floodplain "
 "downstream from the 4th cataract, this area became the breadbasket of "
 "ancient Kush."
-msgstr "Starting near the fertile banks of the Nile, the players besiege the heavily defended city Napata which lies at the foot of the hill Jebel Barkal, the ‘Pure Mountain’. It is the southern home of Amun, and according to Kushites and Egyptians alike, the birthplace of man. Known as the Throne of the Two Lands, the ancient religious capital of Napata lay in its shadow. This is where Kings were made... and unmade! Abutting a rich floodplain downstream from the 4th Cataract, this area became the breadbasket of ancient Kush."
+msgstr "Starting near the fertile banks of the Nile, the players besiege the heavily defended city Napata which lies at the foot of the hill Jebel Barkal, the ‘Pure Mountain’. It is the southern home of Amun, and according to Kushites and Egyptians alike, the birthplace of man. Known as the Throne of the Two Lands, the ancient religious capital of Napata lay in its shadow. This is where Kings were made... and unmade! Abutting a rich floodplain downstream from the Fourth Cataract, this area became the breadbasket of ancient Kush."
 
 #: maps/random/jebel_barkal.jsonsettings.Name
 msgid "Jebel Barkal"
@@ -502,7 +503,7 @@ msgstr "Jebel Barkal"
 msgid ""
 "Players start in the southwestern shores of India between a sea and "
 "mountains."
-msgstr "Players start in the southwestern shores of India between a sea and mountains."
+msgstr "Players start in the south-western shores of India between a sea and mountains."
 
 #: maps/random/kerala.jsonsettings.Name
 msgid "Kerala"
@@ -521,7 +522,7 @@ msgid ""
 "The Italian peninsula \n"
 "\n"
 " Latium is the region of central western Italy in which the city of Rome was founded and grew to be the capital city of the Roman Empire. Latium was originally a small triangle of fertile, volcanic soil on which resided the tribe of the Latins. It was located on the left bank (east and south) of the Tiber river, extending northward to the Anio river (a left-bank tributary of the Tiber) and southeastward to the Pomptina Palus (Pontine Marshes, now the Pontine Fields) as far south as the Circeian promontory. The right bank of the Tiber was occupied by the Etruscan city of Veii, and the other borders were occupied by Italic tribes. Subsequently Rome defeated Veii and then its Italic neighbors, expanding Latium to the Apennine Mountains in the northeast and to the opposite end of the marsh in the southeast. The modern descendant, the Italian Regione of Lazio, also called Latium in Latin, and occasionally in modern English, is somewhat larger still, but not as much as double the original Latium."
-msgstr "The Italian peninsula \n\n Latium is the region of central western Italy in which the city of Rome was founded and grew to be the capital city of the Roman Empire. Latium was originally a small triangle of fertile, volcanic soil on which resided the tribe of the Latins. It was located on the left bank (east and south) of the Tiber river, extending northward to the Anio river (a left-bank tributary of the Tiber) and southeastward to the Pomptina Palus (Pontine Marshes, now the Pontine Fields) as far south as the Circeian promontory. The right bank of the Tiber was occupied by the Etruscan city of Veii, and the other borders were occupied by Italic tribes. Subsequently Rome defeated Veii and then its Italic neighbours, expanding Latium to the Apennine Mountains in the northeast and to the opposite end of the marsh in the southeast. The modern descendant, the Italian Regione of Lazio, also called Latium in Latin, and occasionally in modern English, is somewhat larger still, but not as much as double the original Latium."
+msgstr "The Italian peninsula \n\n Latium is the region of central western Italy in which the city of Rome was founded and grew to be the capital city of the Roman Empire. Latium was originally a small triangle of fertile, volcanic soil on which resided the tribe of the Latins. It was located on the left bank (east and south) of the Tiber river, extending northward to the Anio river (a left-bank tributary of the Tiber) and south-eastward to the Pomptina Palus (Pontine Marshes, now the Pontine Fields) as far south as the Circeian promontory. The right bank of the Tiber was occupied by the Etruscan city of Veii, and the other borders were occupied by Italic tribes. Subsequently Rome defeated Veii and then its Italic neighbours, expanding Latium to the Apennine Mountains in the north-east and to the opposite end of the marsh in the south-east. The modern descendant, the Italian Regione of Lazio, also called Latium in Latin, and occasionally in modern English, is somewhat larger still, but not as much as double the original Latium."
 
 #: maps/random/latium.jsonsettings.Name
 msgid "Latium"
@@ -728,7 +729,7 @@ msgid ""
 "Pompeii, along with much of the surrounding area, was mostly destroyed and "
 "buried under 4 to 6 meters of volcanic ash and pumice in the eruption of "
 "Mount Vesuvius in AD 79."
-msgstr "Pompeii was an ancient Roman coastal city, in the Campania region of Italy. Pompeii, along with much of the surrounding area, was mostly destroyed and buried under 4 to 6 meters of volcanic ash and pumice in the eruption of Mount Vesuvius in AD 79."
+msgstr "Pompeii was an ancient Roman coastal city, in the Campania region of Italy. Pompeii, along with much of the surrounding area, was mostly destroyed and buried under 4 to 6 metres of volcanic ash and pumice in the eruption of Mount Vesuvius in AD 79."
 
 #: maps/random/pompeii.jsonsettings.Name
 msgid "Pompeii"
@@ -1632,6 +1633,16 @@ msgstr "Corinth"
 msgid "Peloponnesian Wars"
 msgstr "Peloponnesian Wars"
 
+#: maps/scenarios/pickup_test_map.xml:Description:40
+msgid ""
+"Test map for picking units up, with sea and two islands. Trigger points are "
+"placed."
+msgstr "Test map for picking units up, with sea and two islands. Trigger points are placed."
+
+#: maps/scenarios/pickup_test_map.xml:Name:40
+msgid "Pickup test map"
+msgstr "Pickup test map"
+
 #: maps/scenarios/polynesia.xml:Description:39
 msgid "Demo map for new fancy water effects."
 msgstr "Demo map for new fancy water effects."
@@ -1961,7 +1972,7 @@ msgstr "Ships Demo"
 msgid ""
 "Carthage vs. Macedon vs. Persia vs. Iberia! A large oasis acts as the hub of"
 " mountainous spokes that divide the home territories of each player."
-msgstr "Carthage vs. Macedon vs. Persia vs. Iberia! A large oasis acts as the hub of mountainous spokes that divide the home territories of each player."
+msgstr "Carthage vs Macedon vs Persia vs Iberia! A large oasis acts as the hub of mountainous spokes that divide the home territories of each player."
 
 #: maps/scenarios/siwa_oasis.xml:Name:27
 msgid "Siwa Oasis"
@@ -2078,7 +2089,7 @@ msgstr "Multiplayer map. A tropical paradise."
 msgid "Tropical Island"
 msgstr "Tropical Island"
 
-#: maps/scenarios/unit_motion_integration_test.xml:Description:40
+#: maps/scenarios/unit_motion_integration_test.xml:Description:41
 msgid ""
 "This map is designed to test some basic unit movement cases. It will involve"
 " unitAI, unitMotion and the relevant pathfinders and thus acts as an "
@@ -2086,7 +2097,7 @@ msgid ""
 "and weird pathing."
 msgstr "This map is designed to test some basic unit movement cases. It will involve unitAI, unitMotion and the relevant pathfinders and thus acts as an integrated test map. Look for things such as stuck units, wrong animations, and weird pathing."
 
-#: maps/scenarios/unit_motion_integration_test.xml:Name:40
+#: maps/scenarios/unit_motion_integration_test.xml:Name:41
 msgid "Unit Motion Integration Test"
 msgstr "Unit Motion Integration Test"
 
@@ -2585,7 +2596,7 @@ msgid ""
 "Northwest India. Nearby rivers swell with monsoon rains, allowing for only a few treacherous crossings.\n"
 "\n"
 "The rivers are heavily forested, while grasslands carpet the surrounding countryside. Watch out for Tigers in the tall grass! Asian elephants are also a common sight."
-msgstr "Northwest India. Nearby rivers swell with monsoon rains, allowing for only a few treacherous crossings.\n\nThe rivers are heavily forested, while grasslands carpet the surrounding countryside. Watch out for Tigers in the tall grass! Asian elephants are also a common sight."
+msgstr "North-West India. Nearby rivers swell with monsoon rains, allowing for only a few treacherous crossings.\n\nThe rivers are heavily forested, while grasslands carpet the surrounding countryside. Watch out for Tigers in the tall grass! Asian elephants are also a common sight."
 
 #: maps/skirmishes/punjab_2p.xml:Name:40
 msgid "Punjab (2)"
@@ -2716,24 +2727,24 @@ msgstr "Four factions find themselves perched safely atop large rocky plateaus.\
 msgid "Tuscan Acropolis (4)"
 msgstr "Tuscan Acropolis (4)"
 
-#: maps/skirmishes/two_seas_6.xml:Description:40
+#: maps/skirmishes/two_seas_6p.xml:Description:40
 msgid ""
 "A large tropic map with two seas to the East and to the West. Good for two "
 "teams of three players or three teams of two players."
 msgstr "A large tropic map with two seas to the East and to the West. Good for two teams of three players or three teams of two players."
 
-#: maps/skirmishes/two_seas_6.xml:Name:40
+#: maps/skirmishes/two_seas_6p.xml:Name:40
 msgid "Two Seas (6)"
 msgstr "Two Seas (6)"
 
-#: maps/skirmishes/vesuvius_6.xml:Description:40
+#: maps/skirmishes/vesuvius_6p.xml:Description:40
 msgid ""
 "Skirmish as ash lightly falls around this recently erupted volcano. the "
 "scorched landscape offers little food, though the blasted forests are still "
 "laden with useful wood. "
 msgstr "Skirmish as ash lightly falls around this recently erupted volcano. the scorched landscape offers little food, though the blasted forests are still laden with useful wood. "
 
-#: maps/skirmishes/vesuvius_6.xml:Name:40
+#: maps/skirmishes/vesuvius_6p.xml:Name:40
 msgid "Vesuvius (6)"
 msgstr "Vesuvius (6)"
 

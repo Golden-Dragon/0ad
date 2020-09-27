@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_structure_military">
-  <Armour>
-    <Hack op="add">5</Hack>
-    <Pierce op="add">5</Pierce>
-    <Crush op="add">3</Crush>
-  </Armour>
   <Attack>
     <Ranged>
       <Damage>
@@ -69,13 +64,13 @@
     <SpawnEntityOnDeath>decay|rubble/rubble_stone_6x6</SpawnEntityOnDeath>
   </Health>
   <Identity>
-    <Classes datatype="tokens">Defensive Fortress GarrisonFortress</Classes>
-    <VisibleClasses datatype="tokens">City</VisibleClasses>
     <GenericName>Fortress</GenericName>
     <SelectionGroupName>template_structure_military_fortress</SelectionGroupName>
+    <Tooltip>Train Champions and Heroes and research technologies. Garrison Soldiers for additional arrows.</Tooltip>
+    <Classes datatype="tokens">GarrisonFortress</Classes>
+    <VisibleClasses datatype="tokens">Defensive City Fortress</VisibleClasses>
     <Icon>structures/fortress.png</Icon>
     <RequiredTechnology>phase_city</RequiredTechnology>
-    <Tooltip>Train Champions and Heroes and research technologies. Garrison Soldiers for additional arrows.</Tooltip>
   </Identity>
   <Loot>
     <xp>100</xp>
@@ -90,6 +85,15 @@
       attack_soldiers_will
     </Technologies>
   </ProductionQueue>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack op="add">5</Hack>
+        <Pierce op="add">5</Pierce>
+        <Crush op="add">3</Crush>
+      </Damage>
+    </Entity>
+  </Resistance>
   <Sound>
     <SoundGroups>
       <select>interface/select/building/sel_fortress.xml</select>

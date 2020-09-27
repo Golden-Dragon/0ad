@@ -7,6 +7,7 @@
 # Filip Kružík <fildakr@gmail.com>, 2015
 # javier mayo reina <thedirtylord@gmail.com>, 2015
 # Lukas Koutsky <tekumseh65@seznam.cz>, 2015
+# Marek Mojžíš <marek.moj@seznam.cz>, 2020
 # Marek Varmuža <marekvarmuzatenac@gmail.com>, 2018
 # fri, 2014-2018
 # Pavel Šindelář <pavelsin123@gmail.com>, 2015
@@ -20,8 +21,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-06-01 07:10+0000\n"
-"PO-Revision-Date: 2020-06-01 16:35+0000\n"
+"POT-Creation-Date: 2020-08-07 07:10+0000\n"
+"PO-Revision-Date: 2020-08-07 16:31+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Czech (http://www.transifex.com/wildfire-games/0ad/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -257,15 +258,15 @@ msgstr ""
 
 #: maps/random/danubius.jsonsettings.Daytime[0].Name
 msgid "Day"
-msgstr ""
+msgstr "Den"
 
 #: maps/random/danubius.jsonsettings.Daytime[1].Description
 msgid "Attackers are covered by the darkness of the night."
-msgstr ""
+msgstr "Útočníci se ukrývají pod rouškou tmy."
 
 #: maps/random/danubius.jsonsettings.Daytime[1].Name
 msgid "Night"
-msgstr ""
+msgstr "Noc"
 
 #: maps/random/danubius.jsonsettings.Name
 msgid "Danubius"
@@ -347,7 +348,7 @@ msgstr ""
 
 #: maps/random/fields_of_meroe.jsonsettings.Name
 msgid "Fields of Meroë"
-msgstr ""
+msgstr "Meroejská pole"
 
 #: maps/random/flood.jsonsettings.Description
 msgid ""
@@ -716,7 +717,7 @@ msgstr ""
 
 #: maps/random/polar_sea.jsonsettings.Daytime[1].Name
 msgid "Daylight"
-msgstr ""
+msgstr "Denní světlo"
 
 #: maps/random/polar_sea.jsonsettings.Name
 msgid "Polar Sea"
@@ -908,11 +909,11 @@ msgstr "Pevninská šíje"
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[2].Description
 msgid "A small central river."
-msgstr ""
+msgstr "Malá řeka uprostřed"
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[2].Name
 msgid "Central River"
-msgstr ""
+msgstr "Řeka uprostřed"
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[3].Description
 msgid ""
@@ -926,7 +927,7 @@ msgstr ""
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[4].Description
 msgid "Land shaped like a concrescent moon around a central lake."
-msgstr ""
+msgstr "Země ve tvaru měsíce okolo jezera uprostřed."
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[4].Name
 msgid "Gulf"
@@ -938,7 +939,7 @@ msgstr ""
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[5].Name
 msgid "Lakes"
-msgstr ""
+msgstr "Jezera"
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[6].Description
 msgid ""
@@ -958,11 +959,11 @@ msgstr ""
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[7].Name
 msgid "Lowlands"
-msgstr ""
+msgstr "Nížiny"
 
 #: maps/random/unknown.jsonsettings.Landscapes.naval[0].Description
 msgid "A huge sea is dividing the map into two halves."
-msgstr ""
+msgstr "Obrovské moře dělí mapu na dvě poloviny"
 
 #: maps/random/unknown.jsonsettings.Landscapes.naval[0].Name
 msgid "Naval: Central Sea"
@@ -1636,6 +1637,16 @@ msgstr "Korint"
 msgid "Peloponnesian Wars"
 msgstr "Peloponéské války"
 
+#: maps/scenarios/pickup_test_map.xml:Description:40
+msgid ""
+"Test map for picking units up, with sea and two islands. Trigger points are "
+"placed."
+msgstr ""
+
+#: maps/scenarios/pickup_test_map.xml:Name:40
+msgid "Pickup test map"
+msgstr ""
+
 #: maps/scenarios/polynesia.xml:Description:39
 msgid "Demo map for new fancy water effects."
 msgstr "Ukázková mapa s novými působivými vodními efekty."
@@ -1987,7 +1998,7 @@ msgstr "Ukázka území"
 msgid ""
 "This map is designed to help artists and modders find the adequate "
 "foundation for a specific building. This map is not meant to be playable."
-msgstr ""
+msgstr "Tato mapa je navržena tak aby pomohla umělcům a modderům najít odpovídající základ pro konkrétní budovu. Tato mapa nebyla navržena na hraní."
 
 #: maps/scenarios/test_foundation.xml:Name:40
 msgid "Foundation Testing Map"
@@ -2082,7 +2093,7 @@ msgstr "Mapa pro více hráčů. Tropický ráj."
 msgid "Tropical Island"
 msgstr "Tropický ostrov"
 
-#: maps/scenarios/unit_motion_integration_test.xml:Description:40
+#: maps/scenarios/unit_motion_integration_test.xml:Description:41
 msgid ""
 "This map is designed to test some basic unit movement cases. It will involve"
 " unitAI, unitMotion and the relevant pathfinders and thus acts as an "
@@ -2090,7 +2101,7 @@ msgid ""
 "and weird pathing."
 msgstr ""
 
-#: maps/scenarios/unit_motion_integration_test.xml:Name:40
+#: maps/scenarios/unit_motion_integration_test.xml:Name:41
 msgid "Unit Motion Integration Test"
 msgstr ""
 
@@ -2127,7 +2138,7 @@ msgid ""
 "Each player starts the match atop a large flat plateau.\n"
 "\n"
 "To the East lies a large bay with fishing opportunities. To the West is a rugged hinterland with an unclaimed plateau commanding the valley below."
-msgstr ""
+msgstr "Každý z hráčů začíná na vrchu velkého, rovného pahorku.\n\nNa východě leží velký záliv s možností rybařit. Na západě je robustní zázemí s nevyužitou akropolí dominující údolí před ní."
 
 #: maps/skirmishes/acropolis_bay_2p.xml:Name:39
 msgid "Acropolis Bay (2)"
@@ -2438,7 +2449,7 @@ msgid ""
 "Three factions find themselves perched safely atop large rocky plateaus, whereas the fourth one is separated from their foes by a river branch.\n"
 "\n"
 "Scout the lands to find free treasures and to secure new resources.."
-msgstr ""
+msgstr "Tři frakce jsou bezpečně posazeny na vrcholcích velkých kamenitých náhorních plošin, nebo akropolí, ale čtvrtá je oddělená od svých nepřátel řekou.\n\nProzkoumejte území pro nalezení pokladů a zabezpečení nových surovin."
 
 #: maps/skirmishes/greek_acropolis_4p.xml:Name:39
 msgid "Greek Acropolis (4)"
@@ -2720,24 +2731,24 @@ msgstr ""
 msgid "Tuscan Acropolis (4)"
 msgstr "Etruská akropole (4)"
 
-#: maps/skirmishes/two_seas_6.xml:Description:40
+#: maps/skirmishes/two_seas_6p.xml:Description:40
 msgid ""
 "A large tropic map with two seas to the East and to the West. Good for two "
 "teams of three players or three teams of two players."
 msgstr "Velká tropická mapa s dvěma moři na Východě a Západě. Dobré pro 2 týmy o 3 hráčích nebo 3 týmy o 2 hráčích."
 
-#: maps/skirmishes/two_seas_6.xml:Name:40
+#: maps/skirmishes/two_seas_6p.xml:Name:40
 msgid "Two Seas (6)"
 msgstr "Dvě moře (6)"
 
-#: maps/skirmishes/vesuvius_6.xml:Description:40
+#: maps/skirmishes/vesuvius_6p.xml:Description:40
 msgid ""
 "Skirmish as ash lightly falls around this recently erupted volcano. the "
 "scorched landscape offers little food, though the blasted forests are still "
 "laden with useful wood. "
 msgstr ""
 
-#: maps/skirmishes/vesuvius_6.xml:Name:40
+#: maps/skirmishes/vesuvius_6p.xml:Name:40
 msgid "Vesuvius (6)"
 msgstr ""
 

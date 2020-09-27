@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_cavalry_melee">
-  <Armour>
-    <Hack>4</Hack>
-    <Pierce>2</Pierce>
-  </Armour>
   <Attack>
     <Melee>
       <Damage>
         <Hack>6.5</Hack>
         <Pierce>0</Pierce>
-        <Crush>0.0</Crush>
+        <Crush>0</Crush>
       </Damage>
-      <PreferredClasses datatype="tokens">Siege</PreferredClasses>
+      <MaxRange>3.5</MaxRange>
+      <PrepareTime>375</PrepareTime>
+      <RepeatTime>750</RepeatTime>
+      <PreferredClasses datatype="tokens">Unit+!Ship</PreferredClasses>
     </Melee>
   </Attack>
   <Cost>
     <Resources>
-      <wood>30</wood>
-      <metal>20</metal>
+      <wood>40</wood>
+      <metal>10</metal>
     </Resources>
   </Cost>
   <Identity>
-    <VisibleClasses datatype="tokens">Swordsman</VisibleClasses>
     <GenericName>Cavalry Swordsman</GenericName>
+    <VisibleClasses datatype="tokens">Swordsman</VisibleClasses>
   </Identity>
   <Loot>
-    <wood>0</wood>
-    <metal>5</metal>
+    <wood>4</wood>
+    <metal>1</metal>
   </Loot>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack>4</Hack>
+        <Pierce>2</Pierce>
+      </Damage>
+    </Entity>
+  </Resistance>
   <UnitMotion>
     <WalkSpeed op="mul">1.2</WalkSpeed>
   </UnitMotion>

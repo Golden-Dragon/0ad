@@ -9,12 +9,25 @@
  * Returns modified property value modified by the applicable tech
  * modifications.
  *
- * @param currentTechModifications array of modificiations
+ * @param modifications array of modificiations
  * @param classes Array containing the class list of the template.
  * @param originalValue Number storing the original value. Can also be
- * non-numberic, but then only "replace" techs can be supported.
+ * non-numeric, but then only "replace" and "tokens" techs can be supported.
  */
 function GetTechModifiedProperty(modifications, classes, originalValue)
+{
+	if (!modifications.length)
+		return originalValue;
+
+	// From indicative profiling, splitting in two sub-functions or checking directly
+	// is about as efficient, but splitting makes it easier to report errors.
+	if (typeof originalValue === "string")
+		return GetTechModifiedProperty_string(modifications, classes, originalValue);
+	return GetTechModifiedProperty_numeric(modifications, classes, originalValue);
+}
+
+
+function GetTechModifiedProperty_numeric(modifications, classes, originalValue)
 {
 	let multiply = 1;
 	let add = 0;
@@ -30,14 +43,32 @@ function GetTechModifiedProperty(modifications, classes, originalValue)
 		else if (modification.add)
 			add += modification.add;
 		else
-			warn("GetTechModifiedProperty: modification format not recognised : " + uneval(modification));
+			warn("GetTechModifiedProperty: numeric modification format not recognised : " + uneval(modification));
 	}
-
-	// Note, some components pass non-numeric values (for which only the "replace" modification makes sense)
-	if (typeof originalValue == "number")
-		return originalValue * multiply + add;
-	return originalValue;
+	return originalValue * multiply + add;
 }
+
+function GetTechModifiedProperty_string(modifications, classes, originalValue)
+{
+	let value = originalValue;
+	for (let modification of modifications)
+	{
+		if (!DoesModificationApply(modification, classes))
+			continue;
+		if (modification.replace !== undefined)
+			return modification.replace;
+		// Multiple token replacement works, though ordering is not technically guaranteed.
+		// In practice, the order will be that of 'research', which ought to be fine,
+		// and operations like adding tokens are order-independent anyways,
+		// but modders beware if replacement or deletions are implemented.
+		if (modification.tokens !== undefined)
+			value = HandleTokens(value, modification.tokens);
+		else
+			warn("GetTechModifiedProperty: string modification format not recognised : " + uneval(modification));
+	}
+	return value;
+}
+
 
 /**
  * Returns whether the given modification applies to the entity containing the given class list
@@ -48,10 +79,39 @@ function DoesModificationApply(modification, classes)
 }
 
 /**
+ * Returns a modified list of tokens.
+ * Supports "A>B" to replace A by B, "-A" to remove A, and the rest will add tokens.
+ */
+function HandleTokens(originalValue, modification)
+{
+	let tokens = originalValue === "" ? [] : originalValue.split(/\s+/);
+	let newTokens = modification === "" ? [] : modification.split(/\s+/);
+	for (let token of newTokens)
+	{
+		if (token.indexOf(">") !== -1)
+		{
+			let [oldToken, newToken] = token.split(">");
+			let index = tokens.indexOf(oldToken);
+			if (index !== -1)
+				tokens[index] = newToken;
+		}
+		else if (token[0] == "-")
+		{
+			let index = tokens.indexOf(token.substr(1));
+			if (index !== -1)
+				tokens.splice(index, 1);
+		}
+		else
+			tokens.push(token);
+	}
+	return tokens.join(" ");
+}
+
+/**
  * Derives the technology requirements from a given technology template.
  * Takes into account the `supersedes` attribute.
  *
- * @param {object} template - The template object. Loading of the template must have already occured.
+ * @param {Object} template - The template object. Loading of the template must have already occured.
  *
  * @return Derived technology requirements. See `InterpretTechRequirements` for object's syntax.
  */
@@ -285,7 +345,7 @@ function InterpretTechRequirements(civ, operator, value)
 /**
  * Determine order of phases.
  *
- * @param {object} phases - The current available store of phases.
+ * @param {Object} phases - The current available store of phases.
  * @return {array} List of phases
  */
 function UnravelPhases(phases)

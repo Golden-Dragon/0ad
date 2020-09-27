@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_infantry_melee">
-  <Armour>
-    <Hack>5</Hack>
-    <Pierce>5</Pierce>
-  </Armour>
   <Attack>
     <Melee>
       <Damage>
@@ -17,6 +13,7 @@
           <Multiplier>3.0</Multiplier>
         </BonusCavMelee>
       </Bonuses>
+      <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Melee>
   </Attack>
   <Cost>
@@ -25,16 +22,21 @@
     </Resources>
   </Cost>
   <Identity>
-    <VisibleClasses datatype="tokens">Spearman</VisibleClasses>
     <GenericName>Spearman</GenericName>
-    <Tooltip>Counters: 3x vs. Cavalry.</Tooltip>
+    <Tooltip>Counters: 3× vs Cavalry.</Tooltip>
+    <VisibleClasses datatype="tokens">Spearman</VisibleClasses>
   </Identity>
   <Loot>
     <wood>5</wood>
   </Loot>
-  <UnitMotion>
-    <WalkSpeed op="mul">0.95</WalkSpeed>
-  </UnitMotion>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack>5</Hack>
+        <Pierce>5</Pierce>
+      </Damage>
+    </Entity>
+  </Resistance>
   <Sound>
     <SoundGroups>
       <attack_melee>attack/weapon/spear_attack.xml</attack_melee>

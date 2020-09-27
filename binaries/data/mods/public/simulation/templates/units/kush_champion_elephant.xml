@@ -4,6 +4,7 @@
     <Civ>kush</Civ>
     <GenericName>Meroitic War Elephant</GenericName>
     <SpecificName>Abore ʿhȝ</SpecificName>
+    <Classes datatype="tokens">AfricanElephant</Classes>
     <Icon>units/kush_champion_elephant.png</Icon>
   </Identity>
   <VisualActor>

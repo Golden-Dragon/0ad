@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the 0 A.D. — Empires Ascendant project.
 # 
 # Translators:
+# Ernestus Severus, 2020
 # Supernova 888 <megasupernova888@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-06-01 07:10+0000\n"
-"PO-Revision-Date: 2020-06-03 20:15+0000\n"
+"POT-Creation-Date: 2020-08-07 07:10+0000\n"
+"PO-Revision-Date: 2020-09-08 04:25+0000\n"
 "Last-Translator: Ernestus Severus\n"
 "Language-Team: Latin (http://www.transifex.com/wildfire-games/0ad/language/la/)\n"
 "MIME-Version: 1.0\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: maps/random/aegean_sea.jsonsettings.Description
 msgid "Players start on two sides of a sea with scattered islands."
-msgstr ""
+msgstr "Incipiunt lusores in utroque litore maris, in quo sparsae sunt insulae."
 
 #: maps/random/aegean_sea.jsonsettings.Name
 msgid "Aegean Sea"
-msgstr ""
+msgstr "Mare Aegeum"
 
 #: maps/random/african_plains.jsonsettings.Description
 msgid ""
@@ -33,7 +34,7 @@ msgstr ""
 
 #: maps/random/african_plains.jsonsettings.Name
 msgid "African Plains"
-msgstr ""
+msgstr "Campi Africani"
 
 #: maps/random/alpine_lakes.jsonsettings.Description
 msgid ""
@@ -43,7 +44,7 @@ msgstr ""
 
 #: maps/random/alpine_lakes.jsonsettings.Name
 msgid "Alpine Lakes"
-msgstr ""
+msgstr "Lacus Alpini"
 
 #: maps/random/alpine_valley.jsonsettings.Description
 msgid "High Alpine mountains bordering deep valleys."
@@ -51,7 +52,7 @@ msgstr ""
 
 #: maps/random/alpine_valley.jsonsettings.Name
 msgid "Alpine Valley"
-msgstr ""
+msgstr "Vallis Alpina"
 
 #: maps/random/ambush.jsonsettings.Description
 msgid ""
@@ -61,7 +62,7 @@ msgstr ""
 
 #: maps/random/ambush.jsonsettings.Name
 msgid "Ambush"
-msgstr ""
+msgstr "Insidiae"
 
 #: maps/random/anatolian_plateau.jsonsettings.Description
 msgid ""
@@ -854,7 +855,7 @@ msgstr ""
 
 #: maps/random/stronghold.jsonsettings.Name
 msgid "Stronghold"
-msgstr ""
+msgstr "Arx"
 
 #: maps/random/survivalofthefittest.jsonsettings.Description
 msgid ""
@@ -1336,7 +1337,7 @@ msgstr ""
 
 #: maps/scenarios/campaign_test_map.xml:PlayerData[6].Name:39
 msgid "Peloponnesian League"
-msgstr ""
+msgstr "Foedus Peloponnense"
 
 #: maps/scenarios/campaign_test_map.xml:PlayerData[7].Name:39
 msgid "Religious Institutions"
@@ -1619,6 +1620,16 @@ msgstr ""
 msgid "Peloponnesian Wars"
 msgstr ""
 
+#: maps/scenarios/pickup_test_map.xml:Description:40
+msgid ""
+"Test map for picking units up, with sea and two islands. Trigger points are "
+"placed."
+msgstr ""
+
+#: maps/scenarios/pickup_test_map.xml:Name:40
+msgid "Pickup test map"
+msgstr ""
+
 #: maps/scenarios/polynesia.xml:Description:39
 msgid "Demo map for new fancy water effects."
 msgstr ""
@@ -1674,15 +1685,15 @@ msgstr ""
 
 #: maps/scenarios/sahel.xml:PlayerData[0].Name:39
 msgid "Aulus Manlius Capitolinus"
-msgstr ""
+msgstr "Aulus Manlius Capitolinus"
 
 #: maps/scenarios/sahel.xml:PlayerData[1].Name:39
 msgid "Hasdrubal the Fair"
-msgstr ""
+msgstr "Hasdrubal 'Formosus'"
 
 #: maps/scenarios/sahel.xml:PlayerData[2].Name:39
 msgid "Artaxshacha II"
-msgstr ""
+msgstr "Artaxshacha II"
 
 #: maps/scenarios/sahel.xml:PlayerData[3].Name:39
 msgid "Tautalus"
@@ -1770,7 +1781,7 @@ msgstr ""
 
 #: maps/scenarios/sandbox_kushites.xml:PlayerData[1].Name:40
 msgid "Kushites"
-msgstr ""
+msgstr "Aethiopes"
 
 #: maps/scenarios/sandbox_kushites.xml:PlayerData[2].Name:40
 msgid "Egyptians"
@@ -1799,7 +1810,7 @@ msgstr ""
 
 #: maps/scenarios/sandbox_mauryas.xml:PlayerData[0].Name:39
 msgid "Mauryan Indians"
-msgstr ""
+msgstr "Mauryae Indi"
 
 #: maps/scenarios/sandbox_mauryas.xml:PlayerData[1].Name:39
 msgid "Enemy"
@@ -1828,7 +1839,7 @@ msgstr ""
 
 #: maps/scenarios/sandbox_ptolemies.xml:PlayerData[0].Name:39
 msgid "Ptolemaios A' Soter"
-msgstr ""
+msgstr "Ptolemaios A' Soter"
 
 #: maps/scenarios/sandbox_ptolemies.xml:PlayerData[1].Name:39
 msgid "Kautilya"
@@ -1849,7 +1860,7 @@ msgstr ""
 
 #: maps/scenarios/sandbox_ptolemies_02.xml:PlayerData[2].Name:39
 msgid "Seleucids"
-msgstr ""
+msgstr "Seleuci"
 
 #: maps/scenarios/sandbox_ptolemies_02.xml:PlayerData[3].Name:39
 msgid "Libyans"
@@ -2065,7 +2076,7 @@ msgstr ""
 msgid "Tropical Island"
 msgstr ""
 
-#: maps/scenarios/unit_motion_integration_test.xml:Description:40
+#: maps/scenarios/unit_motion_integration_test.xml:Description:41
 msgid ""
 "This map is designed to test some basic unit movement cases. It will involve"
 " unitAI, unitMotion and the relevant pathfinders and thus acts as an "
@@ -2073,7 +2084,7 @@ msgid ""
 "and weird pathing."
 msgstr ""
 
-#: maps/scenarios/unit_motion_integration_test.xml:Name:40
+#: maps/scenarios/unit_motion_integration_test.xml:Name:41
 msgid "Unit Motion Integration Test"
 msgstr ""
 
@@ -2703,24 +2714,24 @@ msgstr ""
 msgid "Tuscan Acropolis (4)"
 msgstr ""
 
-#: maps/skirmishes/two_seas_6.xml:Description:40
+#: maps/skirmishes/two_seas_6p.xml:Description:40
 msgid ""
 "A large tropic map with two seas to the East and to the West. Good for two "
 "teams of three players or three teams of two players."
 msgstr ""
 
-#: maps/skirmishes/two_seas_6.xml:Name:40
+#: maps/skirmishes/two_seas_6p.xml:Name:40
 msgid "Two Seas (6)"
 msgstr ""
 
-#: maps/skirmishes/vesuvius_6.xml:Description:40
+#: maps/skirmishes/vesuvius_6p.xml:Description:40
 msgid ""
 "Skirmish as ash lightly falls around this recently erupted volcano. the "
 "scorched landscape offers little food, though the blasted forests are still "
 "laden with useful wood. "
 msgstr ""
 
-#: maps/skirmishes/vesuvius_6.xml:Name:40
+#: maps/skirmishes/vesuvius_6p.xml:Name:40
 msgid "Vesuvius (6)"
 msgstr ""
 

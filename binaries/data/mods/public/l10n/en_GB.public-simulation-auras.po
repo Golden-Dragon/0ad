@@ -6,16 +6,17 @@
 # Adam Jones <uk.adam.jones@gmail.com>, 2016
 # Etienne Beguin <eti.beguin@gmail.com>, 2017
 # leper <leper@wildfiregames.com>, 2016-2017
-# pilino1234 <pilino1234@zoho.eu>, 2016-2017
-# ., 2020
-# ., 2020
-# pilino1234 <pilino1234@zoho.eu>, 2017,2019
+# Martin H <pilino1234@zoho.eu>, 2020
+# Martin H <pilino1234@zoho.eu>, 2016-2017
+# Nescio, 2020
+# Nescio, 2020
+# Martin H <pilino1234@zoho.eu>, 2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-04-13 07:18+0000\n"
-"PO-Revision-Date: 2020-04-13 11:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"POT-Creation-Date: 2020-08-28 07:10+0000\n"
+"PO-Revision-Date: 2020-09-03 19:40+0000\n"
+"Last-Translator: Nescio\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/wildfire-games/0ad/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,13 +24,21 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: simulation/data/auras/structures/arsenal_repair.jsonauraName
+msgid "Arsenal Repairs"
+msgstr "Arsenal Repairs"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraDescription
+msgid "Garrisoned Siege Engines +3 health regeneration rate."
+msgstr "Garrisoned Siege Engines +3 health regeneration rate."
+
 #: simulation/data/auras/structures/barracks_xp_trickle.jsonauraName
 msgid "Rigorous Training"
-msgstr ""
+msgstr "Rigorous Training"
 
 #: simulation/data/auras/structures/barracks_xp_trickle.jsonauraDescription
 msgid "Units gain experience while garrisoned in barracks."
-msgstr ""
+msgstr "Units gain experience while garrisoned in the Barracks."
 
 #: simulation/data/auras/structures/cart_super_dock_repair.jsonauraName
 msgid "Dockyard Repairs"
@@ -38,14 +47,6 @@ msgstr "Dockyard Repairs"
 #: simulation/data/auras/structures/cart_super_dock_repair.jsonauraDescription
 msgid "Garrisoned Ships +10 health regeneration rate."
 msgstr "Garrisoned Ships +10 health regeneration rate."
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraName
-msgid "Blessing of the Gods"
-msgstr "Blessing of the Gods"
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraDescription
-msgid "Humans +3 health regeneration rate."
-msgstr "Humans +3 health regeneration rate."
 
 #: simulation/data/auras/structures/iber_monument.jsonauraName
 msgid "Religious Fervor"
@@ -69,16 +70,8 @@ msgid "Exhortative Presence"
 msgstr "Exhortative Presence"
 
 #: simulation/data/auras/structures/kush_pyramids_military.jsonauraDescription
-msgid "Soldiers +10% melee and ranged attack damage."
-msgstr "Soldiers +10% melee and ranged attack damage."
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraName
-msgid "Meroitic Pyramids"
-msgstr "Meroitic Pyramids"
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraDescription
-msgid "Civic Centers +10% territory influence radius."
-msgstr "Civic Centres +10% territory influence radius."
+msgid "Soldiers +1 armor level and +10% melee and ranged attack damage."
+msgstr "Soldiers +1 armour level and +10% melee and ranged attack damage."
 
 #: simulation/data/auras/structures/kush_temple_amun.jsonauraName
 msgid "Powerful Priesthood"
@@ -161,14 +154,6 @@ msgid ""
 "+40 maximum population limit (requires the “Glorious Expansion” technology)."
 msgstr "+40 maximum population limit (requires the ‘Glorious Expansion’ technology)."
 
-#: simulation/data/auras/structures/workshop_repair.jsonauraName
-msgid "Workshop Repairs"
-msgstr "Workshop Repairs"
-
-#: simulation/data/auras/structures/workshop_repair.jsonauraDescription
-msgid "Garrisoned Siege Engines +3 health regeneration rate."
-msgstr "Garrisoned Siege Engines +3 health regeneration rate."
-
 #: simulation/data/auras/teambonuses/athen_player_teambonus.jsonauraName
 msgid "Delian League"
 msgstr "Delian League"
@@ -190,24 +175,24 @@ msgid "Trademasters"
 msgstr "Trademasters"
 
 #: simulation/data/auras/teambonuses/cart_player_teambonus.jsonauraDescription
-msgid "Allied Markets +10% international trade bonus."
-msgstr "Allied Markets +10% international trade bonus."
+msgid "Allies +10% international trade bonus."
+msgstr "Allies +10% international trade bonus."
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraName
-msgid "Druidic Wisdom"
-msgstr "Druidic Wisdom"
+msgid "Products from Gaul"
+msgstr "Products from Gaul"
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraDescription
-msgid "Allied Structures −20% technology research time."
-msgstr "Allied Structures −20% technology research time."
+msgid "Forges −15% technology resource costs and research time."
+msgstr "Forges −15% technology resource costs and research time."
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraName
 msgid "Saripeko"
 msgstr "Saripeko"
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraDescription
-msgid "Allied Citizen Javelinists −10% resource costs."
-msgstr "Allied Citizen Javelinists −10% resource costs."
+msgid "Allied Citizen Javelineers −10% resource costs."
+msgstr "Allied Citizen Javelineers −10% resource costs."
 
 #: simulation/data/auras/teambonuses/kush_player_teambonus.jsonauraName
 msgid "Elephant Suppliers"
@@ -277,11 +262,11 @@ msgstr "Allied Citizen Infantry Spearmen +10% health."
 
 #: simulation/data/auras/units/elephant_worker.jsonauraName
 msgid "Elephant Workers"
-msgstr ""
+msgstr "Elephant Workers"
 
 #: simulation/data/auras/units/elephant_worker.jsonauraDescription
 msgid "Workers +25% build rate."
-msgstr ""
+msgstr "Workers +25% build rate."
 
 #: simulation/data/auras/units/female_inspiration.jsonauraName
 msgid "Inspiration"
@@ -329,8 +314,8 @@ msgstr "Skirmisher Harassment"
 #: simulation/data/auras/units/catafalques/brit_catafalque_2.jsonauraDescription
 msgid ""
 "Cassivellaunus deployed fast-moving skirmishers to harass Roman troops and foragers.\n"
-"Javelinists +20% attack range."
-msgstr "Cassivellaunus deployed fast-moving skirmishers to harass Roman troops and foragers.\nJavelinists +20% attack range."
+"Javelineers +20% attack range."
+msgstr "Cassivellaunus deployed fast-moving skirmishers to harass Roman troops and foragers.\nJavelineers +20% attack range."
 
 #: simulation/data/auras/units/catafalques/cart_catafalque.jsonauraName
 msgid "Commander of Heavy Cavalry"
@@ -540,8 +525,8 @@ msgid "Peltast Reforms"
 msgstr "Peltast Reforms"
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_2.jsonauraDescription
-msgid "Infantry Javelinists +15% movement speed."
-msgstr "Infantry Javelinists +15% movement speed."
+msgid "Infantry Javelineers +15% movement speed."
+msgstr "Infantry Javelineers +15% movement speed."
 
 #: simulation/data/auras/units/heroes/athen_hero_pericles_1.jsonauraName
 msgid "Periclean Building Program"
@@ -963,8 +948,8 @@ msgstr "Helot Reforms"
 
 #: simulation/data/auras/units/heroes/spart_hero_brasidas.jsonauraDescription
 msgid ""
-"Citizen Infantry Javelinists +1 armor, +25% ranged attack pierce damage."
-msgstr "Citizen Infantry Javelinists +1 armour, +25% ranged attack pierce damage."
+"Citizen Infantry Javelineers +1 armor, +25% ranged attack pierce damage."
+msgstr "Citizen Infantry Javelineers +1 armour, +25% ranged attack pierce damage."
 
 #: simulation/data/auras/units/heroes/spart_hero_leonidas.jsonauraName
 msgid "Last Stand"

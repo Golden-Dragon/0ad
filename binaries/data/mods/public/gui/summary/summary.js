@@ -112,8 +112,7 @@ var g_InfinitySymbol = translate("\u221E");
 
 var g_Teams = [];
 
-// TODO set g_PlayerCount as playerCounters.length
-var g_PlayerCount = 0;
+var g_PlayerCount;
 
 var g_GameData;
 var g_ResourceData = new Resources();
@@ -127,47 +126,37 @@ var g_SelectedChart = {
 	"type": [0, 0]
 };
 
-/**
- * Array of the panel button names.
- */
-var g_PanelButtons = [];
-
-/**
- * Remember the name of the currently opened view panel.
- */
-var g_SelectedPanel = "";
-
 function init(data)
 {
-	// Fill globals
+	initSummaryData(data);
+	initGUISummary();
+}
+
+function initSummaryData(data)
+{
 	g_GameData = data;
 	g_ScorePanelsData = getScorePanelsData();
-	g_PanelButtons = Object.keys(g_ScorePanelsData).concat(["charts"]).map(panel => panel + "PanelButton");
 
-	g_SelectedPanel = g_PanelButtons[0];
-	if (data && data.selectedData)
+	let teamCharts = false;
+	if (data && data.gui && data.gui.summarySelection)
 	{
-		g_SelectedPanel = data.selectedData.panel;
-		g_SelectedChart = data.selectedData.charts;
+		g_TabCategorySelected = data.gui.summarySelection.panel;
+		g_SelectedChart = data.gui.summarySelection.charts;
+		teamCharts = data.gui.summarySelection.teamCharts;
 	}
+	Engine.GetGUIObjectByName("toggleTeamBox").checked = g_Teams && teamCharts;
 
 	initTeamData();
 	calculateTeamCounterDataHelper();
+}
 
-	// Output globals
+function initGUISummary()
+{
 	initGUIWindow();
 	initPlayerBoxPositions();
 	initGUICharts();
 	initGUILabels();
 	initGUIButtons();
-
-	selectPanel(Engine.GetGUIObjectByName(g_SelectedPanel));
-	for (let button of g_PanelButtons)
-	{
-		let tab = Engine.GetGUIObjectByName(button);
-		tab.onMouseWheelUp = () => selectNextTab(1);
-		tab.onMouseWheelDown = () => selectNextTab(-1);
-	}
 }
 
 /**
@@ -181,48 +170,41 @@ function initGUIWindow()
 	Engine.GetGUIObjectByName("summaryWindowTitle").size = g_GameData.gui.dialog ? "50%-128 -16 50%+128 16" : "50%-128 4 50%+128 36";
 }
 
-/**
- * Show next/previous panel.
- * @param direction - 1/-1 forward, backward panel.
- */
-function selectNextTab(direction)
+function selectPanelGUI(panel)
 {
-	selectPanel(Engine.GetGUIObjectByName(g_PanelButtons[
-		(g_PanelButtons.indexOf(g_SelectedPanel) + direction + g_PanelButtons.length) % g_PanelButtons.length]));
-}
-
-function selectPanel(panel)
-{
-	// TODO: move panel buttons to a custom parent object
-
-	for (let button of Engine.GetGUIObjectByName("summaryWindow").children)
-		if (button.name.endsWith("PanelButton"))
-			button.sprite = "ModernTabHorizontalBackground";
-
-	panel.sprite = "ModernTabHorizontalForeground";
-
-	adjustTabDividers(panel.size);
+	adjustTabDividers(Engine.GetGUIObjectByName("tabButton[" + panel + "]").size);
 
 	let generalPanel = Engine.GetGUIObjectByName("generalPanel");
 	let chartsPanel = Engine.GetGUIObjectByName("chartsPanel");
-	let chartsHidden = panel.name != "chartsPanelButton";
+
+	// We assume all scorePanels come before the charts.
+	let chartsHidden = panel < g_ScorePanelsData.length;
 	generalPanel.hidden = !chartsHidden;
 	chartsPanel.hidden = chartsHidden;
 	if (chartsHidden)
-		updatePanelData(g_ScorePanelsData[panel.name.substr(0, panel.name.length - "PanelButton".length)]);
+		updatePanelData(g_ScorePanelsData[panel]);
 	else
 		[0, 1].forEach(updateCategoryDropdown);
-
-	g_SelectedPanel = panel.name;
 }
 
-function initGUICharts()
+function constructPlayersWithColor(color, playerListing)
 {
-	let player_colors = [];
+	return sprintf(translateWithContext("Player listing with color indicator",
+		"%(colorIndicator)s %(playerListing)s"),
+	{
+		"colorIndicator": setStringTags(translateWithContext(
+			"Charts player color indicator", "■"), { "color": color }),
+		"playerListing": playerListing
+	});
+}
+
+function updateChartColorAndLegend()
+{
+	let playerColors = [];
 	for (let i = 1; i <= g_PlayerCount; ++i)
 	{
 		let playerState = g_GameData.sim.playerStates[i];
-		player_colors.push(
+		playerColors.push(
 			Math.floor(playerState.color.r * 255) + " " +
 			Math.floor(playerState.color.g * 255) + " " +
 			Math.floor(playerState.color.b * 255)
@@ -230,13 +212,26 @@ function initGUICharts()
 	}
 
 	for (let i = 0; i < 2; ++i)
-		Engine.GetGUIObjectByName("chart[" + i + "]").series_color = player_colors;
+		Engine.GetGUIObjectByName("chart[" + i + "]").series_color =
+			Engine.GetGUIObjectByName("toggleTeamBox").checked ?
+				g_Teams.filter(el => el !== null).map(players => playerColors[players[0] - 1]) :
+				playerColors;
 
 	let chartLegend = Engine.GetGUIObjectByName("chartLegend");
-	chartLegend.caption = g_GameData.sim.playerStates.slice(1).map(
-		(state, index) => coloredText("■", player_colors[index]) + " " + state.name
+	chartLegend.caption = (Engine.GetGUIObjectByName("toggleTeamBox").checked ?
+		g_Teams.filter(el => el !== null).map(players =>
+			constructPlayersWithColor(playerColors[players[0] - 1],	players.map(player =>
+				g_GameData.sim.playerStates[player].name
+			).join(translateWithContext("Player listing", ", ")))
+		) :
+		g_GameData.sim.playerStates.slice(1).map((state, index) =>
+			constructPlayersWithColor(playerColors[index], state.name))
 	).join("   ");
+}
 
+function initGUICharts()
+{
+	updateChartColorAndLegend();
 	let chart1Part = Engine.GetGUIObjectByName("chart[1]Part");
 	let chart1PartSize = chart1Part.size;
 	chart1PartSize.rright += 50;
@@ -244,6 +239,7 @@ function initGUICharts()
 	chart1PartSize.right -= 5;
 	chart1PartSize.left -= 5;
 	chart1Part.size = chart1PartSize;
+	Engine.GetGUIObjectByName("toggleTeam").hidden = !g_Teams;
 }
 
 function resizeDropdown(dropdown)
@@ -258,8 +254,8 @@ function resizeDropdown(dropdown)
 function updateCategoryDropdown(number)
 {
 	let chartCategory = Engine.GetGUIObjectByName("chart[" + number + "]CategorySelection");
-	chartCategory.list_data = Object.keys(g_ScorePanelsData);
-	chartCategory.list = Object.keys(g_ScorePanelsData).map(panel => g_ScorePanelsData[panel].caption);
+	chartCategory.list_data = g_ScorePanelsData.map((panel, idx) => idx);
+	chartCategory.list = g_ScorePanelsData.map(panel => panel.label);
 	chartCategory.onSelectionChange = function() {
 		if (!this.list_data[this.selected])
 			return;
@@ -333,41 +329,53 @@ function updateChart(number, category, item, itemNumber, type)
 	let chart = Engine.GetGUIObjectByName("chart[" + number + "]");
 	chart.format_y = g_ScorePanelsData[category].headings[itemNumber + 1].format || "INTEGER";
 	Engine.GetGUIObjectByName("chart[" + number + "]XAxisLabel").caption = translate("Time elapsed");
+
 	let series = [];
-	for (let j = 1; j <= g_PlayerCount; ++j)
-	{
-		let playerState = g_GameData.sim.playerStates[j];
-		let data = [];
-		for (let index in playerState.sequences.time)
+	if (Engine.GetGUIObjectByName("toggleTeamBox").checked)
+		for (let team in g_Teams)
 		{
-			let value = g_ScorePanelsData[category].counters[itemNumber].fn(playerState, index, item);
-			if (type)
-				value = value[type];
-			data.push([playerState.sequences.time[index], value]);
+			let data = [];
+			for (let index in g_GameData.sim.playerStates[1].sequences.time)
+			{
+				let value = g_ScorePanelsData[category].teamCounterFn(team, index, item,
+					g_ScorePanelsData[category].counters, g_ScorePanelsData[category].headings);
+				if (type)
+					value = value[type];
+				data.push([g_GameData.sim.playerStates[1].sequences.time[index], value]);
+			}
+			series.push(data);
 		}
-		series.push(data);
-	}
+	else
+		for (let j = 1; j <= g_PlayerCount; ++j)
+		{
+			let playerState = g_GameData.sim.playerStates[j];
+			let data = [];
+			for (let index in playerState.sequences.time)
+			{
+				let value = g_ScorePanelsData[category].counters[itemNumber].fn(playerState, index, item);
+				if (type)
+					value = value[type];
+				data.push([playerState.sequences.time[index], value]);
+			}
+			series.push(data);
+		}
+
 	chart.series = series;
 }
 
 function adjustTabDividers(tabSize)
 {
+	let tabButtonsLeft = Engine.GetGUIObjectByName("tabButtonsFrame").size.left;
+
 	let leftSpacer = Engine.GetGUIObjectByName("tabDividerLeft");
+	let leftSpacerSize = leftSpacer.size;
+	leftSpacerSize.right = tabSize.left + tabButtonsLeft + 2;
+	leftSpacer.size = leftSpacerSize;
+
 	let rightSpacer = Engine.GetGUIObjectByName("tabDividerRight");
-
-	leftSpacer.size = [
-		20,
-		leftSpacer.size.top,
-		tabSize.left + 2,
-		leftSpacer.size.bottom
-	].join(" ");
-
-	rightSpacer.size = [
-		tabSize.right - 2,
-		rightSpacer.size.top,
-		"100%-20",
-		rightSpacer.size.bottom
-	].join(" ");
+	let rightSpacerSize = rightSpacer.size;
+	rightSpacerSize.left = tabSize.right + tabButtonsLeft - 2;
+	rightSpacer.size = rightSpacerSize;
 }
 
 function updatePanelData(panelInfo)
@@ -438,13 +446,14 @@ function updatePanelData(panelInfo)
 
 function continueButton()
 {
-	let summarySelectedData = {
-		"panel": g_SelectedPanel,
-		"charts": g_SelectedChart
+	let summarySelection = {
+		"panel": g_TabCategorySelected,
+		"charts": g_SelectedChart,
+		"teamCharts": Engine.GetGUIObjectByName("toggleTeamBox").checked
 	};
 	if (g_GameData.gui.isInGame)
 		Engine.PopGuiPage({
-			"summarySelectedData": summarySelectedData
+			"summarySelection": summarySelection
 		});
 	else if (g_GameData.gui.dialog)
 		Engine.PopGuiPage();
@@ -453,7 +462,7 @@ function continueButton()
 	else if (g_GameData.gui.isReplay)
 		Engine.SwitchGuiPage("page_replaymenu.xml", {
 			"replaySelectionData": g_GameData.gui.replaySelectionData,
-			"summarySelectedData": summarySelectedData
+			"summarySelection": summarySelection
 		});
 	else
 		Engine.SwitchGuiPage("page_pregame.xml");
@@ -530,6 +539,21 @@ function initGUIButtons()
 	lobbyButtonSize.right = (replayButton.hidden ? Engine.GetGUIObjectByName("continueButton").size.left : replayButton.size.left) - 10;
 	lobbyButtonSize.left = lobbyButtonSize.right - lobbyButtonWidth;
 	lobbyButton.size = lobbyButtonSize;
+
+	let allPanelsData = g_ScorePanelsData.concat(g_ChartPanelsData);
+	for (let tab in allPanelsData)
+		allPanelsData[tab].tooltip =
+			sprintf(translate("Toggle the %(name)s summary tab."), { "name": allPanelsData[tab].label }) +
+			colorizeHotkey("\n" + translate("Use %(hotkey)s to move a summary tab right."), "tab.next") +
+			colorizeHotkey("\n" + translate("Use %(hotkey)s to move a summary tab left."), "tab.prev");
+
+	placeTabButtons(
+		allPanelsData,
+		true,
+		g_TabButtonWidth,
+		g_TabButtonDist,
+		selectPanel,
+		selectPanelGUI);
 }
 
 function initTeamData()

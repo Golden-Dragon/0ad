@@ -7,7 +7,6 @@
   <Identity>
     <Civ>ptol</Civ>
     <SpecificName>Klērouchia</SpecificName>
-    <Tooltip>This is the Ptolemaic expansion building, similar to Civic Centers for other factions. It is weaker and carries a smaller territory influence, but is cheaper and built faster. Train settler-soldiers of various nationalities.</Tooltip>
   </Identity>
   <Obstruction>
     <Static width="32" depth="31"/>
@@ -18,7 +17,7 @@
       units/{civ}_infantry_spearman_merc_b
       units/{civ}_infantry_swordsman_merc_b
       units/{civ}_cavalry_spearman_merc_b
-      units/{civ}_cavalry_javelinist_merc_b
+      units/{civ}_cavalry_javelineer_merc_b
     </Entities>
   </ProductionQueue>
   <VisualActor>

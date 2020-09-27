@@ -3,16 +3,17 @@
 # This file is distributed under the same license as the Pyrogenesis - Mod Selector project.
 # 
 # Translators:
-# Jonatan Nyberg, 2020
+# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2020
+# Martin H <pilino1234@zoho.eu>, 2020
 # Mattias Münster <mattiasmun@gmail.com>, 2019
-# pilino1234 <pilino1234@zoho.eu>, 2017-2018
+# Martin H <pilino1234@zoho.eu>, 2017-2018
 # theschitz <theodore@theschitz.se>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-02-21 08:09+0000\n"
-"PO-Revision-Date: 2020-02-21 14:00+0000\n"
-"Last-Translator: pilino1234 <pilino1234@zoho.eu>\n"
+"POT-Creation-Date: 2020-07-13 07:19+0000\n"
+"PO-Revision-Date: 2020-08-08 20:05+0000\n"
+"Last-Translator: Martin H <pilino1234@zoho.eu>\n"
 "Language-Team: Swedish (http://www.transifex.com/wildfire-games/0ad/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,7 +87,7 @@ msgstr ", "
 #, javascript-format
 msgctxt "Mod comparison"
 msgid "Required: %(mods)s"
-msgstr "Erfordras: %(mods)s"
+msgstr "Kräver: %(mods)s"
 
 #: gui/common/mod.js:30
 #, javascript-format
@@ -171,40 +172,45 @@ msgstr "Initialiserar"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: gui/modio/modio.js:232
+#: gui/modio/modio.js:219
+#, javascript-format
+msgid "Invalid mod: %(error)s"
+msgstr "Ogiltig mod: %(error)s"
+
+#: gui/modio/modio.js:242
 msgid "Fetching and updating list of available mods."
 msgstr "Hämtar och uppdaterar listan med tillgängliga mods."
 
-#: gui/modio/modio.js:233
+#: gui/modio/modio.js:243
 msgid "Updating"
 msgstr "Uppdaterar"
 
-#: gui/modio/modio.js:235
+#: gui/modio/modio.js:245
 msgid "Cancel Update"
 msgstr "Avbryt uppdatering"
 
-#: gui/modio/modio.js:248
+#: gui/modio/modio.js:261
 #, javascript-format
 msgid "Downloading “%(modname)s”"
 msgstr "Hämtar “%(modname)s”"
 
-#: gui/modio/modio.js:251
+#: gui/modio/modio.js:264
 msgid "Downloading"
 msgstr "Hämtar"
 
-#: gui/modio/modio.js:253
+#: gui/modio/modio.js:266
 msgid "Cancel Download"
 msgstr "Avbryt hämtning"
 
 #. Translation: Mod file download indicator. Current size over expected final
 #. size, with percentage complete.
-#: gui/modio/modio.js:320
+#: gui/modio/modio.js:333
 #, javascript-format
 msgid "%(current)s / %(total)s (%(percent)s%%)"
 msgstr "%(current)s / %(total)s (%(percent)s%%)"
 
 #. Translation: Mod file download status message.
-#: gui/modio/modio.js:330
+#: gui/modio/modio.js:343
 #, javascript-format
 msgid ""
 "Time Elapsed: %(elapsed)s\n"
@@ -212,13 +218,13 @@ msgid ""
 "Average Speed: %(avgSpeed)s"
 msgstr "Tid: %(elapsed)s\nÅterstående tid: %(remaining)s\nGenomsnittlig hastighet: %(avgSpeed)s"
 
-#: gui/modio/modio.js:332
+#: gui/modio/modio.js:345
 msgid "∞"
 msgstr "∞"
 
 #. Translation: Average download speed, used to give the user a very rough and
 #. naive idea of the download time. For example: 123.4 KiB/s
-#: gui/modio/modio.js:334
+#: gui/modio/modio.js:347
 #, javascript-format
 msgid "%(number)s %(unit)s/s"
 msgstr "%(number)s %(unit)s/s"
@@ -256,11 +262,11 @@ msgstr "Varning"
 
 #: gui/modmod/modmodio.js:12
 msgid "mod.io Terms"
-msgstr "mod.io villkor"
+msgstr "mod.io Villkor"
 
 #: gui/modmod/modmodio.js:16
 msgid "mod.io Privacy Policy"
-msgstr "mod.io sekretesspolicy"
+msgstr "mod.io Sekretesspolicy"
 
 #: gui/msgbox/msgbox.js:25
 msgid "OK"
@@ -285,15 +291,19 @@ msgstr "mod.io mods"
 msgid "Available Mods"
 msgstr "Tillgängliga mods"
 
-#: gui/modio/modio.xml:(caption):73
+#: gui/modio/modio.xml:(caption):81
+msgid "Filter valid mods"
+msgstr "Filtrera giltiga mods"
+
+#: gui/modio/modio.xml:(caption):87
 msgid "Back"
 msgstr "Tillbaka"
 
-#: gui/modio/modio.xml:(caption):78
+#: gui/modio/modio.xml:(caption):92
 msgid "Refresh List"
 msgstr "Uppdatera lista"
 
-#: gui/modio/modio.xml:(caption):83
+#: gui/modio/modio.xml:(caption):97
 msgid "Download"
 msgstr "Hämta"
 
@@ -385,7 +395,7 @@ msgstr "Stäng"
 
 #: gui/modmod/help/help.xml:(caption):25
 msgid "Modding Guide"
-msgstr "Modding Guide"
+msgstr "Modding-guide"
 
 #: gui/modmod/help/help.xml:(caption):29
 msgid "Visit mod.io"
@@ -409,7 +419,7 @@ msgstr "0 A.D. Empires Ascendant mod.io Varning"
 
 #: gui/modio/Disclaimer.txt:3
 msgid "Document Date: 2018-10-12"
-msgstr "Dokumentdatum: 2018-10-12"
+msgstr "Dokumentets datum: 2018-10-12"
 
 #: gui/modio/Disclaimer.txt:5
 msgid "You are about to connect to the mod.io online service."
@@ -420,7 +430,7 @@ msgid ""
 "This service provides an easy way to download and install community-made "
 "mods and is provided by DBolical Pty Ltd, the company behind IndieDB and "
 "ModDB."
-msgstr "Denna tjänst ger ett enkelt sätt att hämta och installera community-made mods och tillhandahålls av DBolical Pty Ltd, företaget bakom IndieDB och ModDB."
+msgstr "Denna tjänst ger ett enkelt sätt att hämta och installera mods skapade av communityn och tillhandahålls av DBolical Pty Ltd, företaget bakom IndieDB och ModDB."
 
 #: gui/modio/Disclaimer.txt:7
 msgid "The service is for users age 13 and over."
@@ -431,14 +441,14 @@ msgid ""
 "Wildfire Games has taken care to make this connection secure and reviewed "
 "the mods for security flaws, but cannot guarantee that this does not pose "
 "any risks."
-msgstr "Wildfire Games har tagit hand om att säkerställa att denna anslutning säkerställer och granskar mods för säkerhetsbrister, men kan inte garantera att detta inte medför några risker."
+msgstr "Wildfire Games har tagit sett till att denna anslutning är säker och har granskat mods för säkerhetsbrister, men kan inte garantera att detta inte medför några risker."
 
 #: gui/modio/Disclaimer.txt:11
 msgid ""
 "By using the service, you understand that mod.io's Terms of Use and Privacy "
 "Policy apply and that Wildfire Games is not liable for any damages resulting"
 " from this service."
-msgstr "Genom att använda tjänsten förstår du att mod.ios användarvillkor och sekretesspolicy gäller och att Wildfire Games inte är ansvarig för eventuella skador som härrör från denna tjänst."
+msgstr "Genom att använda tjänsten förstår du att mod.io:s användarvillkor och sekretesspolicy gäller och att Wildfire Games inte ansvarar för eventuella skador som härrör från denna tjänst."
 
 #: gui/modmod/help/help.txt:1
 msgid ""
@@ -460,7 +470,7 @@ msgstr "För att installera en mod, öppna bara filen med 0 A.D. (antingen genom
 msgid ""
 "For more information about modding the game, see the Modding Guide online "
 "(click the Modding Guide button below)."
-msgstr "Se Modding Guiden online för mer information om att modda spelet (klicka på Modding Guide knappen nedan)."
+msgstr "Se modding-guiden online för mer information om att modda spelet (klicka på Modding-guide knappen nedan)."
 
 #: gui/modmod/help/help.txt:7
 msgid ""
@@ -469,4 +479,4 @@ msgid ""
 "projects for a long time! Today, mod.io allows us to list and download all "
 "the mods that were verified by the team. Click \"Download Mods\" to try it "
 "out and install some!"
-msgstr "Mod.io-tjänsten är utvecklad av DBOlical, företaget bakom IndieDB och ModDB. Dessa webbplatser har spridit ordet om 0 A.D. och andra indieprojekt under lång tid! Idag tillåter mod.io oss att lista och hämta all mods som har verifierats av teamet. Klicka på \"Hämta mods\" för att prova och installera några!"
+msgstr "Mod.io-tjänsten utvecklas av DBOlical, företaget bakom IndieDB och ModDB. Dessa hemsidor har spridit ordet om 0 A.D. och andra indieprojekt under lång tid! Idag tillåter mod.io oss att lista och hämta all mods som har verifierats av teamet. Klicka på \"Hämta mods\" för att prova och installera några!"

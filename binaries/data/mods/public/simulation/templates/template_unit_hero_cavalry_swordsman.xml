@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_hero_cavalry">
-  <Armour>
-    <Hack op="add">1</Hack>
-    <Pierce op="add">1</Pierce>
-  </Armour>
   <Attack>
     <Melee>
       <Damage>
@@ -14,7 +10,7 @@
      <MaxRange>3.5</MaxRange>
      <PrepareTime>375</PrepareTime>
      <RepeatTime>750</RepeatTime>
-     <PreferredClasses datatype="tokens">Human Siege</PreferredClasses>
+     <PreferredClasses datatype="tokens">Unit+!Ship</PreferredClasses>
     </Melee>
   </Attack>
   <Cost>
@@ -27,4 +23,12 @@
     <VisibleClasses datatype="tokens">Melee Swordsman</VisibleClasses>
     <GenericName>Hero Cavalry Swordsman</GenericName>
   </Identity>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack op="add">1</Hack>
+        <Pierce op="add">1</Pierce>
+      </Damage>
+    </Entity>
+  </Resistance>
 </Entity>

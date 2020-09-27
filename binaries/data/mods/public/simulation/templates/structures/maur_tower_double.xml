@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_structure_defensive_tower_stone">
+  <BuildingAI>
+    <DefaultArrowCount>2</DefaultArrowCount>
+    <MaxArrowCount>7</MaxArrowCount>
+  </BuildingAI>
   <Cost>
     <Resources>
       <stone>200</stone>
     </Resources>
   </Cost>
-  <Loot>
-    <stone>40</stone>
-  </Loot>
+  <GarrisonHolder>
+    <Max>20</Max>
+    <List>Infantry+Archer</List>
+  </GarrisonHolder>
+  <Health>
+    <Max>1200</Max>
+  </Health>
   <Identity>
     <GenericName>Rampart Tower</GenericName>
     <SelectionGroupName>structures/maur_tower_double</SelectionGroupName>
@@ -16,14 +24,14 @@
     <SpecificName>Udarka</SpecificName>
     <RequiredTechnology>phase_city</RequiredTechnology>
   </Identity>
-  <BuildingAI>
-    <DefaultArrowCount>2</DefaultArrowCount>
-    <MaxArrowCount>7</MaxArrowCount>
-  </BuildingAI>
-  <GarrisonHolder>
-    <List>Infantry+Archer</List>
-    <Max>20</Max>
-    <VisibleGarrisonPoints>
+  <Loot>
+    <stone>40</stone>
+  </Loot>
+  <StatusBars>
+    <HeightOffset>19.0</HeightOffset>
+  </StatusBars>
+  <TurretHolder>
+    <TurretPoints>
       <Archer1>
         <X>2</X><Y>12.5</Y><Z>0</Z>
       </Archer1>
@@ -72,14 +80,8 @@
       <Archer16>
         <X>-2.1</X><Y>18.0</Y><Z>-2.1</Z>
       </Archer16>
-    </VisibleGarrisonPoints>
-  </GarrisonHolder>
-  <Health>
-    <Max>1200</Max>
-  </Health>
-  <StatusBars>
-    <HeightOffset>19.0</HeightOffset>
-  </StatusBars>
+    </TurretPoints>
+  </TurretHolder>
   <VisualActor>
     <Actor>structures/mauryas/tower_double.xml</Actor>
   </VisualActor>

@@ -81,7 +81,7 @@ Trader.prototype.RemoveTargetMarket = function(target)
 	this.index = -1;
 	this.markets = [];
 	return true;
-}
+};
 
 // Set target as target market.
 // Return true if at least one of markets was changed.
@@ -184,7 +184,7 @@ Trader.prototype.CanTrade = function(target)
 	let cmpTraderPlayer = QueryOwnerInterface(this.entity, IID_Player);
 	let cmpTargetPlayer = QueryOwnerInterface(target, IID_Player);
 
-	return !cmpTraderPlayer.IsEnemy(cmpTargetPlayer.GetPlayerID());
+	return cmpTraderPlayer && cmpTargetPlayer && !cmpTraderPlayer.IsEnemy(cmpTargetPlayer.GetPlayerID());
 };
 
 Trader.prototype.AddResources = function(ent, gain)
@@ -298,7 +298,7 @@ Trader.prototype.GetRange = function()
 	let cmpObstruction = Engine.QueryInterface(this.entity, IID_Obstruction);
 	let max = 1;
 	if (cmpObstruction)
-		max += cmpObstruction.GetUnitRadius()*1.5;
+		max += cmpObstruction.GetSize() * 1.5;
 	return { "min": 0, "max": max };
 };
 

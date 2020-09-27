@@ -1,4 +1,4 @@
-/* Copyright (C) 2019 Wildfire Games.
+/* Copyright (C) 2020 Wildfire Games.
  * This file is part of 0 A.D.
  *
  * 0 A.D. is free software: you can redistribute it and/or modify
@@ -26,6 +26,7 @@ BEGIN_INTERFACE_WRAPPER(UnitMotion)
 DEFINE_INTERFACE_METHOD_4("MoveToPointRange", bool, ICmpUnitMotion, MoveToPointRange, entity_pos_t, entity_pos_t, entity_pos_t, entity_pos_t)
 DEFINE_INTERFACE_METHOD_3("MoveToTargetRange", bool, ICmpUnitMotion, MoveToTargetRange, entity_id_t, entity_pos_t, entity_pos_t)
 DEFINE_INTERFACE_METHOD_3("MoveToFormationOffset", void, ICmpUnitMotion, MoveToFormationOffset, entity_id_t, entity_pos_t, entity_pos_t)
+DEFINE_INTERFACE_METHOD_3("IsTargetRangeReachable", bool, ICmpUnitMotion, IsTargetRangeReachable, entity_id_t, entity_pos_t, entity_pos_t)
 DEFINE_INTERFACE_METHOD_2("FaceTowardsPoint", void, ICmpUnitMotion, FaceTowardsPoint, entity_pos_t, entity_pos_t)
 DEFINE_INTERFACE_METHOD_0("StopMoving", void, ICmpUnitMotion, StopMoving)
 DEFINE_INTERFACE_METHOD_CONST_0("GetCurrentSpeed", fixed, ICmpUnitMotion, GetCurrentSpeed)
@@ -37,6 +38,7 @@ DEFINE_INTERFACE_METHOD_1("SetSpeedMultiplier", void, ICmpUnitMotion, SetSpeedMu
 DEFINE_INTERFACE_METHOD_CONST_0("GetPassabilityClassName", std::string, ICmpUnitMotion, GetPassabilityClassName)
 DEFINE_INTERFACE_METHOD_CONST_0("GetUnitClearance", entity_pos_t, ICmpUnitMotion, GetUnitClearance)
 DEFINE_INTERFACE_METHOD_1("SetFacePointAfterMove", void, ICmpUnitMotion, SetFacePointAfterMove, bool)
+DEFINE_INTERFACE_METHOD_CONST_0("GetFacePointAfterMove", bool, ICmpUnitMotion, GetFacePointAfterMove)
 DEFINE_INTERFACE_METHOD_1("SetDebugOverlay", void, ICmpUnitMotion, SetDebugOverlay, bool)
 END_INTERFACE_WRAPPER(UnitMotion)
 
@@ -58,6 +60,11 @@ public:
 	virtual void MoveToFormationOffset(entity_id_t target, entity_pos_t x, entity_pos_t z)
 	{
 		m_Script.CallVoid("MoveToFormationOffset", target, x, z);
+	}
+
+	virtual bool IsTargetRangeReachable(entity_id_t target, entity_pos_t minRange, entity_pos_t maxRange)
+	{
+		return m_Script.Call<bool>("IsTargetRangeReachable", target, minRange, maxRange);
 	}
 
 	virtual void FaceTowardsPoint(entity_pos_t x, entity_pos_t z)
@@ -108,6 +115,11 @@ public:
 	virtual void SetFacePointAfterMove(bool facePointAfterMove)
 	{
 		m_Script.CallVoid("SetFacePointAfterMove", facePointAfterMove);
+	}
+
+	virtual bool GetFacePointAfterMove() const
+	{
+		return m_Script.Call<bool>("GetFacePointAfterMove");
 	}
 
 	virtual pass_class_t GetPassabilityClass() const

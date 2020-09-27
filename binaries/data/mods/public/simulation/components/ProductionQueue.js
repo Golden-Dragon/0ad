@@ -75,60 +75,122 @@ ProductionQueue.prototype.Init = function()
  */
 ProductionQueue.prototype.GetEntitiesList = function()
 {
-	return this.entitiesList;
+	return Array.from(this.entitiesMap.values());
 };
 
-ProductionQueue.prototype.CalculateEntitiesList = function()
+/**
+ * Calculate the new list of producible entities
+ * and update any entities currently being produced.
+ */
+ProductionQueue.prototype.CalculateEntitiesMap = function()
 {
-	this.entitiesList = [];
+	// Don't reset the map, it's used below to update entities.
+	if (!this.entitiesMap)
+		this.entitiesMap = new Map();
 	if (!this.template.Entities)
 		return;
 
 	let string = this.template.Entities._string;
-	if (!string)
+	// Tokens can be added -> process an empty list to get them.
+	let addedTokens = ApplyValueModificationsToEntity("ProductionQueue/Entities/_string", "", this.entity);
+	if (!addedTokens && !string)
 		return;
 
-	// Replace the "{civ}" and "{native}" codes with the owner's civ ID and entity's civ ID.
+	addedTokens = addedTokens == "" ? [] : addedTokens.split(/\s+/);
+
 	let cmpTemplateManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_TemplateManager);
 	let cmpPlayer = QueryOwnerInterface(this.entity);
-	if (!cmpPlayer)
-		return;
-
 	let cmpIdentity = Engine.QueryInterface(this.entity, IID_Identity);
-	if (cmpIdentity)
-		string = string.replace(/\{native\}/g, cmpIdentity.GetCiv());
 
-	let entitiesList = string.replace(/\{civ\}/g, cmpPlayer.GetCiv()).split(/\s+/);
+	let disabledEntities = cmpPlayer ? cmpPlayer.GetDisabledTemplates() : {};
 
-	// Filter out disabled and invalid entities.
-	let disabledEntities = cmpPlayer.GetDisabledTemplates();
-	entitiesList = entitiesList.filter(ent => !disabledEntities[ent] && cmpTemplateManager.TemplateExists(ent));
+	/**
+	 * Process tokens:
+	 * - process token modifiers (this is a bit tricky).
+	 * - replace the "{civ}" and "{native}" codes with the owner's civ ID and entity's civ ID
+	 * - remove disabled entities
+	 * - upgrade templates where necessary
+	 * This also updates currently queued production (it's more convenient to do it here).
+	 */
 
-	// Check if some templates need to show their advanced or elite version.
-	let upgradeTemplate = function(templateName)
-	{
-		let template = cmpTemplateManager.GetTemplate(templateName);
-		while (template && template.Promotion !== undefined)
-		{
-			let requiredXp = ApplyValueModificationsToTemplate(
-			    "Promotion/RequiredXp",
-			    +template.Promotion.RequiredXp,
-			    cmpPlayer.GetPlayerID(),
-			    template);
-			if (requiredXp > 0)
-				break;
-			templateName = template.Promotion.Entity;
-			template = cmpTemplateManager.GetTemplate(templateName);
-		}
-		return templateName;
+	let removeAllQueuedTemplate = (token) => {
+		let queue = clone(this.queue);
+		let template = this.entitiesMap.get(token);
+		for (let item of queue)
+			if (item.unitTemplate && item.unitTemplate === template)
+				this.RemoveBatch(item.id);
+	};
+	let updateAllQueuedTemplate = (token, updateTo) => {
+		let template = this.entitiesMap.get(token);
+		for (let item of this.queue)
+			if (item.unitTemplate && item.unitTemplate === template)
+				item.unitTemplate = updateTo;
 	};
 
-	for (let templateName of entitiesList)
-		this.entitiesList.push(upgradeTemplate(templateName));
+	let toks = string.split(/\s+/);
+	for (let tok of addedTokens)
+		toks.push(tok);
 
-	for (let item of this.queue)
-		if (item.unitTemplate)
-			item.unitTemplate = upgradeTemplate(item.unitTemplate);
+	let addedDict = addedTokens.reduce((out, token) => { out[token] = true; return out; }, {});
+	this.entitiesMap = toks.reduce((entMap, token) => {
+		let rawToken = token;
+		if (!(token in addedDict))
+		{
+			// This is a bit wasteful but I can't think of a simpler/better way.
+			// The list of token is unlikely to be a performance bottleneck anyways.
+			token = ApplyValueModificationsToEntity("ProductionQueue/Entities/_string", token, this.entity);
+			token = token.split(/\s+/);
+			if (token.every(tok => addedTokens.indexOf(tok) !== -1))
+			{
+				removeAllQueuedTemplate(rawToken);
+				return entMap;
+			}
+			token = token[0];
+		}
+		// Replace the "{civ}" and "{native}" codes with the owner's civ ID and entity's civ ID.
+		if (cmpIdentity)
+			token = token.replace(/\{native\}/g, cmpIdentity.GetCiv());
+		if (cmpPlayer)
+			token = token.replace(/\{civ\}/g, cmpPlayer.GetCiv());
+
+		// Filter out disabled and invalid entities.
+		if (disabledEntities[token] || !cmpTemplateManager.TemplateExists(token))
+		{
+			removeAllQueuedTemplate(rawToken);
+			return entMap;
+		}
+
+		token = this.GetUpgradedTemplate(token);
+		entMap.set(rawToken, token);
+		updateAllQueuedTemplate(rawToken, token);
+		return entMap;
+	}, new Map());
+};
+
+/*
+ * Returns the upgraded template name if necessary.
+ */
+ProductionQueue.prototype.GetUpgradedTemplate = function(templateName)
+{
+	let cmpPlayer = QueryOwnerInterface(this.entity);
+	if (!cmpPlayer)
+		return templateName;
+
+	let cmpTemplateManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_TemplateManager);
+	let template = cmpTemplateManager.GetTemplate(templateName);
+	while (template && template.Promotion !== undefined)
+	{
+		let requiredXp = ApplyValueModificationsToTemplate(
+		    "Promotion/RequiredXp",
+		    +template.Promotion.RequiredXp,
+		    cmpPlayer.GetPlayerID(),
+		    template);
+		if (requiredXp > 0)
+			break;
+		templateName = template.Promotion.Entity;
+		template = cmpTemplateManager.GetTemplate(templateName);
+	}
+	return templateName;
 };
 
 /*
@@ -140,6 +202,8 @@ ProductionQueue.prototype.GetTechnologiesList = function()
 		return [];
 
 	let string = this.template.Technologies._string;
+	string = ApplyValueModificationsToEntity("ProductionQueue/Technologies/_string", string, this.entity);
+
 	if (!string)
 		return [];
 
@@ -148,8 +212,7 @@ ProductionQueue.prototype.GetTechnologiesList = function()
 		return [];
 
 	let cmpPlayer = QueryOwnerInterface(this.entity);
-	let cmpIdentity = Engine.QueryInterface(this.entity, IID_Identity);
-	if (!cmpPlayer || !cmpIdentity)
+	if (!cmpPlayer)
 		return [];
 
 	let techs = string.split(/\s+/);
@@ -240,6 +303,8 @@ ProductionQueue.prototype.IsTechnologyResearchedOrInProgress = function(tech)
 		return false;
 
 	let cmpTechnologyManager = QueryOwnerInterface(this.entity, IID_TechnologyManager);
+	if (!cmpTechnologyManager)
+		return false;
 
 	let template = TechnologyTemplates.Get(tech);
 	if (template.top)
@@ -260,6 +325,8 @@ ProductionQueue.prototype.AddBatch = function(templateName, type, count, metadat
 	// TODO: there should be a way for the GUI to determine whether it's going
 	// to be possible to add a batch (based on resource costs and length limits).
 	let cmpPlayer = QueryOwnerInterface(this.entity);
+	if (!cmpPlayer)
+		return;
 
 	if (this.queue.length < this.MaxQueueSize)
 	{
@@ -313,7 +380,8 @@ ProductionQueue.prototype.AddBatch = function(templateName, type, count, metadat
 			{
 				let unitCategory = template.TrainingRestrictions.Category;
 				let cmpPlayerEntityLimits = QueryOwnerInterface(this.entity, IID_EntityLimits);
-				cmpPlayerEntityLimits.ChangeCount(unitCategory, count);
+				if (cmpPlayerEntityLimits)
+					cmpPlayerEntityLimits.ChangeCount(unitCategory, count);
 			}
 
 			let buildTime = ApplyValueModificationsToTemplate(
@@ -446,12 +514,10 @@ ProductionQueue.prototype.RemoveBatch = function(id)
 
 	for (let i = 0; i < this.queue.length; ++i)
 	{
+		// Find the item to remove.
 		let item = this.queue[i];
 		if (item.id != id)
 			continue;
-
-		// Now we've found the item to remove.
-		let cmpPlayer = QueryPlayerIDInterface(item.player);
 
 		// Update entity count in the EntityLimits component.
 		if (item.unitTemplate)
@@ -461,7 +527,8 @@ ProductionQueue.prototype.RemoveBatch = function(id)
 			if (template.TrainingRestrictions)
 			{
 				let cmpPlayerEntityLimits = QueryPlayerIDInterface(item.player, IID_EntityLimits);
-				cmpPlayerEntityLimits.ChangeCount(template.TrainingRestrictions.Category, -item.count);
+				if (cmpPlayerEntityLimits)
+					cmpPlayerEntityLimits.ChangeCount(template.TrainingRestrictions.Category, -item.count);
 			}
 		}
 
@@ -475,18 +542,23 @@ ProductionQueue.prototype.RemoveBatch = function(id)
 				cmpStatisticsTracker.IncreaseResourceUsedCounter(r, -totalCosts[r]);
 		}
 
-		cmpPlayer.AddResources(totalCosts);
+		let cmpPlayer = QueryPlayerIDInterface(item.player);
+		if (cmpPlayer)
+		{
+			cmpPlayer.AddResources(totalCosts);
 
-		// Remove reserved population slots if necessary.
-		if (item.productionStarted && item.unitTemplate)
-			cmpPlayer.UnReservePopulationSlots(item.population * item.count);
+			// Remove reserved population slots if necessary.
+			if (item.productionStarted && item.unitTemplate)
+				cmpPlayer.UnReservePopulationSlots(item.population * item.count);
+		}
 
 		// Mark the research as stopped if we cancel it.
 		if (item.technologyTemplate)
 		{
 			// item.player is used as this.entity's owner may be invalid (deletion, etc.)
 			let cmpTechnologyManager = QueryPlayerIDInterface(item.player, IID_TechnologyManager);
-			cmpTechnologyManager.StoppedResearch(item.technologyTemplate, true);
+			if (cmpTechnologyManager)
+				cmpTechnologyManager.StoppedResearch(item.technologyTemplate, true);
 			this.SetAnimation("idle");
 		}
 
@@ -558,7 +630,7 @@ ProductionQueue.prototype.OnOwnershipChanged = function(msg)
 			cmpPlayer.UnBlockTraining();
 	}
 	if (msg.to != INVALID_PLAYER)
-		this.CalculateEntitiesList();
+		this.CalculateEntitiesMap();
 
 	// Reset the production queue whenever the owner changes.
 	// (This should prevent players getting surprised when they capture
@@ -570,7 +642,7 @@ ProductionQueue.prototype.OnOwnershipChanged = function(msg)
 
 ProductionQueue.prototype.OnCivChanged = function()
 {
-	this.CalculateEntitiesList();
+	this.CalculateEntitiesMap();
 };
 
 ProductionQueue.prototype.OnDestroy = function()
@@ -655,13 +727,12 @@ ProductionQueue.prototype.SpawnUnits = function(templateName, count, metadata)
 		// since it will be increased by EntityLimits.OnGlobalOwnershipChanged function,
 		// i.e. we replace a 'trained' entity by 'alive' one.
 		// Must be done after spawn check so EntityLimits decrements only if unit spawns.
-		let cmpTrainingRestrictions = Engine.QueryInterface(ent, IID_TrainingRestrictions);
-		if (cmpTrainingRestrictions)
+		if (cmpPlayerEntityLimits)
 		{
-			let unitCategory = cmpTrainingRestrictions.GetCategory();
-			cmpPlayerEntityLimits.ChangeCount(unitCategory, -1);
+			let cmpTrainingRestrictions = Engine.QueryInterface(ent, IID_TrainingRestrictions);
+			if (cmpTrainingRestrictions)
+				cmpPlayerEntityLimits.ChangeCount(cmpTrainingRestrictions.GetCategory(), -1);
 		}
-
 		cmpNewOwnership.SetOwner(cmpOwnership.GetOwner());
 
 		if (cmpPlayerStatisticsTracker)
@@ -710,11 +781,15 @@ ProductionQueue.prototype.ProgressTimeout = function(data)
 	// Check if the production is paused (eg the entity is garrisoned)
 	if (this.paused)
 		return;
+
+	let cmpPlayer = QueryOwnerInterface(this.entity);
+	if (!cmpPlayer)
+		return;
+
 	// Allocate available time to as many queue items as it takes
 	// until we've used up all the time (so that we work accurately
 	// with items that take fractions of a second).
 	let time = this.ProgressInterval;
-	let cmpPlayer = QueryOwnerInterface(this.entity);
 	let cmpTemplateManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_TemplateManager);
 
 	while (time > 0 && this.queue.length)
@@ -752,7 +827,11 @@ ProductionQueue.prototype.ProgressTimeout = function(data)
 			{
 				// Mark the research as started.
 				let cmpTechnologyManager = QueryOwnerInterface(this.entity, IID_TechnologyManager);
-				cmpTechnologyManager.StartedResearch(item.technologyTemplate, true);
+				if (cmpTechnologyManager)
+					cmpTechnologyManager.StartedResearch(item.technologyTemplate, true);
+				else
+					warn("Failed to start researching " + item.technologyTemplate + ": No TechnologyManager available.");
+
 				this.SetAnimation("researching");
 			}
 
@@ -814,13 +893,16 @@ ProductionQueue.prototype.ProgressTimeout = function(data)
 		else if (item.technologyTemplate)
 		{
 			let cmpTechnologyManager = QueryOwnerInterface(this.entity, IID_TechnologyManager);
-			cmpTechnologyManager.ResearchTechnology(item.technologyTemplate);
+			if (cmpTechnologyManager)
+				cmpTechnologyManager.ResearchTechnology(item.technologyTemplate);
+			else
+				warn("Failed to stop researching " + item.technologyTemplate + ": No TechnologyManager available.");
+
 			this.SetAnimation("idle");
 			let template = TechnologyTemplates.Get(item.technologyTemplate);
 			if (template && template.soundComplete)
 			{
 				let cmpSoundManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_SoundManager);
-
 				if (cmpSoundManager)
 					cmpSoundManager.PlaySoundGroup(template.soundComplete, this.entity);
 			}
@@ -866,15 +948,29 @@ ProductionQueue.prototype.OnValueModification = function(msg)
 	// If the promotion requirements of units is changed,
 	// update the entities list so that automatically promoted units are shown
 	// appropriately in the list.
-	if (msg.component == "Promotion")
-		this.CalculateEntitiesList();
+	if (msg.component != "Promotion" && (msg.component != "ProductionQueue" ||
+	        !msg.valueNames.some(val => val.startsWith("ProductionQueue/Entities/"))))
+		return;
+
+	if (msg.entities.indexOf(this.entity) === -1)
+		return;
+
+	// This also updates the queued production if necessary.
+	this.CalculateEntitiesMap();
+
+	// Inform the GUI that it'll need to recompute the selection panel.
+	// TODO: it would be better to only send the message if something actually changing
+	// for the current production queue.
+	let cmpPlayer = QueryOwnerInterface(this.entity);
+	if (cmpPlayer)
+		Engine.QueryInterface(SYSTEM_ENTITY, IID_GuiInterface).SetSelectionDirty(cmpPlayer.GetPlayerID());
 };
 
 ProductionQueue.prototype.OnDisabledTemplatesChanged = function(msg)
 {
 	// If the disabled templates of the player is changed,
 	// update the entities list so that this is reflected there.
-	this.CalculateEntitiesList();
+	this.CalculateEntitiesMap();
 };
 
 Engine.RegisterComponentType(IID_ProductionQueue, "ProductionQueue", ProductionQueue);

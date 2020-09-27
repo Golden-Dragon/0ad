@@ -21,6 +21,7 @@
 # Hamza ESSAD <essadhamza@outlook.fr>, 2017
 # Irriep Nala Novram <allannkorh@yahoo.fr>, 2017
 # Jacques Rathier <jacques.rathier.jr@gmail.com>, 2020
+# Jason CHAMPAGNE, 2020
 # Jo Du <jojo337@live.fr>, 2017-2018
 # jy jrts <lucashavard35@hotmail.fr>, 2017
 # Loki <tontonloul@hotmail.fr>, 2016
@@ -35,6 +36,7 @@
 # nicolas t <deux718281@yahoo.fr>, 2016
 # Nolan Dartois <misterdevil59450@gmail.com>, 2019
 # oiseauroch <tobollive@aol.com>, 2018
+# Olivier Dupuis <oj.dupuis@gmail.com>, 2020
 # PierrC <pierre.yves.cudennec@gmail.com>, 2018
 # Pierre Juste <supernovae@hotmail.com>, 2019
 # polien delamarque <m.oleil@laposte.net>, 2016
@@ -45,15 +47,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-04-13 07:18+0000\n"
-"PO-Revision-Date: 2020-06-05 18:31+0000\n"
-"Last-Translator: Arthur Bellet <2412arthur@gmail.com>\n"
+"POT-Creation-Date: 2020-08-28 07:10+0000\n"
+"PO-Revision-Date: 2020-08-28 11:23+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: French (http://www.transifex.com/wildfire-games/0ad/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraName
+msgid "Arsenal Repairs"
+msgstr ""
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraDescription
+msgid "Garrisoned Siege Engines +3 health regeneration rate."
+msgstr "Augmente la régénération de points de vie des engins de siège en garnison de +3."
 
 #: simulation/data/auras/structures/barracks_xp_trickle.jsonauraName
 msgid "Rigorous Training"
@@ -69,15 +79,7 @@ msgstr "Chantiers navals"
 
 #: simulation/data/auras/structures/cart_super_dock_repair.jsonauraDescription
 msgid "Garrisoned Ships +10 health regeneration rate."
-msgstr "+10 points de régénération de la santé des navires en garnison."
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraName
-msgid "Blessing of the Gods"
-msgstr "Bénédiction divine"
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraDescription
-msgid "Humans +3 health regeneration rate."
-msgstr "+3% de taux de régénération de la santé des humains."
+msgstr "+10 points de régénération de vie des navires en garnison."
 
 #: simulation/data/auras/structures/iber_monument.jsonauraName
 msgid "Religious Fervor"
@@ -85,7 +87,7 @@ msgstr "Ferveur religieuse"
 
 #: simulation/data/auras/structures/iber_monument.jsonauraDescription
 msgid "Soldiers +20% melee and ranged attack damage."
-msgstr "+20% de dégats pour l'infanterie de mêlée et de distance."
+msgstr "+20% de dégâts pour l'infanterie au corps à corps et à distance."
 
 #: simulation/data/auras/structures/kush_pyramids_economic.jsonauraName
 msgid "Patriotism"
@@ -101,16 +103,8 @@ msgid "Exhortative Presence"
 msgstr "Présence Exhortative"
 
 #: simulation/data/auras/structures/kush_pyramids_military.jsonauraDescription
-msgid "Soldiers +10% melee and ranged attack damage."
-msgstr "+10% de dégats pour l'infanterie de mêlée et de distance."
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraName
-msgid "Meroitic Pyramids"
-msgstr "Pyramides Méroïtiques"
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraDescription
-msgid "Civic Centers +10% territory influence radius."
-msgstr "+10% de rayon d'influence territoriale pour les centres-villes."
+msgid "Soldiers +1 armor level and +10% melee and ranged attack damage."
+msgstr "Soldats +1 niveau d'ramure et +10% de dommage pour les attaques de mélée et à distance"
 
 #: simulation/data/auras/structures/kush_temple_amun.jsonauraName
 msgid "Powerful Priesthood"
@@ -193,14 +187,6 @@ msgid ""
 "+40 maximum population limit (requires the “Glorious Expansion” technology)."
 msgstr "Augmente la limite de population maximale de +40 (requiert la technologie “Expansion Glorieuse“)."
 
-#: simulation/data/auras/structures/workshop_repair.jsonauraName
-msgid "Workshop Repairs"
-msgstr "Atelier de réparations"
-
-#: simulation/data/auras/structures/workshop_repair.jsonauraDescription
-msgid "Garrisoned Siege Engines +3 health regeneration rate."
-msgstr "Augmente la régénération de points de vie des engins de siège en garnison de +3."
-
 #: simulation/data/auras/teambonuses/athen_player_teambonus.jsonauraName
 msgid "Delian League"
 msgstr "Ligue de Délos"
@@ -222,24 +208,24 @@ msgid "Trademasters"
 msgstr "Maîtres commerçants"
 
 #: simulation/data/auras/teambonuses/cart_player_teambonus.jsonauraDescription
-msgid "Allied Markets +10% international trade bonus."
-msgstr "Augmente le bonus d'échange international des marchés alliés de +10%."
+msgid "Allies +10% international trade bonus."
+msgstr ""
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraName
-msgid "Druidic Wisdom"
-msgstr "Sagesse druidique"
+msgid "Products from Gaul"
+msgstr ""
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraDescription
-msgid "Allied Structures −20% technology research time."
-msgstr "Réduit le temps de recherches des bâtiments alliés de -20%."
+msgid "Forges −15% technology resource costs and research time."
+msgstr ""
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraName
 msgid "Saripeko"
 msgstr "Saripeko"
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraDescription
-msgid "Allied Citizen Javelinists −10% resource costs."
-msgstr "Lanceur de javelot citoyens alliés -10% du coût en ressources."
+msgid "Allied Citizen Javelineers −10% resource costs."
+msgstr ""
 
 #: simulation/data/auras/teambonuses/kush_player_teambonus.jsonauraName
 msgid "Elephant Suppliers"
@@ -361,8 +347,8 @@ msgstr "Harcèlement de tirailleurs"
 #: simulation/data/auras/units/catafalques/brit_catafalque_2.jsonauraDescription
 msgid ""
 "Cassivellaunus deployed fast-moving skirmishers to harass Roman troops and foragers.\n"
-"Javelinists +20% attack range."
-msgstr "Cassivellaunus déploya des tirailleurs mobiles pour harceler les troupes romaines et les fermiers.\nAugmente la portée des attaques des tirailleurs à javelots de +20%."
+"Javelineers +20% attack range."
+msgstr ""
 
 #: simulation/data/auras/units/catafalques/cart_catafalque.jsonauraName
 msgid "Commander of Heavy Cavalry"
@@ -572,8 +558,8 @@ msgid "Peltast Reforms"
 msgstr "Réformes des peltastes"
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_2.jsonauraDescription
-msgid "Infantry Javelinists +15% movement speed."
-msgstr "L'infanterie Javeliniste gagnent 15% de vitesse de déplacement."
+msgid "Infantry Javelineers +15% movement speed."
+msgstr ""
 
 #: simulation/data/auras/units/heroes/athen_hero_pericles_1.jsonauraName
 msgid "Periclean Building Program"
@@ -995,8 +981,8 @@ msgstr "Réformes hilotiques"
 
 #: simulation/data/auras/units/heroes/spart_hero_brasidas.jsonauraDescription
 msgid ""
-"Citizen Infantry Javelinists +1 armor, +25% ranged attack pierce damage."
-msgstr "Les citoyens Javelinistes d'infanterie gagnent +1 d'armure, et 25% de dégâts distance perforant. "
+"Citizen Infantry Javelineers +1 armor, +25% ranged attack pierce damage."
+msgstr ""
 
 #: simulation/data/auras/units/heroes/spart_hero_leonidas.jsonauraName
 msgid "Last Stand"

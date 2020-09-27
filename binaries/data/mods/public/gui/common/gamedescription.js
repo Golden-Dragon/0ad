@@ -38,7 +38,7 @@ var g_BuddySymbol = '•';
  * Returns a formatted string describing the player assignments.
  * Needs g_CivData to translate!
  *
- * @param {object} playerDataArray - As known from gamesetup and simstate.
+ * @param {Object} playerDataArray - As known from gamesetup and simstate.
  * @param {(string[]|false)} playerStates - One of "won", "defeated", "active" for each player.
  * @returns {string}
  */
@@ -375,6 +375,15 @@ function getGameDescription(mapCache)
 					g_PopulationCapacities.Title[
 						g_PopulationCapacities.Population.indexOf(
 							g_GameAttributes.settings.PopulationCap)]
+		});
+
+	if (g_GameAttributes.settings.WorldPopulationCap !== undefined)
+		titles.push({
+			"label": translate("World Population Cap"),
+			"value":
+				g_WorldPopulationCapacities.Title[
+					g_WorldPopulationCapacities.Population.indexOf(
+						g_GameAttributes.settings.WorldPopulationCap)]
 		});
 
 	titles.push({

@@ -31,9 +31,8 @@
     <Civ>maur</Civ>
     <GenericName>Edict Pillar of Ashoka</GenericName>
     <SpecificName>Śāsana Stambha Aśokā</SpecificName>
-    <Classes datatype="tokens">Pillar</Classes>
+    <VisibleClasses datatype="tokens">Pillar</VisibleClasses>
     <Icon>structures/ashoka_pillar.png</Icon>
-    <Tooltip>The famous pillar of Ashoka. Increases the walk speed of traders. Buildings in the territory of the monument do not decay.</Tooltip>
   </Identity>
   <Loot>
     <stone>20</stone>
@@ -50,9 +49,11 @@
       <constructed>interface/complete/building/complete_iber_monument.xml</constructed>
     </SoundGroups>
   </Sound>
-  <TerritoryInfluence>
-    <Root>true</Root>
-  </TerritoryInfluence>
+  <TerritoryDecay disable=""/>
+  <TerritoryInfluence disable=""/>
+  <Vision>
+    <Range>1</Range>
+  </Vision>
   <VisualActor>
     <Actor>props/structures/mauryas/ashoka_pillar.xml</Actor>
     <FoundationActor>structures/fndn_2x2.xml</FoundationActor>

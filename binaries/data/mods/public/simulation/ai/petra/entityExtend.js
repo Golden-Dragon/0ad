@@ -1,7 +1,14 @@
 /** returns true if this unit should be considered as a siege unit */
 PETRA.isSiegeUnit = function(ent)
 {
-	return ent.hasClass("Siege") || ent.hasClass("Elephant") && ent.hasClass("Melee") && ent.hasClass("Champion");
+	return ent.hasClass("Siege") || ent.hasClass("Elephant") && ent.hasClass("Melee");
+};
+
+/** returns true if this unit should be considered as "fast". */
+PETRA.isFastMoving = function(ent)
+{
+	// TODO: use clever logic based on walkspeed comparisons.
+	return ent.hasClass("FastMoving");
 };
 
 /** returns some sort of DPS * health factor. If you specify a class, it'll use the modifiers against that class too. */
@@ -52,15 +59,19 @@ PETRA.getMaxStrength = function(ent, debugLevel, DamageTypeImportance, againstCl
 		}
 	}
 
-	let armourStrength = ent.armourStrengths();
-	for (let str in armourStrength)
-	{
-		let val = parseFloat(armourStrength[str]);
-		if (DamageTypeImportance[str])
-			strength += DamageTypeImportance[str] * val / damageTypes.length;
-		else if (debugLevel > 0)
-			API3.warn("Petra: " + str + " unknown armourStrength in getMaxStrength (please add " + str + "  to config.js).");
-	}
+	let resistanceStrength = ent.resistanceStrengths();
+
+	if (resistanceStrength.Damage)
+		for (let str in resistanceStrength.Damage)
+		{
+			let val = +resistanceStrength.Damage[str];
+			if (DamageTypeImportance[str])
+				strength += DamageTypeImportance[str] * val / damageTypes.length;
+			else if (debugLevel > 0)
+				API3.warn("Petra: " + str + " unknown resistanceStrength in getMaxStrength (please add " + str + "  to config.js).");
+		}
+
+	// ToDo: Add support for StatusEffects and Capture.
 
 	return strength * ent.maxHitpoints() / 100.0;
 };

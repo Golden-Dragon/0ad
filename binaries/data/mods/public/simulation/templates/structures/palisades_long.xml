@@ -7,32 +7,32 @@
     </Resources>
   </Cost>
   <Footprint>
-    <Square width="15" depth="3"/>
-    <Height>6</Height>
+    <Square width="15.0" depth="3.0"/>
+    <Height>6.0</Height>
   </Footprint>
   <Health>
-    <Max op="mul">0.75</Max>
+    <Max op="mul">0.6</Max>
   </Health>
   <Identity>
-    <SpecificName>Palisade</SpecificName>
+    <Tooltip>Can be converted into a Palisade Gate.</Tooltip>
   </Identity>
   <Loot>
     <wood>3</wood>
   </Loot>
   <Obstruction>
-    <Static width="14" depth="2"/>
+    <Static width="14.0" depth="2.0"/>
   </Obstruction>
   <StatusBars>
-    <HeightOffset>7</HeightOffset>
+    <HeightOffset>7.0</HeightOffset>
   </StatusBars>
   <Upgrade>
     <Gate>
       <Entity>structures/palisades_gate</Entity>
+      <Tooltip>Allow units access through Palisades. Can be locked to prevent access.</Tooltip>
       <Cost>
-        <wood>20</wood>
+        <wood>10</wood>
       </Cost>
-      <Time>5</Time>
-      <Tooltip>This will allow you to let units circulate through your fortifications.</Tooltip>
+      <Time>6</Time>
       <Variant>upgrading</Variant>
     </Gate>
   </Upgrade>

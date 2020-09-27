@@ -1,4 +1,4 @@
-/* Copyright (C) 2019 Wildfire Games.
+/* Copyright (C) 2020 Wildfire Games.
  * This file is part of 0 A.D.
  *
  * 0 A.D. is free software: you can redistribute it and/or modify
@@ -195,6 +195,17 @@ QUERY(GetMapSizes,
 		((std::string, sizes))
 		);
 
+QUERY(GetCurrentMapSize,
+		,
+		((int, size))
+		);
+
+QUERY(RasterizeMinimap,
+		,
+		((int, dimension))
+		((std::vector<uint8_t>, imageBytes))
+		);
+
 QUERY(GetRMSData,
 		,
 		((std::vector<std::string>, data))
@@ -202,6 +213,8 @@ QUERY(GetRMSData,
 
 COMMAND(ResizeMap, NOMERGE,
 		((int, tiles))
+		((int, offsetX))
+		((int, offsetY))
 		);
 
 QUERY(VFSFileExists,
@@ -220,6 +233,11 @@ QUERY(VFSFileRealPath,
 // Messages for player panel
 
 QUERY(GetCivData,
+		,
+		((std::vector<std::string>, data))
+		);
+
+QUERY(GetVictoryConditionData,
 		,
 		((std::vector<std::string>, data))
 		);

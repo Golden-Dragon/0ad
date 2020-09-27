@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_champion">
-  <Armour>
-    <Hack>10</Hack>
-    <Pierce>10</Pierce>
-    <Crush>25</Crush>
-  </Armour>
   <Cost>
     <Population>3</Population>
     <BuildTime>30</BuildTime>
@@ -13,9 +8,9 @@
       <metal>200</metal>
     </Resources>
   </Cost>
-  <Footprint>
-    <Circle radius="3.5"/>
-    <Height>6.0</Height>
+  <Footprint replace="">
+    <Square width="4.5" depth="9.0"/>
+    <Height>9.0</Height>
   </Footprint>
   <Health>
     <Max>750</Max>
@@ -25,10 +20,19 @@
     <GenericName>War Elephant</GenericName>
   </Identity>
   <Loot>
+    <xp>300</xp>
     <food>30</food>
-    <wood>0</wood>
     <metal>20</metal>
   </Loot>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack>10</Hack>
+        <Pierce>10</Pierce>
+        <Crush>25</Crush>
+      </Damage>
+    </Entity>
+  </Resistance>
   <Sound>
     <SoundGroups>
       <select>actor/fauna/animal/elephant_select.xml</select>
@@ -44,7 +48,7 @@
     </SoundGroups>
   </Sound>
   <StatusBars>
-    <HeightOffset>6.5</HeightOffset>
+    <HeightOffset>10.0</HeightOffset>
   </StatusBars>
   <UnitMotion>
     <PassabilityClass>large</PassabilityClass>

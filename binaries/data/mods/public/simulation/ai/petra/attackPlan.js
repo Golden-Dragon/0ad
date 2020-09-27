@@ -119,7 +119,7 @@ PETRA.AttackPlan = function(gameState, Config, uniqueID, type, data)
 		priority = 250;
 		this.unitStat.Infantry = { "priority": 1, "minSize": 10, "targetSize": 20, "batchSize": 2, "classes": ["Infantry"],
 			"interests": [["strength", 1], ["costsResource", 0.5, "stone"], ["costsResource", 0.6, "metal"]] };
-		this.unitStat.Cavalry = { "priority": 1, "minSize": 2, "targetSize": 4, "batchSize": 2, "classes": ["Cavalry", "CitizenSoldier"],
+		this.unitStat.FastMoving = { "priority": 1, "minSize": 2, "targetSize": 4, "batchSize": 2, "classes": ["FastMoving", "CitizenSoldier"],
 			"interests": [["strength", 1]] };
 		if (data && data.targetSize)
 			this.unitStat.Infantry.targetSize = data.targetSize;
@@ -128,7 +128,7 @@ PETRA.AttackPlan = function(gameState, Config, uniqueID, type, data)
 	else if (type == "Raid")
 	{
 		priority = 150;
-		this.unitStat.Cavalry = { "priority": 1, "minSize": 3, "targetSize": 4, "batchSize": 2, "classes": ["Cavalry", "CitizenSoldier"],
+		this.unitStat.FastMoving = { "priority": 1, "minSize": 3, "targetSize": 4, "batchSize": 2, "classes": ["FastMoving", "CitizenSoldier"],
 			"interests": [ ["strength", 1] ] };
 		this.neededShips = 1;
 	}
@@ -144,13 +144,13 @@ PETRA.AttackPlan = function(gameState, Config, uniqueID, type, data)
 			"interests": [["strength", 3]] };
 		this.unitStat.ChampMeleeInfantry = { "priority": 1, "minSize": 3, "targetSize": 18, "batchSize": 3, "classes": ["Infantry", "Melee", "Champion"],
 			"interests": [["strength", 3]] };
-		this.unitStat.RangedCavalry = { "priority": 0.7, "minSize": 4, "targetSize": 20, "batchSize": 4, "classes": ["Cavalry", "Ranged", "CitizenSoldier"],
+		this.unitStat.RangedFastMoving = { "priority": 0.7, "minSize": 4, "targetSize": 20, "batchSize": 4, "classes": ["FastMoving", "Ranged", "CitizenSoldier"],
 			"interests": [["strength", 2]] };
-		this.unitStat.MeleeCavalry = { "priority": 0.7, "minSize": 4, "targetSize": 20, "batchSize": 4, "classes": ["Cavalry", "Melee", "CitizenSoldier"],
+		this.unitStat.MeleeFastMoving = { "priority": 0.7, "minSize": 4, "targetSize": 20, "batchSize": 4, "classes": ["FastMoving", "Melee", "CitizenSoldier"],
 			"interests": [["strength", 2]] };
-		this.unitStat.ChampRangedCavalry = { "priority": 1, "minSize": 3, "targetSize": 15, "batchSize": 3, "classes": ["Cavalry", "Ranged", "Champion"],
+		this.unitStat.ChampRangedFastMoving = { "priority": 1, "minSize": 3, "targetSize": 15, "batchSize": 3, "classes": ["FastMoving", "Ranged", "Champion"],
 			"interests": [["strength", 3]] };
-		this.unitStat.ChampMeleeCavalry = { "priority": 1, "minSize": 3, "targetSize": 15, "batchSize": 3, "classes": ["Cavalry", "Melee", "Champion"],
+		this.unitStat.ChampMeleeFastMoving = { "priority": 1, "minSize": 3, "targetSize": 15, "batchSize": 3, "classes": ["FastMoving", "Melee", "Champion"],
 			"interests": [["strength", 2]] };
 		this.unitStat.Hero = { "priority": 1, "minSize": 0, "targetSize": 1, "batchSize": 1, "classes": ["Hero"],
 			"interests": [["strength", 2]] };
@@ -163,7 +163,7 @@ PETRA.AttackPlan = function(gameState, Config, uniqueID, type, data)
 			"interests": [["canGather", 1], ["strength", 1.6], ["costsResource", 0.3, "stone"], ["costsResource", 0.3, "metal"]] };
 		this.unitStat.MeleeInfantry = { "priority": 1, "minSize": 6, "targetSize": 16, "batchSize": 3, "classes": ["Infantry", "Melee"],
 			"interests": [["canGather", 1], ["strength", 1.6], ["costsResource", 0.3, "stone"], ["costsResource", 0.3, "metal"]] };
-		this.unitStat.Cavalry = { "priority": 1, "minSize": 2, "targetSize": 6, "batchSize": 2, "classes": ["Cavalry", "CitizenSoldier"],
+		this.unitStat.FastMoving = { "priority": 1, "minSize": 2, "targetSize": 6, "batchSize": 2, "classes": ["FastMoving", "CitizenSoldier"],
 			"interests": [["strength", 1]] };
 		this.neededShips = 3;
 	}
@@ -355,7 +355,7 @@ PETRA.AttackPlan.prototype.addSiegeUnits = function(gameState)
 		return false;
 
 	let civ = gameState.getPlayerCiv();
-	let classes = [[ "Siege", "Melee"], ["Siege", "Ranged"], ["Elephant", "Melee", "Champion"]];
+	let classes = [["Siege", "Melee"], ["Siege", "Ranged"], ["Elephant", "Melee"]];
 	let hasTrainer = [false, false, false];
 	for (let ent of gameState.getOwnTrainingFacilities().values())
 	{
@@ -435,7 +435,7 @@ PETRA.AttackPlan.prototype.updatePreparation = function(gameState)
 	if (this.type != "Raid" || !this.forced)    // Forced Raids have special purposes (as relic capture)
 		this.assignUnits(gameState);
 	if (this.type != "Raid" && gameState.ai.HQ.attackManager.getAttackInPreparation("Raid") !== undefined)
-		this.reassignCavUnit(gameState);    // reassign some cav (if any) to fasten raid preparations
+		this.reassignFastUnit(gameState);    // reassign some fast units (if any) to fasten raid preparations
 
 	// Fasten the end game.
 	if (gameState.ai.playedTurn % 5 == 0 && this.hasSiegeUnits())
@@ -655,7 +655,7 @@ PETRA.AttackPlan.prototype.assignUnits = function(gameState)
 {
 	let plan = this.name;
 	let added = false;
-	// If we can not build units, assign all available except those affected to allied defense to the current attack
+	// If we can not build units, assign all available except those affected to allied defense to the current attack.
 	if (!this.canBuildUnits)
 	{
 		for (let ent of gameState.getOwnUnits().values())
@@ -671,11 +671,11 @@ PETRA.AttackPlan.prototype.assignUnits = function(gameState)
 
 	if (this.type == "Raid")
 	{
-		// Raid are fast cavalry attack: assign all cav except some for hunting
+		// Raids are quick attacks: assign all FastMoving soldiers except some for hunting.
 		let num = 0;
 		for (let ent of gameState.getOwnUnits().values())
 		{
-			if (!ent.hasClass("Cavalry") || !this.isAvailableUnit(gameState, ent))
+			if (!ent.hasClass("FastMoving") || !this.isAvailableUnit(gameState, ent))
 				continue;
 			if (num++ < 2)
 				continue;
@@ -686,7 +686,7 @@ PETRA.AttackPlan.prototype.assignUnits = function(gameState)
 		return added;
 	}
 
-	// Assign all units without specific role
+	// Assign all units without specific role.
 	for (let ent of gameState.getOwnEntitiesByRole(undefined, true).values())
 	{
 		if (!ent.hasClass("Unit") || !this.isAvailableUnit(gameState, ent))
@@ -697,7 +697,7 @@ PETRA.AttackPlan.prototype.assignUnits = function(gameState)
 		this.unitCollection.updateEnt(ent);
 		added = true;
 	}
-	// Add units previously in a plan, but which left it because needed for defense or attack finished
+	// Add units previously in a plan, but which left it because needed for defense or attack finished.
 	for (let ent of gameState.ai.HQ.attackManager.outOfPlan.values())
 	{
 		if (!this.isAvailableUnit(gameState, ent))
@@ -751,14 +751,14 @@ PETRA.AttackPlan.prototype.isAvailableUnit = function(gameState, ent)
 	return true;
 };
 
-/** Reassign one (at each turn) Cav unit to fasten raid preparation. */
-PETRA.AttackPlan.prototype.reassignCavUnit = function(gameState)
+/** Reassign one (at each turn) FastMoving unit to fasten raid preparation. */
+PETRA.AttackPlan.prototype.reassignFastUnit = function(gameState)
 {
 	for (let ent of this.unitCollection.values())
 	{
 		if (!ent.position() || ent.getMetadata(PlayerID, "transport") !== undefined)
 			continue;
-		if (!ent.hasClass("Cavalry") || !ent.hasClass("CitizenSoldier"))
+		if (!ent.hasClass("FastMoving") || !ent.hasClass("CitizenSoldier"))
 			continue;
 		let raid = gameState.ai.HQ.attackManager.getAttackInPreparation("Raid");
 		ent.setMetadata(PlayerID, "plan", raid.name);
@@ -1064,7 +1064,7 @@ PETRA.AttackPlan.prototype.checkTargetObstruction = function(gameState, target, 
 		if (!struct.position() || !struct.get("Obstruction") || struct.hasClass("Field"))
 			continue;
 		// we consider that we can reach the target, but nonetheless check that we did not cross any enemy gate
-		if (dist < radius + 10 && !struct.hasClass("Gates"))
+		if (dist < radius + 10 && !struct.hasClass("Gate"))
 			continue;
 		// Check that we are really blocked by this structure, i.e. advancing by 1+0.8(clearance)m
 		// in the target direction would bring us inside its obstruction.
@@ -1436,15 +1436,15 @@ PETRA.AttackPlan.prototype.update = function(gameState, events)
 		let targetClassesUnit;
 		let targetClassesSiege;
 		if (this.type == "Rush")
-			targetClassesUnit = { "attack": ["Unit", "Structure"], "avoid": ["Palisade", "StoneWall", "Tower", "Fortress"], "vetoEntities": veto };
+			targetClassesUnit = { "attack": ["Unit", "Structure"], "avoid": ["Palisade", "Wall", "Tower", "Fortress"], "vetoEntities": veto };
 		else
 		{
 			if (this.target.hasClass("Fortress"))
-				targetClassesUnit = { "attack": ["Unit", "Structure"], "avoid": ["Palisade", "StoneWall"], "vetoEntities": veto };
-			else if (this.target.hasClass("Palisade") || this.target.hasClass("StoneWall"))
+				targetClassesUnit = { "attack": ["Unit", "Structure"], "avoid": ["Palisade", "Wall"], "vetoEntities": veto };
+			else if (this.target.hasClass("Palisade") || this.target.hasClass("Wall"))
 				targetClassesUnit = { "attack": ["Unit", "Structure"], "avoid": ["Fortress"], "vetoEntities": veto };
 			else
-				targetClassesUnit = { "attack": ["Unit", "Structure"], "avoid": ["Palisade", "StoneWall", "Fortress"], "vetoEntities": veto };
+				targetClassesUnit = { "attack": ["Unit", "Structure"], "avoid": ["Palisade", "Wall", "Fortress"], "vetoEntities": veto };
 		}
 		if (this.target.hasClass("Structure"))
 			targetClassesSiege = { "attack": ["Structure"], "avoid": [], "vetoEntities": veto };
@@ -1454,8 +1454,8 @@ PETRA.AttackPlan.prototype.update = function(gameState, events)
 		// do not loose time destroying buildings which do not help enemy's defense and can be easily captured later
 		if (this.target.hasDefensiveFire())
 		{
-			targetClassesUnit.avoid = targetClassesUnit.avoid.concat("House", "Storehouse", "Farmstead", "Field", "Blacksmith");
-			targetClassesSiege.avoid = targetClassesSiege.avoid.concat("House", "Storehouse", "Farmstead", "Field", "Blacksmith");
+			targetClassesUnit.avoid = targetClassesUnit.avoid.concat("House", "Storehouse", "Farmstead", "Field", "Forge");
+			targetClassesSiege.avoid = targetClassesSiege.avoid.concat("House", "Storehouse", "Farmstead", "Field", "Forge");
 		}
 
 		if (this.unitCollUpdateArray === undefined || !this.unitCollUpdateArray.length)
@@ -1510,7 +1510,7 @@ PETRA.AttackPlan.prototype.update = function(gameState, events)
 					maybeUpdate = true;
 				else if (attackedByStructure[ent.id()] && target.hasClass("Field"))
 					maybeUpdate = true;
-				else if (!ent.hasClass("Cavalry") && !ent.hasClass("Ranged") &&
+				else if (!ent.hasClass("FastMoving") && !ent.hasClass("Ranged") &&
 					 target.hasClass("FemaleCitizen") && target.unitAIState().split(".")[1] == "FLEEING")
 					maybeUpdate = true;
 			}
@@ -1539,7 +1539,7 @@ PETRA.AttackPlan.prototype.update = function(gameState, events)
 			}
 			else if (attackTypes && attackTypes.indexOf("Ranged") !== -1)
 				range = 30 + ent.attackRange("Ranged").max;
-			else if (ent.hasClass("Cavalry"))
+			else if (ent.hasClass("FastMoving"))
 				range += 30;
 			range *= range;
 			let entAccess = PETRA.getLandAccess(gameState, ent);
@@ -1561,14 +1561,14 @@ PETRA.AttackPlan.prototype.update = function(gameState, events)
 				{
 					mStruct.sort((structa, structb) => {
 						let vala = structa.costSum();
-						if (structa.hasClass("Gates") && ent.canAttackClass("StoneWall"))
+						if (structa.hasClass("Gate") && ent.canAttackClass("Wall"))
 							vala += 10000;
 						else if (structa.hasDefensiveFire())
 							vala += 1000;
 						else if (structa.hasClass("ConquestCritical"))
 							vala += 200;
 						let valb = structb.costSum();
-						if (structb.hasClass("Gates") && ent.canAttackClass("StoneWall"))
+						if (structb.hasClass("Gate") && ent.canAttackClass("Wall"))
 							valb += 10000;
 						else if (structb.hasDefensiveFire())
 							valb += 1000;
@@ -1576,7 +1576,7 @@ PETRA.AttackPlan.prototype.update = function(gameState, events)
 							valb += 200;
 						return valb - vala;
 					});
-					if (mStruct[0].hasClass("Gates"))
+					if (mStruct[0].hasClass("Gate"))
 						ent.attack(mStruct[0].id(), PETRA.allowCapture(gameState, ent, mStruct[0]));
 					else
 					{
@@ -1597,7 +1597,7 @@ PETRA.AttackPlan.prototype.update = function(gameState, events)
 			}
 			else
 			{
-				let nearby = !ent.hasClass("Cavalry") && !ent.hasClass("Ranged");
+				let nearby = !ent.hasClass("FastMoving") && !ent.hasClass("Ranged");
 				let mUnit = enemyUnits.filter(enemy => {
 					if (!enemy.position() || !ent.canAttackTarget(enemy, PETRA.allowCapture(gameState, ent, enemy)))
 						return false;
@@ -1676,18 +1676,18 @@ PETRA.AttackPlan.prototype.update = function(gameState, events)
 					{
 						mStruct.sort((structa, structb) => {
 							let vala = structa.costSum();
-							if (structa.hasClass("Gates") && ent.canAttackClass("StoneWall"))
+							if (structa.hasClass("Gate") && ent.canAttackClass("Wall"))
 								vala += 10000;
 							else if (structa.hasClass("ConquestCritical"))
 								vala += 100;
 							let valb = structb.costSum();
-							if (structb.hasClass("Gates") && ent.canAttackClass("StoneWall"))
+							if (structb.hasClass("Gate") && ent.canAttackClass("Wall"))
 								valb += 10000;
 							else if (structb.hasClass("ConquestCritical"))
 								valb += 100;
 							return valb - vala;
 						});
-						if (mStruct[0].hasClass("Gates"))
+						if (mStruct[0].hasClass("Gate"))
 							ent.attack(mStruct[0].id(), false);
 						else
 						{
@@ -1833,11 +1833,11 @@ PETRA.AttackPlan.prototype.UpdateWalking = function(gameState, events)
 		if (!this.path[0][0] || !this.path[0][1])
 			API3.warn("Start: Problem with path " + uneval(this.path));
 		// We're stuck, presumably. Check if there are no walls just close to us.
-		for (let ent of gameState.getEnemyStructures().filter(API3.Filters.byClass(["Palisade", "StoneWall"])).values())
+		for (let ent of gameState.getEnemyStructures().filter(API3.Filters.byClass(["Palisade", "Wall"])).values())
 		{
 			if (API3.SquareVectorDistance(this.position, ent.position()) > 800)
 				continue;
-			let enemyClass = ent.hasClass("StoneWall") ? "StoneWall" : "Palisade";
+			let enemyClass = ent.hasClass("Wall") ? "Wall" : "Palisade";
 			// there are walls, so check if we can attack
 			if (this.unitCollection.filter(API3.Filters.byCanAttackClass(enemyClass)).hasEntities())
 			{

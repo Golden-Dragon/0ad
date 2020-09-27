@@ -25,9 +25,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-06-01 07:10+0000\n"
-"PO-Revision-Date: 2020-06-01 16:35+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"POT-Creation-Date: 2020-08-07 07:10+0000\n"
+"PO-Revision-Date: 2020-09-24 12:49+0000\n"
+"Last-Translator: liulitchi <xingzuo88@qq.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/wildfire-games/0ad/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -923,7 +923,7 @@ msgstr "中央河流                                                            
 msgid ""
 "Players are aligned on a strip of land with seas bordering on one or both "
 "sides that may hold islands."
-msgstr ""
+msgstr "玩家位于同一块陆地上，大海在另一侧（或两侧都有），可能散布岛屿。"
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[3].Name
 msgid "Edge Seas"
@@ -931,7 +931,7 @@ msgstr ""
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[4].Description
 msgid "Land shaped like a concrescent moon around a central lake."
-msgstr ""
+msgstr "陆地围着中央湖泊，如一弯蛾眉月。"
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[4].Name
 msgid "Gulf"
@@ -939,7 +939,7 @@ msgstr "海湾"
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[5].Description
 msgid "Mainland style with some small random lakes."
-msgstr ""
+msgstr "大陆，点缀数个湖泊。"
 
 #: maps/random/unknown.jsonsettings.Landscapes.land[5].Name
 msgid "Lakes"
@@ -967,7 +967,7 @@ msgstr "低地"
 
 #: maps/random/unknown.jsonsettings.Landscapes.naval[0].Description
 msgid "A huge sea is dividing the map into two halves."
-msgstr ""
+msgstr "陆地被海洋隔开，分为两半。"
 
 #: maps/random/unknown.jsonsettings.Landscapes.naval[0].Name
 msgid "Naval: Central Sea"
@@ -979,11 +979,11 @@ msgstr ""
 
 #: maps/random/unknown.jsonsettings.Landscapes.naval[1].Name
 msgid "Naval: Archipelago"
-msgstr ""
+msgstr "海事地图：群岛"
 
 #: maps/random/unknown.jsonsettings.Landscapes.naval[2].Description
 msgid "A central lake with rivers possibly separating neighboring players."
-msgstr ""
+msgstr "中央有一处湖泊，河流将玩家隔开。"
 
 #: maps/random/unknown.jsonsettings.Landscapes.naval[2].Name
 msgid "Naval: Lake and rivers"
@@ -1635,6 +1635,16 @@ msgstr "科林斯"
 msgid "Peloponnesian Wars"
 msgstr "伯罗奔尼撒之战"
 
+#: maps/scenarios/pickup_test_map.xml:Description:40
+msgid ""
+"Test map for picking units up, with sea and two islands. Trigger points are "
+"placed."
+msgstr "测试地图，大海和两个岛屿。"
+
+#: maps/scenarios/pickup_test_map.xml:Name:40
+msgid "Pickup test map"
+msgstr ""
+
 #: maps/scenarios/polynesia.xml:Description:39
 msgid "Demo map for new fancy water effects."
 msgstr "显示新的水面效果的地图。"
@@ -2081,7 +2091,7 @@ msgstr "多人地图。热带伊甸园"
 msgid "Tropical Island"
 msgstr "热带群岛"
 
-#: maps/scenarios/unit_motion_integration_test.xml:Description:40
+#: maps/scenarios/unit_motion_integration_test.xml:Description:41
 msgid ""
 "This map is designed to test some basic unit movement cases. It will involve"
 " unitAI, unitMotion and the relevant pathfinders and thus acts as an "
@@ -2089,7 +2099,7 @@ msgid ""
 "and weird pathing."
 msgstr "本地图旨在测试一些基本的单位运动案例。 涉及了 unitAI、unitMotion 和相关的探测器，因此可作为综合测试图。 寻找诸如卡单位，错误动画，和奇怪的路径。"
 
-#: maps/scenarios/unit_motion_integration_test.xml:Name:40
+#: maps/scenarios/unit_motion_integration_test.xml:Name:41
 msgid "Unit Motion Integration Test"
 msgstr "单元运动集成测试"
 
@@ -2158,11 +2168,11 @@ msgid ""
 "Skirmish high in the Atlas mountains, where snowcapped mountains loom over "
 "desert oases. A wild landscape awaits; every player will experience "
 "different advantages and challenges based on their location."
-msgstr ""
+msgstr "阿特拉斯山脉，白雪皑皑的山脉笼罩着沙漠的绿洲。 不同位置的玩家有着不一样的优势和挑战。"
 
 #: maps/skirmishes/atlas_valleys_8p.xml:Name:40
 msgid "Atlas Valleys (8)"
-msgstr ""
+msgstr "阿特拉斯山谷（8人）"
 
 #: maps/skirmishes/bactria_2p.xml:Description:39
 msgid ""
@@ -2555,7 +2565,7 @@ msgid ""
 "A lazy river meanders through these Serbian wetlands. Stone is scarce, but many lumps of bog iron sit waiting to be found.\n"
 "\n"
 "*This map makes heavy use of grass actors which may adversely affect performance."
-msgstr ""
+msgstr "一条河流蜿蜒穿过塞尔维亚湿地。 石头稀缺，而金属丰富。\n\n*本地图含有大量草地，可能会有渲染问题。"
 
 #: maps/skirmishes/obedska_bog_4p.xml:Name:40
 msgid "Obedska Bog (4)"
@@ -2623,7 +2633,7 @@ msgid ""
 "Iberian players do not get full circuit walls, but 5 strategically placed wall towers.\n"
 "\n"
 "WARNING: This map uses a lot of floral actors on account of being a rainforest. Expect a drop in framerate, this is taxing on most mid range computers."
-msgstr ""
+msgstr "印度西海岸的西高止山脉，雨林地带，富含各类木材\n\n伊比利亚势力围墙未封家，不过有五个围墙塔。\n\n警告：热带雨林地图，添加了许多花卉。 估计会掉帧率，对中低端机有影响。"
 
 #: maps/skirmishes/sahyadri_buttes_5.xml:Name:40
 msgid "Sahyadri Buttes (5)"
@@ -2719,24 +2729,24 @@ msgstr "四个文明安全地位于一个大型的岩石高原上。\n\n探索�
 msgid "Tuscan Acropolis (4)"
 msgstr "托斯卡尼卫城 (4)"
 
-#: maps/skirmishes/two_seas_6.xml:Description:40
+#: maps/skirmishes/two_seas_6p.xml:Description:40
 msgid ""
 "A large tropic map with two seas to the East and to the West. Good for two "
 "teams of three players or three teams of two players."
 msgstr "东西方共有两个海的大型热带地图。适合两个各有三个人的队伍或是三个各有两个人的队伍。"
 
-#: maps/skirmishes/two_seas_6.xml:Name:40
+#: maps/skirmishes/two_seas_6p.xml:Name:40
 msgid "Two Seas (6)"
 msgstr "两海 (6)"
 
-#: maps/skirmishes/vesuvius_6.xml:Description:40
+#: maps/skirmishes/vesuvius_6p.xml:Description:40
 msgid ""
 "Skirmish as ash lightly falls around this recently erupted volcano. the "
 "scorched landscape offers little food, though the blasted forests are still "
 "laden with useful wood. "
-msgstr ""
+msgstr "火山喷发的周围，森林烧焦，几乎没什么食物，不过还有不少木材。"
 
-#: maps/skirmishes/vesuvius_6.xml:Name:40
+#: maps/skirmishes/vesuvius_6p.xml:Name:40
 msgid "Vesuvius (6)"
 msgstr ""
 

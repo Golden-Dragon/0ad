@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the Pyrogenesis - Mod Selector project.
 # 
 # Translators:
+# Marcin S <dzidek1003@o2.pl>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-02-21 08:09+0000\n"
-"PO-Revision-Date: 2020-02-21 14:00+0000\n"
-"Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
+"POT-Creation-Date: 2020-07-13 07:19+0000\n"
+"PO-Revision-Date: 2020-07-13 13:20+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Silesian (http://www.transifex.com/wildfire-games/0ad/language/szl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +52,7 @@ msgstr ""
 #: gui/common/l10n.js:33
 #, javascript-format
 msgid "%(filesize)s %(unit)s"
-msgstr ""
+msgstr "%(filesize)s %(unit)s"
 
 #. Translation: Time-format string. See http://userguide.icu-
 #. project.org/formatparse/datetime for a guide to the meaning of the letters.
@@ -66,17 +67,17 @@ msgstr ""
 #: gui/common/l10n.js:143
 msgctxt "enumeration"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: gui/common/mod.js:17
 #, javascript-format
 msgctxt "Mod comparison"
 msgid "%(mod)s (%(version)s)"
-msgstr ""
+msgstr "%(mod)s (%(version)s)"
 
 #: gui/common/mod.js:20
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: gui/common/mod.js:28
 #, javascript-format
@@ -165,42 +166,47 @@ msgstr ""
 
 #: gui/modio/modio.js:136 gui/modmod/modmod.xml:(caption):181
 msgid "Cancel"
+msgstr "Wylyź"
+
+#: gui/modio/modio.js:219
+#, javascript-format
+msgid "Invalid mod: %(error)s"
 msgstr ""
 
-#: gui/modio/modio.js:232
+#: gui/modio/modio.js:242
 msgid "Fetching and updating list of available mods."
 msgstr ""
 
-#: gui/modio/modio.js:233
+#: gui/modio/modio.js:243
 msgid "Updating"
 msgstr ""
 
-#: gui/modio/modio.js:235
+#: gui/modio/modio.js:245
 msgid "Cancel Update"
 msgstr ""
 
-#: gui/modio/modio.js:248
+#: gui/modio/modio.js:261
 #, javascript-format
 msgid "Downloading “%(modname)s”"
-msgstr ""
+msgstr "Pobiyranie “%(modname)s”"
 
-#: gui/modio/modio.js:251
+#: gui/modio/modio.js:264
 msgid "Downloading"
 msgstr ""
 
-#: gui/modio/modio.js:253
+#: gui/modio/modio.js:266
 msgid "Cancel Download"
 msgstr ""
 
 #. Translation: Mod file download indicator. Current size over expected final
 #. size, with percentage complete.
-#: gui/modio/modio.js:320
+#: gui/modio/modio.js:333
 #, javascript-format
 msgid "%(current)s / %(total)s (%(percent)s%%)"
-msgstr ""
+msgstr "%(current)s / %(total)s (%(percent)s%%)"
 
 #. Translation: Mod file download status message.
-#: gui/modio/modio.js:330
+#: gui/modio/modio.js:343
 #, javascript-format
 msgid ""
 "Time Elapsed: %(elapsed)s\n"
@@ -208,16 +214,16 @@ msgid ""
 "Average Speed: %(avgSpeed)s"
 msgstr ""
 
-#: gui/modio/modio.js:332
+#: gui/modio/modio.js:345
 msgid "∞"
-msgstr ""
+msgstr "∞"
 
 #. Translation: Average download speed, used to give the user a very rough and
 #. naive idea of the download time. For example: 123.4 KiB/s
-#: gui/modio/modio.js:334
+#: gui/modio/modio.js:347
 #, javascript-format
 msgid "%(number)s %(unit)s/s"
-msgstr ""
+msgstr "%(number)s %(unit)s"
 
 #: gui/modmod/modmod.js:107 gui/modmod/modmod.js:254 gui/modmod/modmod.js:275
 msgid "Filter"
@@ -271,7 +277,7 @@ msgstr ""
 #: gui/termsdialog/termsdialog.js:38
 #, javascript-format
 msgid "Open %(url)s in the browser."
-msgstr ""
+msgstr "Ôtwórz %(url)s w przyglōndarce.."
 
 #: gui/modio/modio.xml:(caption):18
 msgid "mod.io Mods"
@@ -281,15 +287,19 @@ msgstr ""
 msgid "Available Mods"
 msgstr ""
 
-#: gui/modio/modio.xml:(caption):73
+#: gui/modio/modio.xml:(caption):81
+msgid "Filter valid mods"
+msgstr ""
+
+#: gui/modio/modio.xml:(caption):87
 msgid "Back"
 msgstr ""
 
-#: gui/modio/modio.xml:(caption):78
+#: gui/modio/modio.xml:(caption):92
 msgid "Refresh List"
 msgstr ""
 
-#: gui/modio/modio.xml:(caption):83
+#: gui/modio/modio.xml:(caption):97
 msgid "Download"
 msgstr ""
 
@@ -339,7 +349,7 @@ msgstr ""
 
 #: gui/modmod/modmod.xml:(caption):176
 msgid "Quit"
-msgstr ""
+msgstr "Wylyź"
 
 #: gui/modmod/modmod.xml:(caption):186
 msgid "Help"
@@ -377,7 +387,7 @@ msgstr ""
 
 #: gui/modmod/help/help.xml:(caption):21
 msgid "Close"
-msgstr ""
+msgstr "Wylyź"
 
 #: gui/modmod/help/help.xml:(caption):25
 msgid "Modding Guide"

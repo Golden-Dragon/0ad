@@ -10,11 +10,12 @@
 # George Spere <g.sperelakis@gmail.com>, 2018
 # LOUKAS SKOUROLIAKOS, 2015
 # LOUKAS SKOUROLIAKOS, 2015
+# LOUKAS SKOUROLIAKOS, 2020
 # malvanos <malvanos@gmail.com>, 2014-2015
 # Michael Chatz <chatziasemidismichael@gmail.com>, 2018
 # Nea Retrogamer (nearetrogamer), 2018
-# Nick Mantas <inactive+nickthegreek@transifex.com>, 2014
-# Nick Mantas <inactive+nickthegreek@transifex.com>, 2014
+# b83f966a6f5a9cff9c6e1c52b0aa635b_80f7815 <080fca974f2dcc1f608e370067a574ba_253637>, 2014
+# b83f966a6f5a9cff9c6e1c52b0aa635b_80f7815 <080fca974f2dcc1f608e370067a574ba_253637>, 2014
 # Sander Deryckere, 2016
 # Sander Deryckere, 2016
 # Steven Gikas <stevengk123@gmail.com>, 2016
@@ -23,8 +24,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-01-17 08:08+0000\n"
-"PO-Revision-Date: 2020-04-06 17:54+0000\n"
+"POT-Creation-Date: 2020-07-06 07:17+0000\n"
+"PO-Revision-Date: 2020-09-03 14:11+0000\n"
 "Last-Translator: Vasilis Drosos <basilisd@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/wildfire-games/0ad/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +137,7 @@ msgid ""
 " The game uses UDP port 20595, so the host must configure their "
 "NAT/firewall/etc. to allow this. Other players can then select “Join game” "
 "and enter the host's IP address."
-msgstr ""
+msgstr "Για να στήσετε ένα παιχνίδι με πολλούς παίκτες στο διαδίκτυο, ένας παίκτης πρέπει να διαλέξει την επιλογή  \"Στέγαση παιχνιδιού\". Το παιχνίδι χρησημοποιεί την θύρα UDP 20595, οπότε ο οικοδεσπότης του παιχνιδιού πρέπει να ρυθμίσει ρούτερ/τοίχο προστασίας/κλπ ώστε να επιτραπεί η σύνδεση. Οι υπόλοιποι παίκτες μπορούν τότε να επιλέξουν \"Συμμετοχή στο παιχνίδι\" και να εισάγουν την διεύθυνση IP του οικοδεσπότη."
 
 #: gui/manual/intro.txt:25
 msgid "[font=\"sans-bold-16\"]Game setup[font=\"sans-14\"]"
@@ -184,7 +185,7 @@ msgid ""
 "controls which player (decides where you start on the map etc.). The options"
 " are either a human player, an AI or no player at all (the opponent will "
 "just be idle)."
-msgstr ""
+msgstr "Τέλος αλλάξτε τις ρυθμίσεις. Για τυχαίους χάρτες αυτό περιλαμβάνει τον αριθμό των παικτών, το μέγεθος του χάρτη κ.λπ. Για σενάρια μπορείτε να επιλέξετε μόνο ποιος θα ελέγχει ποιον παίκτη (αποφασίζει από που θα ξεκινήσει στον χάρτη κ.λπ.). Οι επιλογές είναι είτε ανθρώπινος παίκτης, είτε υπολογιστής είτε καθόλου παίκτης (ο αντίπαλος θα είναι απλώς αδρανής)."
 
 #: gui/manual/intro.txt:37
 msgid "When you are ready to start, click the “Start game” button."
@@ -204,26 +205,26 @@ msgid ""
 msgstr " Alt + F4 – Κλείνει ακαριαία το παιχνίδι, χωρίς να ζητά επιβεβαίωση"
 
 #: gui/manual/intro.txt:42
-msgid "  Alt + Enter – Toggle between fullscreen and windowed"
-msgstr "Alt + Enter – Εναλλαγή μεταξύ προβολής πλήρους οθόνης και προβολής σε παράθυρο"
+msgid "  Alt + Enter (Return) – Toggle between fullscreen and windowed"
+msgstr ""
 
 #: gui/manual/intro.txt:43
-msgid "  ~ or F9 – Show/hide console"
-msgstr "~ ή F9 – Εμφάνιση/απόκρυψη κονσόλας"
+msgid "  ~ or F9 – Toggle console"
+msgstr ""
 
 #: gui/manual/intro.txt:44
-msgid "  Alt + F – Show/hide frame counter (FPS)"
-msgstr "Alt + F – Εμφάνιση/απόκρυψη καταμετρητή καρέ (FPS)"
+msgid "  Alt + F – Toggle frame counter (FPS)"
+msgstr ""
 
 #: gui/manual/intro.txt:45
 msgid ""
-"  F11 – Enable/disable real-time profiler (toggles through the displays of "
+"  F11 – Toggle real-time profiler (cycles through the displays of "
 "information)"
-msgstr "F11 – Ενεργοποίηση/απενεργοποίηση προφίλ πραγματικού χρόνου (ενεργοποιεί την ροή εμφάνισης πληροφοριών)"
+msgstr ""
 
 #: gui/manual/intro.txt:46
 msgid "  Shift + F11 – Save current profiler data to “logs/profile.txt”"
-msgstr ""
+msgstr " Shift + F11 – Αποθηκεύει τα τρέχοντα δεδομένα προφίλ στο \"logs/profile.txt\""
 
 #: gui/manual/intro.txt:47
 msgid ""
@@ -284,20 +285,20 @@ msgid "  Shift + F8 – Quickload"
 msgstr "Shift + F8 – Γρήγορη φόρτωση"
 
 #: gui/manual/intro.txt:59
-msgid "  F10 – Open/close menu"
-msgstr "F10 – Άνοιγμα/κλείσιμο μενού"
+msgid "  F10 – Toggle menu"
+msgstr ""
 
 #: gui/manual/intro.txt:60
-msgid "  F12 – Show/hide time elapsed counter"
-msgstr "F12 – Εμφάνιση/απόκρυψη χρονομετρητή"
+msgid "  F12 – Toggle time elapsed counter"
+msgstr ""
 
 #: gui/manual/intro.txt:61
 msgid "  Esc – Close all dialogs (chat, menu) or clear selected units"
 msgstr "Esc – Κλείσιμο όλων των παράθυρων (κουβέντα, μενού) ή απο-επιλογή των επιλεγμένων μονάδων"
 
 #: gui/manual/intro.txt:62
-msgid "  Enter/Return – Open/send chat"
-msgstr "Enter/Return – Άνοιγμα/αποστολή συνομιλίας"
+msgid "  Enter (Return) – Open chat or send message"
+msgstr ""
 
 #: gui/manual/intro.txt:63
 msgid "  T – Send team chat"
@@ -308,8 +309,8 @@ msgid "  L – Chat with the previously selected private chat partner"
 msgstr "L – Συνομιλία με τον προηγούμενο επιλεγμένο συνομιλητή στην ιδιωτική συνομιλία"
 
 #: gui/manual/intro.txt:65
-msgid "  Pause – Pause/resume the game"
-msgstr "Pause – Παύση/συνέχεια παιχνιδιού"
+msgid "  Pause – Pause or resume the game"
+msgstr ""
 
 #: gui/manual/intro.txt:66
 msgid ""
@@ -484,7 +485,7 @@ msgid ""
 "  Alt + Right Click – Order one unit from the current selection to "
 "move/build/gather/etc. and unselect it. Used to quickly dispatch units with "
 "specific tasks"
-msgstr ""
+msgstr "Alt + Δεξί Κλικ – Δώσε εντολή σε μία από τις τρέχουσες επιλεγμένες μονάδες για να μετακινηθεί/κατασκευάσει/συγκεντρώσει/κ.λπ. και να αποεπιλεγεί. Χρησιμοποιείται για γρήγορη αποστολή μονάδων σε συγκεκριμένες εργασίες"
 
 #: gui/manual/intro.txt:104
 msgid ""
@@ -569,12 +570,12 @@ msgid "[font=\"sans-bold-14\"]Overlays[font=\"sans-14\"]"
 msgstr "[font=\"sans-bold-14\"]Εμφανίσεις[font=\"sans-14\"]"
 
 #: gui/manual/intro.txt:121
-msgid "  Alt + G – Hide/show the GUI"
-msgstr "Alt + G – Απόκρυψη/εμφάνιση της Διεπαφής Χρήστη (GUI)"
+msgid "  Alt + G – Toggle the GUI"
+msgstr ""
 
 #: gui/manual/intro.txt:122
-msgid "  Alt + D – Show/hide developer overlay (with developer options)"
-msgstr "Alt + D – Εμφάνιση/απόκρυψη επικάλυψης προγραμματιστή (με τις επιλογές του προγραμματιστή)"
+msgid "  Alt + D – Toggle developer overlay (with developer options)"
+msgstr ""
 
 #: gui/manual/intro.txt:123
 msgid ""
@@ -676,8 +677,8 @@ msgid ""
 msgstr "F – Παρακολούθηση επιλεγμένης μονάδας (μετακίνησε την κάμερα για να σταματήσει να ακολουθεί τη μονάδα)"
 
 #: gui/manual/intro.txt:145
-msgid "  R – Reset camera zoom/orientation"
-msgstr "  R – Επαναφορά κάμερας σε μεγέθυνση/προσανατολισμό"
+msgid "  R – Reset camera zoom and orientation"
+msgstr ""
 
 #: gui/manual/intro.txt:146
 msgid "  = (Equals) or + (Plus) – Zoom in (keep pressed for continuous zoom)"

@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_structure">
-  <Armour>
-    <Hack>15</Hack>
-    <Pierce>25</Pierce>
-    <Crush>3</Crush>
-    <Foundation>
-      <Hack>2</Hack>
-      <Pierce>10</Pierce>
-      <Crush>2</Crush>
-    </Foundation>
-  </Armour>
   <Auras datatype="tokens">
-    structures/epic_temple_heal
     structures/wonder_pop_1
     structures/wonder_pop_2
   </Auras>
@@ -25,9 +14,8 @@
   <Cost>
     <BuildTime>1000</BuildTime>
     <Resources>
-      <food>1000</food>
       <wood>1000</wood>
-      <stone>1000</stone>
+      <stone>1500</stone>
       <metal>1000</metal>
     </Resources>
   </Cost>
@@ -48,30 +36,44 @@
     <SpawnEntityOnDeath>decay|rubble/rubble_stone_6x6</SpawnEntityOnDeath>
   </Health>
   <Identity>
-    <Classes datatype="tokens">ConquestCritical</Classes>
     <GenericName>Wonder</GenericName>
     <SelectionGroupName>template_structure_wonder</SelectionGroupName>
     <Tooltip>Bring glory to your civilization and add large tracts of land to your empire.</Tooltip>
+    <Classes datatype="tokens">ConquestCritical</Classes>
     <VisibleClasses datatype="tokens">City Wonder</VisibleClasses>
     <Icon>structures/wonder.png</Icon>
     <RequiredTechnology>phase_city</RequiredTechnology>
   </Identity>
   <Loot>
     <xp>300</xp>
-    <food>200</food>
     <wood>200</wood>
-    <stone>200</stone>
+    <stone>300</stone>
     <metal>200</metal>
   </Loot>
   <Obstruction>
     <Static width="30.0" depth="30.0"/>
   </Obstruction>
   <ProductionQueue>
-    <BatchTimeModifier>0.7</BatchTimeModifier>
     <Technologies datatype="tokens">
       pop_wonder
     </Technologies>
   </ProductionQueue>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack>15</Hack>
+        <Pierce>25</Pierce>
+        <Crush>3</Crush>
+      </Damage>
+    </Entity>
+    <Foundation>
+      <Damage>
+        <Hack>2</Hack>
+        <Pierce>10</Pierce>
+        <Crush>2</Crush>
+      </Damage>
+    </Foundation>
+  </Resistance>
   <ResourceTrickle>
     <Rates>
       <food>1.0</food>

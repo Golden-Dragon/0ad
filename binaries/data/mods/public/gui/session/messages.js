@@ -159,10 +159,10 @@ var g_NotificationsTypes =
 		addChatMessage({
 			"type": "barter",
 			"player": player,
-			"amountsSold": notification.amountsSold,
-			"amountsBought": notification.amountsBought,
-			"resourceSold": notification.resourceSold,
-			"resourceBought": notification.resourceBought
+			"amountGiven": notification.amountGiven,
+			"amountGained": notification.amountGained,
+			"resourceGiven": notification.resourceGiven,
+			"resourceGained": notification.resourceGained
 		});
 	},
 	"spy-response": function(notification, player)
@@ -213,12 +213,6 @@ var g_NotificationsTypes =
 	{
 		if (player == Engine.GetPlayerID())
 			openDialog(notification.dialogName, notification.data, player);
-	},
-	"resetselectionpannel": function(notification, player)
-	{
-		if (player != Engine.GetPlayerID())
-			return;
-		g_Selection.rebuildSelection({});
 	},
 	"playercommand": function(notification, player)
 	{

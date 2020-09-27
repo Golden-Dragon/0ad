@@ -5,21 +5,22 @@
 # Translators:
 # 9d55e3ee15627ad1d8f4f40620dcb50d, 2018
 # Asakura, 2017
-# MarongHappy <daemul72@gmail.com>, 2019
+# JungHee Lee <daemul72@gmail.com>, 2019
+# JungHee Lee <daemul72@gmail.com>, 2019
 # karubabu <karubabu@protonmail.com>, 2018
 # karubabu <karubabu@protonmail.com>, 2018
 # ks k, 2019
-# ks k, 2019
+# ks k, 2019-2020
 # 9d55e3ee15627ad1d8f4f40620dcb50d, 2018
-# MarongHappy <daemul72@gmail.com>, 2019
+# JungHee Lee <daemul72@gmail.com>, 2019
 # Muk Myung-Hee MyungHee <exploration@ponp.be>, 2018
 # red hare <www3@hotmail.co.jp>, 2017
 # Takaki IEKURA <tacostea@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-04-13 07:18+0000\n"
-"PO-Revision-Date: 2020-05-12 05:09+0000\n"
+"POT-Creation-Date: 2020-08-28 07:10+0000\n"
+"PO-Revision-Date: 2020-09-08 16:42+0000\n"
 "Last-Translator: ks k\n"
 "Language-Team: Korean (http://www.transifex.com/wildfire-games/0ad/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +28,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraName
+msgid "Arsenal Repairs"
+msgstr "병기공장 수리"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraDescription
+msgid "Garrisoned Siege Engines +3 health regeneration rate."
+msgstr "공성 무기에 주둔시 체력 회복률이 +3 증가합니다."
 
 #: simulation/data/auras/structures/barracks_xp_trickle.jsonauraName
 msgid "Rigorous Training"
@@ -43,14 +52,6 @@ msgstr "조선소 수리"
 #: simulation/data/auras/structures/cart_super_dock_repair.jsonauraDescription
 msgid "Garrisoned Ships +10 health regeneration rate."
 msgstr "배에 주둔하면 체력 회복률이 +10 증가합니다."
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraName
-msgid "Blessing of the Gods"
-msgstr "신의 축복"
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraDescription
-msgid "Humans +3 health regeneration rate."
-msgstr "사람의 체력 회복률이 +3 증가합니다."
 
 #: simulation/data/auras/structures/iber_monument.jsonauraName
 msgid "Religious Fervor"
@@ -74,16 +75,8 @@ msgid "Exhortative Presence"
 msgstr "권고적인 주둔군ehsms 현혹적인 존재"
 
 #: simulation/data/auras/structures/kush_pyramids_military.jsonauraDescription
-msgid "Soldiers +10% melee and ranged attack damage."
-msgstr "군인의 근접 및 범위 공격 피해가 +10% 증가합니다."
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraName
-msgid "Meroitic Pyramids"
-msgstr "메로에의 피라미드"
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraDescription
-msgid "Civic Centers +10% territory influence radius."
-msgstr "시민 회관의 영토 영향력이 +10% 증가합니다."
+msgid "Soldiers +1 armor level and +10% melee and ranged attack damage."
+msgstr "군인의 방어 수준이 +1 증가하고 근접 및 범위 공격 피해가 +10% 증가합니다."
 
 #: simulation/data/auras/structures/kush_temple_amun.jsonauraName
 msgid "Powerful Priesthood"
@@ -166,14 +159,6 @@ msgid ""
 "+40 maximum population limit (requires the “Glorious Expansion” technology)."
 msgstr "최대 인구수가 +40 증가합니다 (“영광스러운 확장” 기술이 필요)."
 
-#: simulation/data/auras/structures/workshop_repair.jsonauraName
-msgid "Workshop Repairs"
-msgstr "작업장 수리"
-
-#: simulation/data/auras/structures/workshop_repair.jsonauraDescription
-msgid "Garrisoned Siege Engines +3 health regeneration rate."
-msgstr "공성 무기에 주둔시 체력 회복률이 +3 증가합니다."
-
 #: simulation/data/auras/teambonuses/athen_player_teambonus.jsonauraName
 msgid "Delian League"
 msgstr "델로스 동맹"
@@ -195,24 +180,24 @@ msgid "Trademasters"
 msgstr "거상"
 
 #: simulation/data/auras/teambonuses/cart_player_teambonus.jsonauraDescription
-msgid "Allied Markets +10% international trade bonus."
-msgstr "동맹의 시장 국제 교역 보너스가 +10% 증가합니다."
+msgid "Allies +10% international trade bonus."
+msgstr "동맹국의 국제 무역 보너스가 +10% 증가합니다."
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraName
-msgid "Druidic Wisdom"
-msgstr "드루이드의 지혜"
+msgid "Products from Gaul"
+msgstr "갈리아의 제품"
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraDescription
-msgid "Allied Structures −20% technology research time."
-msgstr "동맹의 건축물 기술 연구 시간이 -20% 감소합니다."
+msgid "Forges −15% technology resource costs and research time."
+msgstr "대장간의 기술 자원 비용과 연구 시간이 -15% 감소합니다."
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraName
 msgid "Saripeko"
 msgstr "사리페코"
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraDescription
-msgid "Allied Citizen Javelinists −10% resource costs."
-msgstr "동맹의 시민 투창병 양성 자원 비용이 -10% 감소합니다."
+msgid "Allied Citizen Javelineers −10% resource costs."
+msgstr "동맹의 시민 투창병의 자원비용이 −10% 감소합니다."
 
 #: simulation/data/auras/teambonuses/kush_player_teambonus.jsonauraName
 msgid "Elephant Suppliers"
@@ -334,8 +319,8 @@ msgstr "척후병의 고민거리"
 #: simulation/data/auras/units/catafalques/brit_catafalque_2.jsonauraDescription
 msgid ""
 "Cassivellaunus deployed fast-moving skirmishers to harass Roman troops and foragers.\n"
-"Javelinists +20% attack range."
-msgstr "카시벨라누스는 로마 군대와 약탈자들을 괴롭히기 위해 빠르게 움직이는 산병전 대형을 전개 했습니다. 투창병의 공격 범위가 +20% 증가합니다."
+"Javelineers +20% attack range."
+msgstr "카시벨라누스는 로마 군대와 약탈자들을 괴롭히기 위해 빠르게 움직이는 산병전 대형을 전개 했습니다.\n투창병의 공격 범위가 +20% 증가합니다."
 
 #: simulation/data/auras/units/catafalques/cart_catafalque.jsonauraName
 msgid "Commander of Heavy Cavalry"
@@ -415,7 +400,7 @@ msgstr "도시의 약탈자"
 msgid ""
 "During the First Macedonian War, Philip and his troops sacked Thermum, the religious and political center of Aetolia.\n"
 "Humans, Siege Engines, Ships, and Structures gain +5 food and wood loot."
-msgstr "첫 마케도니아 전쟁 동안, 필립과 그의 군대는 아이톨리아의 종교적, 정치적 중심지인 테르툼을 약탈했습니다.\n사람, 공성 무기, 배, 건축물을 파괴할 때마다 노획물로 식량과 목재가 +5 씩 증가합니다.\n(정확한지 확인할것??)\n"
+msgstr "첫 마케도니아 전쟁 동안, 필립과 그의 군대는 아이톨리아의 종교적, 정치적 중심지인 테르뭄을 약탈했습니다.\n사람, 공성 무기, 배, 건축물을 파괴할 때마다 노획물로 식량과 목재가 +5 씩 증가합니다."
 
 #: simulation/data/auras/units/catafalques/maur_catafalque_1.jsonauraName
 msgid "Consolidator of the Empire"
@@ -429,7 +414,7 @@ msgstr "찬드라굽타 마우리야의 아들 빈두사라는 제국을 통합�
 
 #: simulation/data/auras/units/catafalques/maur_catafalque_2.jsonauraName
 msgid "Vamba Moriyar"
-msgstr "바바 모리야르"
+msgstr "밤바 모리야르"
 
 #: simulation/data/auras/units/catafalques/maur_catafalque_2.jsonauraDescription
 msgid ""
@@ -545,8 +530,8 @@ msgid "Peltast Reforms"
 msgstr "투창 병사 개편"
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_2.jsonauraDescription
-msgid "Infantry Javelinists +15% movement speed."
-msgstr "창 보병들의 이동 속도가 +15% 증가합니다."
+msgid "Infantry Javelineers +15% movement speed."
+msgstr "투창 보병들의 이동 속도가 +15% 증가합니다."
 
 #: simulation/data/auras/units/heroes/athen_hero_pericles_1.jsonauraName
 msgid "Periclean Building Program"
@@ -806,7 +791,7 @@ msgstr "마케도니아의 부활"
 
 #: simulation/data/auras/units/heroes/mace_hero_pyrrhus.jsonauraName
 msgid "Pyrrhic Victory"
-msgstr "피로스의 승리ehsms 희생을 많이 치른 숭리??"
+msgstr "피로스의 승리ehsms 희생을 많이 치른 승리??"
 
 #: simulation/data/auras/units/heroes/mace_hero_pyrrhus.jsonauraDescription
 msgid "Soldiers +20% melee and ranged attack damage, −15% health."
@@ -968,8 +953,8 @@ msgstr "스파르타의 노예 개혁"
 
 #: simulation/data/auras/units/heroes/spart_hero_brasidas.jsonauraDescription
 msgid ""
-"Citizen Infantry Javelinists +1 armor, +25% ranged attack pierce damage."
-msgstr "시민 창 보병의 방어력이 +1 증가하고, 사거리 관통 피해가 +25% 증가합니다."
+"Citizen Infantry Javelineers +1 armor, +25% ranged attack pierce damage."
+msgstr "시민 투창 보병의 방어력이 +1 증가하고, 사거리 관통 피해가 +25% 증가합니다."
 
 #: simulation/data/auras/units/heroes/spart_hero_leonidas.jsonauraName
 msgid "Last Stand"

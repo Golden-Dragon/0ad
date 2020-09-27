@@ -6,15 +6,6 @@
     <EndOfAlertRange>190</EndOfAlertRange>
     <SearchRange>100</SearchRange>
   </AlertRaiser>
-  <Armour>
-    <Hack op="add">5</Hack>
-    <Pierce op="add">5</Pierce>
-    <Foundation>
-      <Hack>5</Hack>
-      <Pierce>15</Pierce>
-      <Crush>3</Crush>
-    </Foundation>
-  </Armour>
   <Attack>
     <Ranged>
       <Damage>
@@ -85,10 +76,10 @@
   </Health>
   <Identity>
     <GenericName>Civic Center</GenericName>
-    <Tooltip>Build to acquire large tracts of territory. Train citizens.</Tooltip>
-    <Classes datatype="tokens">Defensive CivCentre</Classes>
-    <VisibleClasses datatype="tokens">CivilCentre</VisibleClasses>
     <SelectionGroupName>template_structure_civic_civil_centre</SelectionGroupName>
+    <Tooltip>Build in own or neutral territory. Acquire large tracts of territory. Territory root. Train Citizens and research technologies. Garrison Soldiers for additional arrows.</Tooltip>
+    <Classes datatype="tokens">CivCentre</Classes>
+    <VisibleClasses datatype="tokens">Defensive CivilCentre</VisibleClasses>
     <Icon>structures/civic_centre.png</Icon>
   </Identity>
   <Loot>
@@ -112,6 +103,21 @@
       spy_counter
     </Technologies>
   </ProductionQueue>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack op="add">5</Hack>
+        <Pierce op="add">5</Pierce>
+      </Damage>
+    </Entity>
+    <Foundation>
+      <Damage>
+        <Hack>5</Hack>
+        <Pierce>15</Pierce>
+        <Crush>3</Crush>
+      </Damage>
+    </Foundation>
+  </Resistance>
   <ResourceDropsite>
     <Types>food wood stone metal</Types>
     <Sharable>true</Sharable>

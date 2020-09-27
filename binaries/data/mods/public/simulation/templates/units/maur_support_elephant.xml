@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_support">
-  <Armour>
-    <Hack>5</Hack>
-    <Pierce>8</Pierce>
-    <Crush>10</Crush>
-  </Armour>
   <Auras datatype="tokens">
     units/elephant_worker
   </Auras>
@@ -14,20 +9,19 @@
       <food>150</food>
     </Resources>
   </Cost>
-  <Footprint>
-    <Circle radius="4.0"/>
-    <Height>6.0</Height>
+  <Footprint replace="">
+    <Square width="4.5" depth="9.0"/>
+    <Height>8.0</Height>
   </Footprint>
   <Health>
     <Max>300</Max>
   </Health>
   <Identity>
     <Civ>maur</Civ>
-    <VisibleClasses datatype="tokens">Elephant</VisibleClasses>
     <GenericName>Worker Elephant</GenericName>
     <SpecificName>Karmākara Gaja</SpecificName>
+    <VisibleClasses datatype="tokens">Elephant</VisibleClasses>
     <Icon>units/maur_support_elephant.png</Icon>
-    <Tooltip>Mobile dropsite for food, wood, stone, and metal.</Tooltip>
     <Formations disable=""/>
   </Identity>
   <Loot>
@@ -40,6 +34,15 @@
   <Position>
     <Anchor>pitch</Anchor>
   </Position>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack>5</Hack>
+        <Pierce>8</Pierce>
+        <Crush>10</Crush>
+      </Damage>
+    </Entity>
+  </Resistance>
   <ResourceDropsite>
     <Types>food wood stone metal</Types>
     <Sharable>false</Sharable>
@@ -47,8 +50,8 @@
   <Selectable>
     <Overlay>
       <Texture>
-        <MainTexture>256x256/ellipse.png</MainTexture>
-        <MainTextureMask>256x256/ellipse_mask.png</MainTextureMask>
+        <MainTexture>128x256/ellipse.png</MainTexture>
+        <MainTextureMask>128x256/ellipse_mask.png</MainTextureMask>
       </Texture>
     </Overlay>
   </Selectable>
@@ -62,6 +65,9 @@
       <trained>actor/fauna/animal/elephant_trained.xml</trained>
     </SoundGroups>
   </Sound>
+  <StatusBars>
+    <HeightOffset>9.0</HeightOffset>
+  </StatusBars>
   <UnitAI>
     <CanPatrol>false</CanPatrol>
   </UnitAI>

@@ -40,11 +40,7 @@
   </Cost>
   <GarrisonHolder>
     <Max>2</Max>
-    <EjectHealth>0.1</EjectHealth>
-    <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>
     <List datatype="tokens">Support Infantry</List>
-    <BuffHeal>0</BuffHeal>
-    <LoadingRange>2</LoadingRange>
   </GarrisonHolder>
   <Health>
     <Max>4000</Max>
@@ -53,8 +49,8 @@
   <Identity>
     <GenericName>Wall Turret</GenericName>
     <SelectionGroupName>template_structure_defensive_wall_tower</SelectionGroupName>
-    <Tooltip>Shoots arrows. Garrison to defend a city wall against attackers.</Tooltip>
-    <Classes datatype="tokens">Tower</Classes>
+    <Tooltip>Garrison Infantry for additional arrows.</Tooltip>
+    <Classes datatype="tokens">WallTower</Classes>
     <Icon>structures/tower.png</Icon>
   </Identity>
   <Loot>
@@ -63,12 +59,6 @@
   <Obstruction>
     <ControlPersist/>
   </Obstruction>
-  <ProductionQueue>
-    <BatchTimeModifier>0.8</BatchTimeModifier>
-    <Technologies datatype="tokens">
-      pair_walls_01
-    </Technologies>
-  </ProductionQueue>
   <Sound>
     <SoundGroups>
       <select>interface/select/building/sel_tower.xml</select>
@@ -76,7 +66,7 @@
     </SoundGroups>
   </Sound>
   <Vision>
-    <Range>60</Range>
+    <Range>80</Range>
   </Vision>
   <VisualActor>
     <FoundationActor>structures/fndn_3x3_tower.xml</FoundationActor>

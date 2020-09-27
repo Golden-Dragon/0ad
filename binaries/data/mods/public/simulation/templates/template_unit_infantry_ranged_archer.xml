@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_infantry_ranged">
-  <Armour>
-    <Hack>1</Hack>
-    <Pierce>1</Pierce>
-  </Armour>
   <Attack>
     <Ranged>
       <Damage>
@@ -20,6 +16,7 @@
         <Gravity>39.81</Gravity>
         <Spread>3.0</Spread>
       </Projectile>
+      <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Ranged>
   </Attack>
   <Cost>
@@ -35,7 +32,15 @@
   <Loot>
     <wood>5</wood>
   </Loot>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack>1</Hack>
+        <Pierce>1</Pierce>
+      </Damage>
+    </Entity>
+  </Resistance>
   <UnitMotion>
-    <WalkSpeed op="mul">1.1</WalkSpeed>
+    <WalkSpeed op="mul">1.2</WalkSpeed>
   </UnitMotion>
 </Entity>

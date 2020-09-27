@@ -304,9 +304,9 @@ PETRA.HQ.prototype.buildFirstBase = function(gameState)
 	let startingPoint = [];
 	for (let ent of gameState.getOwnUnits().values())
 	{
-		if (!ent.hasClass("Worker") && !(ent.hasClass("Support") && ent.hasClass("Elephant")))
+		if (!ent.hasClass("Worker"))
 			continue;
-		if (ent.hasClass("Cavalry"))
+		if (PETRA.isFastMoving(ent))
 			continue;
 		let pos = ent.position();
 		if (!pos)
@@ -317,7 +317,7 @@ PETRA.HQ.prototype.buildFirstBase = function(gameState)
 			pos = holder.position();
 		}
 		let gamepos = gameState.ai.accessibility.gamePosToMapPos(pos);
-		let index = gamepos[0] + gamepos[1]*gameState.ai.accessibility.width;
+		let index = gamepos[0] + gamepos[1] * gameState.ai.accessibility.width;
 		let land = gameState.ai.accessibility.landPassMap[index];
 		let sea = gameState.ai.accessibility.navalPassMap[index];
 		let found = false;

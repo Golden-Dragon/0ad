@@ -20,7 +20,7 @@
 # Hasan Baran Kırmızı <hasanbaran98@gmail.com>, 2016
 # İrfan Sunay <irfan_sunay@hotmail.com>, 2018
 # Kemal Oktay Aktoğan <oktayaktogan@gmail.com>, 2017
-# Mustafa Togan <efsaneturkoglu1923@gmail.com>, 2020
+# e6994ea0b77eb29dc3b698ecd0182f2c_022dedb <c827582aa85af999546a8020101cbd5f_883441>, 2020
 # ozgur gursoy <lowopacity@gmail.com>, 2016
 # receb, 2017
 # Rwe ass <arapsiken@yandex.com>, 2019
@@ -33,15 +33,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2020-04-13 07:18+0000\n"
-"PO-Revision-Date: 2020-04-28 09:37+0000\n"
-"Last-Translator: Mustafa Togan <efsaneturkoglu1923@gmail.com>\n"
+"POT-Creation-Date: 2020-08-28 07:10+0000\n"
+"PO-Revision-Date: 2020-08-28 15:40+0000\n"
+"Last-Translator: Günay Yılmaz\n"
 "Language-Team: Turkish (http://www.transifex.com/wildfire-games/0ad/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraName
+msgid "Arsenal Repairs"
+msgstr "Silah Deposu Tamiri"
+
+#: simulation/data/auras/structures/arsenal_repair.jsonauraDescription
+msgid "Garrisoned Siege Engines +3 health regeneration rate."
+msgstr "Konuşlanan Kuşatma Makinelerine +3 sağlık yenilenme oranı."
 
 #: simulation/data/auras/structures/barracks_xp_trickle.jsonauraName
 msgid "Rigorous Training"
@@ -58,14 +66,6 @@ msgstr "Tersane Onarımı"
 #: simulation/data/auras/structures/cart_super_dock_repair.jsonauraDescription
 msgid "Garrisoned Ships +10 health regeneration rate."
 msgstr "Konuşlanan Gemilere +10 yenilenme oranı."
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraName
-msgid "Blessing of the Gods"
-msgstr "Tanrıların Nimeti"
-
-#: simulation/data/auras/structures/epic_temple_heal.jsonauraDescription
-msgid "Humans +3 health regeneration rate."
-msgstr "İnsanlara +3 yaşam yenilenme puanı."
 
 #: simulation/data/auras/structures/iber_monument.jsonauraName
 msgid "Religious Fervor"
@@ -89,16 +89,8 @@ msgid "Exhortative Presence"
 msgstr "Motive edici varlık"
 
 #: simulation/data/auras/structures/kush_pyramids_military.jsonauraDescription
-msgid "Soldiers +10% melee and ranged attack damage."
-msgstr "Askerlere +%10 yakın ve menzilli saldırı hasarı."
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraName
-msgid "Meroitic Pyramids"
-msgstr "Meroit Piramitleri"
-
-#: simulation/data/auras/structures/kush_pyramids_territory.jsonauraDescription
-msgid "Civic Centers +10% territory influence radius."
-msgstr "Kent Merkezlerine +%10 bölge etkinliği alanı."
+msgid "Soldiers +1 armor level and +10% melee and ranged attack damage."
+msgstr "Askerlere +1 zırh seviyesi ve +%10 yakın ve menzilli saldırı hasarı."
 
 #: simulation/data/auras/structures/kush_temple_amun.jsonauraName
 msgid "Powerful Priesthood"
@@ -134,7 +126,7 @@ msgstr "Tüccarlara +%20 hareket hızı."
 
 #: simulation/data/auras/structures/rotary_mill.jsonauraName
 msgid "Farming bonus"
-msgstr "Tarım Getirisi"
+msgstr "Tarım Bonusu"
 
 #: simulation/data/auras/structures/rotary_mill.jsonauraDescription
 msgid "Workers +25% grain gather rate."
@@ -174,20 +166,12 @@ msgstr "+10 en yüksek nüfus sınırı."
 
 #: simulation/data/auras/structures/wonder_pop_2.jsonauraName
 msgid "Glorious Expansion"
-msgstr "Şanlı Yayılma"
+msgstr "Şanlı Yayılmacılık"
 
 #: simulation/data/auras/structures/wonder_pop_2.jsonauraDescription
 msgid ""
 "+40 maximum population limit (requires the “Glorious Expansion” technology)."
-msgstr "+40 en yüksek nüfus sınırı ('Şanlı Genişleme' teknolojisi gerektirir)."
-
-#: simulation/data/auras/structures/workshop_repair.jsonauraName
-msgid "Workshop Repairs"
-msgstr "Atölye Onarımı"
-
-#: simulation/data/auras/structures/workshop_repair.jsonauraDescription
-msgid "Garrisoned Siege Engines +3 health regeneration rate."
-msgstr "Konuşlanan Kuşatma Makinelerine +3 sağlık yenilenme oranı."
+msgstr "+40 en yüksek nüfus sınırı ('Şanlı Yayılmacılık' teknolojisi gerektirir)."
 
 #: simulation/data/auras/teambonuses/athen_player_teambonus.jsonauraName
 msgid "Delian League"
@@ -210,24 +194,24 @@ msgid "Trademasters"
 msgstr "Ticaret ustaları"
 
 #: simulation/data/auras/teambonuses/cart_player_teambonus.jsonauraDescription
-msgid "Allied Markets +10% international trade bonus."
-msgstr "Müttefik Marketler +%10 uluslararası ticaret bonusu."
+msgid "Allies +10% international trade bonus."
+msgstr "Müttefikler +%10 uluslararası ticaret bonusu."
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraName
-msgid "Druidic Wisdom"
-msgstr "Druid Bilgeliği"
+msgid "Products from Gaul"
+msgstr "Galya Mahsülleri"
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraDescription
-msgid "Allied Structures −20% technology research time."
-msgstr "Müttefik Yapılar -%20 teknoloji araştırma süresi."
+msgid "Forges −15% technology resource costs and research time."
+msgstr "%-15 teknoloji maliyeti ve araştırma süresi meydana getirir."
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraName
 msgid "Saripeko"
 msgstr "Saripeko"
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraDescription
-msgid "Allied Citizen Javelinists −10% resource costs."
-msgstr "Müttefik Ciritçi Vatandaşlar -%10 kaynağa mâl olur."
+msgid "Allied Citizen Javelineers −10% resource costs."
+msgstr "Müttefik Ciritçi vatandaşlar -%10 kaynak maliyeti."
 
 #: simulation/data/auras/teambonuses/kush_player_teambonus.jsonauraName
 msgid "Elephant Suppliers"
@@ -349,8 +333,8 @@ msgstr "Avcı Taciz Ateşi"
 #: simulation/data/auras/units/catafalques/brit_catafalque_2.jsonauraDescription
 msgid ""
 "Cassivellaunus deployed fast-moving skirmishers to harass Roman troops and foragers.\n"
-"Javelinists +20% attack range."
-msgstr "Cassivellaunus, Roma birliklerini ve toplayıcılarını taciz etmek için hızlı hareket eden avcıları görevlendirdi.\nCiritçiler +% 20 saldırı menzili."
+"Javelineers +20% attack range."
+msgstr "Cassivellaunus, Roma birliklerini ve gıda toplayıcıları taciz etmek için hızlı hareket eden avcı erleri görevlendirdi.\nCiritçiler +%20 saldırı menzili."
 
 #: simulation/data/auras/units/catafalques/cart_catafalque.jsonauraName
 msgid "Commander of Heavy Cavalry"
@@ -560,8 +544,8 @@ msgid "Peltast Reforms"
 msgstr "Peltast Reformları"
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_2.jsonauraDescription
-msgid "Infantry Javelinists +15% movement speed."
-msgstr "Piyade Ciritçiler +%15 hareket hızı."
+msgid "Infantry Javelineers +15% movement speed."
+msgstr "Ciritçi Piyadeler +%15 hareket hızı."
 
 #: simulation/data/auras/units/heroes/athen_hero_pericles_1.jsonauraName
 msgid "Periclean Building Program"
@@ -983,8 +967,8 @@ msgstr "Köle Reformları"
 
 #: simulation/data/auras/units/heroes/spart_hero_brasidas.jsonauraDescription
 msgid ""
-"Citizen Infantry Javelinists +1 armor, +25% ranged attack pierce damage."
-msgstr "Vatandaş Piyade Ciritçiler +1 zırh, +%25 menzilli saldır delme hasarı."
+"Citizen Infantry Javelineers +1 armor, +25% ranged attack pierce damage."
+msgstr "Ciritçi piyade vatandaş +1 zırh, +%25 menzilli saldırı delme hasarı."
 
 #: simulation/data/auras/units/heroes/spart_hero_leonidas.jsonauraName
 msgid "Last Stand"

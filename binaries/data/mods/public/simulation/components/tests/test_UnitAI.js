@@ -2,7 +2,6 @@ Engine.LoadHelperScript("FSM.js");
 Engine.LoadHelperScript("Entity.js");
 Engine.LoadHelperScript("Player.js");
 Engine.LoadHelperScript("Sound.js");
-Engine.LoadComponentScript("interfaces/Attack.js");
 Engine.LoadComponentScript("interfaces/Auras.js");
 Engine.LoadComponentScript("interfaces/Builder.js");
 Engine.LoadComponentScript("interfaces/BuildingAI.js");
@@ -148,7 +147,8 @@ function TestFormationExiting(mode)
 	});
 
 	AddMock(SYSTEM_ENTITY, IID_ObstructionManager, {
-		"IsInTargetRange": (ent, target, min, max, opposite) => true
+		"IsInTargetRange": () => true,
+		"IsInPointRange": () => true
 	});
 
 	var unitAI = ConstructComponent(unit, "UnitAI", { "FormationController": "false", "DefaultStance": "aggressive" });
@@ -175,6 +175,7 @@ function TestFormationExiting(mode)
 		"MoveToTargetRange": (target, min, max) => true,
 		"StopMoving": () => {},
 		"SetFacePointAfterMove": () => {},
+		"GetFacePointAfterMove": () => true,
 		"GetPassabilityClassName": () => "default"
 	});
 
@@ -194,7 +195,7 @@ function TestFormationExiting(mode)
 
 	unitAI.OnCreate();
 
-	unitAI.SetupRangeQuery(1);
+	unitAI.SetupAttackRangeQuery(1);
 
 
 	if (mode == 1)
@@ -211,8 +212,21 @@ function TestFormationExiting(mode)
 			GetHitpoints: function() { return 0; },
 		});
 
-	var controllerFormation = ConstructComponent(controller, "Formation", {"FormationName": "Line Closed", "FormationShape": "square", "ShiftRows": "false", "SortingClasses": "", "WidthDepthRatio": 1, "UnitSeparationWidthMultiplier": 1, "UnitSeparationDepthMultiplier": 1, "SpeedMultiplier": 1, "Sloppyness": 0});
-	var controllerAI = ConstructComponent(controller, "UnitAI", { "FormationController": "true", "DefaultStance": "aggressive" });
+	let controllerFormation = ConstructComponent(controller, "Formation", {
+		"FormationName": "Line Closed",
+		"FormationShape": "square",
+		"ShiftRows": "false",
+		"SortingClasses": "",
+		"WidthDepthRatio": 1,
+		"UnitSeparationWidthMultiplier": 1,
+		"UnitSeparationDepthMultiplier": 1,
+		"SpeedMultiplier": 1,
+		"Sloppiness": 0
+	});
+	let controllerAI = ConstructComponent(controller, "UnitAI", {
+		"FormationController": "true",
+		"DefaultStance": "aggressive"
+	});
 
 	AddMock(controller, IID_Position, {
 		JumpTo: function(x, z) { this.x = x; this.z = z; },
@@ -221,6 +235,7 @@ function TestFormationExiting(mode)
 		GetPosition2D: function() { return new Vector2D(this.x, this.z); },
 		GetRotation: function() { return { "y": 0 }; },
 		IsInWorld: function() { return true; },
+		MoveOutOfWorld: () => {}
 	});
 
 	AddMock(controller, IID_UnitMotion, {
@@ -229,6 +244,7 @@ function TestFormationExiting(mode)
 		"SetSpeedMultiplier": () => {},
 		"MoveToPointRange": () => true,
 		"SetFacePointAfterMove": () => {},
+		"GetFacePointAfterMove": () => true,
 		"GetPassabilityClassName": () => "default"
 	});
 
@@ -334,6 +350,7 @@ function TestMoveIntoFormationWhileAttacking()
 			"MoveToTargetRange": (target, min, max) => true,
 			"StopMoving": () => {},
 			"SetFacePointAfterMove": () => {},
+			"GetFacePointAfterMove": () => true,
 			"GetPassabilityClassName": () => "default"
 		});
 
@@ -352,7 +369,7 @@ function TestMoveIntoFormationWhileAttacking()
 
 		unitAI.OnCreate();
 
-		unitAI.SetupRangeQuery(1);
+		unitAI.SetupAttackRangeQuery(1);
 
 		unitAIs.push(unitAI);
 	}
@@ -362,16 +379,30 @@ function TestMoveIntoFormationWhileAttacking()
 		GetHitpoints: function() { return 40; },
 	});
 
-	var controllerFormation = ConstructComponent(controller, "Formation", {"FormationName": "Line Closed", "FormationShape": "square", "ShiftRows": "false", "SortingClasses": "", "WidthDepthRatio": 1, "UnitSeparationWidthMultiplier": 1, "UnitSeparationDepthMultiplier": 1, "SpeedMultiplier": 1, "Sloppyness": 0});
-	var controllerAI = ConstructComponent(controller, "UnitAI", { "FormationController": "true", "DefaultStance": "aggressive" });
+	let controllerFormation = ConstructComponent(controller, "Formation", {
+		"FormationName": "Line Closed",
+		"FormationShape": "square",
+		"ShiftRows": "false",
+		"SortingClasses": "",
+		"WidthDepthRatio": 1,
+		"UnitSeparationWidthMultiplier": 1,
+		"UnitSeparationDepthMultiplier": 1,
+		"SpeedMultiplier": 1,
+		"Sloppiness": 0
+	});
+	let controllerAI = ConstructComponent(controller, "UnitAI", {
+		"FormationController": "true",
+		"DefaultStance": "aggressive"
+	});
 
 	AddMock(controller, IID_Position, {
-		GetTurretParent: function() { return INVALID_ENTITY; },
-		JumpTo: function(x, z) { this.x = x; this.z = z; },
-		GetPosition: function() { return new Vector3D(this.x, 0, this.z); },
-		GetPosition2D: function() { return new Vector2D(this.x, this.z); },
-		GetRotation: function() { return { "y": 0 }; },
-		IsInWorld: function() { return true; },
+		"GetTurretParent": () => INVALID_ENTITY,
+		"JumpTo": function(x, z) { this.x = x; this.z = z; },
+		"GetPosition": function(){ return new Vector3D(this.x, 0, this.z); },
+		"GetPosition2D": function(){ return new Vector2D(this.x, this.z); },
+		"GetRotation": () => ({ "y": 0 }),
+		"IsInWorld": () => true,
+		"MoveOutOfWorld": () => {},
 	});
 
 	AddMock(controller, IID_UnitMotion, {
@@ -380,6 +411,7 @@ function TestMoveIntoFormationWhileAttacking()
 		"MoveToPointRange": (x, z, minRange, maxRange) => {},
 		"StopMoving": () => {},
 		"SetFacePointAfterMove": () => {},
+		"GetFacePointAfterMove": () => true,
 		"GetPassabilityClassName": () => "default"
 	});
 

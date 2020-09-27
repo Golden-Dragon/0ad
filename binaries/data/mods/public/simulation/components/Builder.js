@@ -34,6 +34,8 @@ Builder.prototype.GetEntitiesList = function()
 	if (!cmpPlayer)
 		return [];
 
+	string = ApplyValueModificationsToEntity("Builder/Entities/_string", string, this.entity);
+
 	let cmpIdentity = Engine.QueryInterface(this.entity, IID_Identity);
 	if (cmpIdentity)
 		string = string.replace(/\{native\}/g, cmpIdentity.GetCiv());
@@ -52,7 +54,7 @@ Builder.prototype.GetRange = function()
 	let max = 2;
 	let cmpObstruction = Engine.QueryInterface(this.entity, IID_Obstruction);
 	if (cmpObstruction)
-		max += cmpObstruction.GetUnitRadius();
+		max += cmpObstruction.GetSize();
 
 	return { "max": max, "min": 0 };
 };
@@ -83,6 +85,17 @@ Builder.prototype.PerformBuilding = function(target)
 		cmpRepairable.Repair(this.entity, rate);
 		return;
 	}
+};
+
+Builder.prototype.OnValueModification = function(msg)
+{
+	if (msg.component != "Builder" || !msg.valueNames.some(name => name.endsWith('_string')))
+		return;
+
+	// Token changes may require selection updates.
+	let cmpPlayer = QueryOwnerInterface(this.entity, IID_Player);
+	if (cmpPlayer)
+		Engine.QueryInterface(SYSTEM_ENTITY, IID_GuiInterface).SetSelectionDirty(cmpPlayer.GetPlayerID());
 };
 
 Engine.RegisterComponentType(IID_Builder, "Builder", Builder);

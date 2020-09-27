@@ -1,4 +1,3 @@
-Engine.LoadHelperScript("ValueModification.js");
 Engine.LoadHelperScript("Player.js");
 Engine.LoadComponentScript("interfaces/Builder.js");
 Engine.LoadComponentScript("Builder.js");
@@ -10,6 +9,9 @@ const playerEntityID = 2;
 AddMock(SYSTEM_ENTITY, IID_TemplateManager, {
 	"TemplateExists": () => true
 });
+
+Engine.RegisterGlobal("ApplyValueModificationsToEntity", (prop, oVal, ent) => oVal);
+
 
 let cmpBuilder = ConstructComponent(builderId, "Builder", {
 	"Rate": 1.0,
@@ -75,7 +77,7 @@ TS_ASSERT_UNEVAL_EQUALS(cmpBuilder.GetEntitiesList(), ["structures/athen_civil_c
 TS_ASSERT_UNEVAL_EQUALS(cmpBuilder.GetRange(), { "max": 2, "min": 0 });
 
 AddMock(builderId, IID_Obstruction, {
-	"GetUnitRadius": () => 1.0
+	"GetSize": () => 1
 });
 
 TS_ASSERT_UNEVAL_EQUALS(cmpBuilder.GetRange(), { "max": 3, "min": 0 });

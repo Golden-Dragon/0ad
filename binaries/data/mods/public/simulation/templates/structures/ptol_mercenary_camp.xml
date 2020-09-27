@@ -34,6 +34,7 @@
   </Identity>
   <Loot>
     <wood>20</wood>
+    <stone>0</stone>
     <metal>20</metal>
   </Loot>
   <Obstruction>
@@ -44,7 +45,7 @@
       units/{civ}_infantry_spearman_merc_b
       units/{civ}_infantry_swordsman_merc_b
       units/{civ}_cavalry_spearman_merc_b
-      units/{civ}_cavalry_javelinist_merc_b
+      units/{civ}_cavalry_javelineer_merc_b
     </Entities>
   </ProductionQueue>
   <Sound>

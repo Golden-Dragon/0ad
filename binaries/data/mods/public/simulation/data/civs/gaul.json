@@ -4,20 +4,38 @@
 	"Name": "Gauls",
 	"Emblem": "session/portraits/emblems/emblem_celts.png",
 	"History": "The Gauls were the Celtic tribes of continental Europe. Dominated by a priestly class of Druids, they featured a sophisticated culture of advanced metalworking, agriculture, trade and even road engineering. With heavy infantry and cavalry, Gallic warriors valiantly resisted Caesar's campaign of conquest and Rome's authoritarian rule.",
-	"Music":[
-			{"File":"Celtic_Pride.ogg", "Type":"peace"},
-			{"File":"Cisalpine_Gaul.ogg", "Type":"peace"},
-			{"File":"Harvest_Festival.ogg", "Type":"peace"},
-			{"File":"Water's_Edge.ogg", "Type":"peace"},
-			{"File":"Sunrise.ogg", "Type":"peace"}
-		],
-	"Factions":
-	[
+	"Music": [
+		{
+			"File": "Celtic_Pride.ogg",
+			"Type": "peace"
+		},
+		{
+			"File": "Cisalpine_Gaul.ogg",
+			"Type": "peace"
+		},
+		{
+			"File": "Harvest_Festival.ogg",
+			"Type": "peace"
+		},
+		{
+			"File": "Water's_Edge.ogg",
+			"Type": "peace"
+		},
+		{
+			"File": "Sunrise.ogg",
+			"Type": "peace"
+		}
+	],
+	"Factions": [
 		{
 			"Name": "Gauls",
 			"Description": "The Celts of mainland Europe.",
-			"Technologies":
-			[
+			"Technologies": [
+				{
+					"Name": "Harvesting Machine",
+					"History": "The Gauls invented an harvesting machine, making it much easier to harvest grain.",
+					"Description": "Workers +15% grain gather rate."
+				},
 				{
 					"Name": "Vae Victis",
 					"History": "Woe to the Defeated! The Gallic chieftain Brennus seized Rome (with the exception of a garrison on Capitoline Hill). When Camillus besieged him with a relief force from Veii, he negotiated his surrender for 1000 pounds of gold, and adding the weight of his sword on the scale when the Romans complained that he used false weights he uttered those famous words.",
@@ -29,8 +47,7 @@
 					"Description": "Gallic druids gain a small melee attack."
 				}
 			],
-			"Heroes":
-			[
+			"Heroes": [
 				{
 					"Name": "Viridomarus",
 					"Class": "",
@@ -55,8 +72,7 @@
 			]
 		}
 	],
-	"CivBonuses":
-	[
+	"CivBonuses": [
 		{
 			"Name": "Ardiosmanae",
 			"History": "Represents Celtic farming methods. ",
@@ -68,33 +84,19 @@
 			"Description": "Druids increase attack rates of soldiers near them slightly."
 		}
 	],
-	"TeamBonuses":
-	[
+	"TeamBonuses": [
 		{
-			"Name": "Druidic Wisdom",
-			"History": "The Druids of the Gauls maintained an organized religion that advanced the technology of their people even during wartime.",
-			"Description": "Allied Structures −20% technology research time."
+			"Name": "Products from Gaul",
+			"History": "The Gauls produced and exported swords and scabbards, woolen and leather products, and other arms.",
+			"Description": "Forges −15% technology resource costs and research time."
 		}
 	],
-	"Structures":
-	[
-		{
-			"Name": "Melonas",
-			"Class": "",
-			"Emblem": "",
-			"History": "The Celts developed the first rotary flour mill.",
-			"Requirements": "",
-			"Phase": "",
-			"Special": ""
-		}
-	],
-	"WallSets":
-	[
+	"Structures": [],
+	"WallSets": [
 		"structures/wallset_palisade",
 		"structures/gaul_wallset_stone"
 	],
-	"StartEntities":
-	[
+	"StartEntities": [
 		{
 			"Template": "structures/gaul_civil_centre"
 		},
@@ -107,15 +109,14 @@
 			"Count": 2
 		},
 		{
-			"Template": "units/gaul_infantry_javelinist_b",
+			"Template": "units/gaul_infantry_javelineer_b",
 			"Count": 2
 		},
 		{
-			"Template": "units/gaul_cavalry_javelinist_b"
+			"Template": "units/gaul_cavalry_javelineer_b"
 		}
 	],
-	"Formations":
-	[
+	"Formations": [
 		"special/formations/null",
 		"special/formations/box",
 		"special/formations/column_closed",
@@ -127,8 +128,7 @@
 		"special/formations/skirmish",
 		"special/formations/wedge"
 	],
-	"AINames":
-	[
+	"AINames": [
 		"Viridomarus",
 		"Brennus",
 		"Cativolcus",
@@ -140,8 +140,7 @@
 		"Valetiacus",
 		"Viridovix"
 	],
-	"SkirmishReplacements":
-	{
+	"SkirmishReplacements": {
 		"skirmish/structures/default_house_5": "structures/{civ}_house"
 	},
 	"SelectableInGameSetup": true

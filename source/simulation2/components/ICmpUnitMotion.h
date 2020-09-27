@@ -1,4 +1,4 @@
-/* Copyright (C) 2019 Wildfire Games.
+/* Copyright (C) 2020 Wildfire Games.
  * This file is part of 0 A.D.
  *
  * 0 A.D. is free software: you can redistribute it and/or modify
@@ -61,6 +61,15 @@ public:
 	virtual void MoveToFormationOffset(entity_id_t target, entity_pos_t x, entity_pos_t z) = 0;
 
 	/**
+	 * Check if the target is reachable.
+	 * Don't take this as absolute gospel since there are things that the pathfinder may not detect, such as
+	 * entity obstructions in the way, but in general it should return satisfactory results.
+	 * The interface is similar to MoveToTargetRange but the move is not attempted.
+	 * @return true if the target is assumed reachable, false otherwise.
+	 */
+	virtual bool IsTargetRangeReachable(entity_id_t target, entity_pos_t minRange, entity_pos_t maxRange) = 0;
+
+	/**
 	 * Turn to look towards the given point.
 	 */
 	virtual void FaceTowardsPoint(entity_pos_t x, entity_pos_t z) = 0;
@@ -111,6 +120,8 @@ public:
 	 * Set whether the unit will turn to face the target point after finishing moving.
 	 */
 	virtual void SetFacePointAfterMove(bool facePointAfterMove) = 0;
+
+	virtual bool GetFacePointAfterMove() const = 0;
 
 	/**
 	 * Get the unit's passability class.

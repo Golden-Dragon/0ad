@@ -15,8 +15,7 @@ m.Template = m.Class({
 		this._tpCache = new Map();
 	},
 
-	// helper function to return a template value, optionally adjusting for tech.
-	// TODO: there's no support for "_string" values here.
+	// Helper function to return a template value, adjusting for tech.
 	"get": function(string)
 	{
 		let value = this._template;
@@ -34,7 +33,7 @@ m.Template = m.Class({
 			let args = string.split("/");
 			for (let arg of args)
 			{
-				if (value[arg])
+				if (value[arg] != undefined)
 					value = value[arg];
 				else
 				{
@@ -197,17 +196,25 @@ m.Template = m.Class({
 
 	"getPopulationBonus": function() { return +this.get("Cost/PopulationBonus"); },
 
-	"armourStrengths": function() {
-		let armourDamageTypes = this.get("Armour");
-		if (!armourDamageTypes)
+	"resistanceStrengths": function() {
+		let resistanceTypes = this.get("Resistance");
+		if (!resistanceTypes || !resistanceTypes.Entity)
 			return undefined;
 
-		let armour = {};
-		for (let damageType in armourDamageTypes)
-			if (damageType != "Foundation")
-				armour[damageType] = +armourDamageTypes[damageType];
+		let resistance = {};
+		if (resistanceTypes.Entity.Capture)
+			resistance.Capture = +this.get("Resistance/Entity/Capture");
 
-		return armour;
+		if (resistanceTypes.Entity.Damage)
+		{
+			resistance.Damage = {};
+			for (let damageType in resistanceTypes.Entity.Damage)
+				resistance.Damage[damageType] = +this.get("Resistance/Entity/Damage/" + damageType);
+		}
+
+		// ToDo: Resistance to StatusEffects.
+
+		return resistance;
 	},
 
 	"attackTypes": function() {
@@ -755,8 +762,8 @@ m.Entity = m.Class({
 			return false;
 
 		let canCapture = allowCapture && this.canCapture(target);
-		let armourStrengths = target.get("Armour");
-		if (!armourStrengths)
+		let health = target.get("Health");
+		if (!health)
 			return canCapture;
 
 		for (let type in attackTypes)

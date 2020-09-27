@@ -1,6 +1,5 @@
 Engine.LoadHelperScript("ObstructionSnap.js");
 Engine.LoadHelperScript("Player.js");
-Engine.LoadComponentScript("interfaces/Attack.js");
 Engine.LoadComponentScript("interfaces/AlertRaiser.js");
 Engine.LoadComponentScript("interfaces/Auras.js");
 Engine.LoadComponentScript("interfaces/Barter.js");
@@ -30,6 +29,7 @@ Engine.LoadComponentScript("interfaces/ResourceTrickle.js");
 Engine.LoadComponentScript("interfaces/ResourceSupply.js");
 Engine.LoadComponentScript("interfaces/TechnologyManager.js");
 Engine.LoadComponentScript("interfaces/Trader.js");
+Engine.LoadComponentScript("interfaces/TurretHolder.js");
 Engine.LoadComponentScript("interfaces/Timer.js");
 Engine.LoadComponentScript("interfaces/StatisticsTracker.js");
 Engine.LoadComponentScript("interfaces/StatusEffectsReceiver.js");
@@ -73,7 +73,8 @@ AddMock(SYSTEM_ENTITY, IID_EndGameManager, {
 
 AddMock(SYSTEM_ENTITY, IID_PlayerManager, {
 	"GetNumPlayers": function() { return 2; },
-	"GetPlayerByID": function(id) { TS_ASSERT(id === 0 || id === 1); return 100 + id; }
+	"GetPlayerByID": function(id) { TS_ASSERT(id === 0 || id === 1); return 100 + id; },
+	"GetMaxWorldPopulation": function() {}
 });
 
 AddMock(SYSTEM_ENTITY, IID_RangeManager, {
@@ -368,7 +369,8 @@ TS_ASSERT_UNEVAL_EQUALS(cmp.GetSimulationState(), {
 	"circularMap": false,
 	"timeElapsed": 0,
 	"victoryConditions": ["conquest", "wonder"],
-	"alliedVictory": false
+	"alliedVictory": false,
+	"maxWorldPopulation": undefined
 });
 
 TS_ASSERT_UNEVAL_EQUALS(cmp.GetExtendedSimulationState(), {
@@ -521,7 +523,8 @@ TS_ASSERT_UNEVAL_EQUALS(cmp.GetExtendedSimulationState(), {
 	"circularMap": false,
 	"timeElapsed": 0,
 	"victoryConditions": ["conquest", "wonder"],
-	"alliedVictory": false
+	"alliedVictory": false,
+	"maxWorldPopulation": undefined
 });
 
 
@@ -540,7 +543,6 @@ AddMock(10, IID_Health, {
 
 AddMock(10, IID_Identity, {
 	"GetClassesList": function() { return ["class1", "class2"]; },
-	"GetVisibleClassesList": function() { return ["class3", "class4"]; },
 	"GetRank": function() { return "foo"; },
 	"GetSelectionGroupName": function() { return "Selection Group Name"; },
 	"HasClass": function() { return true; },
@@ -560,7 +562,7 @@ AddMock(10, IID_Position, {
 });
 
 AddMock(10, IID_ResourceTrickle, {
-	"GetTimer": () => 1250,
+	"GetInterval": () => 1250,
 	"GetRates": () => ({ "food": 2, "wood": 3, "stone": 5, "metal": 9 })
 });
 
@@ -574,7 +576,6 @@ TS_ASSERT_UNEVAL_EQUALS(cmp.GetEntityState(-1, 10), {
 	"identity": {
 		"rank": "foo",
 		"classes": ["class1", "class2"],
-		"visibleClasses": ["class3", "class4"],
 		"selectionGroupName": "Selection Group Name",
 		"canDelete": true,
 		"hasSomeFormation": false,

@@ -8,10 +8,10 @@ var g_TooltipTextFormats = {
 	"nameGeneric": { "font": "sans-bold-16" }
 };
 
-function getCostTypes()
-{
-	return g_ResourceData.GetCodes().concat(["population", "populationBonus", "time"]);
-}
+/**
+ * String of four spaces to be used as indentation in gui strings.
+ */
+var g_Indent = "    ";
 
 var g_DamageTypesMetadata = new DamageTypesMetadata();
 var g_StatusEffectsMetadata = new StatusEffectsMetadata();
@@ -21,6 +21,11 @@ var g_StatusEffectsMetadata = new StatusEffectsMetadata();
  * Otherwise display the friendly fire tooltip only if it does.
  */
 var g_AlwaysDisplayFriendlyFire = false;
+
+function getCostTypes()
+{
+	return g_ResourceData.GetCodes().concat(["population", "populationBonus", "time"]);
+}
 
 function resourceIcon(resource)
 {
@@ -155,34 +160,73 @@ function getCurrentHealthTooltip(entState, label)
 }
 
 /**
- * Converts an armor level into the actual reduction percentage
+ * Converts an resistance level into the actual reduction percentage.
  */
-function armorLevelToPercentageString(level)
+function resistanceLevelToPercentageString(level)
 {
 	return sprintf(translate("%(percentage)s%%"), {
 		"percentage": (100 - Math.round(Math.pow(0.9, level) * 100))
 	});
 }
 
-function getArmorTooltip(template)
+function getResistanceTooltip(template)
 {
-	if (!template.armour)
+	if (!template.resistance)
+		return "";
+
+	let details = [];
+	if (template.resistance.Damage)
+		details.push(getDamageResistanceTooltip(template.resistance.Damage));
+
+	if (template.resistance.Capture)
+		details.push(getCaptureResistanceTooltip(template.resistance.Capture));
+
+	// TODO: Status effects resistance.
+
+	return sprintf(translate("%(label)s\n%(details)s"), {
+		"label": headerFont(translate("Resistance:")),
+		"details": g_Indent + details.join("\n" + g_Indent)
+	});
+}
+
+function getDamageResistanceTooltip(resistanceTypeTemplate)
+{
+	if (!resistanceTypeTemplate)
 		return "";
 
 	return sprintf(translate("%(label)s %(details)s"), {
-		"label": headerFont(translate("Armor:")),
+		"label": headerFont(translate("Damage:")),
 		"details":
-			g_DamageTypesMetadata.sort(Object.keys(template.armour)).map(
-				dmgType => sprintf(translate("%(damage)s %(damageType)s %(armorPercentage)s"), {
-					"damage": template.armour[dmgType].toFixed(1),
+			g_DamageTypesMetadata.sort(Object.keys(resistanceTypeTemplate)).map(
+				dmgType => sprintf(translate("%(damage)s %(damageType)s %(resistancePercentage)s"), {
+					"damage": resistanceTypeTemplate[dmgType].toFixed(1),
 					"damageType": unitFont(translateWithContext("damage type", g_DamageTypesMetadata.getName(dmgType))),
-					"armorPercentage":
+					"resistancePercentage":
 						'[font="sans-10"]' +
-						sprintf(translate("(%(armorPercentage)s)"), {
-							"armorPercentage": armorLevelToPercentageString(template.armour[dmgType])
+						sprintf(translate("(%(resistancePercentage)s)"), {
+							"resistancePercentage": resistanceLevelToPercentageString(resistanceTypeTemplate[dmgType])
 						}) + '[/font]'
 				})
 			).join(commaFont(translate(", ")))
+	});
+}
+
+function getCaptureResistanceTooltip(resistanceTypeTemplate)
+{
+	if (!resistanceTypeTemplate)
+		return "";
+	return sprintf(translate("%(label)s %(details)s"), {
+		"label": headerFont(translate("Capture:")),
+		"details":
+			sprintf(translate("%(damage)s %(damageType)s %(resistancePercentage)s"), {
+				"damage": resistanceTypeTemplate.toFixed(1),
+				"damageType": unitFont(translateWithContext("damage type", "Capture")),
+				"resistancePercentage":
+					'[font="sans-10"]' +
+					sprintf(translate("(%(resistancePercentage)s)"), {
+						"resistancePercentage": resistanceLevelToPercentageString(resistanceTypeTemplate)
+					}) + '[/font]'
+			})
 	});
 }
 
@@ -278,6 +322,24 @@ function captureDetails(captureTemplate)
 	});
 }
 
+function splashDetails(splashTemplate)
+{
+	let splashLabel = sprintf(headerFont(translate("%(splashShape)s Splash")), {
+		"splashShape": splashTemplate.shape
+	});
+	let splashDamageTooltip = sprintf(translate("%(label)s: %(effects)s"), {
+		"label": splashLabel,
+		"effects": attackEffectsDetails(splashTemplate)
+	});
+
+	if (g_AlwaysDisplayFriendlyFire || splashTemplate.friendlyFire)
+		splashDamageTooltip += commaFont(translate(", ")) + sprintf(translate("Friendly Fire: %(enabled)s"), {
+			"enabled": splashTemplate.friendlyFire ? translate("Yes") : translate("No")
+		});
+
+	return splashDamageTooltip;
+}
+
 function applyStatusDetails(applyStatusTemplate)
 {
 	if (!applyStatusTemplate)
@@ -316,68 +378,43 @@ function getAttackTooltip(template)
 		if (attackType == "Slaughter")
 			continue;
 
-		let attackLabel = sprintf(headerFont(translate("%(attackType)s Attack")), {
+		let attackLabel = sprintf(headerFont(translate("%(attackType)s")), {
 			"attackType": attackType
 		});
 		let attackTypeTemplate = template.attack[attackType];
 
 		let projectiles;
 		// Use either current rate from simulation or default count if the sim is not running.
-		// ToDo: This ought to be extended to include units which fire multiple projectiles.
+		// TODO: This ought to be extended to include units which fire multiple projectiles.
 		if (template.buildingAI)
 			projectiles = template.buildingAI.arrowCount || template.buildingAI.defaultArrowCount;
 
-		// Show the effects of status effects below
+		let splashTemplate = attackTypeTemplate.splash;
+
+		// Show the effects of status effects below.
 		let statusEffectsDetails = [];
 		if (attackTypeTemplate.ApplyStatus)
 			for (let status in attackTypeTemplate.ApplyStatus)
 			{
 				let status_template = g_StatusEffectsMetadata.augment(status, attackTypeTemplate.ApplyStatus[status]);
-				statusEffectsDetails.push("\n    " + getStatusEffectsTooltip(status_template, true));
+				statusEffectsDetails.push("\n" + g_Indent + g_Indent + getStatusEffectsTooltip(status_template, true));
 			}
 		statusEffectsDetails = statusEffectsDetails.join("");
 
-		tooltips.push(sprintf(translate("%(attackLabel)s: %(effects)s, %(range)s, %(rate)s%(statusEffects)s"), {
+		tooltips.push(sprintf(translate("%(attackLabel)s: %(effects)s, %(range)s, %(rate)s%(statusEffects)s%(splash)s"), {
 			"attackLabel": attackLabel,
 			"effects": attackEffectsDetails(attackTypeTemplate),
 			"range": rangeDetails(attackTypeTemplate),
 			"rate": attackRateDetails(attackTypeTemplate.repeatTime, projectiles),
+			"splash": splashTemplate ? "\n" + g_Indent + g_Indent + splashDetails(splashTemplate) : "",
 			"statusEffects": statusEffectsDetails
 		}));
 	}
-	return tooltips.join("\n");
-}
 
-function getSplashDamageTooltip(template)
-{
-	if (!template.attack)
-		return "";
-
-	let tooltips = [];
-	for (let attackType in template.attack)
-	{
-		let splashTemplate = template.attack[attackType].splash;
-		if (!splashTemplate)
-			continue;
-
-		let splashLabel = sprintf(headerFont(translate("%(splashShape)s Splash Damage")), {
-			"splashShape": splashTemplate.shape
-		});
-		let splashDamageTooltip = sprintf(translate("%(label)s: %(effects)s"), {
-			"label": splashLabel,
-			"effects": attackEffectsDetails(splashTemplate)
-		});
-
-		if (g_AlwaysDisplayFriendlyFire || splashTemplate.friendlyFire)
-			splashDamageTooltip += commaFont(translate(", ")) + sprintf(translate("Friendly Fire: %(enabled)s"), {
-				"enabled": splashTemplate.friendlyFire ? translate("Yes") : translate("No")
-			});
-
-		tooltips.push(splashDamageTooltip);
-	}
-
-	// If multiple attack types deal splash damage, the attack type should be shown to differentiate.
-	return tooltips.join("\n");
+	return sprintf(translate("%(label)s\n%(details)s"), {
+		"label": headerFont(translate("Attack:")),
+		"details": g_Indent + tooltips.join("\n" + g_Indent)
+	});
 }
 
 /**
@@ -621,6 +658,26 @@ function getGatherTooltip(template)
 	});
 }
 
+/**
+ * Returns the resources this entity supplies in the specified entity's tooltip
+ */
+function getResourceSupplyTooltip(template)
+{
+	if (!template.supply)
+		return "";
+
+	let supply = template.supply;
+	let type = supply.type[0] == "treasure" ? supply.type[1] : supply.type[0];
+
+	// Translation: Label in tooltip showing the resource type and quantity of a given resource supply.
+	return sprintf(translate("%(label)s %(component)s %(amount)s"), {
+		"label": headerFont(translate("Resource Supply:")),
+		"component": resourceIcon(type),
+		// Translation: Marks that a resource supply entity has an unending, infinite, supply of its resource.
+		"amount": Number.isFinite(+supply.amount) ? supply.amount : translate("∞")
+	});
+}
+
 function getResourceTrickleTooltip(template)
 {
 	if (!template.resourceTrickle)
@@ -806,26 +863,25 @@ function getHealerTooltip(template)
 	if (!template.heal)
 		return "";
 
-	let hp = +(template.heal.hp.toFixed(1));
+	let health = +(template.heal.health.toFixed(1));
 	let range = +(template.heal.range.toFixed(0));
-	let rate = +((template.heal.rate / 1000).toFixed(1));
+	let interval = +((template.heal.interval / 1000).toFixed(1));
 
 	return [
-		sprintf(translatePlural("%(label)s %(val)s %(unit)s", "%(label)s %(val)s %(unit)s", hp), {
+		sprintf(translatePlural("%(label)s %(val)s %(unit)s", "%(label)s %(val)s %(unit)s", health), {
 			"label": headerFont(translate("Heal:")),
-			"val": hp,
-			// Translation: Short for hit points (or health points) that are healed in one healing action
-			"unit": unitFont(translatePlural("HP", "HP", hp))
+			"val": health,
+			"unit": unitFont(translatePlural("Health", "Health", health))
 		}),
 		sprintf(translatePlural("%(label)s %(val)s %(unit)s", "%(label)s %(val)s %(unit)s", range), {
 			"label": headerFont(translate("Range:")),
 			"val": range,
 			"unit": unitFont(translatePlural("meter", "meters", range))
 		}),
-		sprintf(translatePlural("%(label)s %(val)s %(unit)s", "%(label)s %(val)s %(unit)s", rate), {
-			"label": headerFont(translate("Rate:")),
-			"val": rate,
-			"unit": unitFont(translatePlural("second", "seconds", rate))
+		sprintf(translatePlural("%(label)s %(val)s %(unit)s", "%(label)s %(val)s %(unit)s", interval), {
+			"label": headerFont(translate("Interval:")),
+			"val": interval,
+			"unit": unitFont(translatePlural("second", "seconds", interval))
 		})
 	].join(translate(", "));
 }
@@ -871,6 +927,7 @@ function getEntityNames(template)
 	});
 
 }
+
 function getEntityNamesFormatted(template)
 {
 	if (!template.name.specific)
@@ -931,6 +988,17 @@ function getLootTooltip(template)
 	return sprintf(translate("%(label)s %(details)s"), {
 		"label": headerFont(translate("Loot:")),
 		"details": lootLabels.join("  ")
+	});
+}
+
+function getResourceDropsiteTooltip(template)
+{
+	if (!template || !template.resourceDropsite || !template.resourceDropsite.types)
+		return "";
+
+	return sprintf(translate("%(label)s %(icons)s"), {
+		"label": headerFont(translate("Dropsite for:")),
+		"icons": template.resourceDropsite.types.map(type => resourceIcon(type)).join("  ")
 	});
 }
 

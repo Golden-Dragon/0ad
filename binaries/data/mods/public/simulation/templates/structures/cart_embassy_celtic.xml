@@ -15,8 +15,8 @@
   <Identity>
     <Civ>cart</Civ>
     <SpecificName>Celtic Embassy</SpecificName>
-    <Tooltip>Hire Celtic mercenaries. Research improvements for these mercenaries.</Tooltip>
-    <Icon>structures/celtic_embassy.png</Icon>
+    <Tooltip>Train Celtic Mercenaries and research Mercenary technologies.</Tooltip>
+    <Icon>structures/embassy_celtic.png</Icon>
   </Identity>
   <Loot>
     <wood>40</wood>
@@ -26,8 +26,8 @@
   </Obstruction>
   <ProductionQueue>
     <Entities datatype="tokens">
-      units/{civ}_infantry_swordsman_gaul_b
-      units/{civ}_cavalry_swordsman_gaul_b
+      units/{native}_infantry_swordsman_gaul_b
+      units/{native}_cavalry_swordsman_gaul_b
     </Entities>
   </ProductionQueue>
   <VisualActor>

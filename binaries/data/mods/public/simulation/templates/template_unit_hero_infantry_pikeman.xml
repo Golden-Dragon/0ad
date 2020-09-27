@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_hero_infantry">
-  <Armour>
-    <Hack op="add">9</Hack>
-    <Pierce op="add">9</Pierce>
-  </Armour>
   <Attack>
     <Melee>
       <Damage>
@@ -24,14 +20,19 @@
     </Melee>
   </Attack>
   <Identity>
-    <VisibleClasses datatype="tokens">Melee Pikeman</VisibleClasses>
     <GenericName>Hero Pikeman</GenericName>
-    <Tooltip>Counters: 3x vs. Cavalry.</Tooltip>
+    <Tooltip>Counters: 3× vs Cavalry.</Tooltip>
+    <VisibleClasses datatype="tokens">Melee Pikeman</VisibleClasses>
     <Formations datatype="tokens">
       special/formations/testudo
     </Formations>
   </Identity>
-  <UnitMotion>
-    <WalkSpeed op="mul">0.95</WalkSpeed>
-  </UnitMotion>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack op="add">9</Hack>
+        <Pierce op="add">9</Pierce>
+      </Damage>
+    </Entity>
+  </Resistance>
 </Entity>

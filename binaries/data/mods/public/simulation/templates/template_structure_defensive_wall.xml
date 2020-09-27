@@ -11,17 +11,26 @@
     <Square width="6.0" depth="6.0"/>
     <Height>8.0</Height>
   </Footprint>
+  <GarrisonHolder>
+    <Max>1</Max>
+    <List datatype="tokens">Ranged+Infantry</List>
+    <EjectHealth>0.1</EjectHealth>
+    <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>
+    <BuffHeal>0</BuffHeal>
+    <LoadingRange>2</LoadingRange>
+  </GarrisonHolder>
   <Identity>
-    <Classes datatype="tokens">StoneWall</Classes>
-    <GenericName>Stone Wall</GenericName>
+    <GenericName>Wall</GenericName>
     <SelectionGroupName>template_structure_defensive_wall</SelectionGroupName>
     <Tooltip>Wall off your town for a stout defense.</Tooltip>
+    <VisibleClasses datatype="tokens">Wall</VisibleClasses>
     <Icon>structures/wall.png</Icon>
     <RequiredTechnology>phase_town</RequiredTechnology>
   </Identity>
   <Obstruction>
     <Static width="6.0" depth="6.0"/>
   </Obstruction>
+  <ProductionQueue disable=""/>
   <Repairable>
     <RepairTimeRatio>4.5</RepairTimeRatio>
   </Repairable>
@@ -40,6 +49,6 @@
     <Weight>65535</Weight>
   </TerritoryInfluence>
   <Vision>
-    <Range>20</Range>
+    <Range>1</Range>
   </Vision>
 </Entity>

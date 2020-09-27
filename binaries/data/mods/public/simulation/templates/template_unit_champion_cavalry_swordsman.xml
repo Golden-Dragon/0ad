@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_champion_cavalry">
-  <Armour>
-    <Hack op="add">1</Hack>
-    <Pierce op="add">2</Pierce>
-  </Armour>
   <Attack>
     <Melee>
       <Damage>
@@ -14,15 +10,9 @@
       <MaxRange>3.5</MaxRange>
       <PrepareTime>375</PrepareTime>
       <RepeatTime>750</RepeatTime>
-      <PreferredClasses datatype="tokens">Human Siege</PreferredClasses>
+      <PreferredClasses datatype="tokens">Unit+!Ship</PreferredClasses>
     </Melee>
   </Attack>
-  <Cost>
-    <Resources>
-      <wood>75</wood>
-      <metal>125</metal>
-    </Resources>
-  </Cost>
   <Health>
     <Max>300</Max>
   </Health>
@@ -30,6 +20,14 @@
     <VisibleClasses datatype="tokens">Melee Swordsman</VisibleClasses>
     <GenericName>Champion Cavalry Swordsman</GenericName>
   </Identity>
+  <Resistance>
+    <Entity>
+      <Damage>
+        <Hack op="add">1</Hack>
+        <Pierce op="add">2</Pierce>
+      </Damage>
+    </Entity>
+  </Resistance>
   <UnitMotion>
     <WalkSpeed op="mul">1.2</WalkSpeed>
   </UnitMotion>
